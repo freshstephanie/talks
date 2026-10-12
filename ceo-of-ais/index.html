@@ -770,6 +770,9 @@
 [data-id="last-generation"] .lg-art .page { box-shadow: var(--shadow); }
 [data-id="last-generation"] .lg-art figcaption { color: rgba(72,74,86,.64); }
 [data-id="last-generation"] .lg-art figcaption b { color: var(--charcoal); }
+/* 12.10 evening (her ask): headline cap top aligns with the article box top (271px), not centred against box + caption.
+   262 = 271 minus the ~9px between the line box top and the cap top at 72px. */
+.slide[data-id="last-generation"] .lg { top: 262px; transform: none; }
 /* CLOSE 2 your first AI team (12.10): one OUTCOME disc (300, mint ring) shrinks back as five jobs burst out on thin
    mint radials; the jobs turn into the team-today circles in place; then the circles drift into a loose row (transform
    via data-on) and YOUR FIRST AI TEAM. lands. No arrows, no boxes */
