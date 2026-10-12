@@ -32,7 +32,7 @@ async function nameFor(path) {
 
 async function plainFor(path, key) {
   if (big.has(path)) return big.get(path);
-  const r = await fetch(BASE + 'enc/' + await nameFor(path) + '.bin');
+  const r = await fetch(BASE + 'enc/' + await nameFor(path) + '.bin', { cache: 'no-cache' });   // revalidate, so a re-lock shows at once
   if (!r.ok) return null;
   const buf = new Uint8Array(await r.arrayBuffer());
   const plain = new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: buf.slice(0, 12) }, key, buf.slice(12)));
