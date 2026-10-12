@@ -1,7 +1,7 @@
 /* Fresh Talks take-home page - mobile first, one column. */
-@font-face { font-family: 'Space Grotesk'; src: url('fonts/SpaceGrotesk-var.ttf') format('truetype'); font-weight: 300 700; font-display: swap; }
-@font-face { font-family: 'Raleway'; src: url('fonts/Raleway-Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Raleway'; src: url('fonts/Raleway-SemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Space Grotesk'; src: url('../theme/fonts/SpaceGrotesk-var.ttf') format('truetype'); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: 'Raleway'; src: url('../theme/fonts/Raleway-Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Raleway'; src: url('../theme/fonts/Raleway-SemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
 
 :root { --purple: #2F1541; --mint: #88DBBD; --charcoal: #484A56; --paper: #F2F0EE; --muted: rgba(72, 74, 86, .66); }
 * { box-sizing: border-box; }
