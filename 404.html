@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found</title>
+<script>
+  // A review deck opened directly (no unlocked service worker yet) goes to its password page.
+  var m = location.pathname.match(/^\/([^\/]+-review)\//);
+  if (m) location.replace('/' + m[1] + '/');
+</script>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#F2F0EE;color:#484A56;font:16px/1.5 Raleway,system-ui,sans-serif;padding:16px}a{color:#2F1541}</style>
+</head>
+<body>
+<p>Page not found. Continue to <a href="https://www.freshstrategy.ai/">freshstrategy.ai</a>.</p>
+</body>
+</html>

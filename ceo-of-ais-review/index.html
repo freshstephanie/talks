@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>CEO of AIs · Review</title>
+<style>
+  :root { --mint: #88DBBD; --purple: #2F1541; --charcoal: #484A56; --paper: #F2F0EE; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--paper);
+         color: var(--charcoal); font: 16px/1.5 Raleway, system-ui, -apple-system, sans-serif; padding: 16px; }
+  form { width: 100%; max-width: 380px; background: #fff; border-radius: 14px; padding: 32px 28px;
+         box-shadow: 0 8px 30px rgba(0,0,0,.08); }
+  .eyebrow { font: 600 12px/1 "Space Grotesk", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); }
+  h1 { font: 600 26px/1.2 "Space Grotesk", system-ui, sans-serif; margin: 10px 0 22px; }
+  label { display: block; font-size: 14px; margin-bottom: 6px; }
+  input { width: 100%; font: inherit; padding: 11px 12px; border: 1.5px solid #ccc; border-radius: 8px; }
+  input:focus { outline: none; border-color: var(--purple); }
+  button { margin-top: 16px; width: 100%; font: 600 15px "Space Grotesk", system-ui, sans-serif; padding: 12px;
+           border: 0; border-radius: 8px; background: var(--purple); color: #fff; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: wait; }
+  .msg { min-height: 22px; margin: 12px 0 0; font-size: 14px; color: #B3261E; }
+</style>
+</head>
+<body>
+<form id="f">
+  <div class="eyebrow">Fresh Strategy · Review copy</div>
+  <h1>CEO of AIs</h1>
+  <label for="pw">Password</label>
+  <input id="pw" type="password" autocomplete="current-password" autofocus required>
+  <button id="go" type="submit">Open the deck</button>
+  <p class="msg" id="msg"></p>
+</form>
+<script>
+const SALT = Uint8Array.from(atob('9OBoFcYlur/cxgntB1sATw=='), c => c.charCodeAt(0));
+const ITERATIONS = 600000;
+const msg = document.getElementById('msg'), go = document.getElementById('go');
+
+function db() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open('fresh-talk', 1);
+    r.onupgradeneeded = () => r.result.createObjectStore('k');
+    r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+  });
+}
+async function store(key) {
+  const d = await db();
+  await new Promise((res, rej) => { const t = d.transaction('k', 'readwrite'); t.objectStore('k').put(key, 'key'); t.oncomplete = res; t.onerror = rej; });
+}
+async function stored() {
+  const d = await db();
+  return new Promise(res => { const g = d.transaction('k').objectStore('k').get('key'); g.onsuccess = () => res(g.result || null); g.onerror = () => res(null); });
+}
+async function works(key) {
+  const buf = new Uint8Array(await (await fetch('enc/check.bin', { cache: 'no-store' })).arrayBuffer());
+  try { await crypto.subtle.decrypt({ name: 'AES-GCM', iv: buf.slice(0, 12) }, key, buf.slice(12)); return true; }
+  catch (_) { return false; }
+}
+async function open() {
+  await navigator.serviceWorker.register('sw.js');
+  await navigator.serviceWorker.ready;
+  location.href = 'd/';
+}
+
+if (!window.isSecureContext || !navigator.serviceWorker || !crypto.subtle) {
+  msg.textContent = 'Please open this page over https:// in Chrome, Safari, Edge or Firefox.';
+  go.disabled = true;
+} else if (!location.search.includes('locked')) {
+  stored().then(async k => { if (k && await works(k)) open(); }).catch(() => {});
+}
+
+document.getElementById('f').addEventListener('submit', async e => {
+  e.preventDefault();
+  go.disabled = true; msg.textContent = '';
+  try {
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(document.getElementById('pw').value), 'PBKDF2', false, ['deriveKey']);
+    const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: SALT, iterations: ITERATIONS, hash: 'SHA-256' },
+                                              base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    if (!(await works(key))) { msg.textContent = 'Wrong password.'; go.disabled = false; return; }
+    await store(key);
+    await open();
+  } catch (err) {
+    msg.textContent = 'Could not open the deck: ' + err.message; go.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
