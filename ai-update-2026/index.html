@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Update 2026 - What changed, and how to get started | Fresh Strategy</title>
+<link rel="stylesheet" href="_fresh/engine/talks.css">
+<link rel="stylesheet" href="_fresh/theme/fresh.css">
+<!-- talk-specific CSS goes here, never into theme/ or engine/ -->
+<style>
+/* shared content-slide frame: eyebrow + title top-left, body below */
+.ttl { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 72px; }
+.ttl .eyebrow { margin-bottom: 14px; }
+.body { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 220px; }
+.body.is-high { top: 196px; }
+.kick { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 76px; font: 500 30px/1.35 var(--head-font); color: var(--head); letter-spacing: -.01em; }
+.note-line { font: italic 500 24px/1.45 var(--body-font); color: var(--muted); }
+
+/* the >> track through the AI ladder (slides 15-22) */
+.track { position: absolute; left: var(--pad-x); top: 176px; display: flex; gap: 18px; align-items: center; font: 500 19px/1 var(--head-font); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.track i { font-style: normal; color: var(--mint); letter-spacing: 0; }
+.track b { font-weight: 500; color: var(--head); background: linear-gradient(var(--mint), var(--mint)) 0 100% / 100% 4px no-repeat; padding-bottom: 6px; }
+.track .past { color: var(--ink); }
+
+/* chips with > connectors (flows on 7, 11, 18) */
+.chips { display: flex; align-items: stretch; gap: 0; }
+.chip { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 104px; padding: 16px 20px; background: var(--paper); border-radius: 10px; font: 500 25px/1.25 var(--head-font); color: var(--head); }
+.chip.is-end { background: var(--purple); color: #fff; }
+.chips .gt { flex: none; width: 56px; display: flex; align-items: center; justify-content: center; font: 500 40px/1 var(--head-font); color: var(--mint); }
+.chips.is-six .chip { font-size: 22px; padding: 14px 12px; }
+.chips.is-six .gt { width: 34px; font-size: 32px; }
+
+/* term + definition lines */
+.defs p { font-size: 30px; line-height: 1.4; }
+.defs p + p { margin-top: 14px; }
+.defs b { font-family: var(--head-font); font-weight: 500; color: var(--head); }
+
+/* 02 / 24 discussion lists */
+.qs { list-style: none; padding: 0; }
+.qs li { position: relative; padding-left: 44px; font: 500 46px/1.2 var(--head-font); letter-spacing: -.02em; color: var(--head); }
+.qs li::before { content: '>'; position: absolute; left: 0; color: var(--mint); }
+.qs li + li { margin-top: 34px; }
+.qs li.plain::before { display: none; }
+.qs.is-terms li { font-size: 40px; }
+.qs.is-terms li b { font-weight: 500; text-transform: uppercase; letter-spacing: .02em; margin-right: 10px; }
+.qs.is-terms li span { color: var(--ink); font-family: var(--body-font); font-size: 36px; letter-spacing: 0; }
+
+/* 03 then / now / next */
+.tnn { display: grid; grid-template-columns: 300px 1fr; gap: 56px 48px; align-items: baseline; }
+.tnn .eyebrow { font-size: 22px; }
+.tnn p.t-body { font-size: 34px; line-height: 1.35; }
+.tnn .is-past { color: var(--muted); }
+.tnn .is-next { font: 500 44px/1.2 var(--head-font); color: var(--head); letter-spacing: -.02em; }
+
+/* 05 big changes grouped */
+.groups { display: grid; gap: 22px; }
+.grp { display: grid; grid-template-columns: 1fr 260px; gap: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.grp:last-child { border-bottom: 0; padding-bottom: 0; }
+.grp ul { list-style: none; padding: 0; }
+.grp li { font-size: 27px; line-height: 1.5; color: var(--ink); }
+.grp li b { font-family: var(--head-font); font-weight: 500; color: var(--head); margin-right: 14px; }
+.grp .lab { align-self: center; padding-left: 28px; border-left: 6px solid var(--mint); font: 500 40px/1.1 var(--head-font); color: var(--head); letter-spacing: -.02em; }
+
+/* 06 table */
+.tbl { width: 100%; border-collapse: collapse; font-size: 26px; line-height: 1.35; }
+.tbl th, .tbl td { text-align: left; vertical-align: top; padding: 18px 24px 18px 0; border-bottom: 1px solid var(--line); }
+.tbl th { font: 500 19px/1.3 var(--head-font); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-bottom: 14px; }
+.tbl td:first-child { width: 380px; font-family: var(--head-font); color: var(--head); font-size: 28px; }
+
+/* 08 artefact cards */
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.card4 { padding: 28px 26px; background: var(--paper); border-radius: 10px; font: 500 25px/1.3 var(--head-font); color: var(--head); text-align: center; display: flex; align-items: center; justify-content: center; min-height: 120px; }
+
+/* 09 work-product mocks */
+.mocks { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; }
+.mock { height: 340px; padding: 22px; box-sizing: border-box; background: #fff; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 11px; overflow: hidden; }
+.mock .lbl { font: 500 13px/1 var(--head-font); letter-spacing: .12em; color: var(--muted); }
+.mock .ln { height: 9px; border-radius: 3px; background: rgba(72,74,86,.12); }
+.mock .ln.h { height: 16px; background: var(--purple); }
+.mock .ln.m { background: rgba(47,21,65,.4); }
+.mock .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; flex: 1; }
+.mock .grid i { background: rgba(72,74,86,.07); }
+.mock .grid i.th { background: var(--purple); }
+.mock .grid i.k { background: var(--mint); }
+.mock .sl { border: 2px solid rgba(72,74,86,.14); padding: 0 0 12px; display: flex; flex-direction: column; gap: 8px; }
+.mock .sl .ln { margin: 0 12px; } .mock .sl .ln.h { margin: 0; border-radius: 0; }
+.mock .chart { flex: 1; display: flex; align-items: flex-end; gap: 10px; border-bottom: 4px solid var(--purple); padding: 0 6px; }
+.mock .chart i { flex: 1; background: rgba(47,21,65,.35); height: var(--h); }
+.mock .chart i.k { background: var(--mint); }
+.mock .ref { display: flex; align-items: center; gap: 10px; } .mock .ref .ln { flex: 1; }
+.mock .ref em { font: 500 13px/1 var(--head-font); font-style: normal; color: var(--purple); }
+.mock-cap { margin-top: 18px; text-align: center; font: 500 23px/1.25 var(--head-font); color: var(--head); }
+
+/* 12 connections */
+.conn { display: grid; grid-template-columns: 420px 90px 380px 90px 1fr; align-items: center; }
+.conn ul { list-style: none; padding: 0; text-align: right; }
+.conn li { font-size: 28px; line-height: 1; padding: 13px 0; color: var(--ink); }
+.arrows { display: flex; flex-direction: column; align-items: center; }
+.arrows i, .arr1 { font-style: normal; font: 500 30px/54px var(--head-font); color: var(--mint); }
+.hub { height: 420px; border-radius: 22px; background: var(--purple); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; font: 500 30px/1.2 var(--head-font); letter-spacing: .06em; text-align: center; }
+.hub span { color: var(--mint); }
+.arr1 { text-align: center; font-size: 44px; }
+.yourai { font: 500 56px/1 var(--head-font); color: var(--head); letter-spacing: -.02em; }
+
+/* 14 ladder */
+.ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 36px; }
+.rung { border-top: 8px solid var(--mint); padding-top: 26px; }
+.rung:nth-child(1) { border-top-color: rgba(136,219,189,.45); }
+.rung:nth-child(4), .rung:nth-child(5) { border-top-color: var(--purple); }
+.rung h3 { font: 500 34px/1.1 var(--head-font); color: var(--head); letter-spacing: -.01em; text-transform: uppercase; min-height: 80px; }
+.rung p { margin-top: 20px; font-size: 24px; line-height: 1.4; color: var(--ink); }
+.axis { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 660px; }
+.axis .ends { display: flex; justify-content: space-between; }
+.axis .line { margin-top: 18px; height: 3px; background: linear-gradient(90deg, rgba(136,219,189,.45), var(--purple)); position: relative; }
+.axis .line::after { content: ''; position: absolute; right: -2px; top: -8px; border-left: 16px solid var(--purple); border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+.axis .ends .eyebrow:last-child { color: var(--head); }
+
+/* 15 agent anatomy */
+.anat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 52px 64px; }
+.anat h3 { font: 500 40px/1.1 var(--head-font); color: var(--head); letter-spacing: -.015em; }
+.anat p { margin-top: 10px; font-size: 26px; line-height: 1.35; color: var(--ink); }
+.anat p.eg { margin-top: 8px; font: italic 500 20px/1.4 var(--body-font); color: var(--muted); }
+.anat .is-human h3 { background: linear-gradient(var(--mint), var(--mint)) 0 88% / 100% .22em no-repeat; display: inline; }
+
+/* 16 agentic team */
+.org { position: absolute; left: 470px; right: var(--pad-x); top: 250px; text-align: center; }
+.org .you { margin: 0 auto; width: 860px; padding: 20px; border-radius: 12px; background: var(--paper); font: 500 28px/1.3 var(--head-font); color: var(--head); }
+.org .you b { font-weight: 500; letter-spacing: .06em; }
+.org .vline { width: 3px; height: 34px; margin: 0 auto; background: var(--mint); }
+.org .lead { display: inline-block; padding: 22px 32px; border-radius: 12px; background: var(--purple); color: #fff; font: 500 28px/1.3 var(--head-font); }
+.org .lead b { font-weight: 500; letter-spacing: .06em; color: var(--mint); margin-right: 10px; }
+.org .bus { position: relative; margin: 0 auto; width: 75%; height: 34px; border-top: 3px solid var(--mint); }
+.org .roles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.org .roles h4 { font: 500 26px/1.2 var(--head-font); color: var(--head); letter-spacing: .06em; }
+.org .roles p { margin-top: 10px; font-size: 21px; line-height: 1.35; color: var(--ink); }
+.teams { position: absolute; left: var(--pad-x); top: 330px; width: 300px; }
+.teams .eyebrow { margin-bottom: 20px; }
+.teams p { font: 500 32px/1.35 var(--head-font); color: var(--head); }
+.ex { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 700px; }
+
+/* 17 / 19 / 22 two columns */
+.cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+.col { border-top: 8px solid var(--line); padding-top: 28px; }
+.col.is-key { border-top-color: var(--mint); }
+.col h3 { font: 500 24px/1.2 var(--head-font); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 26px; }
+.col.is-key h3 { color: var(--head); }
+.col p { font-size: 28px; line-height: 1.4; }
+.col p + p { margin-top: 16px; }
+.col p b { font-family: var(--head-font); font-weight: 500; color: var(--head); }
+.col ul { list-style: none; padding: 0; margin-top: 10px; }
+.col li { position: relative; padding-left: 32px; font-size: 28px; line-height: 1.4; }
+.col li + li { margin-top: 10px; }
+.col li::before { content: '>'; position: absolute; left: 0; font-family: var(--head-font); color: var(--mint); }
+
+/* 18 equation */
+.eq { display: flex; align-items: baseline; gap: 18px; white-space: nowrap; font: 500 40px/1 var(--head-font); color: var(--head); letter-spacing: -.01em; text-transform: uppercase; }
+.eq i { font-style: normal; color: var(--mint); }
+.eq .em { margin-left: 8px; }
+.glue-note { text-align: center; }
+.glue-note .t-m { font-size: 46px; }
+.glue-note p.t-body { margin-top: 16px; color: var(--ink); }
+
+/* 19 governed panel */
+.gov { display: grid; grid-template-columns: 1fr 1fr; gap: 0; position: absolute; left: var(--pad-x); right: 40px; top: 220px; bottom: 96px; }
+.gov .alone { padding: 8px 64px 0 0; }
+.gov .alone h3, .gov .panel h3 { font: 500 30px/1.2 var(--head-font); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 28px; }
+.gov .alone h3 { color: var(--muted); }
+.gov .alone p { font-size: 32px; line-height: 1.75; color: var(--muted); }
+.gov .panel { background: var(--purple); color: #fff; padding: 44px 56px; display: flex; flex-direction: column; }
+.gov .panel h3 { color: #fff; }
+.gov .panel p { font: 500 34px/1.6 var(--head-font); }
+.gov .panel p i { font-style: normal; color: var(--mint); margin-right: 14px; }
+.gov .panel .end { margin-top: auto; font: italic 500 27px/1.4 var(--body-font); color: var(--mint); }
+
+/* 20 decide */
+.decide { display: grid; grid-template-columns: 520px 120px 1fr; align-items: start; }
+.decide .eyebrow { margin-bottom: 26px; }
+.decide .can p:not(.eyebrow) { font: 500 40px/1.65 var(--head-font); color: var(--head); letter-spacing: -.015em; }
+.decide .to { align-self: center; text-align: center; font: 500 56px/1 var(--head-font); color: var(--mint); padding-top: 60px; }
+.dtbl { width: 100%; border-collapse: collapse; }
+.dtbl td { padding: 16px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+.dtbl td:first-child { width: 230px; font: 500 20px/1.2 var(--head-font); letter-spacing: .1em; text-transform: uppercase; color: var(--head); }
+.dtbl td:last-child { font-size: 29px; line-height: 1.3; }
+.dtbl tr:last-child td { border-bottom: 0; }
+.dtbl tr:last-child td:last-child { font-family: var(--head-font); color: var(--head); }
+
+/* 21 should it */
+.sendmock { position: absolute; left: 100px; top: 120px; width: 700px; height: 620px; background: #fff; border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.35); overflow: hidden; color: var(--charcoal); }
+.sendmock .mbar { height: 54px; display: flex; align-items: center; gap: 12px; padding: 0 22px; background: var(--paper); border-radius: 0; font: 500 19px/1 var(--head-font); color: var(--purple); overflow: visible; }
+.sendmock .mbar .dots { width: 12px; height: 12px; border-radius: 50%; background: #d9d6d3; box-shadow: 20px 0 0 #d9d6d3, 40px 0 0 #d9d6d3; margin-right: 46px; }
+.sendmock .mbar .tag { margin-left: auto; font-size: 14px; letter-spacing: .12em; color: rgba(72,74,86,.6); }
+.sendmock .doc { padding: 40px 46px; }
+.sendmock .ln { height: 11px; border-radius: 3px; background: rgba(72,74,86,.12); margin-top: 14px; }
+.sendmock .ln.h { height: 20px; width: 60%; background: var(--purple); margin: 0 0 30px; }
+.sendmock .checks { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 30px; font-size: 22px; }
+.sendmock .checks span::before { content: '\2713'; color: var(--purple); margin-right: 12px; font-weight: 600; }
+.sendmock .go { margin-top: 40px; display: flex; align-items: center; justify-content: space-between; }
+.sendmock .go b { font: 500 28px/1 var(--head-font); letter-spacing: .08em; color: var(--purple); }
+.sendmock .go .btn { font-size: 24px; padding: 20px 48px; background: var(--purple); color: #fff; }
+.sendmock .go .btn::after { content: ' \25B8'; }
+.sendmock .to { margin-top: 26px; font: italic 500 18px/1 var(--body-font); color: var(--muted); }
+.should { position: absolute; left: 880px; right: 80px; top: 130px; }
+.should .t-xl { color: #fff; }
+.should ul { list-style: none; padding: 0; margin-top: 40px; }
+.should li { font-size: 31px; line-height: 1.3; color: rgba(255,255,255,.72); }
+.should li + li { margin-top: 18px; }
+.should li.is-key { font-family: var(--head-font); color: var(--mint); font-size: 34px; }
+
+/* 23 checks */
+.q23 { font: 500 52px/1.18 var(--head-font); color: var(--head); letter-spacing: -.02em; max-width: 30ch; }
+.four { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.four > div { border-top: 6px solid var(--mint); padding-top: 24px; }
+.four h3 { font: 500 30px/1.2 var(--head-font); color: var(--head); }
+.four p { margin-top: 14px; font-size: 24px; line-height: 1.4; }
+</style>
+</head>
+<body>
+<main class="deck">
+
+<!-- 01 -->
+<section class="slide" data-type="hero" data-tone="dark" data-id="title" data-title="Title">
+  <img class="logo" src="_fresh/theme/brand/fresh-logo-white.png" alt="Fresh Strategy">
+  <div class="hero-text" style="width:1300px">
+    <p class="eyebrow" data-anim="fade">Fresh Strategy · 2026</p>
+    <h1 class="t-xl" data-anim="rise" style="--d:.15s">AI Update 2026</h1>
+    <p class="t-m" data-anim="fade" style="--d:.4s;margin-top:28px;color:var(--ink)">What changed in a year, and <span class="em">how to get started</span></p>
+    <p class="t-small by" data-anim="fade" style="--d:.6s">Stéphanie Kioutsoukis + Mark Turrell &nbsp;|&nbsp; Fresh Strategy &amp; AI Solutions</p>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="one-year-on" data-title="One year on">
+  <div class="ttl"><p class="eyebrow">Intro</p><h2 class="t-m">One year on</h2></div>
+  <div class="body">
+    <ul class="qs">
+      <li data-anim="fade" style="--d:.1s">Where has AI helped your work this year?</li>
+      <li data-anim="fade" style="--d:.3s">Where did it frustrate you?</li>
+      <li data-anim="fade" style="--d:.5s">Which tools do you use today?</li>
+      <li data-anim="fade" style="--d:.7s"><span class="em" style="--hd:1.2s">What would make the biggest difference by the end of the year?</span></li>
+    </ul>
+  </div>
+  <p class="kick note-line" style="font-size:25px">Think of: research · monitoring · briefings · reports · social media · events</p>
+</section>
+
+<!-- 03 -->
+<section class="slide" data-type="canvas" data-id="today" data-title="Today">
+  <div class="ttl"><h2 class="t-m">Today</h2></div>
+  <div class="body" style="top:250px">
+    <div class="tnn">
+      <p class="eyebrow">Last year</p>
+      <p class="t-body is-past">AI was something each of us used to ask questions and generate content.</p>
+      <p class="eyebrow" style="color:var(--head)">Today</p>
+      <p class="t-body">AI researches, reaches your systems, creates artefacts, takes actions, runs recurring work and works as agents and teams.</p>
+      <p class="eyebrow" style="color:var(--head)">What's next</p>
+      <p class="is-next">From "How do I use AI?" to<br>"How do we <span class="em">design, organise and govern</span> AI as part of how we work?"</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="slide" data-type="statement" data-tone="dark" data-id="do-the-work" data-title="AI can now do the work">
+  <div class="statement">
+    <p class="eyebrow" style="margin-bottom:40px">What changed in a year</p>
+    <h2 class="t-xl" data-anim="rise">AI can now<br><span class="em">do the work.</span></h2>
+    <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">Last year: something we asked.<br><b style="color:#fff;font-weight:600">Now: something that researches, builds and acts.</b></p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="slide" data-type="canvas" data-id="big-changes" data-title="Big changes in one year">
+  <div class="ttl"><h2 class="t-m">Big changes in one year</h2></div>
+  <div class="body is-high" style="top:180px">
+    <div class="groups">
+      <div class="grp" data-anim="fade" style="--d:.1s">
+        <ul><li><b>Better reasoning</b>Harder analysis and multi-step work</li><li><b>Transcription</b>turn speech and conversations into work</li><li><b>Artefacts</b>real documents, spreadsheets, presentations, apps</li></ul>
+        <p class="lab">Chat</p>
+      </div>
+      <div class="grp" data-anim="fade" style="--d:.4s">
+        <ul><li><b>Recurring work</b>scheduled and longer-running tasks</li><li><b>Action</b>uses tools and takes steps</li><li><b>Connections</b>access to your data and systems</li></ul>
+        <p class="lab">Co/Work</p>
+      </div>
+      <div class="grp" data-anim="fade" style="--d:.7s">
+        <ul><li><b>Agents + agentic teams</b>specialised AI roles that divide the work</li><li><b>Building solutions</b>using code</li><li><b>Governed AI</b>setting guardrails and boundaries</li></ul>
+        <p class="lab">Code/x</p>
+      </div>
+    </div>
+  </div>
+  <p class="kick" style="bottom:44px">> AI moves from something we consult to something that <span class="em" style="--hd:1.4s">participates in the work.</span></p>
+</section>
+
+<!-- 06 -->
+<section class="slide" data-type="canvas" data-id="multi-step" data-title="Harder, multi-step work">
+  <div class="ttl"><h2 class="t-m">AI got much better at harder, multi-step work</h2></div>
+  <div class="body is-high">
+    <table class="tbl">
+      <tr><th>Way of working</th><th>What the user experiences</th></tr>
+      <tr><td>Chat</td><td>You ask or speak; AI answers and structures your thoughts.</td></tr>
+      <tr><td>Deep Research</td><td>You give it a question, it goes away, researches, and comes back with sources.</td></tr>
+      <tr><td>Work / Cowork on files</td><td>You give it access to files, and it edits or creates the actual work product.</td></tr>
+      <tr><td>Claude Code / Codex</td><td>You describe what you want built; it writes and runs the code and gives you a working tool or analysis.</td></tr>
+      <tr><td>Agents</td><td>You give it an outcome; it takes several steps and can keep working without you prompting every step.</td></tr>
+    </table>
+  </div>
+  <p class="kick" style="bottom:44px">Not infallible: <span class="em">sources and conclusions still need checking!</span></p>
+</section>
+
+<!-- 07 -->
+<section class="slide" data-type="canvas" data-id="transcription" data-title="Transcription">
+  <div class="ttl"><p class="eyebrow">It started as a chat. Now it can become a workflow.</p><h2 class="t-m">Transcription: from conversation to work</h2></div>
+  <div class="body" style="top:270px">
+    <div class="chips">
+      <div class="chip" data-anim="fade" style="--d:.1s">Speak / converse</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.3s">Capture a transcript</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.5s">Structure the work</div><span class="gt">&gt;</span>
+      <div class="chip is-end" data-anim="fade" style="--d:.7s">Review, permit, act</div>
+    </div>
+    <div class="defs" style="margin-top:64px">
+      <p><b>Capture:</b> dictate an idea or transcribe a conversation.</p>
+      <p><b>Structure:</b> turn the text into a brief, decisions, tasks or a message.</p>
+      <p><b>Apply:</b> Wispr Flow can put dictated text into WhatsApp or an AI chat.</p>
+      <p><b>Permission:</b> agree what may be captured or shared; review before sending.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="slide" data-type="canvas" data-id="artefacts" data-title="From answers to artefacts">
+  <div class="ttl"><h2 class="t-m">From answers to artefacts</h2></div>
+  <div class="body is-high">
+    <p class="t-m" style="font-size:46px;color:var(--muted)">A year ago: a block of text to copy and paste.</p>
+    <p class="t-m" style="font-size:46px;margin-top:18px">Now: the finished <span class="em">document, spreadsheet, presentation, analysis or small app.</span></p>
+    <div class="cards" style="margin-top:72px">
+      <div class="card4" data-anim="fade" style="--d:.6s">A briefing note</div>
+      <div class="card4" data-anim="fade" style="--d:.75s">A comparison table with sources</div>
+      <div class="card4" data-anim="fade" style="--d:.9s">A slide summary of a consultation</div>
+      <div class="card4" data-anim="fade" style="--d:1.05s">An infographic for your audience</div>
+    </div>
+  </div>
+  <p class="kick note-line" style="font-style:normal">It can even respect your branding to some extent - by creating an HTML template first.</p>
+</section>
+
+<!-- 09 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="output" data-title="The output is no longer just text">
+  <div class="ttl"><h2 class="t-m">The output is no longer just text</h2></div>
+  <p class="at eyebrow" style="--x:112px;--y:200px;font-size:24px">A year ago <span style="text-transform:none;letter-spacing:0;font-family:var(--body-font);margin:0 40px 0 14px">text to copy and paste.</span> <span style="color:var(--head)">Now</span> <span style="text-transform:none;letter-spacing:-.01em;color:var(--head);margin-left:14px;font-size:30px">the actual work product.</span></p>
+  <div class="body" style="top:290px">
+    <div class="mocks">
+      <div data-anim="drop" style="--d:.1s">
+        <div class="mock"><span class="lbl">BRIEFING</span><span class="ln h" style="margin-top:6px"></span><span class="ln"></span><span class="ln"></span><span class="ln" style="width:60%"></span><span class="ln m" style="width:50%;margin-top:8px"></span><span class="ln"></span><span class="ln"></span><span class="ln" style="width:70%"></span><span class="ln m" style="width:50%;margin-top:8px"></span><span class="ln"></span></div>
+        <p class="mock-cap">Word briefing</p>
+      </div>
+      <div data-anim="drop" style="--d:.25s">
+        <div class="mock"><div class="grid"><i class="th"></i><i class="th"></i><i class="th"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="k"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <p class="mock-cap">Country comparison</p>
+      </div>
+      <div data-anim="drop" style="--d:.4s">
+        <div class="mock" style="justify-content:center;gap:26px"><div class="sl"><span class="ln h"></span><span class="ln"></span><span class="ln"></span><span class="ln" style="width:60%"></span></div><div class="sl"><span class="ln h"></span><span class="ln" style="width:70%"></span></div></div>
+        <p class="mock-cap">Slide summary</p>
+      </div>
+      <div data-anim="drop" style="--d:.55s">
+        <div class="mock"><span class="ln h" style="width:70%"></span><div class="chart"><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i class="k" style="--h:95%"></i><i style="--h:62%"></i></div><span class="ln" style="width:75%"></span></div>
+        <p class="mock-cap">Infographic</p>
+      </div>
+      <div data-anim="drop" style="--d:.7s">
+        <div class="mock" style="gap:20px"><span class="ln h" style="width:70%"></span><div class="ref"><span class="ln"></span><em>[1]</em></div><div class="ref"><span class="ln"></span><em>[2]</em></div><div class="ref"><span class="ln"></span><em>[3]</em></div><div class="ref"><span class="ln"></span><em>[4]</em></div><div class="ref"><span class="ln"></span><em>[5]</em></div><span class="ln" style="width:50%"></span></div>
+        <p class="mock-cap">Table with sources</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide" data-type="statement" data-tone="dark" data-id="answers-to-action" data-title="From answers to action">
+  <div class="statement">
+    <p class="eyebrow" style="margin-bottom:40px">What changed in a year</p>
+    <h2 class="t-xl" data-anim="rise">From answers<br>to <span class="em">action.</span></h2>
+    <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">AI no longer only recommends.<br><b style="color:#fff;font-weight:600">It uses tools, takes steps and keeps working on a schedule.</b></p>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-type="canvas" data-id="recurring" data-title="Actions + recurring work">
+  <div class="ttl"><p class="eyebrow">Example: a weekly news and policy watch</p><h2 class="t-m">Actions + recurring work</h2></div>
+  <div class="body" style="top:270px">
+    <div class="chips">
+      <div class="chip" data-anim="fade" style="--d:.1s">New publications + news</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.3s">Filtered to your files</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.5s">A draft briefing</div><span class="gt">&gt;</span>
+      <div class="chip is-end" data-anim="fade" style="--d:.7s">In your inbox every Monday</div>
+    </div>
+    <div class="defs" style="margin-top:64px">
+      <p><b>Action:</b> AI uses tools and takes the steps, not only recommends them.</p>
+      <p><b>Recurring work:</b> set it up once; it runs every week; you review the result.</p>
+    </div>
+  </div>
+  <p class="kick"><span class="em" style="--hd:1.2s">Chains of recurring workflows</span> are ideal candidates for automation.</p>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-type="canvas" data-id="connections" data-title="Expanding context with connections">
+  <div class="ttl"><h2 class="t-m">Expanding context with connections</h2></div>
+  <div class="body is-high" style="top:200px">
+    <div class="conn">
+      <ul data-anim="fade" style="--d:.1s"><li>Email + calendar</li><li>Shared drives</li><li>CRM / contact lists</li><li>Databases</li><li>Websites + news feeds</li><li>Knowledge systems</li></ul>
+      <div class="arrows" data-anim="fade" style="--d:.3s"><i>&gt;</i><i>&gt;</i><i>&gt;</i><i>&gt;</i><i>&gt;</i><i>&gt;</i></div>
+      <div class="hub" data-anim="rise" style="--d:.5s">Connector<span>MCP or API</span></div>
+      <div class="arr1" data-anim="fade" style="--d:.8s">&gt;&gt;</div>
+      <p class="yourai" data-anim="fade" style="--d:1s">Your AI</p>
+    </div>
+  </div>
+  <p class="kick" style="bottom:56px"><span class="em" style="--hd:1.4s">Ask yourself:</span> which of your sources should AI be able to read, and which never?</p>
+</section>
+
+<!-- 13 -->
+<section class="slide" data-type="statement" data-tone="dark" data-id="personal-to-org" data-title="From personal AI to organisational AI">
+  <div class="statement">
+    <p class="eyebrow" style="margin-bottom:40px">From Chat &gt; Cowork &gt; Code/x</p>
+    <h2 class="t-xl" data-anim="rise">From personal AI<br>to <span class="em">organisational AI.</span></h2>
+    <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">The question is no longer only: "How do I use AI well?"<br><b style="color:#fff;font-weight:600">It becomes: "How do we want AI to work here?"</b></p>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-type="canvas" data-id="ladder" data-title="From personal to organisational AI">
+  <div class="ttl"><h2 class="t-m">From personal to organisational AI</h2></div>
+  <div class="body" style="top:300px">
+    <div class="ladder">
+      <div class="rung" data-anim="fade" style="--d:.1s"><h3>Chat</h3><p>You ask, it answers.</p></div>
+      <div class="rung" data-anim="fade" style="--d:.3s"><h3>Agent</h3><p>It works towards a goal, step by step.</p></div>
+      <div class="rung" data-anim="fade" style="--d:.5s"><h3>Agentic team</h3><p>Specialised roles share the work.</p></div>
+      <div class="rung" data-anim="fade" style="--d:.7s"><h3>Designed AI / custom app</h3><p>Building solutions, methods and skills for your work.</p></div>
+      <div class="rung" data-anim="fade" style="--d:.9s"><h3>Governed AI</h3><p>Agreed, shared and owned across the organisation.</p></div>
+    </div>
+  </div>
+  <div class="axis" data-anim="reveal" style="--d:1.1s"><div class="ends"><span class="eyebrow">Personal</span><span class="eyebrow">Organisational</span></div><div class="line"></div></div>
+</section>
+
+<!-- 15 -->
+<section class="slide" data-type="canvas" data-id="agent" data-title="What is an agent?">
+  <div class="ttl"><h2 class="t-m">What is an agent?</h2></div>
+  <p class="track"><span class="past">Chat</span><i>&gt;</i><b>Agent</b><i>&gt;</i><span>Agentic team</span><i>&gt;</i><span>Designed AI</span><i>&gt;</i><span>Governed AI</span></p>
+  <div class="body" style="top:270px">
+    <div class="anat">
+      <div data-anim="fade" style="--d:.1s"><h3>Goal</h3><p>what it must achieve</p><p class="eg">e.g. a weekly briefing on new rules in your sector</p></div>
+      <div data-anim="fade" style="--d:.2s"><h3>Instructions</h3><p>how to work, what good looks like</p><p class="eg">e.g. your organisation's priorities and tone</p></div>
+      <div data-anim="fade" style="--d:.3s"><h3>Tools</h3><p>search, files, connectors</p><p class="eg">e.g. trusted sources, your document library</p></div>
+      <div data-anim="fade" style="--d:.4s"><h3>Memory</h3><p>what it knows about you and the task</p><p class="eg">e.g. last month's briefings</p></div>
+      <div data-anim="fade" style="--d:.5s"><h3>Loop</h3><p>act, check, decide the next step</p><p class="eg">e.g. search, read, filter, draft</p></div>
+      <div class="is-human" data-anim="fade" style="--d:.6s"><h3>Human</h3><p>who approves and is responsible</p><p class="eg">e.g. the colleague who signs off</p></div>
+    </div>
+  </div>
+  <p class="kick">A chat answers. <span class="em" style="--hd:1.2s">An agent works towards a goal, step by step.</span></p>
+</section>
+
+<!-- 16 -->
+<section class="slide" data-type="canvas" data-id="agentic-teams" data-title="Agentic teams">
+  <div class="ttl"><h2 class="t-m">Agentic teams</h2></div>
+  <p class="track"><span class="past">Chat</span><i>&gt;</i><span class="past">Agent</span><i>&gt;</i><b>Agentic team</b><i>&gt;</i><span>Designed AI</span><i>&gt;</i><span>Governed AI</span></p>
+  <div class="teams"><p class="eyebrow">Teams</p><p>Research<br>Development<br>Marketing<br>etc</p></div>
+  <div class="org">
+    <div class="you" data-anim="fade" style="--d:.1s"><b>YOU</b> · set the brief, make the final judgement</div>
+    <div class="vline"></div>
+    <div class="lead" data-anim="fade" style="--d:.4s"><b>RESEARCH LEAD</b>decides the approach</div>
+    <div class="vline"></div>
+    <div class="bus"></div>
+    <div class="roles">
+      <div data-anim="fade" style="--d:.7s"><h4>LIBRARIAN</h4><p>finds past positions and sources</p></div>
+      <div data-anim="fade" style="--d:.85s"><h4>RESEARCHER</h4><p>maps stakeholder views</p></div>
+      <div data-anim="fade" style="--d:1s"><h4>ANALYST</h4><p>compares positions</p></div>
+      <div data-anim="fade" style="--d:1.15s"><h4>DESIGNER</h4><p>turns it into usable output</p></div>
+    </div>
+  </div>
+  <p class="ex note-line" style="font-size:26px">For example: a consultation response, where one AI gathers your past positions, one scans stakeholder views and one drafts, under one director.</p>
+</section>
+
+<!-- 17 -->
+<section class="slide" data-type="canvas" data-id="designed-ai" data-title="Designed AI">
+  <div class="ttl"><h2 class="t-m">Designed AI: same brief, two results</h2></div>
+  <p class="track"><span class="past">Chat</span><i>&gt;</i><span class="past">Agent</span><i>&gt;</i><span class="past">Agentic team</span><i>&gt;</i><b>Designed AI</b><i>&gt;</i><span>Governed AI</span></p>
+  <div class="body" style="top:270px">
+    <div class="cols2">
+      <div class="col">
+        <h3>General chatbot</h3>
+        <p class="muted">Broad capability.</p>
+        <p class="muted">Little built-in knowledge of how this particular job should be done.</p>
+        <p class="muted">A generic brief often produces generic output.</p>
+      </div>
+      <div class="col is-key" data-anim="fade" style="--d:.4s">
+        <h3>Designed AI / custom solutions</h3>
+        <p>Starts from a defined role and method.</p>
+        <p>Uses relevant context, tools and quality criteria.</p>
+        <p><b>Produces narrower, task-specific output.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide" data-type="canvas" data-id="code-glue" data-title="Code becomes the glue">
+  <div class="ttl"><h2 class="t-m">Code becomes the glue between tools</h2></div>
+  <div class="body" style="top:250px">
+    <p class="eq" data-anim="fade"><span>Data</span><i>+</i><span>Documents</span><i>+</i><span>System</span><i>+</i><span>Small tool</span><i>+</i><span>Alert</span><i>&gt;&gt;</i><span class="em" style="--hd:.9s">One flow</span></p>
+    <div class="chips is-six" style="margin-top:64px">
+      <div class="chip" data-anim="fade" style="--d:.3s">New publications + news</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.45s">Filter to relevant files</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.6s">Compare with our positions</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.75s">Update a small tracker</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.9s">Draft the briefing</div><span class="gt">&gt;</span>
+      <div class="chip is-end" data-anim="fade" style="--d:1.05s">Alert someone</div>
+    </div>
+    <div class="glue-note" data-anim="fade" style="margin-top:72px;--d:1.3s">
+      <p class="t-m">This does not mean you become a developer.</p>
+      <p class="t-body">It means you can describe the workflow, and AI can build much of the technical connection.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 19 -->
+<section class="slide" data-type="canvas" data-id="governed-ai" data-title="Governed AI">
+  <div class="ttl"><h2 class="t-m">Governed AI</h2></div>
+  <p class="track"><span class="past">Chat</span><i>&gt;</i><span class="past">Agent</span><i>&gt;</i><span class="past">Agentic team</span><i>&gt;</i><span class="past">Designed AI</span><i>&gt;</i><b>Governed AI</b></p>
+  <div class="gov" style="top:250px">
+    <div class="alone">
+      <h3>Everyone alone</h3>
+      <p>Personal prompts<br>Personal habits<br>Inconsistent quality<br>Unclear data practices<br>Quality depends on the individual</p>
+    </div>
+    <div class="panel" data-anim="reveal" style="--d:.3s">
+      <h3>Governed AI</h3>
+      <p><i>&gt;</i>Agreed tools</p>
+      <p><i>&gt;</i>Shared skills and methods</p>
+      <p><i>&gt;</i>Specialised AI roles</p>
+      <p><i>&gt;</i>Clear data rules</p>
+      <p><i>&gt;</i>Human ownership and approval</p>
+      <p class="end">Everyone benefits from the best available set-up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 20 -->
+<section class="slide" data-type="canvas" data-id="decide" data-title="What you must decide">
+  <div class="ttl"><h2 class="t-m">What you must decide</h2></div>
+  <div class="body" style="top:230px">
+    <div class="decide">
+      <div class="can">
+        <p class="eyebrow">If AI can</p>
+        <p>Read your data<br>Build things<br>Take actions<br>Work repeatedly<br>Operate through agents</p>
+      </div>
+      <div class="to">&gt;&gt;</div>
+      <div data-anim="fade" style="--d:.4s">
+        <p class="eyebrow">Then the organisation must decide</p>
+        <table class="dtbl">
+          <tr><td>Tools</td><td>Which AI systems are approved?</td></tr>
+          <tr><td>Data</td><td>What can they access?</td></tr>
+          <tr><td>Methods</td><td>How should important work be done?</td></tr>
+          <tr><td>Permissions</td><td>What can AI do on its own?</td></tr>
+          <tr><td>Review</td><td>Where must a human intervene?</td></tr>
+          <tr><td>Owner</td><td><span class="em" style="--hd:1.2s">Who is accountable?</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 -->
+<section class="slide" data-type="canvas" data-tone="dark" data-id="should-it" data-title="Should it?">
+  <div class="sendmock" data-anim="rise">
+    <div class="mbar"><span class="dots"></span>Consultation response · final draft<span class="tag">ILLUSTRATIVE</span></div>
+    <div class="doc">
+      <span class="ln h" style="display:block"></span>
+      <span class="ln" style="display:block"></span><span class="ln" style="display:block"></span><span class="ln" style="display:block;width:55%"></span>
+      <span class="ln" style="display:block;margin-top:30px"></span><span class="ln" style="display:block"></span><span class="ln" style="display:block;width:55%"></span>
+      <div class="checks"><span>Sources cited</span><span>Numbers checked</span><span>Formatted</span><span>Recipients added</span></div>
+      <div class="go"><b>READY TO SEND</b><span class="btn">Send</span></div>
+      <p class="to">To: public consultation · cc: board</p>
+    </div>
+  </div>
+  <div class="should">
+    <h2 class="t-xl" data-anim="rise" style="--d:.3s">Should it?</h2>
+    <ul>
+      <li data-anim="fade" style="--d:.6s">Who approved the sources?</li>
+      <li data-anim="fade" style="--d:.8s">Who checked the numbers?</li>
+      <li data-anim="fade" style="--d:1s">Who decided it could access the files?</li>
+      <li data-anim="fade" style="--d:1.2s">Who owns the final result?</li>
+      <li class="is-key" data-anim="fade" style="--d:1.5s">What is it allowed to send automatically?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 22 -->
+<section class="slide" data-type="canvas" data-id="governance" data-title="Why governance is not optional">
+  <div class="ttl"><h2 class="t-m">Why governance is not optional</h2></div>
+  <p class="track"><span class="past">Chat</span><i>&gt;</i><span class="past">Agent</span><i>&gt;</i><span class="past">Agentic team</span><i>&gt;</i><span class="past">Designed AI</span><i>&gt;</i><b>Governed AI</b></p>
+  <div class="body" style="top:270px">
+    <div class="cols2">
+      <div class="col" style="border-top-color:var(--purple)">
+        <h3 style="color:var(--head)">Applies now</h3>
+        <p><b>EU AI Act:</b> AI literacy obligations apply.</p>
+        <p>Providers and deployers must support AI literacy among staff and others using AI on their behalf.</p>
+        <p><b>AI agents:</b> if an agent qualifies as an AI system under the Act, the applicable rules can apply.</p>
+      </div>
+      <div class="col is-key" data-anim="fade" style="--d:.4s">
+        <h3>Our governance principle</h3>
+        <p>Every significant AI workflow should have:</p>
+        <ul><li>a human owner</li><li>clear permissions</li><li>defined review points</li><li>accountability for the final output or action</li></ul>
+      </div>
+    </div>
+  </div>
+  <p class="source">Source: <cite>EU AI Act</cite>, Arts. 3-4; European Commission, 27 July 2026 · checked 7 October 2026</p>
+</section>
+
+<!-- 23 -->
+<section class="slide" data-type="canvas" data-id="quality-checks" data-title="Accountability & quality checks">
+  <div class="ttl"><p class="eyebrow">Accountability &amp; quality checks</p></div>
+  <div class="body" style="top:130px">
+    <p class="q23" data-anim="rise">If AI tells you it found three important issues in a 200-page policy document, how do you know there were not <span class="em" style="--hd:1s">eight?</span></p>
+    <div class="four" style="margin-top:96px">
+      <div data-anim="fade" style="--d:.5s"><h3>Section by section</h3><p>Ask per chapter, not for the whole document at once.</p></div>
+      <div data-anim="fade" style="--d:.65s"><h3>Page references</h3><p>Every finding points to where it is.</p></div>
+      <div data-anim="fade" style="--d:.8s"><h3>Ask what it skipped</h3><p>"Which parts did you not read?"</p></div>
+      <div data-anim="fade" style="--d:.95s"><h3>Start fresh</h3><p>For important independent work, consider a fresh chat or context.</p></div>
+    </div>
+  </div>
+  <p class="kick">When it matters, design the method.</p>
+</section>
+
+<!-- 24 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="wrap-up" data-title="How to get started">
+  <div class="ttl"><h2 class="t-m">How to get started</h2></div>
+  <div class="body" style="top:250px">
+    <ul class="qs is-terms">
+      <li data-anim="fade" style="--d:.1s"><b>Hand over</b> <span>What work could AI do rather than merely help with?</span></li>
+      <li data-anim="fade" style="--d:.3s"><b>Automate</b> <span>What low-risk recurring workflow could run itself?</span></li>
+      <li data-anim="fade" style="--d:.5s"><b>Govern</b> <span>What must remain under explicit human control?</span></li>
+      <li class="plain" data-anim="fade" style="--d:.8s;margin-top:56px;padding-left:0"><span class="em" style="font-family:var(--head-font);color:var(--head);--hd:1.3s">And where do the tools you already use fit?</span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<script src="_fresh/engine/talks.js"></script>
+<script src="_fresh/engine/components.js"></script>
+</body>
+</html>
