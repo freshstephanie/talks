@@ -228,6 +228,9 @@
 
 /* 25 STAY IN TOUCH: three codes (no "This talk": viewers are already on it, and www.freshstrategy.ai/talks/ai-update-2026 is not mapped) */
 [data-type="stay"] .qr-row { grid-template-columns: repeat(3, 270px); }
+
+/* the Fresh logo double chevron as connector / arrow (same shape as .chev-list), never a typed ">" or ">>" */
+.chev { display: inline-block; width: .74em; height: .62em; vertical-align: -.02em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 54'%3E%3Cpath fill='%2346FFC5' d='M0 0 35 27 10 27Z M28 0 63 27 38 27Z'/%3E%3Cpath fill='%2300AE8D' d='M10 27 35 27 0 54Z M38 27 63 27 28 54Z'/%3E%3C/svg%3E") no-repeat 50% 50% / contain; }
 </style>
 </head>
 <body>
@@ -319,7 +322,7 @@
       </div>
     </div>
   </div>
-  <p class="kick" style="bottom:44px">> AI moves from something we consult to something that <span class="em" style="--hd:1.4s">participates in the work.</span></p>
+  <p class="kick" style="bottom:44px"><span class="chev"></span> AI moves from something we consult to something that <span class="em" style="--hd:1.4s">participates in the work.</span></p>
 </section>
 
 <!-- 06 -->
@@ -343,9 +346,9 @@
   <div class="ttl"><p class="eyebrow">It started as a chat. Now it can become a workflow.</p><h2 class="t-m">Transcription: from conversation to work</h2></div>
   <div class="body" style="top:270px">
     <div class="chips">
-      <div class="chip" data-anim="fade" style="--d:.1s">Speak / converse</div><span class="gt">&gt;</span>
-      <div class="chip" data-anim="fade" style="--d:.3s">Capture a transcript</div><span class="gt">&gt;</span>
-      <div class="chip" data-anim="fade" style="--d:.5s">Structure the work</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.1s">Speak / converse</div><span class="gt"><span class="chev"></span></span>
+      <div class="chip" data-anim="fade" style="--d:.3s">Capture a transcript</div><span class="gt"><span class="chev"></span></span>
+      <div class="chip" data-anim="fade" style="--d:.5s">Structure the work</div><span class="gt"><span class="chev"></span></span>
       <div class="chip is-end" data-anim="fade" style="--d:.7s">Review, permit, act</div>
     </div>
     <div class="defs" style="margin-top:64px">
@@ -417,9 +420,9 @@
   <div class="ttl"><p class="eyebrow">Example: a weekly news and policy watch</p><h2 class="t-m">Actions + recurring work</h2></div>
   <div class="body" style="top:270px">
     <div class="chips">
-      <div class="chip" data-anim="fade" style="--d:.1s">New publications + news</div><span class="gt">&gt;</span>
-      <div class="chip" data-anim="fade" style="--d:.3s">Filtered to your files</div><span class="gt">&gt;</span>
-      <div class="chip" data-anim="fade" style="--d:.5s">A draft briefing</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.1s">New publications + news</div><span class="gt"><span class="chev"></span></span>
+      <div class="chip" data-anim="fade" style="--d:.3s">Filtered to your files</div><span class="gt"><span class="chev"></span></span>
+      <div class="chip" data-anim="fade" style="--d:.5s">A draft briefing</div><span class="gt"><span class="chev"></span></span>
       <div class="chip is-end" data-anim="fade" style="--d:.7s">In your inbox every Monday</div>
     </div>
     <div class="defs" style="margin-top:64px">
@@ -436,9 +439,9 @@
   <div class="body is-high" style="top:200px">
     <div class="conn">
       <ul data-anim="fade" style="--d:.1s"><li>Email + calendar</li><li>Shared drives</li><li>CRM / contact lists</li><li>Databases</li><li>Websites + news feeds</li><li>Knowledge systems</li></ul>
-      <div class="arrows" data-anim="fade" style="--d:.3s"><i>&gt;</i><i>&gt;</i><i>&gt;</i><i>&gt;</i><i>&gt;</i><i>&gt;</i></div>
+      <div class="arrows" data-anim="fade" style="--d:.3s"><i><span class="chev"></span></i><i><span class="chev"></span></i><i><span class="chev"></span></i><i><span class="chev"></span></i><i><span class="chev"></span></i><i><span class="chev"></span></i></div>
       <div class="hub" data-anim="rise" style="--d:.5s">Connector<span>MCP or API</span></div>
-      <div class="arr1" data-anim="fade" style="--d:.8s">&gt;&gt;</div>
+      <div class="arr1" data-anim="fade" style="--d:.8s"><span class="chev"></span></div>
       <p class="yourai" data-anim="fade" style="--d:1s">Your AI</p>
     </div>
   </div>
@@ -448,7 +451,7 @@
 <!-- 13 -->
 <section class="slide" data-type="statement" data-tone="dark" data-id="personal-to-org" data-title="From personal AI to organisational AI">
   <div class="statement">
-    <p class="eyebrow" style="margin-bottom:40px">From Chat &gt; Cowork &gt; Code/x</p>
+    <p class="eyebrow" style="margin-bottom:40px">From Chat <span class="chev"></span> Cowork <span class="chev"></span> Code/x</p>
     <h2 class="t-xl" data-anim="rise">From personal AI<br>to <span class="em">organisational AI.</span></h2>
     <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">The question is no longer only: "How do I use AI well?"<br><b style="color:#fff;font-weight:600">It becomes: "How do we want AI to work here?"</b></p>
   </div>
@@ -472,7 +475,7 @@
 <!-- 15 -->
 <section class="slide" data-type="canvas" data-tone="paper" data-id="agent" data-title="What is an agent?">
   <div class="ttl"><h2 class="t-m">What is an agent?</h2></div>
-  <p class="track"><span class="past">Chat</span><i>&gt;</i><b>Agent</b><i>&gt;</i><span>Agentic team</span><i>&gt;</i><span>Designed AI</span><i>&gt;</i><span>Governed AI</span></p>
+  <p class="track"><span class="past">Chat</span><i><span class="chev"></span></i><b>Agent</b><i><span class="chev"></span></i><span>Agentic team</span><i><span class="chev"></span></i><span>Designed AI</span><i><span class="chev"></span></i><span>Governed AI</span></p>
   <div class="body" style="top:270px">
     <div class="anat">
       <div data-anim="fade" style="--d:.1s"><h3>Goal</h3><p>what it must achieve</p><p class="eg">e.g. a weekly briefing on new rules in your sector</p></div>
@@ -489,7 +492,7 @@
 <!-- 16 -->
 <section class="slide" data-type="canvas" data-tone="paper" data-id="agentic-teams" data-title="Agentic teams">
   <div class="ttl"><h2 class="t-m">Agentic teams</h2></div>
-  <p class="track"><span class="past">Chat</span><i>&gt;</i><span class="past">Agent</span><i>&gt;</i><b>Agentic team</b><i>&gt;</i><span>Designed AI</span><i>&gt;</i><span>Governed AI</span></p>
+  <p class="track"><span class="past">Chat</span><i><span class="chev"></span></i><span class="past">Agent</span><i><span class="chev"></span></i><b>Agentic team</b><i><span class="chev"></span></i><span>Designed AI</span><i><span class="chev"></span></i><span>Governed AI</span></p>
   <div class="teams"><p class="eyebrow">Teams</p><p>Research<br>Development<br>Marketing<br>etc</p></div>
   <div class="org">
     <div class="you" data-anim="fade" style="--d:.1s"><b>YOU</b> · set the brief, make the final judgement</div>
@@ -510,7 +513,7 @@
 <!-- 17 -->
 <section class="slide" data-type="canvas" data-tone="paper" data-id="designed-ai" data-title="Designed AI">
   <div class="ttl"><h2 class="t-m">Designed AI: same brief, two results</h2></div>
-  <p class="track"><span class="past">Chat</span><i>&gt;</i><span class="past">Agent</span><i>&gt;</i><span class="past">Agentic team</span><i>&gt;</i><b>Designed AI</b><i>&gt;</i><span>Governed AI</span></p>
+  <p class="track"><span class="past">Chat</span><i><span class="chev"></span></i><span class="past">Agent</span><i><span class="chev"></span></i><span class="past">Agentic team</span><i><span class="chev"></span></i><b>Designed AI</b><i><span class="chev"></span></i><span>Governed AI</span></p>
   <div class="body" style="top:270px">
     <div class="cols2">
       <div class="col">
@@ -533,13 +536,13 @@
 <section class="slide" data-type="canvas" data-tone="paper" data-id="code-glue" data-title="Code becomes the glue">
   <div class="ttl"><h2 class="t-m">Code becomes the glue between tools</h2></div>
   <div class="body" style="top:250px">
-    <p class="eq" data-anim="fade"><span>Data</span><i>+</i><span>Documents</span><i>+</i><span>System</span><i>+</i><span>Small tool</span><i>+</i><span>Alert</span><i>&gt;&gt;</i><span class="em" style="--hd:.9s">One flow</span></p>
+    <p class="eq" data-anim="fade"><span>Data</span><i>+</i><span>Documents</span><i>+</i><span>System</span><i>+</i><span>Small tool</span><i>+</i><span>Alert</span><i><span class="chev"></span></i><span class="em" style="--hd:.9s">One flow</span></p>
     <div class="chips is-six" style="margin-top:64px">
-      <div class="chip" data-anim="fade" style="--d:.3s">New publications + news</div><span class="gt">&gt;</span>
-      <div class="chip" data-anim="fade" style="--d:.45s">Filter to relevant files</div><span class="gt">&gt;</span>
-      <div class="chip" data-anim="fade" style="--d:.6s">Compare with our positions</div><span class="gt">&gt;</span>
-      <div class="chip" data-anim="fade" style="--d:.75s">Update a small tracker</div><span class="gt">&gt;</span>
-      <div class="chip" data-anim="fade" style="--d:.9s">Draft the briefing</div><span class="gt">&gt;</span>
+      <div class="chip" data-anim="fade" style="--d:.3s">New publications + news</div><span class="gt"><span class="chev"></span></span>
+      <div class="chip" data-anim="fade" style="--d:.45s">Filter to relevant files</div><span class="gt"><span class="chev"></span></span>
+      <div class="chip" data-anim="fade" style="--d:.6s">Compare with our positions</div><span class="gt"><span class="chev"></span></span>
+      <div class="chip" data-anim="fade" style="--d:.75s">Update a small tracker</div><span class="gt"><span class="chev"></span></span>
+      <div class="chip" data-anim="fade" style="--d:.9s">Draft the briefing</div><span class="gt"><span class="chev"></span></span>
       <div class="chip is-end" data-anim="fade" style="--d:1.05s">Alert someone</div>
     </div>
     <div class="glue-note" data-anim="fade" style="margin-top:72px;--d:1.3s">
@@ -552,7 +555,7 @@
 <!-- 19 -->
 <section class="slide" data-type="canvas" data-tone="paper" data-id="governed-ai" data-title="Governed AI">
   <div class="ttl"><h2 class="t-m">Governed AI</h2></div>
-  <p class="track"><span class="past">Chat</span><i>&gt;</i><span class="past">Agent</span><i>&gt;</i><span class="past">Agentic team</span><i>&gt;</i><span class="past">Designed AI</span><i>&gt;</i><b>Governed AI</b></p>
+  <p class="track"><span class="past">Chat</span><i><span class="chev"></span></i><span class="past">Agent</span><i><span class="chev"></span></i><span class="past">Agentic team</span><i><span class="chev"></span></i><span class="past">Designed AI</span><i><span class="chev"></span></i><b>Governed AI</b></p>
   <div class="gov" style="top:250px">
     <div class="alone">
       <h3>Everyone alone</h3>
@@ -575,7 +578,7 @@
         <p class="eyebrow">If AI can</p>
         <p>Read your data<br>Build things<br>Take actions<br>Work repeatedly<br>Operate through agents</p>
       </div>
-      <div class="to">&gt;&gt;</div>
+      <div class="to"><span class="chev"></span></div>
       <div data-anim="fade" style="--d:.4s">
         <p class="eyebrow">Then the organisation must decide</p>
         <table class="dtbl">
@@ -619,7 +622,7 @@
 <!-- 22 -->
 <section class="slide" data-type="canvas" data-tone="paper" data-id="governance" data-title="Why governance is not optional">
   <div class="ttl"><h2 class="t-m">Why governance is not optional</h2></div>
-  <p class="track"><span class="past">Chat</span><i>&gt;</i><span class="past">Agent</span><i>&gt;</i><span class="past">Agentic team</span><i>&gt;</i><span class="past">Designed AI</span><i>&gt;</i><b>Governed AI</b></p>
+  <p class="track"><span class="past">Chat</span><i><span class="chev"></span></i><span class="past">Agent</span><i><span class="chev"></span></i><span class="past">Agentic team</span><i><span class="chev"></span></i><span class="past">Designed AI</span><i><span class="chev"></span></i><b>Governed AI</b></p>
   <div class="body" style="top:270px">
     <div class="cols2">
       <div class="col" style="border-top-color:var(--charcoal)">
