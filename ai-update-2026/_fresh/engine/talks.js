@@ -210,6 +210,12 @@
       '<button data-a="next" title="Next (→)">→</button><button data-a="grid" title="Grid (G)">Grid</button>' +
       '<button data-a="notes" title="Notes (N) · Presenter (S)">Notes</button><button data-a="fs" title="Fullscreen (F)">⤢</button>' +
       '<button data-a="help" title="Keys (?)">?</button>';
+    if (!deck.querySelector('.notes')) ui.querySelector('[data-a="notes"]').hidden = true;   // public copies carry no notes
+    const home = document.querySelector('meta[name="ft-home"]');   // set by publish_public.py on the online copy
+    if (home) {
+      const a = el('a', 'ft-home'); a.href = home.content; a.textContent = home.dataset.label || 'All talks';
+      ui.prepend(a);
+    }
     ui.addEventListener('click', e => {
       const a = e.target.dataset.a;
       ({ prev, next, grid: toggleGrid, notes: () => document.body.classList.toggle('show-notes'), fs: fullscreen, help: toggleHelp }[a] || (() => {}))();

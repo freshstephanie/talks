@@ -72,9 +72,13 @@ body { -webkit-font-smoothing: antialiased; }
 
 /* ---------- Chrome: controls, counter, overlays ---------- */
 .ft-ui { position: fixed; right: 16px; bottom: 14px; display: flex; gap: 6px; align-items: center; z-index: 50;
-  font: 500 13px/1 system-ui, sans-serif; color: #fff; transition: opacity .4s; }
+  font: 500 15px/1 system-ui, sans-serif; color: #fff; transition: opacity .4s; }
 .ft-ui button { all: unset; cursor: pointer; padding: 7px 10px; border-radius: 6px; background: rgba(20,18,24,.55); color: #fff; }
 .ft-ui button:hover { background: rgba(20,18,24,.85); }
+.ft-ui button:focus-visible, .ft-ui .ft-home:focus-visible { outline: 2px solid #88DBBD; outline-offset: 2px; }
+.ft-ui .ft-home { padding: 7px 10px; border-radius: 6px; background: rgba(20,18,24,.55); color: #fff; text-decoration: none; }
+.ft-ui .ft-home:hover { background: rgba(20,18,24,.85); }
+.ft-ui [hidden] { display: none; }
 .ft-ui .ft-count { padding: 7px 10px; background: rgba(20,18,24,.55); border-radius: 6px; min-width: 56px; text-align: center; }
 .ft-ui .ft-ph { background: #E8A317; color: #1a1a1a; padding: 7px 10px; border-radius: 6px; }
 body.is-idle .ft-ui, body.hide-ui .ft-ui, body.is-embed .ft-ui { opacity: 0; pointer-events: none; }

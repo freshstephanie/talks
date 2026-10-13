@@ -445,3 +445,32 @@ body.hide-ph .ph-dev { display: none; }
 [data-type="photo"] .photo-line { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 112px; z-index: 2; color: #fff; }
 [data-type="photo-statement"] .side-text .statement-title { font-size: 88px; }
 [data-type="photo-statement"][data-split="wide"] .side-text .statement-title { font-size: 64px; }
+
+/* 26 TITLE PAGE (rule from CEO of AIs, 12.10.2026): near-black hero, real white logo top left, the talk's SIGNATURE
+   VISUAL top right (the same visual as the middle of the talk card, theme/talk-card.css), mint hero mark, uppercase
+   title, one-line subtitle, "Stéphanie Kioutsoukis · Event · Date". The visual hints at the talk without giving away
+   a later reveal (CEO of AIs: YOU on top, five empty dashed mint seats, no numbers).
+   <svg class="hero-visual" viewBox="0 0 700 290">..</svg>  or  <div class="hero-visual">..</div> */
+[data-type="hero"] .hero-visual { position: absolute; left: 820px; top: 64px; width: 700px; height: 290px; }
+
+/* 27 CHEVRON BULLETS: the exact two-tone double chevron from the Fresh logo (#46FFC5 / #00AE8D), never a dot.
+   <ul class="chev-list"><li>..</li></ul>  (sizes with the font; also theme/brand/fresh-chevrons.svg) */
+.chev-list { margin: 0; padding: 0; list-style: none; }
+.chev-list li { position: relative; padding-left: 1.25em; }
+.chev-list li + li { margin-top: .35em; }
+.chev-list li::before { content: ''; position: absolute; left: 0; top: .17em; width: .74em; height: .62em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 54'%3E%3Cpath fill='%2346FFC5' d='M0 0 35 27 10 27Z M28 0 63 27 38 27Z'/%3E%3Cpath fill='%2300AE8D' d='M10 27 35 27 0 54Z M38 27 63 27 28 54Z'/%3E%3C/svg%3E") no-repeat 0 50% / contain; }
+
+/* 28 STAY IN TOUCH (CEO of AIs close, 12.10.2026): headline, four QR codes in one centred row, name + email below.
+   Codes come from tools/make_qr_set.py (dated + tagged per talk, see library/qr/QR_REGISTER.csv).
+   <section data-type="stay" data-tone="paper"><div class="stay-inner"><h2 class="statement-title">Stay in touch.</h2>
+   <div class="qr-row"><figure><img src="assets/qr/qr-connect_<slug>_<date>.svg"><figcaption>Connect</figcaption></figure>..</div>
+   <p class="stay-contact">..</p></div></section> */
+[data-type="stay"] .stay-inner { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 50%; transform: translateY(-50%); text-align: center; }
+.qr-row { display: grid; grid-template-columns: repeat(4, 270px); gap: 0 64px; justify-content: center; margin-top: 56px; }
+.qr-row figure { margin: 0; }
+.qr-row img { display: block; width: 270px; height: 270px; padding: 20px; box-sizing: border-box; background: #fff; box-shadow: 0 0 0 3px var(--mint); }
+.qr-row figcaption { margin-top: 16px; font: 700 30px/1.1 var(--head-font); letter-spacing: -.01em; color: var(--charcoal); }
+.stay-contact { margin: 52px 0 0; font: 500 26px/1.5 var(--body-font); color: var(--ink); }
+.stay-contact b { font-family: var(--head-font); font-weight: 500; color: var(--head); }
+[data-type="stay"] .statement-title { font-size: 88px; }
