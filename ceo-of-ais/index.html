@@ -28,11 +28,12 @@
          color: var(--charcoal); font: 16px/1.5 Raleway, system-ui, -apple-system, sans-serif; padding: 88px 16px 32px; }
   .top { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center;
          max-width: 1200px; margin: 0 auto; padding: 28px 32px; }
-  .brand { font: 500 24px 'Space Grotesk', sans-serif; color: #111; text-decoration: none; letter-spacing: -.5px; }
+  .brand { display: block; line-height: 0; }
+  .brand img { height: 28px; width: auto; }
   .back { font-weight: 600; font-size: 15px; color: var(--purple); text-decoration: none; }
   .back:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
-  @media (max-width: 760px) { .top { padding: 20px 16px; } .brand { font-size: 20px; } }
+  @media (max-width: 760px) { .top { padding: 20px 16px; } .brand img { height: 22px; } }
   form { width: 100%; max-width: 380px; background: #fff; border-radius: 14px; padding: 32px 28px;
          box-shadow: 0 8px 30px rgba(0,0,0,.08); }
   .eyebrow { font: 600 13px/1 "Space Grotesk", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); }
@@ -56,7 +57,7 @@
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="/">&gt;&gt; Fresh Strategy</a>
+  <a class="brand" href="/"><img src="/brand/fresh-strategy-logo-charcoal.png" alt="Fresh Strategy" width="221" height="30"></a>
   <a class="back" href="/">&larr; All talks</a>
 </header>
 <form id="f">

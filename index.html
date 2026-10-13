@@ -28,7 +28,8 @@ body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 Raleway,syste
 a{color:inherit}
 .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
 header{display:flex;justify-content:space-between;align-items:center;padding:28px 0}
-.brand{font:500 26px 'Space Grotesk',sans-serif;color:#111;text-decoration:none;letter-spacing:-.5px}
+.brand{display:block;line-height:0}
+.brand img{height:30px;width:auto}
 .back{font-weight:600;font-size:15px;text-decoration:none;color:var(--ink)}
 .back:hover{text-decoration:underline}
 h1{margin:64px 0 72px;text-align:center;font:500 clamp(48px,6.2vw,88px)/1.03 'Space Grotesk',sans-serif;letter-spacing:-.05em;color:#484955}
@@ -45,13 +46,13 @@ h1{margin:64px 0 72px;text-align:center;font:500 clamp(48px,6.2vw,88px)/1.03 'Sp
 .lock{margin-left:10px;font-weight:500;font-size:13px;color:var(--muted)}
 footer{margin:80px 0 40px;padding-top:24px;border-top:1px solid rgba(47,21,65,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:15px}
 footer a{font-weight:600;color:var(--ink)}
-@media (max-width:760px){.wrap{padding:0 16px}.grid{grid-template-columns:1fr;gap:28px}h1{margin:32px 0 40px}}
+@media (max-width:760px){.wrap{padding:0 16px}.grid{grid-template-columns:1fr;gap:28px}h1{margin:32px 0 40px}.brand img{height:22px}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://www.freshstrategy.ai/">&gt;&gt; Fresh Strategy</a>
+    <a class="brand" href="https://www.freshstrategy.ai/"><img src="/brand/fresh-strategy-logo-charcoal.png" alt="Fresh Strategy" width="221" height="30"></a>
     <a class="back" href="https://www.freshstrategy.ai/resources">&larr; All resources</a>
   </header>
 
