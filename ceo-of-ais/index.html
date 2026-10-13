@@ -4,24 +4,50 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>CEO of AIs</title>
+<title>CEO of AIs | Fresh Strategy Talks</title>
+<meta name="description" content="Slides and speaker notes from the guest lecture at the University of Bern CAS, 17.10.2026.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fresh Strategy">
+<meta property="og:url" content="https://talks.freshstrategy.ai/ceo-of-ais/">
+<meta property="og:title" content="CEO of AIs">
+<meta property="og:description" content="Slides and speaker notes from the guest lecture at the University of Bern CAS, 17.10.2026.">
+<meta property="og:image" content="https://talks.freshstrategy.ai/home/ceo-of-ais.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root { --mint: #88DBBD; --purple: #2F1541; --charcoal: #484A56; --paper: #F2F0EE; }
   * { box-sizing: border-box; }
   body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--paper);
-         color: var(--charcoal); font: 16px/1.5 Raleway, system-ui, -apple-system, sans-serif; padding: 16px; }
+         color: var(--charcoal); font: 16px/1.5 Raleway, system-ui, -apple-system, sans-serif; padding: 88px 16px 32px; }
+  .top { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center;
+         max-width: 1200px; margin: 0 auto; padding: 28px 32px; }
+  .brand { font: 500 24px 'Space Grotesk', sans-serif; color: #111; text-decoration: none; letter-spacing: -.5px; }
+  .back { font-weight: 600; font-size: 15px; color: var(--purple); text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
+  @media (max-width: 760px) { .top { padding: 20px 16px; } .brand { font-size: 20px; } }
   form { width: 100%; max-width: 380px; background: #fff; border-radius: 14px; padding: 32px 28px;
          box-shadow: 0 8px 30px rgba(0,0,0,.08); }
-  .eyebrow { font: 600 12px/1 "Space Grotesk", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); }
-  h1 { font: 600 26px/1.2 "Space Grotesk", system-ui, sans-serif; margin: 10px 0 22px; }
-  label { display: block; font-size: 14px; margin-bottom: 6px; }
+  .eyebrow { font: 600 13px/1 "Space Grotesk", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); }
+  h1 { font: 600 26px/1.2 "Space Grotesk", system-ui, sans-serif; margin: 10px 0 8px; }
+  .sub { margin: 0 0 22px; font-size: 15px; line-height: 1.5; }
+  .sub:empty { display: none; }
+  h1 + .sub:empty + label { margin-top: 22px; }
+  label { display: block; font-size: 15px; margin-bottom: 6px; }
   input { width: 100%; font: inherit; padding: 11px 12px; border: 1.5px solid #ccc; border-radius: 8px; }
   input:focus { outline: none; border-color: var(--purple); }
   button { margin-top: 16px; width: 100%; font: 600 15px "Space Grotesk", system-ui, sans-serif; padding: 12px;
            border: 0; border-radius: 8px; background: var(--purple); color: #fff; cursor: pointer; }
   button:disabled { opacity: .6; cursor: wait; }
-  .msg { min-height: 22px; margin: 12px 0 0; font-size: 14px; color: #B3261E; }
-  .ask { margin: 22px 0 0; padding-top: 20px; border-top: 1px solid #eee; font-size: 14px; }
+  .msg { min-height: 22px; margin: 12px 0 0; font-size: 15px; color: #B3261E; }
+  .ask { margin: 22px 0 0; padding-top: 20px; border-top: 1px solid #eee; font-size: 15px; }
   .ask p { margin: 0 0 12px; }
   .ask a { display: block; text-align: center; font: 600 15px "Space Grotesk", system-ui, sans-serif; padding: 11px;
            border: 1.5px solid var(--purple); border-radius: 8px; color: var(--purple); text-decoration: none; }
@@ -29,16 +55,21 @@
 </style>
 </head>
 <body>
+<header class="top">
+  <a class="brand" href="/">&gt;&gt; Fresh Strategy</a>
+  <a class="back" href="/">&larr; All talks</a>
+</header>
 <form id="f">
   <div class="eyebrow">Fresh Strategy · Talks</div>
   <h1>CEO of AIs</h1>
+  <p class="sub"><!--sub-->Slides and speaker notes from the guest lecture at the University of Bern CAS, 17.10.2026.<!--/sub--></p>
   <label for="pw">Password</label>
   <input id="pw" type="password" autocomplete="current-password" autofocus required>
   <button id="go" type="submit">Open the deck</button>
   <p class="msg" id="msg"></p>
   <div class="ask">
     <p>No password yet? Ask us and we'll send it to you.</p>
-    <a href="mailto:stephanie@freshstrategy.ai?subject=Password%20for%20CEO%20of%20AIs">Request the password</a>
+    <a href="mailto:stephanie@freshstrategy.ai?subject=Password%20for%20CEO%20of%20AIs&amp;body=Hello%20St%C3%A9phanie%2C%0A%0APlease%20send%20me%20the%20password%20for%20CEO%20of%20AIs.%0A%0AName%3A%0AOrganisation%3A%0AWhere%20I%20saw%20the%20talk%3A%0A">Request the password</a>
   </div>
 </form>
 <script>
