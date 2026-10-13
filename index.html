@@ -3,11 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fresh Strategy Talks</title>
-<meta http-equiv="refresh" content="0; url=https://www.freshstrategy.ai/">
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#F2F0EE;color:#484A56;font:16px/1.5 Raleway,system-ui,sans-serif;padding:16px}a{color:#2F1541}</style>
+<title>Talks | Fresh Strategy</title>
+<meta name="description" content="Talks by Stéphanie Kioutsoukis and Fresh Strategy on putting AI to work in organisations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F0EE;--ink:#2F1541;--text:#484A56;--muted:#6B6478;--mint:#88DBBD;--green:#1F9E78}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 Raleway,system-ui,sans-serif}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+header{display:flex;justify-content:space-between;align-items:center;padding:28px 0}
+.brand{font:500 26px 'Space Grotesk',sans-serif;color:#111;text-decoration:none;letter-spacing:-.5px}
+.back{font-weight:600;font-size:15px;text-decoration:none;color:var(--ink)}
+.back:hover{text-decoration:underline}
+h1{margin:64px 0 72px;text-align:center;font:500 clamp(48px,6.2vw,88px)/1.03 'Space Grotesk',sans-serif;letter-spacing:-.05em;color:#484955}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.talk{display:block;text-decoration:none;background:#fff;border-radius:14px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(47,21,65,.08),0 18px 40px rgba(47,21,65,.10);transition:transform .2s,box-shadow .2s}
+.talk:hover{transform:translateY(-4px);box-shadow:0 0 0 1px rgba(47,21,65,.12),0 26px 50px rgba(47,21,65,.16)}
+.talk img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.body{padding:22px 26px 26px}
+.meta{margin:0 0 8px;font-weight:600;font-size:13px;letter-spacing:.6px;text-transform:uppercase;color:var(--green)}
+.talk h2{margin:0 0 8px;font:700 28px/1.1 'Space Grotesk',sans-serif;letter-spacing:-.5px;color:var(--ink)}
+.talk p.sub{margin:0 0 18px}
+.cta{font-weight:700;font-size:15px;color:var(--ink);border-bottom:3px solid var(--mint);padding-bottom:2px}
+.lock{margin-left:10px;font-weight:500;font-size:13px;color:var(--muted)}
+footer{margin:80px 0 40px;padding-top:24px;border-top:1px solid rgba(47,21,65,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:15px}
+footer a{font-weight:600;color:var(--ink)}
+@media (max-width:760px){.wrap{padding:0 16px}.grid{grid-template-columns:1fr;gap:28px}h1{margin:32px 0 40px}}
+</style>
 </head>
 <body>
-<p>Fresh Strategy talks. Continue to <a href="https://www.freshstrategy.ai/">freshstrategy.ai</a>.</p>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://www.freshstrategy.ai/">&gt;&gt; Fresh Strategy</a>
+    <a class="back" href="https://www.freshstrategy.ai/resources">&larr; All resources</a>
+  </header>
+
+  <h1>Talks</h1>
+
+  <main class="grid">
+    <a class="talk" href="/ai-update-2026/" aria-label="AI Update 2026: what changed in a year, and how to get started">
+      <img src="home/ai-update-2026.jpg" alt="Title slide: AI Update 2026, what changed in a year, and how to get started">
+    </a>
+    <a class="talk" href="/ceo-of-ais/" aria-label="CEO of AIs: leading when AI becomes part of the workforce (password protected)">
+      <img src="home/ceo-of-ais.jpg" alt="Title slide: CEO of AIs, leading when AI becomes part of the workforce">
+    </a>
+  </main>
+
+  <footer>
+    <span>Want a talk for your team or event?</span>
+    <a href="https://www.freshstrategy.ai/contact">Get in touch &rarr;</a>
+  </footer>
+</div>
 </body>
 </html>

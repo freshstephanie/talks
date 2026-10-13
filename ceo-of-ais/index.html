@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>CEO of AIs · Review</title>
+<title>CEO of AIs</title>
 <style>
   :root { --mint: #88DBBD; --purple: #2F1541; --charcoal: #484A56; --paper: #F2F0EE; }
   * { box-sizing: border-box; }
@@ -21,6 +21,11 @@
            border: 0; border-radius: 8px; background: var(--purple); color: #fff; cursor: pointer; }
   button:disabled { opacity: .6; cursor: wait; }
   .msg { min-height: 22px; margin: 12px 0 0; font-size: 14px; color: #B3261E; }
+  .ask { margin: 22px 0 0; padding-top: 20px; border-top: 1px solid #eee; font-size: 14px; }
+  .ask p { margin: 0 0 12px; }
+  .ask a { display: block; text-align: center; font: 600 15px "Space Grotesk", system-ui, sans-serif; padding: 11px;
+           border: 1.5px solid var(--purple); border-radius: 8px; color: var(--purple); text-decoration: none; }
+  .ask a:hover { background: var(--paper); }
 </style>
 </head>
 <body>
@@ -31,6 +36,10 @@
   <input id="pw" type="password" autocomplete="current-password" autofocus required>
   <button id="go" type="submit">Open the deck</button>
   <p class="msg" id="msg"></p>
+  <div class="ask">
+    <p>No password yet? Ask us and we'll send it to you.</p>
+    <a href="mailto:stephanie@freshstrategy.ai?subject=Password%20for%20CEO%20of%20AIs">Request the password</a>
+  </div>
 </form>
 <script>
 const SALT = Uint8Array.from(atob('T2rMSpPWfijiL1bpFaqBcA=='), c => c.charCodeAt(0));
