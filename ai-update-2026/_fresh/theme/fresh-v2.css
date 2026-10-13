@@ -461,16 +461,25 @@ body.hide-ph .ph-dev { display: none; }
 .chev-list li::before { content: ''; position: absolute; left: 0; top: .17em; width: .74em; height: .62em;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 54'%3E%3Cpath fill='%2346FFC5' d='M0 0 35 27 10 27Z M28 0 63 27 38 27Z'/%3E%3Cpath fill='%2300AE8D' d='M10 27 35 27 0 54Z M38 27 63 27 28 54Z'/%3E%3C/svg%3E") no-repeat 0 50% / contain; }
 
-/* 28 STAY IN TOUCH (CEO of AIs close, 12.10.2026): headline, four QR codes in one centred row, name + email below.
-   Codes come from tools/make_qr_set.py (dated + tagged per talk, see library/qr/QR_REGISTER.csv).
+/* 28 STAY IN TOUCH (her ruling 13.10.2026, all decks): headline, TWO QR codes (Connect = her LinkedIn, Resources =
+   freshstrategy.ai/resources, tagged) next to the four /resources tiles as clickable links (same order as the live page:
+   Newsletter, Talks, Downloads, Blog), name + email below. Codes: tools/make_qr_set.py (library/qr/QR_REGISTER.csv).
+   Tiles: library/resources-tiles/ (copies of the live Squarespace tiles), copied into the talk's assets/resources/.
    <section data-type="stay" data-tone="paper"><div class="stay-inner"><h2 class="statement-title">Stay in touch.</h2>
-   <div class="qr-row"><figure><img src="assets/qr/qr-connect_<slug>_<date>.svg"><figcaption>Connect</figcaption></figure>..</div>
+   <div class="stay-row"><div class="qr-row"><figure><a href=".."><img src="assets/qr/qr-connect_<slug>_<date>.svg"></a>
+   <figcaption>Connect</figcaption></figure>..</div><div class="stay-tiles"><a href=".."><img src="assets/resources/.."></a>..</div></div>
    <p class="stay-contact">..</p></div></section> */
 [data-type="stay"] .stay-inner { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 50%; transform: translateY(-50%); text-align: center; }
-.qr-row { display: grid; grid-template-columns: repeat(4, 270px); gap: 0 64px; justify-content: center; margin-top: 56px; }
+[data-type="stay"] .statement-title { font-size: 88px; }
+.stay-row { display: flex; align-items: center; justify-content: center; gap: 64px; margin-top: 56px; }
+.qr-row { display: grid; grid-template-columns: repeat(2, 230px); gap: 0 40px; }
 .qr-row figure { margin: 0; }
-.qr-row img { display: block; width: 270px; height: 270px; padding: 20px; box-sizing: border-box; background: #fff; box-shadow: 0 0 0 3px var(--mint); }
+.qr-row a { display: block; }
+.qr-row img { display: block; width: 230px; height: 230px; padding: 16px; box-sizing: border-box; background: #fff; box-shadow: 0 0 0 3px var(--mint); }
 .qr-row figcaption { margin-top: 16px; font: 700 30px/1.1 var(--head-font); letter-spacing: -.01em; color: var(--charcoal); }
+.stay-tiles { display: grid; grid-template-columns: repeat(2, 352px); gap: 24px; }
+.stay-tiles a { display: block; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); transition: transform .2s, box-shadow .2s; }
+.stay-tiles a:hover, .stay-tiles a:focus-visible { transform: translateY(-4px); box-shadow: 0 0 0 3px var(--mint), var(--shadow-card); outline: none; }
+.stay-tiles img { display: block; width: 352px; height: 198px; object-fit: cover; }
 .stay-contact { margin: 52px 0 0; font: 500 26px/1.5 var(--body-font); color: var(--ink); }
 .stay-contact b { font-family: var(--head-font); font-weight: 500; color: var(--head); }
-[data-type="stay"] .statement-title { font-size: 88px; }
