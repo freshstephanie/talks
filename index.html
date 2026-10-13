@@ -44,9 +44,14 @@ h1{margin:64px 0 72px;text-align:center;font:500 clamp(48px,6.2vw,88px)/1.03 'Sp
 .talk p.sub{margin:0 0 18px}
 .cta{font-weight:700;font-size:15px;color:var(--ink);border-bottom:3px solid var(--mint);padding-bottom:2px}
 .lock{margin-left:10px;font-weight:500;font-size:13px;color:var(--muted)}
-footer{margin:80px 0 40px;padding-top:24px;border-top:1px solid rgba(47,21,65,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:15px}
-footer a{font-weight:600;color:var(--ink)}
-@media (max-width:760px){.wrap{padding:0 16px}.grid{grid-template-columns:1fr;gap:28px}h1{margin:32px 0 40px}.brand img{height:22px}}
+/* booking band: same line + button as the freshstrategy.ai home page */
+.book{margin:88px 0 64px;padding:56px 32px;background:#fff;text-align:center}
+.book p{margin:0 0 24px;font:500 clamp(22px,2.4vw,28px)/1.3 'Space Grotesk',sans-serif;color:#484955}
+.book a{display:inline-block;background:#484955;color:#fff;border:2px solid #fff;padding:14px 22px;
+  font:500 16px 'Space Grotesk',sans-serif;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.book a:hover,.book a:focus-visible{transform:scale(1.03);box-shadow:0 4px 15px rgba(0,0,0,.15)}
+.book a:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+@media (max-width:760px){.wrap{padding:0 16px}.grid{grid-template-columns:1fr;gap:28px}h1{margin:32px 0 40px}.brand img{height:22px}.book{margin:56px 0 40px;padding:40px 20px}}
 </style>
 </head>
 <body>
@@ -67,10 +72,10 @@ footer a{font-weight:600;color:var(--ink)}
     </a>
   </main>
 
-  <footer>
-    <span>Want a talk for your team or event?</span>
-    <a href="https://www.freshstrategy.ai/contact">Get in touch &rarr;</a>
-  </footer>
+  <section class="book">
+    <p>Want a talk for your team or event?</p>
+    <a href="https://calendar.app.google/24PfpWTwub6F8C5Y8" target="_blank" rel="noopener">Get in touch</a>
+  </section>
 </div>
 </body>
 </html>
