@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="What changed in AI in a year, and how to get started: from answers to action, from personal AI to organisational AI. A talk by Stéphanie Kioutsoukis and Mark Turrell, Fresh Strategy.">
 <title>AI Update 2026 - What changed, and how to get started | Fresh Strategy</title>
 <meta name="ft-home" content="/">
 <link rel="canonical" href="https://talks.freshstrategy.ai/ai-update-2026/">
@@ -13,6 +14,7 @@
 <meta property="og:site_name" content="Fresh Strategy">
 <meta property="og:url" content="https://talks.freshstrategy.ai/ai-update-2026/">
 <meta property="og:title" content="AI Update 2026 - What changed, and how to get started | Fresh Strategy">
+<meta property="og:description" content="What changed in AI in a year, and how to get started: from answers to action, from personal AI to organisational AI. A talk by Stéphanie Kioutsoukis and Mark Turrell, Fresh Strategy.">
 <meta property="og:image" content="https://talks.freshstrategy.ai/home/ai-update-2026.jpg">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="720">
@@ -226,8 +228,14 @@
 .four h3 { font: 500 30px/1.2 var(--head-font); color: var(--head); }
 .four p { margin-top: 14px; font-size: 24px; line-height: 1.4; }
 
-/* 25 STAY IN TOUCH: three codes (no "This talk": viewers are already on it, and www.freshstrategy.ai/talks/ai-update-2026 is not mapped) */
-[data-type="stay"] .qr-row { grid-template-columns: repeat(3, 270px); }
+/* 25 STAY IN TOUCH (her ruling 13.10): ONE code to freshstrategy.ai/resources + the four /resources tiles as links,
+   same order as the live page (Newsletter, Talks, Downloads, Blog). Tile images = live Squarespace copies, assets/resources/. */
+[data-type="stay"] .stay-row { display: flex; align-items: center; justify-content: center; gap: 72px; margin-top: 56px; }
+[data-type="stay"] .qr-row { display: block; margin: 0; }
+.stay-tiles { display: grid; grid-template-columns: repeat(2, 384px); gap: 24px; }
+.stay-tiles a { display: block; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); transition: transform .2s, box-shadow .2s; }
+.stay-tiles a:hover, .stay-tiles a:focus-visible { transform: translateY(-4px); box-shadow: 0 0 0 3px var(--mint), var(--shadow-card); outline: none; }
+.stay-tiles img { display: block; width: 384px; height: 216px; object-fit: cover; }
 
 /* the Fresh logo double chevron as connector / arrow (same shape as .chev-list), never a typed ">" or ">>" */
 .chev { display: inline-block; width: .74em; height: .62em; vertical-align: -.02em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 54'%3E%3Cpath fill='%2346FFC5' d='M0 0 35 27 10 27Z M28 0 63 27 38 27Z'/%3E%3Cpath fill='%2300AE8D' d='M10 27 35 27 0 54Z M38 27 63 27 28 54Z'/%3E%3C/svg%3E") no-repeat 50% 50% / contain; }
@@ -298,7 +306,7 @@
 <section class="slide" data-type="statement" data-tone="dark" data-id="do-the-work" data-title="AI can now do the work">
   <div class="statement">
     <p class="eyebrow" style="margin-bottom:40px">What changed in a year</p>
-    <h2 class="t-xl" data-anim="rise">AI can now<br><span class="em">do the work.</span></h2>
+    <h2 class="statement-title" data-anim="rise">AI can now<br><span class="em-strong">do the work.</span></h2>
     <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">Last year: something we asked.<br><b style="color:#fff;font-weight:600">Now: something that researches, builds and acts.</b></p>
   </div>
 </section>
@@ -410,7 +418,7 @@
 <section class="slide" data-type="statement" data-tone="dark" data-id="answers-to-action" data-title="From answers to action">
   <div class="statement">
     <p class="eyebrow" style="margin-bottom:40px">What changed in a year</p>
-    <h2 class="t-xl" data-anim="rise">From answers<br>to <span class="em">action.</span></h2>
+    <h2 class="statement-title" data-anim="rise">From answers<br>to <span class="em-strong">action.</span></h2>
     <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">AI no longer only recommends.<br><b style="color:#fff;font-weight:600">It uses tools, takes steps and keeps working on a schedule.</b></p>
   </div>
 </section>
@@ -452,7 +460,7 @@
 <section class="slide" data-type="statement" data-tone="dark" data-id="personal-to-org" data-title="From personal AI to organisational AI">
   <div class="statement">
     <p class="eyebrow" style="margin-bottom:40px">From Chat <span class="chev"></span> Cowork <span class="chev"></span> Code/x</p>
-    <h2 class="t-xl" data-anim="rise">From personal AI<br>to <span class="em">organisational AI.</span></h2>
+    <h2 class="statement-title" data-anim="rise">From personal AI<br>to <span class="em-strong">organisational AI.</span></h2>
     <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">The question is no longer only: "How do I use AI well?"<br><b style="color:#fff;font-weight:600">It becomes: "How do we want AI to work here?"</b></p>
   </div>
 </section>
@@ -669,14 +677,18 @@
   </div>
 </section>
 
-<!-- 25 STAY IN TOUCH (v2 template). Codes: tools/make_qr_set.py ai-update-2026 --date 2026-10-13, logged in library/qr/QR_REGISTER.csv -->
+<!-- 25 STAY IN TOUCH (v2 template, her ruling 13.10: one Resources code + the /resources tiles as links). Code: library/qr/QR_REGISTER.csv -->
 <section class="slide" data-id="stay" data-type="stay" data-tone="paper" data-title="Stay in touch">
   <div class="stay-inner">
     <h2 class="statement-title" data-anim="rise">Stay in touch.</h2>
-    <div class="qr-row">
-      <figure data-anim="rise" style="--d:.3s"><img src="assets/qr/qr-connect_ai-update-2026_2026-10-13.svg" alt="QR code: Stéphanie on LinkedIn"><figcaption>Connect</figcaption></figure>
-      <figure data-anim="rise" style="--d:.45s"><img src="assets/qr/qr-resources_ai-update-2026_2026-10-13.svg" alt="QR code: freshstrategy.ai/resources"><figcaption>Resources</figcaption></figure>
-      <figure data-anim="rise" style="--d:.6s"><img src="assets/qr/qr-newsletter_ai-update-2026_2026-10-13.svg" alt="QR code: newsletter AI First: From Hype to Value"><figcaption>Newsletter</figcaption></figure>
+    <div class="stay-row">
+      <div class="qr-row"><figure data-anim="rise" style="--d:.3s"><a href="https://www.freshstrategy.ai/resources?utm_source=talk&amp;utm_medium=qr&amp;utm_campaign=ai-update-2026_2026-10-13&amp;utm_content=resources" target="_blank" rel="noopener"><img src="assets/qr/qr-resources_ai-update-2026_2026-10-13.svg" alt="QR code: freshstrategy.ai/resources"></a><figcaption>Resources</figcaption></figure></div>
+      <div class="stay-tiles">
+        <a href="https://www.linkedin.com/newsletters/ai-first-from-hype-to-value-7432060713290035200" target="_blank" rel="noopener" data-anim="rise" style="--d:0.45s"><img src="assets/resources/resources-tile-newsletter-A-phone-v6.jpg" alt="Newsletter: AI First, From Hype to Value"></a>
+        <a href="https://talks.freshstrategy.ai/" target="_blank" rel="noopener" data-anim="rise" style="--d:0.57s"><img src="assets/resources/resources-tile-talks-v3.jpg" alt="Talks"></a>
+        <a href="https://www.freshstrategy.ai/downloads" target="_blank" rel="noopener" data-anim="rise" style="--d:0.69s"><img src="assets/resources/resources-tile-downloads-v4.jpg" alt="Downloads"></a>
+        <a href="https://www.freshstrategy.ai/blog" target="_blank" rel="noopener" data-anim="rise" style="--d:0.81s"><img src="assets/resources/resources-tile-blog-v4.jpg" alt="Blog"></a>
+      </div>
     </div>
     <p class="stay-contact" data-anim="fade" style="--d:1s"><b>Stéphanie Kioutsoukis</b> · stephanie@freshstrategy.ai</p>
   </div>
