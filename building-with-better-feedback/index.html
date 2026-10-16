@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Building with better feedback: how AI-augmented expert panels and user feedback help startups validate faster. Masterclass by Stéphanie Kioutsoukis at the AI for Good Innovation Factory 2026.">
+<title>Building with better feedback | Fresh Strategy</title>
+<meta name="ft-home" content="/">
+<link rel="canonical" href="https://talks.freshstrategy.ai/building-with-better-feedback/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fresh Strategy">
+<meta property="og:url" content="https://talks.freshstrategy.ai/building-with-better-feedback/">
+<meta property="og:title" content="Building with better feedback | Fresh Strategy">
+<meta property="og:description" content="Building with better feedback: how AI-augmented expert panels and user feedback help startups validate faster. Masterclass by Stéphanie Kioutsoukis at the AI for Good Innovation Factory 2026.">
+<link rel="stylesheet" href="_fresh/engine/talks.css">
+<!-- Design system v2. Converted 16.10.2026 from the Google Slides deck "AI 4 Good Innovation Factory July 2026"
+     (1sJk9qyB-nQklnZtIbsC80aOIGjS8PuJ4aRzyZyhgZJE), 29 slides, copy kept as in the deck.
+     The deck's arrows become the logo chevron (.chev), never typed arrow characters. Diagrams rebuilt as SVG/HTML;
+     slides 5, 6 and 22 use the deck's own images (assets/img/). -->
+<link rel="stylesheet" href="_fresh/theme/fresh-v2.css">
+<!-- talk-specific CSS goes here, never into theme/ or engine/ -->
+<style>
+/* shared content-slide frame (same as AI Update 2026) */
+.ttl { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 72px; }
+.ttl .eyebrow { margin-bottom: 14px; }
+.ttl .t-m { font-weight: 700; text-transform: uppercase; letter-spacing: -.03em; }
+.body { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 210px; }
+.kick { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 72px; font: 500 30px/1.35 var(--head-font); color: var(--head); letter-spacing: -.01em; }
+
+/* the Fresh logo double chevron as connector / arrow, never a typed ">" or ">>" */
+.chev { display: inline-block; width: .74em; height: .62em; vertical-align: -.02em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 54'%3E%3Cpath fill='%2346FFC5' d='M0 0 35 27 10 27Z M28 0 63 27 38 27Z'/%3E%3Cpath fill='%2300AE8D' d='M10 27 35 27 0 54Z M38 27 63 27 28 54Z'/%3E%3C/svg%3E") no-repeat 50% 50% / contain; }
+
+/* generic table */
+.tbl { width: 100%; border-collapse: collapse; font-size: 25px; line-height: 1.35; color: var(--ink); }
+.tbl th, .tbl td { text-align: left; vertical-align: top; padding: 16px 28px 16px 0; border-bottom: 1px solid var(--line); }
+.tbl th { font: 500 19px/1.3 var(--head-font); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-bottom: 12px; }
+.tbl td:first-child { font-family: var(--head-font); color: var(--head); }
+.tbl tr:last-child td { border-bottom: 0; }
+.tbl.is-small { font-size: 19px; line-height: 1.3; }
+.tbl.is-small td { padding: 10px 22px 10px 0; }
+
+/* 02 why startups fail */
+.fb-bars { position: absolute; left: var(--pad-x); top: 200px; width: 760px; }
+.fb-bars .fb-cap { font: 500 24px/1.2 var(--head-font); color: var(--head); }
+.fb-bars .fb-sub { margin: 6px 0 22px; font-size: 18px; color: var(--muted); }
+.fb-bar { display: grid; grid-template-columns: 300px 1fr; align-items: center; gap: 20px; height: 54px; border-bottom: 1px solid var(--line); }
+.fb-bar span { font-size: 21px; line-height: 1.2; color: var(--ink); }
+.fb-bar i { display: block; height: 26px; width: calc(var(--v) * 1%); min-width: 4px; background: var(--charcoal); position: relative; }
+.fb-bar i.k { background: var(--mint); }
+.fb-bar i::after { content: attr(data-v); position: absolute; left: calc(100% + 12px); top: 50%; transform: translateY(-50%); font: 500 19px/1 var(--head-font); color: var(--head); font-style: normal; }
+.fail-fact { position: absolute; left: 980px; right: 100px; top: 380px; font: 500 46px/1.2 var(--head-font); color: var(--head); letter-spacing: -.02em; }
+.fail-fact small { display: block; margin-top: 22px; font: 500 22px/1.3 var(--body-font); color: var(--muted); letter-spacing: 0; }
+
+/* 03 venn + questions */
+.venn3 { position: absolute; left: 90px; top: 170px; width: 820px; height: 690px; }
+.venn3 text { font-family: var(--head-font); fill: var(--charcoal); }
+.qcol { position: absolute; left: 980px; right: 90px; top: 380px; }
+.qcol li { font: 500 38px/1.25 var(--head-font); color: var(--head); letter-spacing: -.01em; }
+.qcol li + li { margin-top: 26px; }
+
+/* 04 validation trap */
+.trap { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 210px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+.trap h3 { font: 700 30px/1.2 var(--head-font); color: var(--head); text-transform: uppercase; letter-spacing: -.01em; padding: 0 0 16px; border-bottom: 6px solid var(--charcoal); margin-bottom: 8px; }
+.trap .r h3 { border-bottom-color: var(--mint); }
+.trap li { list-style: none; font-size: 27px; line-height: 1.2; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--ink); }
+.trap ul { padding: 0; }
+.seesaw { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 680px; height: 170px; }
+
+/* 05/06 images */
+.pic { position: absolute; background: #fff; box-shadow: var(--shadow); padding: 18px; }
+.pic img { display: block; width: 100%; height: auto; }
+.credit { position: absolute; right: var(--pad-x); bottom: 40px; font: 500 17px/1.3 var(--body-font); color: var(--muted); }
+
+/* 06 bottleneck */
+.bn { position: absolute; left: var(--pad-x); top: 210px; width: 640px; }
+.bn h3 { font: 700 24px/1.2 var(--head-font); letter-spacing: .08em; text-transform: uppercase; color: var(--head); margin-bottom: 12px; }
+.bn p { font-size: 28px; line-height: 1.4; }
+.bn ul { list-style: none; padding: 0; }
+.bn li { font-size: 28px; line-height: 1.5; color: var(--ink); }
+.bn .blk + .blk { margin-top: 34px; }
+.bn .risk { font: 500 30px/1.35 var(--head-font); color: var(--head); }
+
+/* 07 iterate */
+.iter { position: absolute; left: 60px; right: 60px; top: 170px; height: 680px; }
+.iter text { font-family: var(--head-font); font-weight: 700; fill: var(--charcoal); }
+
+/* 08 synthetic personas */
+.sp { position: absolute; left: var(--pad-x); right: 220px; top: 250px; }
+.sp p { font-size: 36px; line-height: 1.4; color: var(--ink); }
+.sp p + p { margin-top: 30px; }
+.sp p:first-child { font: 500 46px/1.25 var(--head-font); color: var(--head); letter-spacing: -.015em; }
+.sp-ring { position: absolute; right: 112px; top: 90px; }
+
+/* 09 persona types */
+.types { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.type { padding: 30px 36px; background: #fff; border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.type h3 { font: 700 30px/1.1 var(--head-font); text-transform: uppercase; color: var(--head); }
+.type .lede { margin-top: 8px; font: 500 24px/1.3 var(--head-font); color: var(--head); }
+.type dl { margin: 18px 0 0; display: grid; grid-template-columns: 130px 1fr; gap: 10px 18px; font-size: 23px; line-height: 1.35; }
+.type dt { font: 500 16px/1.6 var(--head-font); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.type dd { margin: 0; color: var(--ink); }
+.ground { margin-top: 40px; }
+.ground .eyebrow { margin-bottom: 14px; }
+.ground ol { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.ground li { border-top: 6px solid var(--line); padding-top: 14px; font-size: 23px; line-height: 1.35; color: var(--ink); }
+.ground li:nth-child(3) { border-top-color: var(--mint); }
+.ground li b { display: block; font: 500 24px/1.2 var(--head-font); color: var(--head); margin-bottom: 6px; }
+
+/* 10 workflow fit */
+.fit3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; }
+.fit3 > div { border-top: 8px solid var(--mint); padding-top: 24px; }
+.fit3 h3 { font: 500 32px/1.15 var(--head-font); color: var(--head); letter-spacing: -.01em; min-height: 74px; }
+.fit3 p { margin-top: 16px; font-size: 23px; line-height: 1.42; color: var(--ink); }
+.fit3 p b { font-family: var(--head-font); font-weight: 500; color: var(--head); }
+.disclaimer { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 64px; padding: 24px 32px; background: var(--dark); color: rgba(255,255,255,.86); font-size: 22px; line-height: 1.45; }
+.disclaimer b { font-family: var(--head-font); color: var(--mint); letter-spacing: .08em; margin-right: 8px; }
+
+/* 12 hypotheses */
+.hyp-head { display: grid; grid-template-columns: 1fr 64px 1fr 64px 1fr; align-items: center; margin-bottom: 8px; }
+.hyp-head > span { font: 700 22px/1.2 var(--head-font); letter-spacing: .08em; color: var(--head); padding: 16px 0; border-top: 6px solid var(--line); }
+.hyp-head > span:last-child { border-top-color: var(--mint); }
+.hyp-head i { text-align: center; font-size: 30px; }
+.hyp td { width: 33.3%; }
+.hyp td:first-child { font-family: var(--body-font); font-style: italic; color: var(--muted); }
+.hyp td:last-child { color: var(--head); font-family: var(--head-font); }
+
+/* 13 reliability ring */
+.rel { position: absolute; inset: 0; }
+.lvl { position: absolute; width: 440px; font-size: 22px; line-height: 1.4; color: var(--ink); }
+.lvl h3 { font: 700 30px/1.1 var(--head-font); color: var(--head); text-transform: uppercase; margin-bottom: 6px; letter-spacing: -.01em; }
+.lvl.r { text-align: right; }
+.lvl.c { text-align: center; width: 640px; }
+.lvl.is-key h3 { color: var(--head); background: linear-gradient(var(--mint), var(--mint)) 0 88% / 100% .22em no-repeat; display: inline; }
+
+/* 14 expert panel */
+.panel5 { display: grid; gap: 0; }
+.panel5 > div { display: grid; grid-template-columns: 70px 560px 1fr; align-items: baseline; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.panel5 > div:last-child { border-bottom: 0; }
+.panel5 .n { font: 700 36px/1 var(--head-font); color: var(--mint); }
+.panel5 h3 { font: 500 34px/1.2 var(--head-font); color: var(--head); letter-spacing: -.015em; }
+.panel5 p { font-size: 23px; line-height: 1.4; color: var(--muted); }
+
+/* 15 buying centre */
+.bc { position: absolute; left: 330px; top: 160px; width: 940px; height: 720px; }
+.bc text { font-family: var(--head-font); }
+
+/* 16 magic formula */
+.mf { position: absolute; left: 560px; top: 190px; width: 520px; height: 520px; }
+.mf text { font-family: var(--head-font); font-weight: 700; }
+.mfl { position: absolute; width: 420px; }
+.mfl h3 { font: 500 26px/1.25 var(--head-font); color: var(--head); margin-bottom: 10px; }
+.mfl li { font-size: 21px; line-height: 1.45; color: var(--ink); }
+.mfl .chev-list li + li { margin-top: 0; }
+
+/* 17 / 18 questions */
+.fr-lead { font: 700 52px/1.1 var(--head-font); color: var(--head); text-transform: uppercase; letter-spacing: -.03em; }
+.qgrid { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+.qgrid li { font: 500 29px/1.3 var(--head-font); color: var(--head); padding: 13px 0 13px 1.25em; border-bottom: 1px solid var(--line); }
+.qgrid.chev-list li + li { margin-top: 0; }
+.qgrid.chev-list li::before { top: .62em; }
+.dodont { margin-top: 56px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; }
+.dodont > div { padding: 30px 36px; border-radius: var(--radius-card); background: #fff; box-shadow: var(--shadow-card); }
+.dodont > div.is-do { box-shadow: 0 0 0 3px var(--mint), var(--shadow-card); }
+.dodont h3 { font: 700 24px/1 var(--head-font); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.dodont .is-do h3 { color: var(--head); }
+.dodont p { font: italic 500 27px/1.45 var(--body-font); color: var(--ink); }
+.dodont .is-dont p { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(72,74,86,.35); }
+
+/* 19 break */
+.brk p.intro { font: 500 34px/1.3 var(--head-font); color: var(--head); }
+.brk ul { margin-top: 26px; columns: 2; column-gap: 64px; }
+.brk li { font-size: 31px; line-height: 1.35; break-inside: avoid; }
+.brk .chev-list li + li { margin-top: .5em; }
+
+/* 20 / 21 test card */
+.test { display: grid; grid-template-columns: 520px 1fr; gap: 0 56px; }
+.test > div { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.test > div:nth-last-child(-n+2) { border-bottom: 0; }
+.test .lab { font: 500 38px/1.15 var(--head-font); color: var(--head); letter-spacing: -.015em; }
+.test .lab small { display: block; margin-top: 8px; font: 500 19px/1.3 var(--body-font); color: var(--muted); letter-spacing: 0; }
+.test .val { font-size: 28px; line-height: 1.4; color: var(--ink); align-self: center; }
+.test .val.is-ph { color: var(--muted); font-family: var(--head-font); }
+.test .val.is-key { font-family: var(--head-font); color: var(--head); }
+
+/* 22 riskiest assumption */
+.ram { position: absolute; left: 60px; top: 190px; width: 720px; height: 600px; }
+.ram text { font-family: var(--head-font); fill: var(--charcoal); }
+
+/* 23 validation lab */
+.lab3 { display: grid; grid-template-columns: 1fr 70px 1fr 70px 1fr; align-items: stretch; }
+.lab3 .step { padding: 26px 28px; border-radius: var(--radius-card); background: #fff; box-shadow: var(--shadow-card); font: 700 26px/1.2 var(--head-font); text-transform: uppercase; color: var(--head); display: flex; flex-direction: column; justify-content: center; min-height: 120px; }
+.lab3 .step small { margin-top: 6px; font: 500 21px/1.3 var(--body-font); text-transform: none; color: var(--muted); }
+.lab3 .to { display: flex; align-items: center; justify-content: center; font-size: 40px; }
+.lab3 .det { margin-top: 36px; }
+.lab3 .det .eyebrow { margin-bottom: 14px; color: var(--head); }
+.lab3 .det li { font-size: 25px; line-height: 1.3; }
+.lab3 .det .chev-list li + li { margin-top: .4em; }
+
+/* 24 fresh model matrix */
+.mx th:not(:first-child), .mx td:not(:first-child) { text-align: center; width: 15%; padding-right: 0; }
+.mx td { font-size: 25px; }
+.mx td.y::before { content: ''; display: inline-block; width: 26px; height: 14px; border-left: 5px solid var(--mint); border-bottom: 5px solid var(--mint); transform: rotate(-45deg) translate(2px,-4px); }
+.mx td.n { color: var(--muted); font: 500 28px/1 var(--head-font); }
+.mx td.l { font: 500 21px/1.35 var(--head-font); color: var(--muted); }
+.mx tr th:last-child, .mx tr td:last-child { background: rgba(136,219,189,.16); }
+
+/* 26 lifecycle */
+.life { display: grid; grid-template-columns: 1fr 60px 1fr 60px 1fr 60px 1fr; align-items: start; }
+.life > div { border-top: 8px solid var(--mint); padding-top: 24px; }
+.life > div:nth-child(1) { border-top-color: rgba(136,219,189,.45); }
+.life .eyebrow { font-size: 21px; }
+.life h3 { margin-top: 10px; white-space: nowrap; font: 700 48px/1 var(--head-font); color: var(--head); text-transform: uppercase; letter-spacing: -.03em; }
+.life .to { text-align: center; font-size: 36px; padding-top: 66px; }
+
+/* 28 takeaways */
+.tk li { font: 700 42px/1.15 var(--head-font); text-transform: uppercase; letter-spacing: -.025em; color: var(--head); }
+.tk.chev-list li + li { margin-top: 34px; }
+.tk.chev-list li::before { top: .24em; }
+</style>
+</head>
+
+<body>
+<main class="deck">
+
+<!-- 01 TITLE PAGE (v2): near-black, real logo. Signature visual top right = the talk's one idea:
+     a panel of synthetic personas (mint, dashed = AI) gives hypotheses, real people (white = humans) give evidence. No labels. -->
+<section class="slide" data-id="title" data-type="hero" data-tone="dark" data-title="Building with better feedback">
+  <img class="logo" src="_fresh/theme/brand/fresh-strategy-logo-white.png" alt="Fresh Strategy">
+  <svg class="hero-visual" viewBox="0 0 700 290" aria-label="A panel of AI personas feeding a test with real people">
+    <g fill="none" stroke="#88DBBD" stroke-width="3.5" stroke-dasharray="7 6">
+      <circle data-anim="fade" style="--d:.3s;--dur:.6s" cx="70" cy="80" r="30"/>
+      <circle data-anim="fade" style="--d:.45s;--dur:.6s" cx="150" cy="80" r="30"/>
+      <circle data-anim="fade" style="--d:.6s;--dur:.6s" cx="230" cy="80" r="30"/>
+      <circle data-anim="fade" style="--d:.75s;--dur:.6s" cx="110" cy="160" r="30"/>
+      <circle data-anim="fade" style="--d:.9s;--dur:.6s" cx="190" cy="160" r="30"/>
+    </g>
+    <g data-anim="fade" style="--d:1.2s;--dur:.6s" transform="translate(318,96) scale(1.1)">
+      <path fill="#46FFC5" d="M0 0 35 27 10 27Z M28 0 63 27 38 27Z"/><path fill="#00AE8D" d="M10 27 35 27 0 54Z M38 27 63 27 28 54Z"/>
+    </g>
+    <g data-anim="fade" style="--d:1.5s;--dur:.8s">
+      <g transform="translate(480,90)"><circle r="40" fill="#fff"/><circle cy="-10" r="10" fill="#1C1A22"/><path d="M-18,18 C-18,6 -10,2 0,2 C10,2 18,6 18,18 Z" fill="#1C1A22"/></g>
+      <g transform="translate(580,90)"><circle r="40" fill="#fff"/><circle cy="-10" r="10" fill="#1C1A22"/><path d="M-18,18 C-18,6 -10,2 0,2 C10,2 18,6 18,18 Z" fill="#1C1A22"/></g>
+      <g transform="translate(530,180)"><circle r="40" fill="#fff"/><circle cy="-10" r="10" fill="#1C1A22"/><path d="M-18,18 C-18,6 -10,2 0,2 C10,2 18,6 18,18 Z" fill="#1C1A22"/></g>
+    </g>
+  </svg>
+  <div class="hero-text" style="width:1360px">
+    <i class="hero-mark" data-anim="fade" style="--d:.1s"></i>
+    <h1 class="hero-title" data-anim="rise" style="font-size:132px">Building with<br>better feedback</h1>
+    <p class="t-m" data-anim="fade" style="--d:.5s;margin-top:32px;font-size:40px;color:rgba(255,255,255,.78)">How AI-augmented expert panels and user feedback help startups validate faster</p>
+    <p class="t-small" data-anim="fade" style="--d:.8s;margin-top:36px;color:rgba(255,255,255,.5)">Stéphanie Kioutsoukis · AI for Good Innovation Factory 2026 · Masterclass · Tue 7 July 2026, 10:15</p>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="why-fail" data-title="Why startups fail">
+  <div class="ttl"><h2 class="t-m">Why startups fail</h2></div>
+  <div class="fb-bars">
+    <p class="fb-cap">Top 9 reasons for startup failure</p>
+    <p class="fb-sub">Based on an analysis of 385 startup failures since 2023 · not mutually exclusive</p>
+    <div class="fb-bar" data-anim="fade" style="--d:.1s"><span>Ran out of capital</span><i style="--v:70" data-v="70%"></i></div>
+    <div class="fb-bar" data-anim="fade" style="--d:.2s"><span>Poor product-market fit</span><i class="k" style="--v:43" data-v="43%"></i></div>
+    <div class="fb-bar" data-anim="fade" style="--d:.3s"><span>Wrong market timing or macro conditions</span><i style="--v:29" data-v="29%"></i></div>
+    <div class="fb-bar" data-anim="fade" style="--d:.4s"><span>Unsustainable unit economics</span><i style="--v:19" data-v="19%"></i></div>
+    <div class="fb-bar" data-anim="fade" style="--d:.5s"><span>Ineffective strategic pivot</span><i style="--v:6" data-v="6%"></i></div>
+    <div class="fb-bar" data-anim="fade" style="--d:.6s"><span>Outcompeted by rivals</span><i style="--v:6" data-v="6%"></i></div>
+    <div class="fb-bar" data-anim="fade" style="--d:.7s"><span>Operational or leadership challenges</span><i style="--v:5" data-v="5%"></i></div>
+    <div class="fb-bar" data-anim="fade" style="--d:.8s"><span>Technical or clinical issues</span><i style="--v:3" data-v="3%"></i></div>
+    <div class="fb-bar" data-anim="fade" style="--d:.9s"><span>Fraud or legal problems</span><i style="--v:3" data-v="3%"></i></div>
+  </div>
+  <p class="fail-fact" data-anim="rise" style="--d:1.2s"><span class="chev"></span> Two-thirds of startups never show a <span class="em" style="--hd:1.8s">positive return.</span><small>Tom Eisenmann, Harvard Business Review, 2021</small></p>
+  <p class="source">Source: <a href="https://www.cbinsights.com/research/report/startup-failure-reasons-top/" target="_blank" rel="noopener"><cite>CB Insights</cite>, Top reasons startups fail</a> (data as of 2/6/2026) · <a href="https://hbr.org/2021/05/why-start-ups-fail" target="_blank" rel="noopener"><cite>HBR</cite>, 2021</a></p>
+</section>
+
+<!-- 03 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="revenue" data-title="Sustainability requires revenue">
+  <div class="ttl"><h2 class="t-m">Sustainability requires revenue</h2></div>
+  <svg class="venn3" viewBox="0 0 820 690" aria-label="Desirability, feasibility and viability: only all three together say yes">
+    <g data-anim="fade" style="--d:.1s">
+      <circle cx="290" cy="250" r="200" fill="rgba(72,74,86,.08)" stroke="#484A56" stroke-width="3"/>
+      <circle cx="530" cy="250" r="200" fill="rgba(72,74,86,.08)" stroke="#484A56" stroke-width="3"/>
+      <circle cx="410" cy="455" r="200" fill="rgba(72,74,86,.08)" stroke="#484A56" stroke-width="3"/>
+    </g>
+    <circle data-anim="fade" style="--d:.9s" cx="410" cy="320" r="52" fill="#88DBBD"/>
+    <g font-size="27" font-weight="700" text-anchor="middle" data-anim="fade" style="--d:.4s">
+      <text x="225" y="210">Desirability</text>
+      <text x="600" y="200">Feasibility /</text><text x="600" y="234">Technology</text>
+      <text x="410" y="560">Viability /</text><text x="410" y="594">Business Model</text>
+    </g>
+    <g font-size="20" font-weight="500" text-anchor="middle" fill="#484A56" data-anim="fade" style="--d:.6s">
+      <text x="410" y="200">No Business</text>
+      <text x="300" y="400">No Solution</text>
+      <text x="520" y="400">No Need</text>
+    </g>
+    <text data-anim="fade" style="--d:1s" x="410" y="330" font-size="28" font-weight="700" text-anchor="middle">YES!</text>
+  </svg>
+  <ul class="qcol chev-list">
+    <li data-anim="fade" style="--d:1.2s">Which problem do we solve for whom?</li>
+    <li data-anim="fade" style="--d:1.4s">How do we earn money?</li>
+    <li data-anim="fade" style="--d:1.6s">How do we solve it?</li>
+  </ul>
+</section>
+
+<!-- 04 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="validation-trap" data-title="Deep tech validation trap">
+  <div class="ttl"><h2 class="t-m">Deep tech validation trap</h2></div>
+  <div class="trap">
+    <div data-anim="fade" style="--d:.1s">
+      <h3>Is this technically feasible?</h3>
+      <ul><li>Clinical/scientific credibility</li><li>Regulatory pathway</li><li>Prototype quality</li><li>Patent / IP</li><li>…</li></ul>
+    </div>
+    <div class="r" data-anim="fade" style="--d:.4s">
+      <h3>Will this be adopted?</h3>
+      <ul><li>User pain</li><li>Clear buyer vs budget owner</li><li>Procurement path</li><li>Adoption behaviour</li><li>…</li></ul>
+    </div>
+  </div>
+  <svg class="seesaw" viewBox="0 0 1376 170" preserveAspectRatio="none" aria-hidden="true" data-anim="fade" style="--d:.8s">
+    <path d="M0,104 L1376,40 L1376,64 L0,128 Z" fill="#484A56"/>
+    <path d="M688,90 L740,168 L636,168 Z" fill="#484A56"/>
+  </svg>
+</section>
+
+<!-- 05 image from the deck (cartoon by Michael Leunig) -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="unknown-unknowns" data-title="We don't know what we don't know">
+  <div class="ttl"><h2 class="t-m">We don't know what we don't know</h2></div>
+  <figure class="pic" data-anim="rise" style="--d:.2s;left:430px;top:200px;width:740px"><img src="assets/img/unknown-unknowns-cartoon.png" alt="Cartoon: a small figure pulls a thread from behind a wall, where a huge tangle of it lies hidden"></figure>
+  <p class="credit">Cartoon: Michael Leunig</p>
+</section>
+
+<!-- 06 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="bottleneck" data-title="The feedback bottleneck">
+  <div class="ttl"><h2 class="t-m">The feedback bottleneck</h2></div>
+  <div class="bn">
+    <div class="blk" data-anim="fade" style="--d:.1s"><h3>Needs feedback from</h3><p>Experts, Users, Buyers, Regulators, Investors</p></div>
+    <div class="blk" data-anim="fade" style="--d:.3s"><h3>But access is limited</h3>
+      <ul><li><span class="chev"></span> Hard to reach</li><li><span class="chev"></span> Slow to schedule</li><li><span class="chev"></span> Expensive</li><li><span class="chev"></span> Biased samples</li><li><span class="chev"></span> Too late</li></ul>
+    </div>
+    <div class="blk" data-anim="fade" style="--d:.6s"><p class="risk">The risk: <span class="em" style="--hd:1.2s">losing time and money</span> while building something nobody needs.</p></div>
+  </div>
+  <figure class="pic" data-anim="rise" style="--d:.3s;left:830px;top:210px;width:680px"><img src="assets/img/feedback-bottleneck-sketch.png" alt="Sketch: a person scratching their head under a cloud saying limited resources, surrounded by an hourglass, a pie chart, coins, a low battery and a light bulb"></figure>
+</section>
+
+<!-- 07 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="iterate" data-title="Iterative work and fast validation">
+  <div class="ttl"><h2 class="t-m">Iterative work and fast validation</h2></div>
+  <svg class="iter" viewBox="0 0 1480 680" aria-label="Focus on creating value, then pivot, go or stop">
+    <g fill="none" stroke="#484A56" stroke-width="5" stroke-linecap="round">
+      <path data-anim="fade" style="--d:.1s" d="M20,380 C300,384 560,386 720,380"/>
+      <path data-anim="fade" style="--d:.5s" d="M720,380 C610,380 560,330 560,260 C560,180 640,130 710,130 C800,130 860,190 860,262 C860,330 800,380 720,380"/>
+      <path data-anim="fade" style="--d:.9s" d="M720,380 C900,370 1040,240 1240,70"/>
+      <path data-anim="fade" style="--d:.9s" d="M720,380 C900,390 1040,520 1240,660"/>
+    </g>
+    <path data-anim="fade" style="--d:.5s" d="M690,112 L732,128 L700,150 Z" fill="#484A56"/>
+    <circle data-anim="fade" style="--d:1.1s" cx="1240" cy="70" r="14" fill="#88DBBD"/>
+    <g font-size="52">
+      <text data-anim="fade" style="--d:.7s" x="710" y="275" text-anchor="middle">Pivot!</text>
+      <text data-anim="fade" style="--d:1.1s" x="1270" y="88">Go!</text>
+      <text data-anim="fade" style="--d:1.1s" x="1260" y="672">Stop!</text>
+      <text data-anim="fade" style="--d:.2s" x="20" y="460" font-size="46">Focus on Creating Value</text>
+    </g>
+  </svg>
+</section>
+
+<!-- 08 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="what-are" data-title="What are synthetic personas?">
+  <div class="ttl"><h2 class="t-m">What are synthetic personas?</h2></div>
+  <svg class="sp-ring" width="150" height="150" viewBox="0 0 150 150" aria-hidden="true" data-anim="fade" style="--d:.2s">
+    <circle cx="75" cy="75" r="62" fill="none" stroke="#88DBBD" stroke-width="5" stroke-dasharray="11 9"/>
+    <circle cx="75" cy="60" r="16" fill="#88DBBD"/><path d="M45,104 C45,84 58,78 75,78 C92,78 105,84 105,104 Z" fill="#88DBBD"/>
+  </svg>
+  <div class="sp">
+    <p data-anim="rise" style="--d:.2s">Synthetic personas are AI-created versions of the people you want feedback from or understand.</p>
+    <p data-anim="fade" style="--d:.6s">They are built to respond like a target user, buyer, or stakeholder might respond, based on the data and context you give them.</p>
+    <p data-anim="fade" style="--d:.9s">They help you quickly explore different reactions, objections, and scenarios <span class="em" style="--hd:1.5s">before doing slower real-world research.</span></p>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="types" data-title="Types of synthetic personas">
+  <div class="ttl"><h2 class="t-m">Types of synthetic personas</h2></div>
+  <div class="body" style="top:190px">
+    <div class="types">
+      <div class="type" data-anim="rise" style="--d:.1s">
+        <h3>Expert persona</h3><p class="lede">AI plays an expert role.</p>
+        <dl><dt>Examples</dt><dd>Clinician · Regulator · UX expert · Investor · Data/privacy expert · Growth advisor</dd>
+          <dt>Best for</dt><dd>Stress-testing logic, safety, feasibility, pitch, risks, and quality.</dd>
+          <dt>Risk</dt><dd>Can sound authoritative even when missing context.</dd></dl>
+      </div>
+      <div class="type" data-anim="rise" style="--d:.3s">
+        <h3>Customer persona</h3><p class="lede">AI pretends to be a target customer.</p>
+        <dl><dt>Examples</dt><dd>Patient · Nurse · NGO programme officer · Procurement lead</dd>
+          <dt>Best for</dt><dd>Surfacing pains, objections, workflow issues, trust barriers, and adoption questions.</dd>
+          <dt>Risk</dt><dd>Weak for predicting real behaviour, price, demand, or willingness to pay.</dd></dl>
+      </div>
+    </div>
+    <div class="ground" data-anim="fade" style="--d:.7s">
+      <p class="eyebrow">What the advice is grounded in</p>
+      <ol>
+        <li><b>1 · Generic prompt-based</b>You only describe the role: "Act as a hospital buyer."</li>
+        <li><b>2 · Context-rich</b>You give your product, market, pitch, assumptions, and target user.</li>
+        <li><b>3 · Data-grounded</b>You give real interviews, survey answers, CRM notes, pilot feedback, or support tickets.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="workflow-fit" data-title="Where synthetic research fits your workflow">
+  <div class="ttl"><h2 class="t-m">Where synthetic research fits your workflow</h2></div>
+  <div class="body" style="top:230px">
+    <div class="fit3">
+      <div data-anim="fade" style="--d:.1s"><h3>Early exploration &amp; problem discovery</h3><p><b>Map the problem before you commit time and money.</b> Use synthetic personas to surface likely user pains, behaviours, objections, and context so your first real interviews start with better questions.</p></div>
+      <div data-anim="fade" style="--d:.3s"><h3>Concept &amp; messaging testing</h3><p><b>Test different versions of your idea before you pitch or build.</b> Use synthetic personas to compare product concepts, value propositions, and messaging angles across different users, buyers, and stakeholders.</p></div>
+      <div data-anim="fade" style="--d:.5s"><h3>Insight between real feedback rounds</h3><p><b>Keep learning when real research is too slow, expensive, or hard to schedule.</b> Use synthetic personas between customer calls, expert reviews, pilots, and investor meetings to spot gaps and prepare the next conversation.</p></div>
+    </div>
+  </div>
+  <p class="disclaimer" data-anim="fade" style="--d:.9s"><b>DISCLAIMER</b> Synthetic personas are a discovery co-pilot, not a replacement for real customer research. Use them to explore the problem, sharpen your questions, and focus your limited time with real users, buyers, experts, and investors.</p>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="fake-research" data-title="Is fake research better than no research?">
+  <div class="ttl"><h2 class="t-m">Is fake research better than no research?</h2></div>
+  <div class="body" style="top:250px">
+    <table class="tbl" style="font-size:30px">
+      <tr><th style="width:52%">What research suggests</th><th>What it means for founders</th></tr>
+      <tr data-anim="fade" style="--d:.2s"><td>Human-AI hybrid beats human-only and LLM-only in one 2025 marketing study</td><td>Use AI to prepare research, then validate with humans</td></tr>
+      <tr data-anim="fade" style="--d:.5s"><td>Only 24.9% of 285 LLM-human comparisons were similar; 65.3% diverged</td><td>Default assumption: synthetic feedback may be wrong</td></tr>
+      <tr data-anim="fade" style="--d:.8s"><td>GPT overstated willingness-to-pay by 3-4x in main studies.</td><td><span class="em" style="--hd:1.3s">Never use synthetic personas to set price or prove demand.</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="hypotheses" data-title="AI creates hypotheses. Humans create evidence.">
+  <div class="ttl"><h2 class="t-m">AI creates hypotheses. <span class="em">Humans create evidence.</span></h2></div>
+  <div class="body" style="top:220px">
+    <div class="hyp-head" data-anim="fade"><span>AI OUTPUT</span><i><span class="chev"></span></i><span>HYPOTHESES TO TEST</span><i><span class="chev"></span></i><span>HUMAN VALIDATION</span></div>
+    <table class="tbl hyp" style="font-size:24px">
+      <tr data-anim="fade" style="--d:.2s"><td>"Procurement may be complex."</td><td>Procurement is a major adoption barrier.</td><td>Interview hospital buyers / procurement leads.</td></tr>
+      <tr data-anim="fade" style="--d:.35s"><td>"Nurses may not want another dashboard."</td><td>Workflow burden will reduce adoption.</td><td>Interview nurses / observe workflow.</td></tr>
+      <tr data-anim="fade" style="--d:.5s"><td>"The buyer may not own the budget."</td><td>Budget ownership is unclear.</td><td>Interview budget holders.</td></tr>
+      <tr data-anim="fade" style="--d:.65s"><td>"Users may distrust AI recommendations."</td><td>Trust is a key adoption condition.</td><td>Interview users / test prototype explanation.</td></tr>
+      <tr data-anim="fade" style="--d:.8s"><td>"Investors may question route to market."</td><td>GTM story is not credible enough.</td><td>Ask advisors / investors for pitch feedback.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 13 confidence ring rebuilt: five levels clockwise from Near-Zero (top right) to High (top left) -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="reliable" data-title="What makes a synthetic persona reliable?">
+  <div class="ttl"><h2 class="t-m">What makes a synthetic persona reliable?</h2></div>
+  <div class="rel">
+    <svg style="position:absolute;left:580px;top:250px" width="440" height="440" viewBox="-220 -220 440 440" aria-label="Confidence level ring">
+      <g fill="none" stroke-width="52">
+        <path data-anim="fade" style="--d:0.2s" d="M 5.9,-169.9 A 170,170 0 0 1 159.7,-58.1" stroke="rgba(72,74,86,.18)"/>
+        <path data-anim="fade" style="--d:0.4s" d="M 163.4,-46.9 A 170,170 0 0 1 104.7,134.0" stroke="rgba(72,74,86,.34)"/>
+        <path data-anim="fade" style="--d:0.6s" d="M 95.1,140.9 A 170,170 0 0 1 -95.1,140.9" stroke="rgba(136,219,189,.45)"/>
+        <path data-anim="fade" style="--d:0.8s" d="M -104.7,134.0 A 170,170 0 0 1 -163.4,-46.9" stroke="rgba(136,219,189,.72)"/>
+        <path data-anim="fade" style="--d:1.0s" d="M -159.7,-58.1 A 170,170 0 0 1 -5.9,-169.9" stroke="#88DBBD"/>
+      </g>
+      <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="30" fill="#484A56">CONFIDENCE</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="30" fill="#484A56">LEVEL</text>
+    </svg>
+    <div class="lvl" data-anim="fade" style="--d:.2s;left:1000px;top:200px"><h3>Near-Zero</h3>Generic prompt only<br>"Act as a customer"<br>No real context<br>No real data</div>
+    <div class="lvl" data-anim="fade" style="--d:.4s;left:1060px;top:520px"><h3>Low</h3>Startup context added<br>Pitch deck<br>Product description<br>Target segment<br>Founder assumptions</div>
+    <div class="lvl c" data-anim="fade" style="--d:.6s;left:480px;top:712px"><h3>Low-Medium</h3>Specific persona conditioning · Role · geography · demographics<br>Current behaviour · Pain point · Decision criteria · "What this persona would not say"</div>
+    <div class="lvl r" data-anim="fade" style="--d:.8s;left:100px;top:470px"><h3>Medium</h3>Real data grounding<br>5+ real interviews<br>Survey verbatims<br>CRM / waitlist data<br>Reviews, forums, support tickets<br>Direct customer quotes</div>
+    <div class="lvl r is-key" data-anim="fade" style="--d:1s;left:130px;top:200px"><h3>High</h3><br>Human-calibrated persona<br>Top outputs checked with real people<br>Prompt + model version logged<br>Updated with new interviews<br>Used as hypothesis, not evidence</div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="expert-panel" data-title="Setting up an expert panel">
+  <div class="ttl"><h2 class="t-m">Setting up an expert panel</h2></div>
+  <div class="body" style="top:200px">
+    <div class="panel5">
+      <div data-anim="fade" style="--d:.1s"><span class="n">1</span><h3>What are we trying to improve?</h3><p>Examples: pitch, product concept, clinical logic, GTM, regulatory pathway, data model.</p></div>
+      <div data-anim="fade" style="--d:.25s"><span class="n">2</span><h3>Whose expertise do we need?</h3><p>Examples: clinician, regulator, buyer, investor, UX expert, data/privacy expert.</p></div>
+      <div data-anim="fade" style="--d:.4s"><span class="n">3</span><h3>What does the expert need to know?</h3><p>Examples: Product, target user, market, current evidence, assumptions, constraints.</p></div>
+      <div data-anim="fade" style="--d:.55s"><span class="n">4</span><h3>What should the expert look for?</h3><p>Examples: Weaknesses, missing evidence, risks, objections, adoption blockers, unclear logic.</p></div>
+      <div data-anim="fade" style="--d:.7s"><span class="n">5</span><h3>What should we get back?</h3><p>Examples: Top risks, questions to test, evidence needed, next human conversations.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 buying centre rebuilt: six roles around one centre -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="adoption-system" data-title="Simulate the adoption system">
+  <div class="ttl"><h2 class="t-m">Simulate the adoption system</h2></div>
+  <svg class="bc" viewBox="0 0 940 720" aria-label="Buying centre: initiator, buyer, decider, influencer, blocker, user">
+    <g stroke="rgba(72,74,86,.25)" stroke-width="3">
+      <line x1="470" y1="360" x2="470" y2="110"/><line x1="470" y1="360" x2="686" y2="235"/><line x1="470" y1="360" x2="686" y2="485"/>
+      <line x1="470" y1="360" x2="470" y2="610"/><line x1="470" y1="360" x2="254" y2="485"/><line x1="470" y1="360" x2="254" y2="235"/>
+    </g>
+    <circle data-anim="fade" style="--d:.1s" cx="470" cy="360" r="120" fill="#484A56"/>
+    <text data-anim="fade" style="--d:.1s" x="470" y="352" text-anchor="middle" font-size="32" font-weight="700" fill="#fff">BUYING</text>
+    <text data-anim="fade" style="--d:.1s" x="470" y="390" text-anchor="middle" font-size="32" font-weight="700" fill="#88DBBD">CENTER</text>
+    <g font-size="26" font-weight="700" fill="#484A56">
+      <g data-anim="fade" style="--d:.3s"><circle cx="470" cy="110" r="68" fill="#fff" stroke="#484A56" stroke-width="3"/><text x="470" y="119" text-anchor="middle">INITIATOR</text></g>
+      <g data-anim="fade" style="--d:.45s"><circle cx="686" cy="235" r="68" fill="#fff" stroke="#484A56" stroke-width="3"/><text x="686" y="244" text-anchor="middle">BUYER</text></g>
+      <g data-anim="fade" style="--d:.6s"><circle cx="686" cy="485" r="68" fill="#fff" stroke="#484A56" stroke-width="3"/><text x="686" y="494" text-anchor="middle">DECIDER</text></g>
+      <g data-anim="fade" style="--d:.75s"><circle cx="470" cy="610" r="68" fill="#fff" stroke="#484A56" stroke-width="3"/><text x="470" y="617" text-anchor="middle" font-size="18">INFLUENCER</text></g>
+      <g data-anim="fade" style="--d:.9s"><circle cx="254" cy="485" r="68" fill="#fff" stroke="#484A56" stroke-width="3"/><text x="254" y="494" text-anchor="middle">BLOCKER</text></g>
+      <g data-anim="fade" style="--d:1.05s"><circle cx="254" cy="235" r="68" fill="#fff" stroke="#484A56" stroke-width="3"/><text x="254" y="244" text-anchor="middle">USER</text></g>
+    </g>
+  </svg>
+</section>
+
+<!-- 16 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="magic-formula" data-title="The magic formula">
+  <div class="ttl"><h2 class="t-m">The magic formula</h2></div>
+  <svg class="mf" viewBox="0 0 520 520" aria-label="Who, what and how overlap">
+    <g data-anim="fade" style="--d:.1s"><circle cx="260" cy="180" r="150" fill="rgba(72,74,86,.86)"/><text x="260" y="150" text-anchor="middle" font-size="44" fill="#fff">WHO</text></g>
+    <g data-anim="fade" style="--d:.4s"><circle cx="175" cy="330" r="150" fill="rgba(72,74,86,.6)"/><text x="130" y="380" text-anchor="middle" font-size="44" fill="#fff">WHAT</text></g>
+    <g data-anim="fade" style="--d:.7s"><circle cx="345" cy="330" r="150" fill="rgba(136,219,189,.82)"/><text x="390" y="380" text-anchor="middle" font-size="44" fill="#484A56">HOW</text></g>
+  </svg>
+  <div class="mfl" data-anim="fade" style="--d:.1s;left:112px;top:200px"><h3>Who are we trying to understand?</h3><ul class="chev-list"><li>Segment</li><li>Role</li><li>Context</li><li>Decision power</li><li>Motivations</li><li>Barriers</li></ul></div>
+  <div class="mfl" data-anim="fade" style="--d:.4s;left:112px;top:520px"><h3>What problem are they dealing with?</h3><ul class="chev-list" style="columns:2;column-gap:24px"><li>Needs</li><li>Pains</li><li>Current workaround</li><li>Frustrations</li><li>Desired outcome</li><li>What they already use</li><li>Reference points</li></ul></div>
+  <div class="mfl" data-anim="fade" style="--d:.7s;left:1150px;top:430px"><h3>How do they decide or adopt?</h3><ul class="chev-list"><li>Buying journey</li><li>Path to use</li><li>Approval process</li><li>Friction points</li><li>Trust barriers</li><li>Switching costs</li><li>Reasons to stay</li></ul></div>
+</section>
+
+<!-- 17 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="ask-friction" data-title="Ask better questions: friction">
+  <div class="ttl"><h2 class="t-m">Ask better questions</h2></div>
+  <div class="body" style="top:200px">
+    <p class="fr-lead" data-anim="rise">Do not ask for approval! <span class="em" style="--hd:.9s">Ask for friction.</span></p>
+    <ul class="qgrid chev-list">
+      <li data-anim="fade" style="--d:.5s">What would make this fail?</li>
+      <li data-anim="fade" style="--d:.55s">What would make you distrust it?</li>
+      <li data-anim="fade" style="--d:.6s">What would make you not use this?</li>
+      <li data-anim="fade" style="--d:.65s">What evidence would you need before trying it?</li>
+      <li data-anim="fade" style="--d:.7s">What would make this hard to adopt?</li>
+      <li data-anim="fade" style="--d:.75s">What would stop this from becoming a priority?</li>
+      <li data-anim="fade" style="--d:.8s">What would this need to replace?</li>
+      <li data-anim="fade" style="--d:.85s">Which part of the pitch feels weakest?</li>
+      <li data-anim="fade" style="--d:.9s">Who else would need to approve this?</li>
+      <li data-anim="fade" style="--d:.95s">What would this compete with in your workflow or budget?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="ask-words" data-title="Ask better questions: words, not scores">
+  <div class="ttl"><h2 class="t-m">Ask better questions</h2></div>
+  <div class="body" style="top:220px">
+    <p class="fr-lead" data-anim="rise">Ask for words, <span class="em" style="--hd:.9s">not scores.</span></p>
+    <p class="t-body" data-anim="fade" style="--d:.4s;margin-top:20px">Free-text reactions and A-vs-B ranking - never a rating or a price.</p>
+    <div class="dodont">
+      <div class="is-dont" data-anim="fade" style="--d:.6s"><h3>Don't</h3><p>"On a scale of 1-10, how likely are you to buy this? What would you pay?"</p></div>
+      <div class="is-do" data-anim="fade" style="--d:.9s"><h3>Do</h3><p>"You are a procurement lead at a mid-size hospital in Kenya. React in your own words: first thought, biggest hesitation, what you'd use instead. Then: here are two versions, A and B - which do you prefer, and why?"</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="break" data-title="Where synthetic personas break">
+  <div class="ttl"><h2 class="t-m">Where synthetic personas break</h2></div>
+  <div class="body brk" style="top:210px">
+    <p class="intro" data-anim="fade">Synthetic personas are (still) weak in predicting real customer behaviour, such as:</p>
+    <ul class="chev-list" data-anim="fade" style="--d:.3s">
+      <li>What price people will pay</li><li>Whether customers will buy</li><li>How large the market is</li><li>Whether users will adopt</li>
+      <li>Whether investors will invest</li><li>Whether to launch, pivot, or stop</li><li>Non-Western / non-English markets - model fidelity drops sharply.</li>
+    </ul>
+  </div>
+  <p class="kick" data-anim="fade" style="--d:.8s;bottom:150px"><span class="chev"></span> They break for one reason: a persona has no hidden interior - <span class="em" style="--hd:1.4s">only what people say in public, not what they privately think or do.</span></p>
+</section>
+
+<!-- 20 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="real-test" data-title="Turn synthetic feedback into a real test">
+  <div class="ttl"><h2 class="t-m">Turn synthetic feedback into a real test</h2></div>
+  <div class="body" style="top:220px">
+    <div class="test">
+      <div class="lab" data-anim="fade" style="--d:.1s">We believe that…<small>[synthetic persona hypothesis]</small></div><div class="val is-ph" data-anim="fade" style="--d:.2s">[Customer X] will make [desired behaviour change] if we do/say [planned activity]</div>
+      <div class="lab" data-anim="fade" style="--d:.3s">To verify we will…<small>[real-world validation step]</small></div><div class="val is-ph" data-anim="fade" style="--d:.4s">[talk to customer X] [get letters of intent]<br>[do an A/B campaign on LinkedIn]</div>
+      <div class="lab" data-anim="fade" style="--d:.5s">We need to measure…<small>[signal or evidence]</small></div><div class="val is-ph" data-anim="fade" style="--d:.6s">[% of people buying]<br>[% of shares on social media]</div>
+      <div class="lab" data-anim="fade" style="--d:.7s">We are right if…<small>[clear success threshold]</small></div><div class="val is-ph" data-anim="fade" style="--d:.8s">[&gt;10% conversions]<br>[&gt;30% of returning customers]</div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="real-test-example" data-title="Turn synthetic feedback into a real test: example">
+  <div class="ttl"><p class="eyebrow">Example</p><h2 class="t-m">Turn synthetic feedback into a real test</h2></div>
+  <div class="body" style="top:250px">
+    <div class="test">
+      <div class="lab" data-anim="fade" style="--d:.1s">We believe that…<small>[synthetic persona hypothesis]</small></div><div class="val" data-anim="fade" style="--d:.2s">Hospital buyers may see procurement complexity as a major adoption barrier.</div>
+      <div class="lab" data-anim="fade" style="--d:.3s">To verify we will…<small>[real-world validation step]</small></div><div class="val" data-anim="fade" style="--d:.4s">Interview 5 hospital buyers and map the approval path.</div>
+      <div class="lab" data-anim="fade" style="--d:.5s">We need to measure…<small>[signal or evidence]</small></div><div class="val" data-anim="fade" style="--d:.6s">Who approves, which budget pays, expected timeline, key objections.</div>
+      <div class="lab" data-anim="fade" style="--d:.7s">We are right if…<small>[clear success threshold]</small></div><div class="val is-key" data-anim="fade" style="--d:.8s"><span class="em" style="--hd:1.3s">At least 3 of 5 buyers</span> can identify a realistic procurement path and budget owner.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 risk matrix rebuilt; canvas = deck image (Riskiest Assumption Canvas, CC BY-SA 4.0) -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="riskiest" data-title="Start with the riskiest assumption">
+  <div class="ttl"><h2 class="t-m">Start with the riskiest assumption</h2></div>
+  <svg class="ram" viewBox="0 0 720 600" aria-label="Risk matrix: high risk and uncertain is where to start">
+    <g stroke="#484A56" stroke-width="5" fill="#484A56">
+      <line x1="320" y1="70" x2="320" y2="520"/><path d="M320,50 L304,82 L336,82 Z"/><path d="M320,540 L304,508 L336,508 Z"/>
+      <line x1="140" y1="300" x2="520" y2="300"/><path d="M120,300 L152,284 L152,316 Z"/><path d="M540,300 L508,284 L508,316 Z"/>
+    </g>
+    <g data-anim="fade" style="--d:.5s"><circle cx="460" cy="170" r="96" fill="#88DBBD"/>
+      <text x="460" y="162" text-anchor="middle" font-size="36" font-weight="700">START</text><text x="460" y="200" text-anchor="middle" font-size="36" font-weight="700">HERE</text></g>
+    <g font-size="30" font-weight="500">
+      <text x="320" y="30" text-anchor="middle">High Risk</text><text x="320" y="585" text-anchor="middle">Low Risk</text>
+      <text x="0" y="311">Certain</text><text x="555" y="311">Uncertain</text>
+    </g>
+  </svg>
+  <figure class="pic" data-anim="rise" style="--d:.3s;left:820px;top:210px;width:690px;padding:12px"><img src="assets/img/riskiest-assumption-canvas.jpg" alt="Riskiest Assumption Canvas: customers, problem, solution, MVP, competition and sales channels, each with assumptions scored by probability and impact"></figure>
+  <p class="source">Source: <a href="https://uxdesign.cc/riskiest-assumption-canvas-73ec0e2e0abc" target="_blank" rel="noopener"><cite>Riskiest Assumption Canvas</cite>, Ioannis Nousis, uxdesign.cc</a> · CC BY-SA 4.0</p>
+</section>
+
+<!-- 23 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="validation-lab" data-title="Setting up a startup validation lab as a project">
+  <div class="ttl"><h2 class="t-m">Setting up a startup validation lab as a project</h2></div>
+  <div class="body" style="top:230px">
+    <div class="lab3">
+      <div data-anim="fade" style="--d:.1s"><div class="step">Create a project<small>in ChatGPT or Claude</small></div>
+        <div class="det"><p class="eyebrow">Upload</p><ul class="chev-list"><li>Pitch deck</li><li>Business model</li><li>Target users</li><li>Assumptions</li><li>Interviews</li><li>Pilot feedback</li></ul></div></div>
+      <div class="to" style="align-items:flex-start;padding-top:44px"><span class="chev"></span></div>
+      <div data-anim="fade" style="--d:.4s"><div class="step">Add project instructions</div>
+        <div class="det"><p class="eyebrow">Add rules</p><ul class="chev-list"><li>Hypotheses, not evidence</li><li>Ask for friction</li><li>Separate expert/ user/ buyer feedback</li></ul></div></div>
+      <div class="to" style="align-items:flex-start;padding-top:44px"><span class="chev"></span></div>
+      <div data-anim="fade" style="--d:.7s"><div class="step card--active">Create persona cards</div>
+        <div class="det"><p class="eyebrow">Examples</p><ul class="chev-list"><li>Synthetic clinician</li><li>Synthetic buyer</li><li>Synthetic regulator</li><li>Synthetic investor</li><li>Synthetic end user…</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 24 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="fresh-model" data-title="Fresh model: from chat to automated system">
+  <div class="ttl"><h2 class="t-m">Fresh model: from chat to automated system</h2></div>
+  <div class="body" style="top:220px">
+    <table class="tbl mx">
+      <tr><th></th><th>General Chat</th><th>Project</th><th>Prompt Engineering</th><th>Agent / App</th></tr>
+      <tr><td>Knows general knowledge</td><td class="y"></td><td class="y"></td><td class="y"></td><td class="y"></td></tr>
+      <tr><td>Knows my documents</td><td class="n">✕</td><td class="y"></td><td class="y"></td><td class="y"></td></tr>
+      <tr><td>Has a specialist role</td><td class="n">✕</td><td class="l">Limited</td><td class="y"></td><td class="y"></td></tr>
+      <tr><td>Chooses what knowledge to load</td><td class="n">✕</td><td class="n">✕</td><td class="n">✕</td><td class="y"></td></tr>
+      <tr><td>Chooses which tools to use</td><td class="n">✕</td><td class="n">✕</td><td class="l">Limited</td><td class="y"></td></tr>
+      <tr><td>Adapts to each request</td><td class="n">✕</td><td class="n">✕</td><td class="l">Limited</td><td class="y"></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 25 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="fresh-model-areas" data-title="Fresh model: six ways to work">
+  <div class="ttl"><h2 class="t-m">Fresh model: from chat to automated system</h2></div>
+  <div class="body" style="top:170px">
+    <table class="tbl is-small">
+      <tr><th style="width:230px">Area</th><th style="width:380px">Description</th><th>Example</th><th style="width:300px">When</th></tr>
+      <tr><td>AI Helper</td><td>Use GPT/Claude in chat to act as one synthetic expert, user, buyer, or blocker</td><td><i>Act as a hospital procurement lead. What would make you reject this pilot?</i></td><td>One-off checks, daily use, fast feedback</td></tr>
+      <tr><td>AI Playbook</td><td>Use a repeated method with saved prompts, Projects, or Custom GPTs</td><td><i>Run our pitch through the expert panel: clinician, buyer, regulator, investor, data/privacy expert.</i></td><td>Repeated startup reviews, accelerator sessions, founder workflows</td></tr>
+      <tr><td>AI Automation Agent</td><td>Automate a specific persona task</td><td><i>Upload a pitch deck and generate: 5 synthetic personas, key objections, hypotheses, and real interview questions.</i></td><td>When the task is structured and repeated</td></tr>
+      <tr><td>AI Augmentation Agent</td><td>Add synthetic persona insight into an ongoing validation process</td><td><i>After each real interview, update the persona assumptions and flag what still needs validation.</i></td><td>When humans need to stay in control but want faster synthesis</td></tr>
+      <tr><td>AI Agent Team</td><td>Multiple AI agents simulate different perspectives and challenge each other</td><td><i>User agent, buyer agent, blocker agent, regulator agent, and investor agent review the same product and produce a joint risk map.</i></td><td>When decisions need several perspectives</td></tr>
+      <tr><td>AI Apps</td><td>Build a dedicated tool for persona-based validation</td><td><i>A startup validation app that turns a pitch deck into synthetic panels, testable hypotheses, interview guides, and evidence tracking.</i></td><td>When the workflow is valuable enough to productise</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 26 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="lifecycle" data-title="Use synthetic personas across the startup lifecycle">
+  <div class="ttl"><h2 class="t-m">Use synthetic personas across the startup lifecycle</h2></div>
+  <div class="body" style="top:380px">
+    <div class="life">
+      <div data-anim="fade" style="--d:.1s"><p class="eyebrow">Early stage</p><h3>Explore</h3></div>
+      <span class="to"><span class="chev"></span></span>
+      <div data-anim="fade" style="--d:.35s"><p class="eyebrow">Product stage</p><h3>Stress-test</h3></div>
+      <span class="to"><span class="chev"></span></span>
+      <div data-anim="fade" style="--d:.6s"><p class="eyebrow">GTM stage</p><h3>Sharpen</h3></div>
+      <span class="to"><span class="chev"></span></span>
+      <div data-anim="fade" style="--d:.85s"><p class="eyebrow">Scaling stage</p><h3>De-risk</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- 27 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="use-cases" data-title="Use cases during startup lifecycle">
+  <div class="ttl"><h2 class="t-m">Use cases during startup lifecycle</h2></div>
+  <div class="body" style="top:190px">
+    <table class="tbl" style="font-size:23px">
+      <tr><th style="width:290px">Startup stage</th><th>Best use of synthetic personas</th><th style="width:520px">What to validate with humans</th></tr>
+      <tr><td>Idea / discovery</td><td>Surface pains, assumptions, objections, stakeholder perspectives</td><td>Real problem, urgency, current workaround</td></tr>
+      <tr><td>Product development</td><td>Stress-test features, UX, workflow fit, clinical / technical logic</td><td>Usability, workflow integration, adoption barriers</td></tr>
+      <tr><td>MVP / pilot</td><td>Prepare pilot questions, anticipate blockers, compare use cases</td><td>Real usage, behaviour, pilot outcomes</td></tr>
+      <tr><td>Marketing &amp; messaging</td><td>Compare value propositions, headlines, objections, segment language</td><td>Message resonance with real buyers / users</td></tr>
+      <tr><td>Sales &amp; GTM</td><td>Simulate buyer, blocker, procurement, budget owner, channel partner</td><td>Buying process, budget, procurement path, sales cycle</td></tr>
+      <tr><td>Scaling</td><td>Stress-test segments, channels, partnerships, operational risks</td><td>Unit economics, retention, expansion, local market evidence</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 28 -->
+<section class="slide" data-type="canvas" data-tone="paper" data-id="takeaways" data-title="Takeaways">
+  <div class="ttl"><h2 class="t-m">Takeaways</h2></div>
+  <div class="body" style="top:230px">
+    <ul class="tk chev-list">
+      <li data-anim="fade" style="--d:.1s">Synthetic personas are a <span class="em" style="--hd:.6s">fast first pass, not customer proof.</span></li>
+      <li data-anim="fade" style="--d:.4s">The data underneath <span class="em" style="--hd:.9s">determines quality.</span></li>
+      <li data-anim="fade" style="--d:.7s"><span class="em" style="--hd:1.2s">Ask for friction,</span> not approval.</li>
+      <li data-anim="fade" style="--d:1s">Careful when using synthetic personas for <span class="em" style="--hd:1.5s">pricing, WTP or market proof.</span></li>
+      <li data-anim="fade" style="--d:1.3s">AI creates hypotheses. <span class="em" style="--hd:1.8s">Humans create evidence.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 29 STAY IN TOUCH (v2 template, her ruling 13.10: Connect + Resources codes only). Code: library/qr/QR_REGISTER.csv -->
+<section class="slide" data-id="stay" data-type="stay" data-tone="paper" data-title="Stay in touch">
+  <div class="stay-inner">
+    <h2 class="statement-title" data-anim="rise">Stay in touch.</h2>
+    <div class="stay-row">
+      <div class="stay-group stay-connect">
+        <figure class="qr" data-anim="rise" style="--d:.3s"><a href="https://www.linkedin.com/in/skioutsoukis" target="_blank" rel="noopener"><img src="assets/qr/qr-connect_building-with-better-feedback_2026-07-07.svg" alt="QR code: Stéphanie on LinkedIn"></a><figcaption>Connect</figcaption></figure>
+        <p class="stay-contact" data-anim="fade" style="--d:.5s"><b>Stéphanie Kioutsoukis</b><br>stephanie@freshstrategy.ai</p>
+        <p class="stay-contact" data-anim="fade" style="--d:.6s;margin-top:18px"><b>Mark Turrell</b><br>mark@freshsolutions.ai</p>
+      </div>
+      <div class="stay-group stay-resources">
+        <figure class="qr" data-anim="rise" style="--d:.4s"><a href="https://www.freshstrategy.ai/resources?utm_source=talk&amp;utm_medium=qr&amp;utm_campaign=building-with-better-feedback_2026-07-07&amp;utm_content=resources" target="_blank" rel="noopener"><img src="assets/qr/qr-resources_building-with-better-feedback_2026-07-07.svg" alt="QR code: freshstrategy.ai/resources"></a><figcaption>Resources</figcaption></figure>
+        <p class="stay-contact" data-anim="fade" style="--d:.6s">freshstrategy.ai/resources</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="_fresh/engine/talks.js"></script>
+<script src="_fresh/engine/components.js"></script>
+</body>
+</html>
