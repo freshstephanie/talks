@@ -46,17 +46,20 @@
 .tbl.is-small { font-size: 19px; line-height: 1.3; }
 .tbl.is-small td { padding: 10px 22px 10px 0; }
 
-/* 02 why startups fail */
-.fb-bars { position: absolute; left: var(--pad-x); top: 200px; width: 760px; }
-.fb-bars .fb-cap { font: 500 24px/1.2 var(--head-font); color: var(--head); }
-.fb-bars .fb-sub { margin: 6px 0 22px; font-size: 18px; color: var(--muted); }
-.fb-bar { display: grid; grid-template-columns: 300px 1fr; align-items: center; gap: 20px; height: 54px; border-bottom: 1px solid var(--line); }
-.fb-bar span { font-size: 21px; line-height: 1.2; color: var(--ink); }
-.fb-bar i { display: block; height: 26px; width: calc(var(--v) * 1%); min-width: 4px; background: var(--charcoal); position: relative; }
-.fb-bar i.k { background: var(--mint); }
-.fb-bar i::after { content: attr(data-v); position: absolute; left: calc(100% + 12px); top: 50%; transform: translateY(-50%); font: 500 19px/1 var(--head-font); color: var(--head); font-style: normal; }
-.fail-fact { position: absolute; left: 980px; right: 100px; top: 380px; font: 500 46px/1.2 var(--head-font); color: var(--head); letter-spacing: -.02em; }
-.fail-fact small { display: block; margin-top: 22px; font: 500 22px/1.3 var(--body-font); color: var(--muted); letter-spacing: 0; }
+/* 02 why innovation fails */
+.wf-lead { position: absolute; left: var(--pad-x); top: 230px; width: 820px; }
+.wf-lead h3 { margin: 0; font: 700 88px/1 var(--head-font); color: var(--head); letter-spacing: -.035em; text-transform: uppercase; }
+.wf-lead .wf-cite { margin: 22px 0 0; font: 500 22px/1.35 var(--body-font); color: var(--muted); }
+.wf-why { margin: 70px 0 0; font: 500 44px/1.2 var(--head-font); color: var(--head); letter-spacing: -.02em; }
+.wf-why small { display: block; margin-top: 18px; font: 500 22px/1.3 var(--body-font); color: var(--muted); letter-spacing: 0; }
+.wf-stats { position: absolute; left: 1040px; right: var(--pad-x); top: 230px; }
+.wf-stat { padding: 0 0 28px; border-bottom: 1px solid var(--line); }
+.wf-stat + .wf-stat { padding-top: 28px; }
+.wf-stat:last-child { border-bottom: 0; }
+.wf-stat .num { font-size: 124px; white-space: nowrap; }
+.wf-stat .num.k { display: inline-block; color: var(--charcoal); background: linear-gradient(var(--mint), var(--mint)) 0 90% / 100% .09em no-repeat; }
+.wf-stat p { margin: 12px 0 0; font-size: 26px; line-height: 1.3; color: var(--ink); max-width: 30ch; }
+.wf-stat small { display: block; margin-top: 8px; font: 500 19px/1.3 var(--body-font); color: var(--muted); }
 
 /* 03 venn + questions */
 .venn3 { position: absolute; left: 90px; top: 170px; width: 820px; height: 690px; }
@@ -71,9 +74,11 @@
 .trap .r h3 { border-bottom-color: var(--mint); }
 .trap li { list-style: none; font-size: 27px; line-height: 1.2; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--ink); }
 .trap ul { padding: 0; }
-.seesaw { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 640px; height: 120px; }
+.seesaw { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 640px; height: 170px; }
 .trap .eyebrow { margin-bottom: 8px; }
-.trap-line { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 790px; font: 500 30px/1.3 var(--head-font); color: var(--head); }
+/* source lines run the full content width (theme caps them at 1150px) */
+.slide .source { max-width: none; right: var(--pad-x); }
+.trap-line { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 818px; font: 500 26px/1.3 var(--head-font); color: var(--head); }
 
 /* 05/06 images */
 .pic { position: absolute; background: #fff; box-shadow: var(--shadow); padding: 18px; }
@@ -265,23 +270,26 @@
 </section>
 
 <!-- 02 -->
-<section class="slide" data-type="canvas" data-tone="paper" data-id="why-fail" data-title="Why startups fail">
-  <div class="ttl"><h2 class="t-m">Why startups fail</h2></div>
-  <div class="fb-bars">
-    <p class="fb-cap">Top 9 reasons for startup failure</p>
-    <p class="fb-sub">Based on an analysis of 385 startup failures since 2023 · not mutually exclusive</p>
-    <div class="fb-bar" data-anim="fade" style="--d:.1s"><span>Ran out of capital</span><i style="--v:70" data-v="70%"></i></div>
-    <div class="fb-bar" data-anim="fade" style="--d:.2s"><span>Poor product-market fit</span><i class="k" style="--v:43" data-v="43%"></i></div>
-    <div class="fb-bar" data-anim="fade" style="--d:.3s"><span>Wrong market timing or macro conditions</span><i style="--v:29" data-v="29%"></i></div>
-    <div class="fb-bar" data-anim="fade" style="--d:.4s"><span>Unsustainable unit economics</span><i style="--v:19" data-v="19%"></i></div>
-    <div class="fb-bar" data-anim="fade" style="--d:.5s"><span>Ineffective strategic pivot</span><i style="--v:6" data-v="6%"></i></div>
-    <div class="fb-bar" data-anim="fade" style="--d:.6s"><span>Outcompeted by rivals</span><i style="--v:6" data-v="6%"></i></div>
-    <div class="fb-bar" data-anim="fade" style="--d:.7s"><span>Operational or leadership challenges</span><i style="--v:5" data-v="5%"></i></div>
-    <div class="fb-bar" data-anim="fade" style="--d:.8s"><span>Technical or clinical issues</span><i style="--v:3" data-v="3%"></i></div>
-    <div class="fb-bar" data-anim="fade" style="--d:.9s"><span>Fraud or legal problems</span><i style="--v:3" data-v="3%"></i></div>
+<section class="slide" data-type="canvas" data-tone="paper" data-id="why-fail" data-title="Why innovation fails">
+  <div class="ttl"><h2 class="t-m">Why innovation fails</h2></div>
+  <div class="wf-lead">
+    <h3 data-anim="rise" style="--d:.1s">Most new products fail.</h3>
+    <p class="wf-cite" data-anim="fade" style="--d:.4s">30,000 new consumer products launch every year, "and many of them fail." HBS Working Knowledge, 2011</p>
+    <p class="wf-why" data-anim="rise" style="--d:.9s"><span class="chev"></span> They are built around the product, not around <span class="em" style="--hd:1.5s">the customer's need.</span><small>Clayton Christensen, Harvard Business School, 2011</small></p>
   </div>
-  <p class="fail-fact" data-anim="rise" style="--d:1.2s"><span class="chev"></span> Two-thirds of startups never show a <span class="em" style="--hd:1.8s">positive return.</span><small>Tom Eisenmann, Harvard Business Review, 2021</small></p>
-  <p class="source">Source: <a href="https://www.cbinsights.com/research/report/startup-failure-reasons-top/" target="_blank" rel="noopener"><cite>CB Insights</cite>, Top reasons startups fail</a> (data as of 2/6/2026) · <a href="https://hbr.org/2021/05/why-start-ups-fail" target="_blank" rel="noopener"><cite>HBR</cite>, 2021</a></p>
+  <div class="wf-stats">
+    <div class="wf-stat" data-anim="fade" style="--d:1.8s">
+      <div class="num k">43%</div>
+      <p>of failed startups had poor product&#8209;market fit</p>
+      <small>CB Insights, 2026 · 385 VC-backed shutdowns since 2023</small>
+    </div>
+    <div class="wf-stat" data-anim="fade" style="--d:2.2s">
+      <div class="num">10-20%</div>
+      <p>of tested ideas actually work. Even experts misjudge which ones.</p>
+      <small>Kohavi &amp; Thomke, Harvard Business Review, 2017 · experiments at Google and Bing</small>
+    </div>
+  </div>
+  <p class="source">Sources: <a href="https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing" target="_blank" rel="noopener"><cite>HBS Working Knowledge</cite>, Clay Christensen's Milkshake Marketing</a>, 2011 · <a href="https://www.cbinsights.com/research/report/startup-failure-reasons-top/" target="_blank" rel="noopener"><cite>CB Insights</cite>, Top reasons startups fail</a>, 2026 · <a href="https://hbr.org/2017/09/the-surprising-power-of-online-experiments" target="_blank" rel="noopener"><cite>HBR</cite>, The surprising power of online experiments</a>, 2017</p>
 </section>
 
 <!-- 03 -->
@@ -330,7 +338,7 @@
     <path d="M0,104 L1376,40 L1376,64 L0,128 Z" fill="#484A56"/>
     <path d="M688,90 L740,168 L636,168 Z" fill="#484A56"/>
   </svg>
-  <p class="trap-line" data-anim="fade" style="--d:1.1s">Expert proof shows it can work. Market proof shows someone will buy it. <span class="em" style="--hd:1.6s">Most teams over-invest in the first.</span></p>
+  <p class="trap-line" data-anim="fade" style="--d:1.1s">Most teams over-invest in proving it can work, <span class="em" style="--hd:1.6s">and under-invest in proving it will be bought and used.</span></p>
 </section>
 
 <!-- 05 big title only (cartoon removed 16.10 on her word) -->
