@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Building with better feedback: how AI-augmented expert panels and user feedback help startups validate faster. Masterclass by Stéphanie Kioutsoukis at the AI for Good Innovation Factory 2026.">
+<meta name="description" content="Building with better feedback: how AI-augmented expert panels and user feedback help teams validate new ideas faster. Masterclass by Stéphanie Kioutsoukis at the AI for Good Innovation Factory 2026.">
 <title>Building with better feedback | Fresh Strategy</title>
 <meta name="ft-home" content="/">
 <link rel="canonical" href="https://talks.freshstrategy.ai/building-with-better-feedback/">
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Fresh Strategy">
 <meta property="og:url" content="https://talks.freshstrategy.ai/building-with-better-feedback/">
 <meta property="og:title" content="Building with better feedback | Fresh Strategy">
-<meta property="og:description" content="Building with better feedback: how AI-augmented expert panels and user feedback help startups validate faster. Masterclass by Stéphanie Kioutsoukis at the AI for Good Innovation Factory 2026.">
+<meta property="og:description" content="Building with better feedback: how AI-augmented expert panels and user feedback help teams validate new ideas faster. Masterclass by Stéphanie Kioutsoukis at the AI for Good Innovation Factory 2026.">
 <meta property="og:image" content="https://talks.freshstrategy.ai/home/building-with-better-feedback.jpg">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="720">
@@ -223,12 +223,11 @@
 .mx tr th:last-child, .mx tr td:last-child { background: rgba(136,219,189,.16); }
 
 /* 26 lifecycle */
-.life { display: grid; grid-template-columns: 1fr 60px 1fr 60px 1fr 60px 1fr; align-items: start; }
+.life { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; align-items: start; }
 .life > div { border-top: 8px solid var(--mint); padding-top: 24px; }
 .life > div:nth-child(1) { border-top-color: rgba(136,219,189,.45); }
 .life .eyebrow { font-size: 21px; }
 .life h3 { margin-top: 10px; white-space: nowrap; font: 700 48px/1 var(--head-font); color: var(--head); text-transform: uppercase; letter-spacing: -.03em; }
-.life .to { text-align: center; font-size: 36px; padding-top: 66px; }
 
 /* 28 takeaways */
 .tk li { font: 700 42px/1.15 var(--head-font); text-transform: uppercase; letter-spacing: -.025em; color: var(--head); }
@@ -264,7 +263,7 @@
   <div class="hero-text" style="width:1360px">
     <i class="hero-mark" data-anim="fade" style="--d:.1s"></i>
     <h1 class="hero-title" data-anim="rise" style="font-size:132px">Building with<br>better feedback</h1>
-    <p class="t-m" data-anim="fade" style="--d:.5s;margin-top:32px;font-size:40px;color:rgba(255,255,255,.78)">How AI-augmented expert panels and user feedback help startups validate faster</p>
+    <p class="t-m" data-anim="fade" style="--d:.5s;margin-top:32px;font-size:40px;color:rgba(255,255,255,.78)">How AI-augmented expert panels and user feedback help teams validate new ideas faster</p>
     <p class="t-small" data-anim="fade" style="--d:.8s;margin-top:36px;color:rgba(255,255,255,.5)">Stéphanie Kioutsoukis · AI for Good Innovation Factory 2026 · Masterclass · Tue 7 July 2026, 10:15</p>
   </div>
 </section>
@@ -485,7 +484,7 @@
       <text x="0" y="30" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="30" fill="#484A56">LEVEL</text>
     </svg>
     <div class="lvl" data-anim="fade" style="--d:.2s;left:1000px;top:200px"><h3>Near-Zero</h3>Generic prompt only<br>"Act as a customer"<br>No real context<br>No real data</div>
-    <div class="lvl" data-anim="fade" style="--d:.4s;left:1060px;top:520px"><h3>Low</h3>Startup context added<br>Pitch deck<br>Product description<br>Target segment<br>Founder assumptions</div>
+    <div class="lvl" data-anim="fade" style="--d:.4s;left:1060px;top:520px"><h3>Low</h3>Project context added<br>Pitch deck<br>Product description<br>Target segment<br>Founder assumptions</div>
     <div class="lvl c" data-anim="fade" style="--d:.6s;left:480px;top:712px"><h3>Low-Medium</h3>Specific persona conditioning · Role · geography · demographics<br>Current behaviour · Pain point · Decision criteria · "What this persona would not say"</div>
     <div class="lvl r" data-anim="fade" style="--d:.8s;left:100px;top:470px"><h3>Medium</h3>Real data grounding<br>5+ real interviews<br>Survey verbatims<br>CRM / waitlist data<br>Reviews, forums, support tickets<br>Direct customer quotes</div>
     <div class="lvl r is-key" data-anim="fade" style="--d:1s;left:130px;top:200px"><h3>High</h3><br>Human-calibrated persona<br>Top outputs checked with real people<br>Prompt + model version logged<br>Updated with new interviews<br>Used as hypothesis, not evidence</div>
@@ -672,11 +671,11 @@
     <table class="tbl is-small">
       <tr><th style="width:230px">Area</th><th style="width:380px">Description</th><th>Example</th><th style="width:300px">When</th></tr>
       <tr><td>AI Helper</td><td>Use GPT/Claude in chat to act as one synthetic expert, user, buyer, or blocker</td><td><i>Act as a hospital procurement lead. What would make you reject this pilot?</i></td><td>One-off checks, daily use, fast feedback</td></tr>
-      <tr><td>AI Playbook</td><td>Use a repeated method with saved prompts, Projects, or Custom GPTs</td><td><i>Run our pitch through the expert panel: clinician, buyer, regulator, investor, data/privacy expert.</i></td><td>Repeated startup reviews, accelerator sessions, founder workflows</td></tr>
+      <tr><td>AI Playbook</td><td>Use a repeated method with saved prompts, Projects, or Custom GPTs</td><td><i>Run our pitch through the expert panel: clinician, buyer, regulator, investor, data/privacy expert.</i></td><td>Repeated project reviews, accelerator sessions, founder workflows</td></tr>
       <tr><td>AI Automation Agent</td><td>Automate a specific persona task</td><td><i>Upload a pitch deck and generate: 5 synthetic personas, key objections, hypotheses, and real interview questions.</i></td><td>When the task is structured and repeated</td></tr>
       <tr><td>AI Augmentation Agent</td><td>Add synthetic persona insight into an ongoing validation process</td><td><i>After each real interview, update the persona assumptions and flag what still needs validation.</i></td><td>When humans need to stay in control but want faster synthesis</td></tr>
       <tr><td>AI Agent Team</td><td>Multiple AI agents simulate different perspectives and challenge each other</td><td><i>User agent, buyer agent, blocker agent, regulator agent, and investor agent review the same product and produce a joint risk map.</i></td><td>When decisions need several perspectives</td></tr>
-      <tr><td>AI Apps</td><td>Build a dedicated tool for persona-based validation</td><td><i>A startup validation app that turns a pitch deck into synthetic panels, testable hypotheses, interview guides, and evidence tracking.</i></td><td>When the workflow is valuable enough to productise</td></tr>
+      <tr><td>AI Apps</td><td>Build a dedicated tool for persona-based validation</td><td><i>A validation app that turns a pitch deck into synthetic panels, testable hypotheses, interview guides, and evidence tracking.</i></td><td>When the workflow is valuable enough to productise</td></tr>
     </table>
   </div>
 </section>
@@ -687,22 +686,19 @@
   <div class="body" style="top:380px">
     <div class="life">
       <div data-anim="fade" style="--d:.1s"><p class="eyebrow">Early stage</p><h3>Explore</h3></div>
-      <span class="to"><span class="chev"></span></span>
       <div data-anim="fade" style="--d:.35s"><p class="eyebrow">Product stage</p><h3>Stress-test</h3></div>
-      <span class="to"><span class="chev"></span></span>
       <div data-anim="fade" style="--d:.6s"><p class="eyebrow">GTM stage</p><h3>Sharpen</h3></div>
-      <span class="to"><span class="chev"></span></span>
       <div data-anim="fade" style="--d:.85s"><p class="eyebrow">Scaling stage</p><h3>De-risk</h3></div>
     </div>
   </div>
 </section>
 
 <!-- 27 -->
-<section class="slide" data-type="canvas" data-tone="paper" data-id="use-cases" data-title="Use cases during startup lifecycle">
-  <div class="ttl"><h2 class="t-m">Use cases during startup lifecycle</h2></div>
+<section class="slide" data-type="canvas" data-tone="paper" data-id="use-cases" data-title="Use cases across the innovation lifecycle">
+  <div class="ttl"><h2 class="t-m">Use cases across the innovation lifecycle</h2></div>
   <div class="body" style="top:190px">
     <table class="tbl" style="font-size:23px">
-      <tr><th style="width:290px">Startup stage</th><th>Best use of synthetic personas</th><th style="width:520px">What to validate with humans</th></tr>
+      <tr><th style="width:290px">Stage</th><th>Best use of synthetic personas</th><th style="width:520px">What to validate with humans</th></tr>
       <tr><td>Idea / discovery</td><td>Surface pains, assumptions, objections, stakeholder perspectives</td><td>Real problem, urgency, current workaround</td></tr>
       <tr><td>Product development</td><td>Stress-test features, UX, workflow fit, clinical / technical logic</td><td>Usability, workflow integration, adoption barriers</td></tr>
       <tr><td>MVP / pilot</td><td>Prepare pilot questions, anticipate blockers, compare use cases</td><td>Real usage, behaviour, pilot outcomes</td></tr>
