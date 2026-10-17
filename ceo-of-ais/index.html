@@ -101,7 +101,7 @@ async function works(key) {
 async function open() {
   await navigator.serviceWorker.register('sw.js');
   await navigator.serviceWorker.ready;
-  location.href = 'd/';
+  location.href = 'd/' + location.hash;   // keep a slide link (#16) through the password page
 }
 
 if (!window.isSecureContext || !navigator.serviceWorker || !crypto.subtle) {
