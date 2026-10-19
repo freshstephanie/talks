@@ -1,4 +1,5 @@
 /* Fresh Talks visitor counting: Google Analytics (same property as www.freshstrategy.ai), loaded on every page view.
+   Analytics only: ads storage, ad audiences and Google signals are off (her ruling 19.10.2026).
    No banner on talks.freshstrategy.ai: her ruling 19.10.2026, EU consent risk accepted by her.
    Events: page_view (automatic; /<slug>/ = password page, /<slug>/d/ = locked deck opened),
            file_download (the deck's PDF button), deck_progress (half way, last slide).
@@ -21,8 +22,10 @@
     }
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { dataLayer.push(arguments); };
+    // analytics only: no Google Ads remarketing / ad audiences on the talks site (her ruling 19.10.2026)
+    gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
     gtag('js', new Date());
-    gtag('config', GA, { talk: slug });
+    gtag('config', GA, { talk: slug, allow_google_signals: false, allow_ad_personalization_signals: false });
     var s = document.createElement('script');
     s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA;
     document.head.appendChild(s);
