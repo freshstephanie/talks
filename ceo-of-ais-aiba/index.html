@@ -875,6 +875,8 @@
 .roster-pop .hb-x { background: var(--charcoal); }
 /* 17.10 (her ask): QR captions link to the same page as the QR */
 .stay-group .qr figcaption a { color: inherit; text-decoration: none; } .stay-group .qr figcaption a:hover { text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 6px; }
+/* 22.10 AIBA (her ask): third code = Mark's LinkedIn, so three columns */
+.slide[data-type="stay"] .stay-row { grid-template-columns: repeat(3, 360px); column-gap: 90px; }
 </style>
 <script src="/ft-analytics.js" defer></script>
 </head>
@@ -1403,6 +1405,10 @@
       <div class="stay-group stay-connect">
         <figure class="qr" data-anim="rise" style="--d:.3s"><a href="https://www.linkedin.com/in/skioutsoukis" target="_blank" rel="noopener"><img src="assets/qr/qr-connect_ceo-of-ais-aiba_2026-10-22.svg" alt="QR code: Stéphanie on LinkedIn"></a><figcaption><a href="https://www.linkedin.com/in/skioutsoukis" target="_blank" rel="noopener">Connect</a></figcaption></figure>
         <p class="stay-contact" data-anim="fade" style="--d:.5s"><b>Stéphanie Kioutsoukis</b><br>stephanie@freshstrategy.ai</p>
+      </div>
+      <div class="stay-group stay-connect">
+        <figure class="qr" data-anim="rise" style="--d:.35s"><a href="https://www.linkedin.com/in/markturrell" target="_blank" rel="noopener"><img src="assets/qr/qr-connect-mark_ceo-of-ais-aiba_2026-10-22.svg" alt="QR code: Mark on LinkedIn"></a><figcaption><a href="https://www.linkedin.com/in/markturrell" target="_blank" rel="noopener">Connect</a></figcaption></figure>
+        <p class="stay-contact" data-anim="fade" style="--d:.55s"><b>Mark Turrell</b><br>linkedin.com/in/markturrell</p>
       </div>
       <div class="stay-group stay-resources">
         <figure class="qr" data-anim="rise" style="--d:.4s"><a href="https://www.freshstrategy.ai/resources?utm_source=talk&amp;utm_medium=qr&amp;utm_campaign=ceo-of-ais-aiba_2026-10-22&amp;utm_content=resources" target="_blank" rel="noopener"><img src="assets/qr/qr-resources_ceo-of-ais-aiba_2026-10-22.svg" alt="QR code: freshstrategy.ai/resources"></a><figcaption><a href="https://www.freshstrategy.ai/resources?utm_source=talk&amp;utm_medium=qr&amp;utm_campaign=ceo-of-ais-aiba_2026-10-22&amp;utm_content=resources" target="_blank" rel="noopener">Resources</a></figcaption></figure>
