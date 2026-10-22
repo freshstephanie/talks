@@ -1,0 +1,1501 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CEO of AIs | AIBA 2026</title>
+<meta name="ft-home" content="/">
+<link rel="canonical" href="https://talks.freshstrategy.ai/ceo-of-ais-aiba/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fresh Strategy">
+<meta property="og:url" content="https://talks.freshstrategy.ai/ceo-of-ais-aiba/">
+<meta property="og:title" content="CEO of AIs | AIBA 2026">
+<meta name="ft-pdf" content="assets/CEO_of_AIs_AIBA_2026.pdf">
+<link rel="stylesheet" href="_fresh/engine/talks.css">
+<link rel="stylesheet" href="_fresh/theme/fresh-v2.css">
+<!-- Talk-specific CSS. Built from STORYBOARD_v4_PROPOSAL.md + Stéphanie's decisions of 01.10.2026 (23 moments).
+     Never edit engine/ or theme/ for this talk. Every slide carries a stable data-id: review comments are keyed on it. -->
+<style>
+
+/* ===================================================================
+   COMPATIBILITY LAYER (12.10.2026, TEMPORARY)
+   The deck runs on theme/fresh-v2.css. Slides not yet migrated (main run 14-30 + the appendix) keep the
+   exact v1 look through the rules below. A migrated slide carries data-sys="v2" and is not touched here.
+   Delete this whole block once every slide is migrated. Verified by computed-style fingerprint.
+   =================================================================== */
+.slide:not([data-sys="v2"]) { --shadow: 0 24px 70px rgba(47, 21, 65, .16), 0 4px 14px rgba(47, 21, 65, .08); }
+.slide:not([data-sys="v2"]):not([data-tone="dark"]) { --head: var(--purple); }
+.slide:not([data-sys="v2"])[data-tone="dark"] { --bg: var(--purple); }
+.slide:not([data-sys="v2"]) .media[data-overlay="left"]::after { background: linear-gradient(90deg, rgba(47, 21, 65, var(--ov, .88)) 0%, rgba(47, 21, 65, calc(var(--ov, .88) * .6)) 40%, rgba(47, 21, 65, 0) 72%); }
+.slide:not([data-sys="v2"]) .media[data-overlay="bottom"]::after { background: linear-gradient(0deg, rgba(20, 10, 30, var(--ov, .72)) 0%, rgba(20, 10, 30, 0) 45%); }
+.slide:not([data-sys="v2"]) .node--ai .card { border-radius: 14px; background: var(--bg); border: 3px solid var(--mint); box-shadow: none; color: var(--head); }
+.slide:not([data-sys="v2"]) .ai-bar { background: var(--purple); }
+.slide:not([data-sys="v2"]):not([data-tone="dark"]) .is-typing::after { background: var(--purple); }
+.slide:not([data-sys="v2"]):not([data-tone="dark"]) .bars b { color: var(--purple); }
+.slide:not([data-sys="v2"])[data-tone="dark"] .ai-window { background: #241033; }
+.slide:not([data-sys="v2"])[data-tone="dark"] .run [data-do="light"] { color: var(--purple); }
+.slide:not([data-sys="v2"]) .note-box.is-spot { box-shadow: 0 0 0 4000px rgba(47, 21, 65, .5); }
+.slide:not([data-sys="v2"]) .note-label { background: var(--purple); }
+.slide:not([data-sys="v2"])[data-tone="dark"] .btn { color: var(--purple); }
+:root { --mono: 'Space Mono', 'SF Mono', ui-monospace, Menlo, Consolas, monospace; }
+
+/* ===================================================================
+   SHARED
+   =================================================================== */
+.big { font: 500 var(--fs, 124px)/1 var(--head-font); letter-spacing: -.045em; color: var(--head); }
+/* team slides: two-line uppercase headline (07.10) */
+.mega { position: absolute; left: var(--pad-x); top: var(--y, 56px); margin: 0; font: 700 var(--fs, 96px)/1 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: var(--c, var(--purple)); }
+.mega .em { color: var(--charcoal); }
+/* 13.10 (her ask): an underline inside a click/auto step draws once that step shows, --hd counted from then */
+.slide.is-active [data-step]:not(.is-shown) :is(.em, .em-strong) { animation: none; } /* review 3, 07.10: dark text + the mint underline animation (mint under mint does not work) */
+.mega .lc { text-transform: none; }
+.mega.lines { line-height: 1.02; }
+/* AI seat as a team seat: role is the caption (same type as human names), pictogram small */
+.ai-seat.role-seat .disc svg { width: 30%; height: 30%; fill: none; stroke: var(--purple); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; opacity: .55; }
+.ai-seat .cap { position: absolute; left: -10px; right: -10px; top: 94%; text-align: center; font: 600 26px/1.2 var(--head-font); color: var(--purple); letter-spacing: -.01em; }
+.team-today .pf figcaption { font: 600 26px/1.2 var(--head-font); }
+.ai-seat.more .disc { flex-direction: column; background: linear-gradient(180deg, #e9faf3 0%, var(--mint) 100%); }
+.ai-seat.more .disc b { font: 700 64px/1 var(--head-font); letter-spacing: -.04em; color: var(--purple); }
+.ai-seat.more .disc small { font: 500 17px/1.2 var(--head-font); color: var(--purple); margin-top: 6px; letter-spacing: .02em; }
+.soft { color: var(--muted); }
+.mint { color: var(--mint); }
+.slide[data-tone="dark"] .soft { color: rgba(255,255,255,.4); }
+.act-label { position: absolute; left: var(--pad-x); top: 56px; font: 500 17px/1 var(--head-font); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.act-label b { color: var(--head); font-weight: 600; }
+.mid { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 50%; transform: translateY(-50%); }
+.mid > * + * { margin-top: var(--gap, 26px); }
+
+/* THE WARNING: a deeper purple and a Bright Green rule (flagged 30.09 for Stéphanie's ruling, still open) */
+.slide.act-warn[data-tone="dark"] { --bg: #1B0A26; }
+.slide.act-warn::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 8px; background: var(--bright); z-index: 6; }
+.slide.act-warn:not([data-tone="dark"])::before { background: var(--purple); }
+.act-warn[data-tone="dark"] .act-label { color: var(--bright); }
+
+/* ===================================================================
+   THE ORGANISATION: one call grid that evolves 02 > 03 > 04 > 10 > 13 > 23
+   =================================================================== */
+.call { position: absolute; display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: var(--gap, 14px); }
+.tile { position: relative; border-radius: 12px; overflow: hidden; background: #3a2a47; aspect-ratio: 16 / 10; transition: opacity .5s, box-shadow .4s; }
+.tile > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 35%); }
+.tile .ph { position: absolute; inset: 0; min-height: 0; }
+.tile .ph-dev { padding: 8px; } .tile .ph-dev b { font-size: 14px; } .tile .ph-dev span, .tile .ph-dev em { display: none; }
+.tile.ai { background: var(--paper); }
+.tile.ai > img { object-position: var(--pos, 50% 0%); }
+.tile .inside { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 14px 22px 40px; color: var(--charcoal); }
+.tile .inside b { font: 500 58px/1 var(--head-font); color: var(--purple); letter-spacing: -.04em; }
+.tile .inside span { font: 500 18px/1.3 var(--body-font); color: rgba(72,74,86,.85); margin-top: 8px; }
+.tile .over { position: absolute; right: 14px; top: 10px; font: 500 58px/1 var(--head-font); color: var(--purple); letter-spacing: -.04em; text-shadow: 0 0 18px #fff, 0 0 4px #fff; }
+.tile .tag { position: absolute; left: 10px; bottom: 10px; padding: 6px 12px; border-radius: 6px; background: rgba(20, 10, 28, .74); color: #fff; font: 500 20px/1.2 var(--head-font); white-space: nowrap; }
+.tile .tag.role { background: var(--mint); color: var(--purple); text-transform: uppercase; letter-spacing: .07em; }
+.tile.empty { background: transparent; outline: 2px dashed rgba(255,255,255,.22); outline-offset: -2px; }
+.slide:not([data-tone="dark"]) .tile.empty { outline-color: rgba(72,74,86,.2); }
+.tile.you { background: transparent; outline: 3px solid var(--mint); outline-offset: -3px; display: flex; align-items: center; justify-content: center; }
+.tile.you b { font: 500 var(--you, 44px)/1 var(--head-font); color: var(--head); letter-spacing: -.03em; }
+.slide[data-tone="dark"] .tile.you b { color: var(--mint); }
+.mini .tile { border-radius: 6px; } .mini .tile .tag { display: none; }
+.mini .tile .inside b { font-size: 22px; } .mini .tile .inside span { display: none; } .mini .tile .over { font-size: 20px; right: 6px; top: 4px; }
+.mini .tile .rl { position: absolute; left: 6px; bottom: 5px; padding: 2px 6px; border-radius: 3px; background: var(--mint); color: var(--purple); font: 600 9px/1.2 var(--head-font); letter-spacing: .06em; text-transform: uppercase; }
+.col-cap { margin-top: 22px; font: 500 34px/1.1 var(--head-font); letter-spacing: -.02em; color: #fff; }
+/* 04: the room's grid gives way to one line */
+.yours-grid { transition: opacity .35s; }
+.yours-grid.is-on { opacity: 0; }
+
+/* ===================================================================
+   02-04 ROUND PORTRAITS (website style): people left, AI team right. Review 01.10.
+   .pf = a website cut-out (white square, mint disc) → multiply removes the white on Off-White.
+   .pf.crop = a normal photo, cropped into the same disc position.
+   =================================================================== */
+.pf, .ai-seat { --dl: 13%; --dt: 9.8%; --dw: 77.6%; }
+.pf { position: relative; width: var(--s, 200px); aspect-ratio: 1; }
+.pf > img { width: 100%; height: 100%; display: block; mix-blend-mode: multiply; }
+.pf.crop::before { content: ''; position: absolute; left: var(--dl); top: var(--dt); width: var(--dw); height: var(--dw); border-radius: 50%; background: linear-gradient(180deg, #e9faf3 0%, var(--mint) 100%); }
+.pf.crop > img { position: absolute; left: var(--dl); top: var(--dt); width: var(--dw); height: var(--dw); border-radius: 50%; object-fit: cover; object-position: var(--pos, 50% 30%); mix-blend-mode: normal; }
+.pf .ph { position: absolute; left: var(--dl); top: var(--dt); width: var(--dw); height: var(--dw); min-height: 0; border-radius: 50%; }
+.pf .ph-dev { padding: 6px; } .pf .ph-dev b { font-size: 13px; } .pf .ph-dev span, .pf .ph-dev em { display: none; }
+.pf figcaption { position: absolute; left: -10px; right: -10px; top: 94%; text-align: center; font: 500 24px/1.2 var(--head-font); color: var(--purple); letter-spacing: -.01em; }
+.pf.empty::before { content: ''; position: absolute; left: var(--dl); top: var(--dt); width: var(--dw); height: var(--dw); border-radius: 50%; border: 3px dashed rgba(72,74,86,.25); }
+.pf.you::before { content: ''; position: absolute; left: var(--dl); top: var(--dt); width: var(--dw); height: var(--dw); border-radius: 50%; background: var(--purple); }
+.pf.you b { position: absolute; left: var(--dl); top: var(--dt); width: var(--dw); height: var(--dw); display: flex; align-items: center; justify-content: center; font: 500 40px/1 var(--head-font); color: #fff; letter-spacing: -.02em; }
+.ppl { position: absolute; display: grid; grid-template-columns: repeat(var(--cols, 3), var(--s, 200px)); gap: var(--gy, 4px) var(--gx, 24px); }
+.ppl > * { --s: inherit; }
+/* slide 2: ChatGPT as the tenth seat, the same AI seat as slide 3 (white disc, mint outline, logo centred) (review 3, 07.10) */
+.pf.logo-seat::before { content: ''; position: absolute; left: var(--dl); top: var(--dt); width: var(--dw); height: var(--dw); border-radius: 50%; border: 4px solid var(--mint); background: #fff; box-sizing: border-box; }
+.pf.logo-seat > img { position: absolute; left: calc(var(--dl) + var(--dw) * .33); top: calc(var(--dt) + var(--dw) * .33); width: calc(var(--dw) * .34); height: calc(var(--dw) * .34); mix-blend-mode: normal; }
+.pf.logo-seat .plus { position: absolute; left: 0; top: calc(var(--dt) + var(--dw) / 2); transform: translate(-50%,-50%); font: 500 72px/1 var(--head-font); color: var(--purple); }
+.side-h { position: absolute; top: 236px; font: 500 18px/1 var(--head-font); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.split-rule { position: absolute; left: 800px; top: 236px; bottom: 80px; width: 2px; background: var(--line); }
+/* AI seats: same disc, but an outline instead of a face; the number or the real artefact inside */
+.ai-seat { position: relative; width: var(--s, 200px); aspect-ratio: 1; }
+.ai-seat .disc { position: absolute; left: var(--dl); top: var(--dt); width: var(--dw); height: var(--dw); border-radius: 50%; border: 4px solid var(--mint); background: #fff; box-sizing: border-box; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.ai-seat .disc b { font: 500 52px/1 var(--head-font); color: var(--purple); letter-spacing: -.04em; }
+.ai-seat .disc img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 0%); }
+.ai-seat .lbl { position: absolute; left: 0; right: 0; top: calc(var(--dt) + var(--dw) + 2px); text-align: center; font: 500 22px/1.2 var(--head-font); color: var(--muted); }
+.ai-seat .lbl.role { color: var(--purple); text-transform: uppercase; letter-spacing: .08em; font-size: 20px; }
+.ai-seat .lbl.role::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--mint); margin-right: 8px; vertical-align: 2px; }
+.ai-seat.icon .disc svg { width: 44%; height: 44%; fill: none; stroke: var(--purple); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ai-seat.icon .lbl.role { top: calc(var(--dt) + var(--dw) + 12px); }
+.ai-seat.more .disc { background: linear-gradient(180deg, #e9faf3 0%, var(--mint) 100%); }
+.ai-seat.more .lbl.role::before { display: none; }
+.ai-seat.empty .disc { border-style: dashed; border-color: rgba(136,219,189,.7); background: transparent; }
+
+/* ===================================================================
+   04 FROM TOOL TO WORKFORCE: five columns, each a bigger org (her design, 07.10); columns fade in ~1 s apart, no click
+   =================================================================== */
+.tw { position: absolute; left: 0; top: 168px; width: 1600px; height: 650px; overflow: visible; } /* viewBox is 1920 wide, scaled to the 1600 canvas */
+.tw text { font-family: var(--head-font); text-anchor: middle; text-transform: uppercase; fill: var(--purple); }
+.tw .h { font-size: 40px; font-weight: 700; letter-spacing: .12em; }
+.tw .h.big { font-size: 80px; letter-spacing: -.01em; }
+.tw .sub { font-size: 26px; font-weight: 500; letter-spacing: .03em; text-transform: none; fill: var(--muted); }
+.tw .lb { font-size: 21px; font-weight: 600; letter-spacing: .14em; }
+.tw .lb.s { font-size: 16px; } .tw .lb.xs { font-size: 14px; letter-spacing: .08em; } .tw .lb.m { font-size: 18px; }
+.tw .pill { fill: #E3F6EE; } .tw .pt { font-size: 17px; font-weight: 700; letter-spacing: .14em; }
+.tw .ln { stroke: #9C95A6; stroke-width: 2; fill: none; }
+.tw .dv { stroke: var(--line); stroke-width: 2; }
+/* 05b LEARN. CREATE. LEAD.: the three words, one by one, then the wall (07.10, her yes to decision 1) */
+.lcl { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: flex-start; gap: 0; margin: 0; font: 700 176px/.92 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: var(--charcoal); }
+.lcl .off { color: rgba(72, 74, 86, .26); } /* 07.10: LEARN is the live word, CREATE and LEAD wait in grey; commas not full stops (her ask, later 9) */
+.lcl .dot { color: var(--mint); }
+/* 06b DON'T WAIT (07.10, her ask; idea from Mark's deck, wording hers, nothing of his copied) */
+.dw { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 47%; transform: translateY(-50%); }
+.dw h2 { margin: 0; font: 700 104px/1 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: var(--charcoal); }
+.dw h2 .hi { color: var(--mint); }
+.dw .loop { margin: 56px 0 0; font: 500 36px/1.3 var(--body-font); color: var(--charcoal); }
+.dw .loop b { font-weight: 700; color: var(--purple, #2F1541); }
+/* 06c the LinkedIn automation video, full canvas */
+.vid-full { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; --fit: contain; background: #000; }
+/* 06d AI Value Ladder + QR to the PDF */
+.vl-poster { position: absolute; left: var(--pad-x); top: 50px; height: 800px; width: auto; box-shadow: 0 18px 50px rgba(47, 21, 65, .16); }
+.vl-side { position: absolute; left: 860px; right: var(--pad-x); top: 50%; transform: translateY(-50%); }
+.vl-side h2 { margin: 14px 0 0; font: 700 64px/1.02 var(--head-font); letter-spacing: -.03em; text-transform: uppercase; color: var(--charcoal); }
+.vl-side .qr-ph { width: 300px; height: 300px; margin-top: 48px; }
+.vl-side .url { margin-top: 18px; font: 500 26px/1.2 var(--head-font); color: var(--muted); }
+/* 12.10 (her go): real QR to the take-home page + her contact, since YOU'RE THE CEO. is parked */
+.slide .vl-side .vl-qr { display: block; width: 300px; height: 300px; margin-top: 40px; padding: 22px; box-sizing: border-box; background: #fff; box-shadow: 0 0 0 3px var(--mint); }
+.slide .vl-side .url { margin-top: 20px; font: 600 28px/1.2 var(--head-font); letter-spacing: -.01em; color: var(--charcoal); }
+.slide .vl-side .vl-what { margin: 6px 0 0; font: 500 22px/1.2 var(--head-font); color: var(--muted); }
+.slide .vl-side .vl-contact { margin: 44px 0 0; font: 500 22px/1.45 var(--head-font); color: var(--muted); }
+.slide .vl-side .vl-contact b { font-weight: 700; color: var(--charcoal); }
+/* 12.10 (her go): four QR codes 2x2 (LinkedIn, talk page, resources, newsletter), name + email under the grid */
+.slide .vl-side .vl-qrs { display: grid; grid-template-columns: repeat(2, 220px); gap: 26px 44px; margin-top: 34px; }
+.slide .vl-side .vl-qrs figure { margin: 0; }
+.slide .vl-side .vl-qrs img { display: block; width: 220px; height: 220px; padding: 16px; box-sizing: border-box; background: #fff; box-shadow: 0 0 0 3px var(--mint); }
+.slide .vl-side .vl-qrs figcaption { margin-top: 12px; font: 700 24px/1.1 var(--head-font); letter-spacing: -.01em; color: var(--charcoal); }
+.slide .vl-side .vl-qrs + .vl-contact { margin-top: 32px; }
+/* 12.10 (her go): poster removed, headline STAY IN TOUCH., four codes in one centred row, bigger for the back of the room */
+.slide .vl-side.vl-center { left: var(--pad-x); right: var(--pad-x); text-align: center; }
+.slide .vl-center .act-label { justify-content: center; }
+.slide .vl-center h2 { font-size: 88px; }
+.slide .vl-center .vl-qrs { grid-template-columns: repeat(4, 270px); gap: 0 64px; justify-content: center; margin-top: 56px; }
+.slide .vl-center .vl-qrs img { width: 270px; height: 270px; padding: 20px; }
+.slide .vl-center .vl-qrs figcaption { margin-top: 16px; font-size: 30px; }
+.slide .vl-center .vl-qrs + .vl-contact { margin-top: 52px; font-size: 26px; }
+/* 05: two lines, the second one stronger */
+.have-need { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 45%; transform: translateY(-50%); }
+.have-need p { margin: 0; font: 700 var(--fs)/1.05 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; }
+.have-need p + p { margin-top: 22px; line-height: .98; }
+/* YOU NEED. underline: the same draw-in as .em, but deep purple (mint under mint does not work) and it starts when the line appears on the click */
+.have-need .ul { background: linear-gradient(var(--purple), var(--purple)) 0 86% / 0% .2em no-repeat; padding: 0 .04em; } /* same geometry as the theme .em marker on slides 2-3 (her ask, 07.10 later 17); purple because the line is mint */
+.is-active .have-need .is-shown .ul { animation: hn-ul .8s cubic-bezier(.3,.1,.2,1) .7s both; }
+.is-static .have-need .ul { background-size: 100% .2em; animation: none; }
+@keyframes hn-ul { to { background-size: 100% .2em; } }
+
+/* ===================================================================
+   06 LEARN: the word, then the experiment wall floods in
+   =================================================================== */
+/* 07.10 later 11: no big "Learn," opener any more (her ask); the word sits in the corner from the start */
+.learn-word { position: absolute; left: var(--pad-x); top: 330px; font: 500 220px/1 var(--head-font); letter-spacing: -.055em; color: var(--mint); transform-origin: left top; transform: translate(0, -282px) scale(.085); z-index: 12; }
+.xw .xcard { position: absolute; left: var(--x); top: var(--y); width: 268px; min-height: 150px; padding: 50px 20px 18px; border-radius: 10px;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); transform: rotate(var(--r, 0deg)); transition: opacity .7s, filter .7s; }
+.is-active .xw .xcard { animation: ft-drop .5s cubic-bezier(.2,.7,.2,1) calc(.3s + var(--k) * 70ms) both; }
+.xcard b { display: block; font: 500 26px/1.15 var(--head-font); color: #fff; letter-spacing: -.01em; }
+.xcard i { display: block; margin-top: 8px; font: 500 18px/1.35 var(--body-font); font-style: normal; color: rgba(255,255,255,.55); }
+.stamp { position: absolute; left: 18px; top: 14px; padding: 4px 9px 3px; border: 2px solid currentColor; border-radius: 4px; font: 600 14px/1 var(--head-font); letter-spacing: .14em; transform: rotate(-7deg); }
+.stamp.keep { color: var(--mint); } .stamp.drop { color: rgba(255,255,255,.7); } .stamp.fail { color: #fff; background: rgba(255,255,255,.12); } .stamp.park { color: rgba(255,255,255,.45); border-style: dashed; }
+.xw.is-on .xcard { opacity: .14; filter: blur(1.5px); }
+.xhero { position: absolute; left: 330px; top: 110px; width: 940px; height: 690px; padding: 52px 60px; border-radius: 18px; background: #fff; color: var(--charcoal); box-shadow: 0 40px 120px rgba(0,0,0,.45); z-index: 10; }
+.xhero .eyebrow { color: rgba(72,74,86,.6); }
+.xhero h3 { margin-top: 14px; font: 500 66px/1.05 var(--head-font); letter-spacing: -.03em; color: var(--purple); }
+.xhero ol { list-style: none; padding: 0; margin: 40px 0 0; }
+.xhero li { font: 500 40px/1.3 var(--body-font); color: var(--charcoal); padding: 16px 0; border-top: 1px solid rgba(72,74,86,.14); display: grid; grid-template-columns: 70px 1fr; }
+.xhero li span { font: 500 20px/2.6 var(--head-font); color: rgba(72,74,86,.55); letter-spacing: .08em; }
+.xhero .sent { position: absolute; right: 60px; bottom: 40px; text-align: right; }
+.xhero .sent b { display: block; font: 500 210px/.86 var(--head-font); color: var(--purple); letter-spacing: -.06em; }
+.xhero .sent small { font: 500 20px/1.3 var(--head-font); letter-spacing: .1em; text-transform: uppercase; color: rgba(72,74,86,.6); }
+.xhero .stamp.big-stamp { left: 60px; top: auto; bottom: 52px; font-size: 52px; padding: 12px 26px 10px; border-width: 6px; color: var(--purple); transform: rotate(-8deg); }
+
+/* ===================================================================
+   07 / 08 / 09 CREATE: one person, the wall speeds up, the reversal
+   =================================================================== */
+/* 07a WHAT I MADE: Mark's list PATTERN (headline + numbered two-column list), her own words and items (07.10) */
+.made h2 { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 120px; margin: 0; font: 700 72px/1 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: var(--charcoal); }
+.made h2 .hi { color: var(--mint); }
+.made ol { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 330px; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(5, 92px); column-gap: 80px; }
+.made li { display: flex; align-items: center; gap: 44px; border-top: 2px solid var(--line); font: 500 44px/1 var(--body-font); color: var(--charcoal); }
+.made li:nth-child(5), .made li:nth-child(10) { border-bottom: 2px solid var(--line); }
+.made li span { width: 44px; font: 700 22px/1 var(--head-font); letter-spacing: .06em; color: var(--muted); }
+.made li.hi { color: var(--purple); font-weight: 700; }
+.made li.hi span { color: var(--mint); }
+.one { position: absolute; left: var(--pad-x); top: 50%; transform: translateY(-52%); font: 500 340px/.9 var(--head-font); letter-spacing: -.06em; color: var(--purple); }
+.pw .print { transition: left .9s cubic-bezier(.6,0,.2,1), top .9s cubic-bezier(.6,0,.2,1), width .9s cubic-bezier(.6,0,.2,1), transform .9s cubic-bezier(.6,0,.2,1), opacity .6s, filter .6s; }
+.pw .print.is-focus { left: var(--fx); top: var(--fy); width: var(--fw); transform: rotate(0deg); z-index: 30; }
+.pw:has(.is-focus) .print:not(.is-focus) { opacity: .3; filter: grayscale(.6); }
+.pw .print > img { border-radius: 4px; }
+.pw .print.fast.is-shown { --dur: .32s; }
+.pw .print figcaption { color: #fff; font-size: 19px; opacity: 0; transition: opacity .5s; }
+.pw .print.is-focus figcaption { opacity: 1; font-size: 28px; }
+.pw .print figcaption span { color: rgba(255,255,255,.65); font-size: 18px; }
+.pw.is-on figcaption { opacity: 0 !important; }
+.cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4%; }
+.cards3 img { display: block; width: 100%; box-shadow: var(--shadow); border-radius: 3px; }
+.led { position: absolute; left: var(--pad-x); top: 50%; transform: translateY(-50%); }
+.led p { font: 500 150px/1 var(--head-font); letter-spacing: -.055em; color: var(--purple); }
+.led p + p { margin-top: 34px; }
+.led p.soft { color: var(--muted); }
+
+/* ===================================================================
+   10 / 11 THE ROOM: watch my AI team work, then the human no
+   =================================================================== */
+.room { position: absolute; inset: 0; }
+.seats { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 108px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.seat.tile { aspect-ratio: auto; height: 168px; background: rgba(255,255,255,.07); }
+.seat .who-name { position: absolute; left: 20px; top: 18px; font: 500 34px/1 var(--head-font); color: #fff; letter-spacing: -.02em; }
+.seat .who-prod { position: absolute; left: 20px; bottom: 16px; font: 500 18px/1 var(--mono); color: rgba(255,255,255,.5); }
+.seat.face > img { object-position: 50% 30%; opacity: .9; }
+.seat.face .tag { background: rgba(20,10,28,.74); }
+.room .seat { transition: opacity .35s, transform .35s; opacity: .5; }
+.room .seat::after { content: ''; position: absolute; inset: 0; border-radius: 12px; box-shadow: inset 0 0 0 6px transparent; transition: box-shadow .35s; z-index: 3; pointer-events: none; }
+.room[data-speaking="researcher"] [data-seat="researcher"], .room[data-speaking="analyst"] [data-seat="analyst"], .room[data-speaking="critic"] [data-seat="critic"],
+.room[data-speaking="writer"] [data-seat="writer"], .room[data-speaking="you"] [data-seat="you"] { opacity: 1; transform: translateY(-4px); }
+.room[data-speaking="researcher"] [data-seat="researcher"]::after, .room[data-speaking="analyst"] [data-seat="analyst"]::after, .room[data-speaking="critic"] [data-seat="critic"]::after,
+.room[data-speaking="writer"] [data-seat="writer"]::after, .room[data-speaking="you"] [data-seat="you"]::after { box-shadow: inset 0 0 0 6px var(--mint); }
+.feed { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 300px; bottom: 58px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+.feed > * + * { margin-top: 22px; }
+.feed [data-do]:not(.is-on) { display: none; }
+.feed [data-do].is-on { animation: ft-rise .5s cubic-bezier(.2,.7,.2,1) both; }
+.is-static .feed [data-do] { display: block !important; }
+.msg { display: grid; grid-template-columns: 190px 1fr; gap: 28px; align-items: baseline; transition: opacity .5s; }
+.msg .w { font: 500 19px/1.9 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mint); }
+.msg .s { font: 400 32px/1.4 var(--mono); color: rgba(255,255,255,.92); letter-spacing: -.01em; }
+.msg .s small { display: block; margin-top: 6px; font: 400 17px/1.3 var(--mono); color: rgba(255,255,255,.45); }
+.msg.human .w { color: #fff; }
+.msg.human .s { font-family: var(--head-font); font-weight: 500; }
+.blur { display: inline-block; filter: blur(9px); background: rgba(255,255,255,.25); border-radius: 6px; padding: 0 .2em; user-select: none; }
+.verdict { display: inline-block; margin-top: 8px; font: 700 76px/1 var(--mono); letter-spacing: -.03em; color: var(--bright); transition: color .5s, opacity .5s; }
+.verdict em { font-style: normal; margin-left: .3em; padding: 0 .2em; border: 4px solid currentColor; border-radius: 8px; font-size: .62em; vertical-align: .18em; position: relative; }
+.room:has(.ask.is-shown) .feed .msg:not(.m-crit1) { opacity: .2; }
+.ask { position: absolute; right: var(--pad-x); top: 318px; text-align: right; font: 500 82px/1 var(--head-font); letter-spacing: -.04em; color: #fff; }
+.ask small { display: block; margin-bottom: 14px; font: 500 20px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mint); }
+.room-src { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 20px; font: 500 17px/1.3 var(--body-font); color: rgba(255,255,255,.42); }
+/* 11 NO. */
+.room-no .seat:not([data-seat="you"]) { opacity: .16; }
+.room-no .seat[data-seat="you"] { opacity: 1; transform: translateY(-4px); }
+.room-no .seat[data-seat="you"]::after { box-shadow: inset 0 0 0 6px var(--mint); }
+.was { position: absolute; left: var(--pad-x); top: 330px; font: 700 34px/1 var(--mono); color: rgba(255,255,255,.32); letter-spacing: -.02em; }
+.was s { text-decoration-thickness: 4px; text-decoration-color: #fff; }
+.no-big { position: absolute; left: 96px; top: 372px; font: 500 400px/.86 var(--head-font); letter-spacing: -.07em; color: #fff; }
+.no-why { position: absolute; left: 860px; right: var(--pad-x); top: 560px; font: 500 40px/1.25 var(--head-font); letter-spacing: -.015em; color: rgba(255,255,255,.88); }
+.tail { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 320px; bottom: 58px; display: flex; flex-direction: column; justify-content: flex-end; }
+.tail > * + * { margin-top: 24px; }
+.ideas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 4px; }
+.idea { height: 108px; border-radius: 10px; border: 2px dashed rgba(255,255,255,.22); padding: 14px 16px; font: 400 19px/1.3 var(--mono); color: rgba(255,255,255,.4); }
+.idea.pick { border: 3px solid var(--mint); color: #fff; background: rgba(136,219,189,.1); }
+.idea.pick b { display: block; font: 500 27px/1.1 var(--head-font); color: #fff; margin-top: 6px; letter-spacing: -.02em; }
+.iter { font: 700 52px/1.1 var(--mono); color: rgba(255,255,255,.5); letter-spacing: -.02em; }
+.iter .last { color: var(--bright); } .iter .ar { color: rgba(255,255,255,.3); margin: 0 .25em; }
+.pubd { font: italic 500 48px/1.3 var(--body-font); color: #fff; }
+
+/* ===================================================================
+   12 WHAT I DID → OWN THE RESULT.
+   =================================================================== */
+.did { list-style: none; padding: 0; position: absolute; left: var(--pad-x); top: 170px; transition: transform .9s cubic-bezier(.6,0,.2,1); transform-origin: left top; }
+.did li { font: 500 78px/1.12 var(--head-font); letter-spacing: -.035em; color: var(--purple); transition: color .8s; }
+.did.is-on { transform: scale(.42); }
+.did.is-on li { color: rgba(72,74,86,.28); }
+.own { position: absolute; left: var(--pad-x); top: 470px; font: 500 176px/.95 var(--head-font); letter-spacing: -.055em; color: var(--purple); }
+
+/* ===================================================================
+   14 REDESIGN THE WORK: three columns, the same device as the take-home
+   =================================================================== */
+.cols3 { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 250px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+.cols3 h4 { font: 500 38px/1.1 var(--head-font); letter-spacing: -.02em; color: var(--purple); padding-bottom: 18px; border-bottom: 3px solid var(--mint); margin-bottom: 10px; }
+.cols3 p { font: 500 30px/1.3 var(--body-font); color: var(--charcoal); padding: 12px 0; }
+.cols3 p small { display: block; font-size: 21px; color: var(--muted); margin-top: 4px; }
+.cols3 .empty-line { height: 58px; border-bottom: 2px dashed var(--line); padding: 0; }
+.pullq { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 64px; font: italic 500 40px/1.35 var(--body-font); color: var(--purple); }
+.pullq small { font: normal 500 18px/1.3 var(--body-font); color: var(--muted); margin-left: 16px; }
+
+/* ===================================================================
+   16 "ALL CLEAN." → IT WASN'T → DORMANT / Dormant → A SECOND AI: PASS
+   =================================================================== */
+.cl { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 50%; transform: translateY(-50%); }
+.cl-big { font: 500 230px/.92 var(--head-font); letter-spacing: -.06em; color: var(--purple); }
+.cl-log { margin-top: 56px; font: 400 30px/1.4 var(--mono); color: var(--charcoal); }
+.cl-log b { background: rgba(136,219,189,.55); padding: 0 .15em; font-weight: 700; }
+.cl-log small { display: block; margin-top: 10px; font: 500 19px/1.3 var(--body-font); color: var(--muted); }
+.cl-kick { font: 500 64px/1 var(--head-font); letter-spacing: -.035em; color: var(--purple); }
+.cl-sent { margin-top: 48px; font: italic 500 92px/1.15 var(--body-font); color: var(--charcoal); letter-spacing: -.015em; }
+.cl-sent mark { background: linear-gradient(rgba(136,219,189,.85), rgba(136,219,189,.85)) 0 50% / 0% 100% no-repeat; padding: 0 .08em; font-style: normal; font-family: var(--head-font); color: var(--purple); transition: background-size .9s cubic-bezier(.3,.1,.2,1) 1.1s; }
+.is-shown .cl-sent mark, .is-static .cl-sent mark { background-size: 100% 100%; }
+.cl-cap { margin-top: 30px; font: 500 21px/1.35 var(--body-font); color: var(--muted); }
+.cl-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
+.cl-pair p { font: 500 150px/1 var(--head-font); letter-spacing: -.05em; white-space: nowrap; }
+.cl-pair .looked { color: rgba(72,74,86,.32); }
+.cl-pair .shipped { color: var(--purple); }
+.cl-pair small { display: block; margin-top: 18px; font: 500 24px/1.3 var(--body-font); letter-spacing: 0; color: var(--muted); }
+.cl-pass { display: inline-block; margin-top: 40px; padding: 18px 40px 14px; border: 10px solid var(--purple); border-radius: 14px; font: 600 200px/1 var(--head-font); letter-spacing: .02em; color: var(--purple); transform: rotate(-6deg); }
+.cl-corr { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 50%; transform: translateY(-50%); background: var(--paper); border-left: 10px solid var(--purple); padding: 46px 54px; font: 400 28px/1.5 var(--mono); color: var(--charcoal); }
+.cl-corr h4 { font: 700 34px/1.3 var(--mono); color: var(--purple); margin-bottom: 18px; }
+.cl-corr p + p { margin-top: 12px; }
+
+/* ===================================================================
+   17 ASKED TO PROPOSE. IT DECIDED.
+   =================================================================== */
+.trk { position: absolute; top: 250px; width: 600px; background: #fff; box-shadow: var(--shadow); border-radius: 12px; padding: 30px 34px 26px; transition: opacity .6s, filter .6s; }
+.trk h4 { font: 500 17px/1.3 var(--head-font); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.trk h4 b { color: var(--purple); font-weight: 600; }
+.trk ol { list-style: none; padding: 0; margin: 18px 0 0; counter-reset: q; }
+.trk li { counter-increment: q; display: grid; grid-template-columns: 44px 1fr; padding: 13px 0; border-top: 1px solid rgba(72,74,86,.12); font: 500 27px/1.3 var(--head-font); color: var(--charcoal); }
+.trk li::before { content: counter(q); color: rgba(72,74,86,.45); }
+.trk li.new { color: var(--purple); } .trk li.new em { font: normal 500 15px/1 var(--head-font); letter-spacing: .08em; text-transform: uppercase; background: #FFE9A8; color: #6b4700; padding: 3px 7px; border-radius: 4px; margin-left: 10px; vertical-align: 3px; }
+.trk .recon { margin-top: 16px; font: 500 18px/1.35 var(--body-font); color: var(--muted); }
+.trk.v22.is-on { opacity: .35; filter: grayscale(1); }
+.nonsense { position: absolute; left: 790px; right: var(--pad-x); top: 300px; }
+.nonsense p { font: italic 500 54px/1.25 var(--body-font); color: var(--purple); }
+.nonsense small { display: block; margin-top: 18px; font: 500 20px/1.35 var(--body-font); color: var(--muted); }
+
+/* ===================================================================
+   19 SMALL. REVERSIBLE. REVIEWED.  ·  21 the human words
+   =================================================================== */
+.srr { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 270px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+.srr h3 { font: 500 104px/1 var(--head-font); letter-spacing: -.045em; color: var(--purple); }
+.srr p { margin-top: 34px; padding-top: 24px; border-top: 3px solid var(--mint); font: 500 34px/1.35 var(--body-font); color: var(--ink); }
+.words { position: absolute; left: var(--pad-x); top: 120px; list-style: none; padding: 0; }
+.words li { font: 500 136px/1.06 var(--head-font); letter-spacing: -.05em; color: var(--purple); }
+.resp { position: absolute; left: var(--pad-x); top: 50%; transform: translateY(-50%); font: 500 210px/1 var(--head-font); letter-spacing: -.06em; color: var(--purple); }
+
+/* ===================================================================
+   22 BUILD YOUR FIRST AI TEAM: the map, then the empty columns
+   =================================================================== */
+.map { position: absolute; left: var(--pad-x); top: 50%; display: flex; gap: .3em; font: 500 150px/1 var(--head-font); letter-spacing: -.05em; color: var(--purple);
+  transform: translateY(-50%); transform-origin: left top; z-index: 3; }
+.is-active .map { animation: map-shrink 1s cubic-bezier(.6,0,.2,1) 4.6s both; }
+@keyframes map-shrink { to { top: 60px; transform: translateY(0) scale(.2); color: var(--muted); } }
+.build-h { position: absolute; left: var(--pad-x); top: 128px; }
+.is-active .after-map { animation: ft-rise .7s cubic-bezier(.2,.7,.2,1) 5.3s both; }
+.build-step { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 92px; font: 500 52px/1.15 var(--head-font); letter-spacing: -.025em; color: var(--charcoal); }
+.owner-q { position: absolute; left: var(--pad-x); top: 50%; transform: translateY(-50%); font: 500 170px/.95 var(--head-font); letter-spacing: -.055em; color: var(--purple); }
+
+/* ===================================================================
+   23 CLOSE: my team / my team / your team → You're the CEO.
+   =================================================================== */
+.close-panels { transition: opacity .6s; }
+.close-panels.is-on { opacity: 0; }
+.ceo-line { position: absolute; left: var(--pad-x); top: 50%; transform: translateY(-58%); font: 500 230px/.92 var(--head-font); letter-spacing: -.06em; color: #fff; }
+.ceo-foot { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 72px; display: flex; align-items: flex-end; justify-content: space-between; }
+.ceo-foot .contact { font: 500 24px/1.5 var(--body-font); color: rgba(255,255,255,.75); }
+.ceo-foot .contact b { font-family: var(--head-font); font-weight: 500; color: #fff; }
+.ceo-foot .logo { position: static; height: 44px; }
+
+/* ===================================================================
+   CREATE (restructure v3, 07.10): B1 the Monday chain · B2 the design nobody sees · B3 the roles · hinge
+   =================================================================== */
+.chain { position: absolute; left: var(--pad-x); right: var(--pad-x); top: var(--cy, 250px); display: flex; align-items: stretch; }
+.cn { position: relative; flex: 0 0 196px; box-sizing: border-box; min-height: 150px; padding: 50px 18px 18px; border-radius: 10px; background: #fff; box-shadow: var(--shadow); transition: box-shadow .5s; }
+.cn b { display: block; font: 600 30px/1.1 var(--head-font); letter-spacing: -.015em; color: var(--purple); }
+.cn i { display: block; margin-top: 8px; font: 500 18px/1.3 var(--body-font); font-style: normal; color: var(--muted); }
+.cn .stamp.keep { color: #2e9c78; } /* 12.10 design review: one KEEP green everywhere (= learn wall, SYSTEM DESIGN label) */
+.cn.me { background: var(--purple); }
+.cn.me b { color: #fff; } .cn.me i { color: rgba(255,255,255,.7); }
+.chain .ar { flex: 1 1 0; display: flex; align-items: center; justify-content: center; font: 500 34px/1 var(--head-font); color: rgba(72,74,86,.4); }
+.chain.compact .cn { min-height: 0; padding: 22px 18px; display: flex; align-items: center; }
+.chain.compact .cn.is-on { box-shadow: var(--shadow), inset 0 0 0 4px var(--mint); }
+/* 12.10 design review: slide 14 shows the SAME chain object as slide 12 (cards, stamps, subtitles, Me); only the overlays differ.
+   Seats shrink to 116 so the full-height cards fit between them. */
+.slide[data-sys="v2"].b3 .chain.same12 { top: 428px; }
+.slide[data-sys="v2"].b3 .chain.same12 .cn.is-on { box-shadow: var(--shadow-card), inset 0 0 0 4px var(--mint); }
+.slide[data-sys="v2"].b3 .rs { --s: 116px; left: calc(var(--cx) - 58px); top: 236px; }
+.slide[data-sys="v2"].b3 .rs .cap { font-size: 20px; }
+.slide[data-sys="v2"].b3 .rs[style*="--ty"] { top: 648px; }
+.slide[data-sys="v2"].b3 .tie { top: 394px; height: 26px; }
+.slide[data-sys="v2"].b3 .brk { top: 610px; }
+.outs { position: absolute; left: var(--pad-x); top: 540px; display: flex; gap: 24px; }
+.outs .oc { position: relative; width: 220px; padding: 46px 18px 16px; border-radius: 10px; border: 2px dashed rgba(72,74,86,.22); opacity: .55; }
+.outs .oc b { display: block; font: 500 22px/1.15 var(--head-font); color: var(--muted); }
+.outs .stamp { color: var(--muted) !important; background: none !important; }
+/* 12.10 THE AI WAS THE EASY PART. - two variants for her pick (A = 4 buckets, B = chain + 8 labels) */
+.ep-head { position: absolute; left: var(--pad-x); top: 92px; margin: 0; font: 700 140px/.9 var(--head-font); letter-spacing: -.045em; text-transform: uppercase; color: var(--charcoal); }
+.ep-head .m { color: var(--mint); }
+.ep-eyebrow { position: absolute; left: var(--pad-x); top: 628px; margin: 0; font: 600 20px/1 var(--head-font); letter-spacing: .22em; text-transform: uppercase; color: #8E8A93; }
+.ep4 { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 620px; display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 28px; }
+.ep4 > div { background: #fff; border: 2px solid var(--mint); border-radius: 22px; padding: 52px 0; text-align: center; box-shadow: 0 10px 30px rgba(47,21,65,.06); font: 700 46px/1 var(--head-font); letter-spacing: -.03em; text-transform: uppercase; color: var(--purple); white-space: nowrap; }
+.epb-head { position: absolute; left: var(--pad-x); top: 70px; margin: 0; font: 700 76px/.95 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+.epb-head .m { color: var(--mint); }
+.epb-chain { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 548px; display: flex; justify-content: space-between; align-items: center; }
+.epb-chain::before { content: ""; position: absolute; left: 40px; right: 40px; top: 50%; height: 2px; background: var(--mint); }
+.epb-chain span { position: relative; padding: 16px 30px; border: 2px solid var(--mint); border-radius: 999px; background: var(--paper); font: 500 30px/1 var(--head-font); color: var(--charcoal); }
+.epb-chain span.me { background: var(--purple); border-color: var(--purple); color: #fff; }
+.epb-row { position: absolute; left: var(--pad-x); right: var(--pad-x); display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 32px; text-align: center; }
+.epb-row.top { top: 380px; }
+.epb-row.bot { top: 716px; }
+.epb-row > div { position: relative; font: 600 34px/1 var(--head-font); letter-spacing: -.01em; color: var(--purple); white-space: nowrap; }
+.epb-row.top > div::after, .epb-row.bot > div::before { content: ""; position: absolute; left: 50%; width: 2px; height: 44px; background: var(--mint); opacity: .7; }
+.epb-row.top > div::after { top: 58px; }
+.epb-row.bot > div::before { bottom: 58px; }
+/* 12.10 variant C: THE AI WAS THE EASY PART. as system architecture (three beats) */
+.epc-head { position: absolute; left: var(--pad-x); top: 50px; margin: 0; font: 700 100px/.9 var(--head-font); letter-spacing: -.045em; text-transform: uppercase; color: var(--purple); }
+.epc-head .m { color: var(--mint); }
+.epc-field { position: absolute; border: 1.5px solid var(--mint); border-radius: 26px; }
+.epc-field.outer { left: 112px; top: 376px; width: 1376px; height: 450px; opacity: .55; }
+.epc-field.inner { left: 300px; top: 484px; width: 1000px; height: 234px; }
+.epc-flow { position: absolute; left: 300px; width: 1000px; top: 589px; text-align: center; margin: 0; font: 500 24px/1 var(--head-font); letter-spacing: .16em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+.epc-flow i { font-style: normal; color: var(--mint); margin: 0 .5em; }
+.epc-flow b { font-weight: 700; color: var(--purple); }
+.epc-l { position: absolute; margin: 0; padding: 0 16px; background: var(--paper); transform: translateY(-50%); font: 600 30px/1 var(--head-font); letter-spacing: -.01em; color: var(--purple); white-space: nowrap; }
+.epc-l.o { font-size: 36px; }
+/* 12.10 slide 10 rebuilt on her brief: OUT OF REACH list (Mark's layout logic, Fresh language) */
+.oor-band { position: absolute; left: 0; right: 0; top: 0; height: 120px; background: var(--purple); }
+.oor-band b { position: absolute; left: var(--pad-x); top: 50%; transform: translateY(-50%); font: 700 26px/1 var(--head-font); letter-spacing: .32em; text-transform: uppercase; color: var(--mint); }
+.oor h2 { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 182px; margin: 0; font: 700 84px/1 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: var(--purple); }
+.oor h2 .m { color: var(--mint); }
+.oor ol { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 404px; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(5, 88px); column-gap: 72px; }
+.oor li { display: flex; align-items: center; gap: 32px; border-top: 2px solid rgba(47,21,65,.16); font: 600 38px/1 var(--body-font); color: var(--charcoal); white-space: nowrap; }
+.oor li:nth-child(5) { border-bottom: 2px solid rgba(47,21,65,.16); }
+.oor li span { width: 52px; flex: none; font: 700 26px/1 var(--head-font); letter-spacing: .04em; color: var(--mint); }
+.oor li.hi { color: var(--purple); font-weight: 800; font-size: 50px; border-bottom: 6px solid var(--mint); }
+.dns { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 400px; display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 48px; row-gap: 120px; }
+.dns h4 { font: 500 42px/1.1 var(--head-font); letter-spacing: -.02em; color: var(--purple); padding-bottom: 16px; border-bottom: 3px solid var(--mint); margin-bottom: 16px; white-space: nowrap; }
+.dns p { font: 500 28px/1.3 var(--body-font); color: var(--charcoal); }
+.b3 .mega { --fs: 64px; --c: var(--charcoal); line-height: 1.02; }
+.b3 .rs { position: absolute; left: calc(var(--cx) - 85px); top: var(--ty, 262px); --s: 170px; }
+.b3 .rs .cap { font-size: 24px; }
+.b3 .brk { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 648px; height: 22px; border: 3px solid var(--mint); border-top: 0; border-radius: 0 0 10px 10px; }
+.b3 .tie { position: absolute; top: 478px; height: 40px; border: 3px solid var(--mint); border-bottom: 0; border-radius: 10px 10px 0 0; }
+
+/* ===================================================================
+   LEAD L1 the log (restructure v3, 07.10): one click per line, then the silent Monday
+   =================================================================== */
+.log { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 118px; list-style: none; margin: 0; padding: 0; }
+.log li { display: grid; grid-template-columns: 250px 1fr; column-gap: 28px; align-items: baseline; padding: 15px 0; border-top: 1px solid rgba(255,255,255,.14); font: 500 34px/1.3 var(--head-font); letter-spacing: -.01em; color: #fff; transition: opacity .6s; }
+.log li span { font: 700 22px/1.5 var(--mono); letter-spacing: .04em; color: var(--bright); }
+.log.is-on li, .log.is-on li span { color: rgba(255,255,255,.26); } /* colour, not opacity: the rise animation holds opacity */
+.silent { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 74px; }
+.silent p { margin: 0; font: 600 76px/1.04 var(--head-font); letter-spacing: -.035em; color: #fff; }
+.silent p + p { margin-top: 18px; font: 500 40px/1.25 var(--head-font); letter-spacing: -.015em; color: rgba(255,255,255,.82); }
+.is-static .log li, .is-static .log li span { color: rgba(255,255,255,.26); }
+
+/* 27 CLOSE in the round style of slides 2-3 (restructure v3, 07.10): no Robin, no Mark-kit tile */
+.cp { height: 324px; display: flex; align-items: flex-end; }
+.cp .ppl { position: static; }
+.close-panels .pf > img { mix-blend-mode: normal; }
+.close-panels .pf.logo-seat > img { mix-blend-mode: normal; }
+.close-panels .pf.logo-seat .plus { color: #fff; font-size: 34px; }
+.close-panels .ai-seat .cap { display: none; }
+.close-panels .ai-seat .disc { border-width: 3px; }
+.close-panels .pf.you b { font-size: 22px; }
+.close-panels .pf.you::before { background: var(--mint); }
+.close-panels .pf.you b { color: var(--purple); }
+
+/* 08 the wall asks the question (her pick B, 07.10 later 20): KEEP cards light up, the rest fade, one line lands */
+/* white cards on the dark wall (her ask, 07.10 later 21): more visible */
+.xw.xw-q .xcard { background: #fff; border-color: #fff; box-shadow: 0 18px 44px rgba(0,0,0,.28); }
+.xw.xw-q .xcard b { color: var(--purple); }
+.xw.xw-q .xcard i { color: rgba(72,74,86,.75); } /* explicit: --muted turns light on dark slides */
+.xw.xw-q .stamp.keep { color: #2e9c78; }
+.xw.xw-q .stamp.drop { color: rgba(72,74,86,.8); }
+.xw.xw-q .stamp.fail { color: #fff; background: var(--charcoal); border-color: var(--charcoal); }
+.xw.xw-q .stamp.park { color: rgba(72,74,86,.6); }
+.xw.xw-q.is-on .xcard:not(.k) { opacity: .22; filter: blur(1.5px); }
+.xw.xw-q.is-on .xcard.k { opacity: 1; filter: none; border-color: var(--mint); box-shadow: 0 0 0 2px var(--mint), 0 24px 60px rgba(0,0,0,.35); }
+.xq { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 712px; margin: 0; font: 700 76px/1 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; white-space: nowrap; color: #fff; z-index: 10; } /* bold capitals like the other big lines (her ask, later 21) */
+.is-static .xw.xw-q .xcard.k { opacity: 1; filter: none; border-color: var(--mint); }
+
+/* B1 chain with the plan feeding the brief and the comment filter as a branch (her ask, 07.10 later 24) */
+.cn.solo { position: absolute; width: 196px; min-height: 0; }
+.down { position: absolute; width: 196px; text-align: center; font: 500 56px/1 var(--head-font); color: rgba(72,74,86,.4); }
+.branch { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; overflow: visible; pointer-events: none; }
+.branch path { fill: none; stroke: rgba(72,74,86,.4); stroke-width: 3; stroke-linejoin: round; }
+
+/* ===================================================================
+   FINISHED STATES for grid thumbnails (.is-static) and print/PDF: each slide's last state.
+   =================================================================== */
+.is-static [data-hide-at] { display: none !important; }
+.is-static .learn-word { transform: translate(0, -282px) scale(.085); color: var(--mint); }
+.is-static .xw .xcard { opacity: .14; filter: blur(1.5px); }
+.is-static .yours-grid, .is-static .close-panels { opacity: 0; }
+.is-static .did { transform: scale(.42); } .is-static .did li { color: rgba(72,74,86,.28); }
+.is-static .trk.v22 { opacity: .35; filter: grayscale(1); }
+.is-static .map { top: 60px; transform: translateY(0) scale(.2); color: var(--muted); }
+@media print {
+  .slide [data-hide-at] { display: none !important; }
+  .learn-word { transform: translate(0, -282px) scale(.085); color: var(--mint); }
+  .xw .xcard { opacity: .14; }
+  .yours-grid, .close-panels { opacity: 0; }
+  .did { transform: scale(.42); } .did li { color: rgba(72,74,86,.28); }
+  .trk.v22 { opacity: .35; }
+  .map { top: 60px; transform: translateY(0) scale(.2); }
+  .feed [data-do] { display: block !important; opacity: 1 !important; }
+}
+
+/* ===================================================================
+   DESIGN SYSTEM V2 - slides 1-13 (12.10.2026). Theme: theme/fresh-v2.css.
+   Everything here is scoped to [data-sys="v2"] because the same talk classes still serve
+   slides 14-30 in their v1 look. Talk-specific only: portraits, AI seats, org chart, wall, chain.
+   =================================================================== */
+[data-sys="v2"] .lc { text-transform: none; }
+/* 2-3 team slides: charcoal titles, charcoal names and AI roles; AI seats white with a mint ring */
+[data-sys="v2"] .mega { color: var(--c, var(--charcoal)); }
+[data-sys="v2"] .pf figcaption, [data-sys="v2"] .ai-seat .cap { color: var(--charcoal); }
+[data-sys="v2"] .ai-seat.role-seat .disc svg { stroke: var(--charcoal); opacity: .8; }
+[data-sys="v2"] .ai-seat.more .disc { background: #fff; }
+[data-sys="v2"] .ai-seat.more .disc b, [data-sys="v2"] .ai-seat.more .disc small { color: var(--charcoal); }
+[data-sys="v2"] .pf.logo-seat .plus { color: var(--charcoal); }
+/* 4 org chart: charcoal labels */
+[data-sys="v2"] .tw text { fill: var(--charcoal); }
+[data-sys="v2"] .tw .sub { fill: var(--muted); }
+/* 5: the marker is mint now that the line is charcoal */
+[data-sys="v2"] .have-need .ul { background-image: linear-gradient(var(--mint), var(--mint)); }
+/* statements under the act header (7, 9) */
+[data-sys="v2"] .dw { top: calc(50% + var(--band-h) / 2); }
+[data-sys="v2"] .dw h2.statement-title { font-size: 116px; line-height: .94; color: var(--charcoal); }
+[data-sys="v2"] .dw h2 .hi { color: inherit; }
+/* 8 wall: same card DNA (white, card radius), stays tilted and messy, charcoal titles, mint KEEP */
+[data-sys="v2"] .xw.xw-q .xcard { border-radius: var(--radius-card); }
+[data-sys="v2"] .xw.xw-q .xcard b { color: var(--charcoal); font-weight: 600; }
+/* 10 out of reach: charcoal title, mint numbers, This keynote charcoal and last */
+[data-sys="v2"] .oor h2 { top: 160px; font-size: 94px; white-space: nowrap; line-height: .96; letter-spacing: -.04em; color: var(--charcoal); }  /* intentional exception to the 3 sizes (her ruling 12.10): a major LEARN idea */
+[data-sys="v2"] .oor ol { top: 404px; grid-template-rows: repeat(5, 78px); }
+[data-sys="v2"] .oor li { font-size: 34px; }
+[data-sys="v2"] .oor li.hi { font-size: 46px; }
+[data-sys="v2"] .oor li { color: var(--charcoal); }
+[data-sys="v2"] .oor li.hi { color: var(--charcoal); }
+/* 12 chain: card DNA, charcoal labels, Me stays purple (ownership) */
+[data-sys="v2"] .cn { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+[data-sys="v2"] .cn b { color: var(--charcoal); }
+[data-sys="v2"] .cn.me b { color: #fff; }
+/* 13: statement + four white cards. CEO-of-AIs EXCEPTION (her ruling 12.10): all four keep the mint outline because it gives the composition impact. The template rule stays: neutral white cards, mint ring only for active / selected. */
+[data-sys="v2"] .ep-head { top: 250px; font-size: 88px; }
+[data-sys="v2"] .ep4 { top: 540px; }
+[data-sys="v2"] .ep-aside { position: absolute; left: var(--pad-x); top: 452px; margin: 0; font: 500 34px/1.2 var(--body-font); color: #8E8A93; } /* 13.10 her ask: bracketed line under the headline */
+[data-sys="v2"] .ep4.v2 > div { padding: 70px 0; font-size: 48px; border: 2px solid var(--mint); border-radius: var(--radius-card); background: #fff; box-shadow: var(--shadow-card); color: var(--charcoal); } /* boxes kept: her 2a (12.10), restored after the lighter test */
+/* 14 expert in every part: CREATE header, headline under the band, the composition moved down 30px and the role seats
+   156px (was 170) so the bottom row still fits 900; charcoal seats and chain labels, Me stays purple (as slide 12) */
+[data-sys="v2"].b3 .rs { --s: 156px; left: calc(var(--cx) - 78px); top: calc(var(--ty, 262px) + 30px); }
+[data-sys="v2"].b3 .rs[style*="--ty"] { top: calc(var(--ty) + 20px); }
+[data-sys="v2"].b3 .tie { top: 508px; }
+[data-sys="v2"].b3 .chain { top: 558px; }
+[data-sys="v2"].b3 .brk { top: 678px; }
+/* 14, 12.10 (her ask): headline on ONE line at the content size (72, measured 1325 of 1376), the
+   rows re-spaced (disc size unchanged) so band -> headline -> seats -> chain -> seats -> bottom edge read as even gaps (Operations was on the edge) */
+[data-sys="v2"].b3 .mega { --fs: 72px; top: 144px; white-space: nowrap; }
+[data-sys="v2"].b3 .rs { top: 262px; }
+[data-sys="v2"].b3 .rs[style*="--ty"] { top: 690px; }
+[data-sys="v2"].b3 .tie { top: 482px; }
+[data-sys="v2"].b3 .chain { top: 532px; }
+[data-sys="v2"].b3 .brk { top: 652px; }
+/* 17-18 the room: LEAD header (the act name left the eyebrow), everything 60-70px lower so the seats clear the band;
+   both slides move together because 17 hard-cuts to 18. Name tags on the near-black tone, not purple-tinted. */
+[data-sys="v2"] .room-eyebrow { color: rgba(255,255,255,.55); }
+[data-sys="v2"] .seats { top: 176px; }
+[data-sys="v2"] .feed { top: 364px; }
+[data-sys="v2"] .ask { top: 378px; }
+[data-sys="v2"] .seat .tag, [data-sys="v2"] .seat.face .tag { background: rgba(28, 26, 34, .74); }
+[data-sys="v2"] .was { top: 398px; }
+[data-sys="v2"] .no-big { top: 440px; }
+[data-sys="v2"] .no-why { top: 628px; }
+[data-sys="v2"] .tail { top: 364px; }
+/* 19 what I did: LEAD header, paper; the four verbs in the content size (72, uppercase, charcoal), they dim to the
+   .off grey and shrink; OWN THE RESULT. in the hero size, charcoal, strong mint marker on RESULT. */
+[data-sys="v2"] .did { top: 176px; }
+[data-sys="v2"] .did li { font: 700 72px/1.14 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: var(--charcoal); }
+[data-sys="v2"] .did.is-on li, .is-static[data-sys="v2"] .did li { color: rgba(72, 74, 86, .26); }
+[data-sys="v2"] .own { top: 470px; right: var(--pad-x); font: 700 176px/.9 var(--head-font); letter-spacing: -.045em; color: var(--charcoal); }
+/* 20-21 the warning pair: near-black like every dark slide (purple never fills the canvas), LEAD header, the bright
+   top stripe dropped (it sat on the header band); dark itself now signals the mode change. Bright stays for MOSTLY.
+   and the log dates (v2: bright = rare pop, dark slides only). */
+.slide.act-warn[data-sys="v2"][data-tone="dark"] { --bg: var(--dark); }
+.slide.act-warn[data-sys="v2"]::before { display: none; }
+[data-sys="v2"] .mid { top: calc(50% + var(--band-h) / 2); }
+[data-sys="v2"] .big.hero-title { font-weight: 700; font-size: 176px; line-height: .9; letter-spacing: -.045em; }
+[data-sys="v2"] .log { top: 150px; }
+[data-sys="v2"] .silent p.content-title { font-size: 72px; line-height: 1; color: #fff; }
+/* 22 all clean: LEAD header, paper, charcoal throughout. "ALL CLEAN." hero, the kicks in the content size.
+   DORMANT / Dormant keep their case (the point of the slide): 700 weight, no text-transform. PASS stamp charcoal.
+   The correction is a white card with a charcoal rule (purple is structure only). */
+[data-sys="v2"] .cl { top: calc(50% + var(--band-h) / 2); }
+[data-sys="v2"] .cl-big { font: 700 176px/.9 var(--head-font); letter-spacing: -.045em; text-transform: uppercase; color: var(--charcoal); }
+[data-sys="v2"] .cl-kick { font: 700 72px/1 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: var(--charcoal); }
+[data-sys="v2"] .cl-sent mark { color: var(--charcoal); }
+[data-sys="v2"] .cl-pair p { font-weight: 700; text-transform: none; }
+[data-sys="v2"] .cl-pair .shipped { color: var(--charcoal); }
+[data-sys="v2"] .cl-pass { border-color: var(--charcoal); color: var(--charcoal); }
+[data-sys="v2"] .cl-corr { top: calc(50% + var(--band-h) / 2); background: #fff; border-left-color: var(--charcoal); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+[data-sys="v2"] .cl-corr h4 { color: var(--charcoal); }
+/* 23 asked to propose: LEAD header, content-size headline on one line, tracker cards in the card DNA, charcoal type
+   (the yellow "new / merged" tags stay: they reproduce the tracker's own labels), my quote charcoal */
+[data-sys="v2"] .trk { border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+[data-sys="v2"] .trk h4 b, [data-sys="v2"] .trk li.new, [data-sys="v2"] .nonsense p { color: var(--charcoal); }
+/* 25 small reversible reviewed: LEAD header, the label moves below the band, the three words in the content size
+   (72, uppercase, charcoal) so REVERSIBLE. fits its column; the mint rule under each word stays (progression) */
+[data-sys="v2"] .srr-label { top: 176px; }
+[data-sys="v2"] .srr { top: 300px; }
+[data-sys="v2"] .srr h3 { font: 700 72px/1 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+/* 26 execution cheaper (CLOSE, no act header): statement size, setup line muted, strong marker on MORE */
+[data-sys="v2"] .mid.xc { top: 50%; }
+/* 27 human words (CLOSE): the four words in the statement size, uppercase charcoal; RESPONSIBILITY. alone, one line,
+   hero size 176 (measured: fits 1376), charcoal: the final reveal */
+[data-sys="v2"] .words { top: 176px; } [data-sys="v2"] .words li { margin: 0; }
+[data-sys="v2"] .words li { font: 700 116px/1.02 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: var(--charcoal); }
+[data-sys="v2"] .resp { font: 700 176px/.9 var(--head-font); letter-spacing: -.045em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+/* 28 build your first AI team (CLOSE): the map in the statement size, uppercase charcoal (shrinks to muted as before);
+   headline content size; column heads charcoal over the mint rule; WHO OWNS THE RESULT? hero, strong marker on RESULT? */
+[data-sys="v2"] .map { font: 700 116px/1 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+[data-sys="v2"] .cols3 h4 { font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; color: var(--charcoal); }
+[data-sys="v2"] .owner-q { right: var(--pad-x); font: 700 176px/.9 var(--head-font); letter-spacing: -.045em; color: var(--charcoal); }
+/* 29 value ladder (CLOSE): already v2 type; poster shadow neutral (was purple-tinted) */
+[data-sys="v2"] .vl-poster { box-shadow: var(--shadow); }
+/* 30 you're the CEO (CLOSE, near-black): the "+" before ChatGPT stays white on dark (the slide-2 v2 rule makes it
+   charcoal); YOU disc stays mint with dark type (as slide 4: no purple); YOU'RE THE CEO. hero 176, CEO mint on dark */
+[data-sys="v2"] .close-panels .pf.logo-seat .plus { color: #fff; }
+[data-sys="v2"] .close-panels .pf.you b { color: var(--dark); }
+[data-sys="v2"] .ceo-line { right: var(--pad-x); font: 700 176px/.9 var(--head-font); letter-spacing: -.045em; text-transform: uppercase; color: #fff; }
+/* =====================================================================
+   LEAD OPENING (12.10, her brief): four conceptual slides between the video and the hinge. Built on v2 from the start.
+   ===================================================================== */
+/* L1 the category shift (12.10 later, her ask): article layout. Statement left (setup 72, punch 92, mint on HUMANS
+   ONLY.), the CNN page right as a real article page, whole page inside the margin (12.10 her ask: not cut off); on the click it slides in and the
+   mint marker lands on CNN's summary line (CNN's words carry the evidence, not Benioff's quote) */
+.lg { position: absolute; left: var(--pad-x); top: calc(50% + var(--band-h) / 2); transform: translateY(-50%); width: 690px; }
+.lg p { margin: 0; font: 700 72px/.98 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: #fff; }
+.lg p + p { margin-top: 26px; font-size: 92px; line-height: .94; letter-spacing: -.04em; }
+.lg-art { position: absolute; left: 840px; right: var(--pad-x); top: calc(50% + var(--band-h) / 2 - 20px); transform: translateY(-50%); margin: 0; }
+.lg-art .page { position: relative; height: 376px; overflow: hidden; background: #fff; border-radius: 8px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.lg-art .page img { display: block; width: 713px; height: auto; margin: -29px 0 0 -32px; } /* crop x 100-2100, y 90-1250 of the 2200 px screenshot, scale .324 */
+.lg-art .mark-hl { mix-blend-mode: multiply; }
+.lg-art figcaption { margin-top: 18px; font: 500 20px/1.35 var(--body-font); color: rgba(255,255,255,.6); }
+.lg-art figcaption b { font-family: var(--head-font); font-weight: 600; color: #fff; }
+.is-active .lg-art.is-shown { animation: lg-in .9s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes lg-in { from { opacity: 0; transform: translate(80px, -50%); } }
+/* L2a one outcome (12.10 later): headline content size; the team-today circles (130, captions 24) on a soft wave
+   into a white outcome card; Developer + Operations (110) under a mint bracket = they support the whole chain;
+   my two seats arrive on their own click (decision points); on the last click everything steps back and
+   ORCHESTRATION. lands in the hero-near size over it */
+.oc-h { position: absolute; left: var(--pad-x); top: 150px; margin: 0; font: 700 72px/.98 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: var(--charcoal); }
+.oc { position: absolute; inset: 0; transform: translateY(40px); transition: opacity .9s, filter .9s; }
+.oc.is-on { opacity: .13; filter: blur(1px); }   /* 12.10 eve: no longer used, the word has its own slide */
+.oc-line { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; overflow: visible; }
+.oc-line path { fill: none; stroke: var(--mint); stroke-width: 4; stroke-linecap: round; }
+.is-active .oc-line.is-shown path { stroke-dasharray: 1; animation: orc-draw 1.6s cubic-bezier(.4,.1,.2,1) .2s both; }
+.oc-n { position: absolute; }
+.oc-n .ai-seat .cap, .oc-n .pf figcaption { font-size: 24px; white-space: nowrap; }
+.oc-n.sup .ai-seat .cap { font-size: 21px; color: rgba(72,74,86,.75); }
+.oc-n.me .pf { width: 130px; }
+.oc-n.me .pf > img { mix-blend-mode: normal; }
+.oc-n.me .pf figcaption { font-weight: 700; }
+.oc-card { position: absolute; left: 1196px; top: 372px; width: 292px; padding: 30px 30px 34px; background: #fff; border-radius: var(--radius-card); box-shadow: var(--shadow-card); border-left: 6px solid var(--mint); }
+.oc-card b { display: block; font: 700 40px/1.02 var(--head-font); letter-spacing: -.025em; text-transform: uppercase; color: var(--charcoal); }
+.oc-brk { position: absolute; left: 150px; width: 1000px; top: 580px; height: 24px; border: 3px solid var(--mint); border-top: 0; border-radius: 0 0 12px 12px; opacity: .8; }
+.oc-word { position: absolute; left: var(--pad-x); top: 470px; margin: 0; font: 700 150px/.9 var(--head-font); letter-spacing: -.045em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+/* L2b orchestration means deciding: setup line muted; four questions grow (64 → 72 → 84 → 112), the one before steps
+   back to grey; one mint marker per question, the strong one on OWNS */
+.od-h { position: absolute; left: var(--pad-x); top: 160px; margin: 0; font: 700 56px/1 var(--head-font); letter-spacing: -.03em; text-transform: uppercase; color: rgba(72,74,86,.5); }
+.od { position: absolute; left: var(--pad-x); top: 296px; margin: 0; padding: 0; list-style: none; }
+.od li { font: 700 72px/1 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; transition: filter .6s; }
+.od li + li { margin-top: 40px; }
+.od .q2 { font-size: 80px; } .od .q3 { font-size: 92px; } .od .q4 { font-size: 116px; line-height: .94; letter-spacing: -.04em; margin-top: 56px; } /* 12.10 review: questions carry the weight, setup line stays 56 */
+.od li.is-on { filter: opacity(.28); } /* filter, not opacity: the rise animation holds opacity */
+.is-static .od li { filter: none; }
+/* L2 same shape: the five responsibilities rise one by one (no click), then on the click they compress into a small
+   grey stack top left (the shape stays) and SAME SHAPE. DIFFERENT STAFF. lands in the hero size (176) */
+.ss-list { position: absolute; left: var(--pad-x); top: 318px; margin: 0; padding: 0; list-style: none; transform-origin: 0 0;
+  transition: transform .9s cubic-bezier(.3,.1,.2,1), color .9s; color: var(--charcoal); }
+.ss-list li { font: 700 66px/1.1 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; }
+/* 12.10 later (her ask): the double chevron from the Fresh logo as the bullet (12.10 eve: exact logo shape + two-tone, her ask); dims with the stack after the click */
+.ss-list li { position: relative; padding-left: 1.25em; }
+.ss-list li::before { content: ''; position: absolute; left: 0; top: .17em; width: .74em; height: .62em; transition: opacity .9s;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 54'%3E%3Cpath fill='%2346FFC5' d='M0 0 35 27 10 27Z M28 0 63 27 38 27Z'/%3E%3Cpath fill='%2300AE8D' d='M10 27 35 27 0 54Z M38 27 63 27 28 54Z'/%3E%3C/svg%3E") no-repeat 0 50% / contain; }
+.ss-list.is-on li::before, .is-static .ss-list li::before { opacity: .45; }
+.ss-list.is-on, .is-static .ss-list { transform: translateY(-136px) scale(.36); color: rgba(72, 74, 86, .34); }
+.ss-punch { position: absolute; left: var(--pad-x); top: 400px; margin: 0; font: 700 176px/.9 var(--head-font); letter-spacing: -.045em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+/* L3 orchestration: headline (setup muted, line 2 content-large); on the click six words assemble from scattered
+   positions, hairlines draw from OUTCOME out to the four parts and back into RESULT; the JUDGEMENT strand is mint
+   (judgement placed here). No boxes, no arrows, no icons. Word centres + path ends measured in the browser. */
+.orc-h { position: absolute; left: var(--pad-x); top: 168px; margin: 0; }
+.orc-h p { margin: 0; font: 700 60px/1 var(--head-font); letter-spacing: -.03em; text-transform: uppercase; color: rgba(72, 74, 86, .5); white-space: nowrap; }
+.orc-h p + p { margin-top: 14px; font-size: 100px; line-height: .94; letter-spacing: -.04em; color: var(--charcoal); }
+.orc { position: absolute; inset: 0; pointer-events: none; }
+.orc svg { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; overflow: visible; }
+.orc path { fill: none; stroke: rgba(72, 74, 86, .28); stroke-width: 2.5; stroke-linecap: round; }
+.orc path.j { stroke: var(--mint); stroke-width: 4; }
+.orc .w { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); white-space: nowrap;
+  font: 600 34px/1 var(--head-font); letter-spacing: .1em; text-transform: uppercase; color: var(--charcoal); }
+.orc .w.end { font: 700 46px/1 var(--head-font); letter-spacing: .04em; }
+.orc .w.o { transform: translate(0, -50%); }
+.orc .w.r { transform: translate(-100%, -50%); }
+.is-active .orc.is-shown .w { animation: orc-in 1s cubic-bezier(.2,.7,.2,1) var(--d, 0s) both; }
+.is-active .orc.is-shown .w.o { animation-name: orc-in-o; }
+.is-active .orc.is-shown .w.r { animation-name: orc-in-r; }
+.is-active .orc.is-shown path { stroke-dasharray: 1; animation: orc-draw .9s cubic-bezier(.4,.1,.2,1) var(--d, 0s) both; }
+@keyframes orc-in   { from { opacity: 0; filter: blur(6px); transform: translate(-50%, -50%) translate(var(--fx), var(--fy)) rotate(var(--fr)); } }
+@keyframes orc-in-o { from { opacity: 0; transform: translate(-30px, -50%); } }
+@keyframes orc-in-r { from { opacity: 0; transform: translate(calc(-100% + 30px), -50%); } }
+@keyframes orc-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+/* L4 the human question: near-black, bottom left, lots of empty space above; setup line muted, the question on the
+   click; mint only on JUSTIFY. Variant B (appendix): WHAT IS THE HUMAN FOR? alone, hero size, same placement */
+.hq { position: absolute; left: var(--pad-x); bottom: 150px; margin: 0; }
+.hq p { margin: 0; font: 700 64px/1 var(--head-font); letter-spacing: -.03em; text-transform: uppercase; color: rgba(255,255,255,.45); white-space: nowrap; }
+.hq p + p { margin-top: 26px; font-size: 116px; line-height: .94; letter-spacing: -.04em; color: #fff; }
+.hq.b p { font-size: 176px; line-height: .9; letter-spacing: -.045em; color: #fff; }
+/* W2 today's AIs (12.10): near-black; setup muted; three short verbs in the statement size, one per click; on the
+   last click they step back and the convincing line lands, mint on dark */
+.ta-h { position: absolute; left: var(--pad-x); top: 168px; margin: 0; font: 700 64px/1 var(--head-font); letter-spacing: -.03em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+.ta-h .lc { text-transform: none; }
+.ta { position: absolute; left: var(--pad-x); top: 268px; margin: 0; padding: 0; list-style: none; }
+.ta li { font: 700 80px/1 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: #fff; transition: filter .7s; }
+.ta li + li { margin-top: 10px; }
+.ta.is-on li, .is-static .ta li { filter: opacity(.3); }
+.ta-last { position: absolute; left: var(--pad-x); top: 640px; margin: 0; font: 700 104px/.96 var(--head-font); letter-spacing: -.035em; text-transform: uppercase; color: #fff; white-space: nowrap; }
+/* 19 small reversible reviewed, version B (12.10): three rows, the word left (96, charcoal), the rule shown right with
+   the team circles: one AI + ONE TASK.; the AI one step back to its dashed earlier self (mint return arc); AI → me → PUBLISH. */
+.sr-eyebrow { position: absolute; left: var(--pad-x); top: 140px; margin: 0; font: 600 19px/1 var(--head-font); letter-spacing: .14em; text-transform: uppercase; color: rgba(72,74,86,.6); }
+.sr-row { position: absolute; inset: 0; }
+.sr-w { position: absolute; left: var(--pad-x); margin: 0; font: 700 96px/1 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: var(--charcoal); }
+.sr-svg { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; overflow: visible; }
+.sr-svg path { fill: none; stroke: var(--mint); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.is-active .sr-row.is-shown .sr-svg .ln { stroke-dasharray: 1; animation: orc-draw .7s cubic-bezier(.4,.1,.2,1) var(--d, 0s) both; }
+.is-active .sr-row.is-shown .sr-svg .hd { animation: ft-fade .3s var(--d, 0s) both; }
+.sr-n { position: absolute; }
+.sr-n .ai-seat .cap, .sr-n .pf figcaption { font-size: 22px; white-space: nowrap; }
+.sr-n.ghost .disc { border-style: dashed; background: transparent; }
+.sr-n.ghost .disc svg { opacity: .3; }
+.sr-n.ghost .cap { color: rgba(72,74,86,.6); }
+.sr-n.me .pf { width: 130px; } .sr-n.me .pf > img { mix-blend-mode: normal; } .sr-n.me .pf figcaption { font-weight: 700; }
+.sr-card { position: absolute; padding: 18px 26px 20px; background: #fff; border-radius: var(--radius-card); box-shadow: var(--shadow-card); border-left: 6px solid var(--mint); }
+.sr-card b { display: block; font: 700 32px/1 var(--head-font); letter-spacing: -.02em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+/* 12.10 (her rule): dark only for the warning slides. The Learn wall and LAST GENERATION move to paper: charcoal type,
+   card shadows in the light card DNA, mint as marker (not mint text) */
+[data-id="learn-wall"] .xq { color: var(--charcoal); }
+[data-id="learn-wall"] .xw.xw-q .xcard { box-shadow: var(--shadow-card); }
+[data-id="learn-wall"] .xw.xw-q.is-on .xcard.k { box-shadow: 0 0 0 3px var(--mint), var(--shadow); }
+[data-id="last-generation"] .lg p { color: var(--charcoal); }
+[data-id="last-generation"] .lg-art .page { box-shadow: var(--shadow); }
+[data-id="last-generation"] .lg-art figcaption { color: rgba(72,74,86,.64); }
+[data-id="last-generation"] .lg-art figcaption b { color: var(--charcoal); }
+/* 12.10 evening (her ask): headline cap top aligns with the article box top (271px), not centred against box + caption.
+   262 = 271 minus the ~9px between the line box top and the cap top at 72px. */
+.slide[data-id="last-generation"] .lg { top: 262px; transform: none; }
+/* CLOSE 2 your first AI team (12.10): one OUTCOME disc (300, mint ring) shrinks back as five jobs burst out on thin
+   mint radials; the jobs turn into the team-today circles in place; then the circles drift into a loose row (transform
+   via data-on) and YOUR FIRST AI TEAM. lands. No arrows, no boxes */
+.ft-out { position: absolute; left: 650px; top: 330px; width: 300px; height: 300px; border-radius: 50%; background: #fff; border: 6px solid var(--mint); box-shadow: var(--shadow-card);
+  display: flex; align-items: center; justify-content: center; transition: transform .9s cubic-bezier(.3,.1,.2,1), opacity .9s; }
+.ft-out b { font: 700 46px/1 var(--head-font); letter-spacing: -.02em; text-transform: uppercase; color: var(--charcoal); }
+.ft-out.is-on, .is-static .ft-out { transform: scale(.55); }
+.ft-lines { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; overflow: visible; }
+.ft-lines path { fill: none; stroke: var(--mint); stroke-width: 3; stroke-linecap: round; }
+.is-active .ft-lines.is-shown path { stroke-dasharray: 1; animation: orc-draw .6s cubic-bezier(.4,.1,.2,1) .1s both; }
+.ft-job { position: absolute; margin: 0; transform: translate(-50%, -50%); font: 700 36px/1 var(--head-font); letter-spacing: .04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+.ft-role { position: absolute; transition: transform 1.1s cubic-bezier(.3,.1,.2,1); }
+.ft-role.is-on, .is-static .ft-role { transform: translate(var(--tx), var(--ty)); }
+.ft-role .ai-seat .cap, .ft-role .pf figcaption { font-size: 24px; white-space: nowrap; }
+/* Analyst: caption above the disc while the line runs below it, back under the disc in the team row (12.10, her ask) */
+.ft-role.cap-top .ai-seat .cap { transform: translateY(-171px); transition: transform 1.1s cubic-bezier(.3,.1,.2,1); }
+.ft-role.cap-top.is-on .ai-seat .cap, .is-static .ft-role.cap-top .ai-seat .cap { transform: none; }
+.ft-role.me .pf { width: 140px; } .ft-role.me .pf > img { mix-blend-mode: normal; } .ft-role.me .pf figcaption { font-weight: 700; }
+.ft-h { position: absolute; left: var(--pad-x); top: 560px; margin: 0; font: 700 116px/.94 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+.ft-sub { position: absolute; left: var(--pad-x); top: 700px; margin: 0; font: 600 30px/1.2 var(--head-font); letter-spacing: .06em; text-transform: uppercase; color: rgba(72,74,86,.6); }
+/* CLOSE 3 team → system (12.10): the loose team lines up (SEQUENCE, numbers), mint handoff lines with a moving dot
+   (HANDOFFS), two quiet rails above and below (RULES; DECISIONS with open dots = AI may decide, full mint = human must),
+   a mint outline around everything (CHECKS); small paper chips name each layer; then the landing line */
+.ts-n { position: absolute; transform: translate(var(--tx), var(--ty)); transition: transform 1.1s cubic-bezier(.3,.1,.2,1); }
+.ts-n.is-on, .is-static .ts-n { transform: none; }
+.ts-n .ai-seat .cap, .ts-n .pf figcaption { font-size: 24px; white-space: nowrap; }
+.ts-n.me .pf { width: 140px; } .ts-n.me .pf > img { mix-blend-mode: normal; } .ts-n.me .pf figcaption { font-weight: 700; }
+.ts-svg { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; overflow: visible; }
+.ts-hand path { fill: none; stroke: var(--mint); stroke-width: 4; stroke-linecap: round; }
+.ts-hand circle { fill: var(--mint); }
+.ts-rails path { fill: none; stroke: rgba(72,74,86,.35); stroke-width: 2; stroke-dasharray: 2 10; stroke-linecap: round; }
+.ts-checks rect { fill: none; stroke: var(--mint); stroke-width: 3; }
+.is-active .ts-hand.is-shown path, .is-active .ts-checks.is-shown rect { stroke-dasharray: 1; animation: orc-draw .8s cubic-bezier(.4,.1,.2,1) var(--d, .1s) both; }
+.is-active .ts-checks.is-shown rect { animation-duration: 1.4s; }
+.is-active .ts-rails.is-shown path { animation: ft-fade .8s .2s both; }
+.ts-nums span { position: absolute; top: 366px; transform: translateX(-50%); font: 700 22px/1 var(--head-font); letter-spacing: .08em; color: #2e9c78; }
+.is-active .ts-nums.is-shown span { animation: ft-fade .5s var(--d) both; }
+.ts-marks i { position: absolute; top: 684px; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: var(--paper); border: 3px solid var(--mint); }
+.ts-marks i.hu { width: 28px; height: 28px; margin: -14px 0 0 -14px; background: var(--mint); border-color: var(--mint); }
+.is-active .ts-marks.is-shown i { animation: ft-pop .5s .9s both; }
+.ts-chip { position: absolute; margin: 0; padding: 3px 10px; background: var(--paper); font: 600 16px/1.2 var(--head-font); letter-spacing: .16em; text-transform: uppercase; color: rgba(72,74,86,.75); }
+.ts-chip.ck { color: #2e9c78; }
+.ts-h { position: absolute; left: var(--pad-x); top: 168px; margin: 0; font: 700 52px/1 var(--head-font); letter-spacing: -.03em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; }
+/* CLOSE 4 your turn (12.10): the map stack (176, charcoal, mint punctuation) with all three words live; a question
+   in the content-body size sits on each word's baseline, one per click */
+.yt { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 50%; transform: translateY(-50%); }
+.yt p { margin: 0; display: grid; grid-template-columns: 740px 1fr; align-items: center; }
+.yt .w { font: 700 176px/.92 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: var(--charcoal); }
+.yt .w i { font-style: normal; color: var(--mint); }
+.yt .q { font: 500 34px/1.2 var(--head-font); letter-spacing: -.01em; color: rgba(72,74,86,.75); white-space: nowrap; }
+.yt .qa { display: flex; flex-direction: column; gap: 6px; }
+.yt .qa b { font: 700 46px/1.1 var(--head-font); letter-spacing: -.02em; color: var(--charcoal); white-space: nowrap; }
+/* CLOSE 3 revision (12.10): WORKFLOW heading above the chain; the mint outline = HARNESS, its five properties as paper
+   chips sitting on the boundary (HARNESS label stronger) */
+.ts-wf { position: absolute; left: 260px; top: 398px; margin: 0; display: flex; align-items: baseline; gap: 18px; }
+.ts-wf b { font: 700 24px/1 var(--head-font); letter-spacing: .16em; text-transform: uppercase; color: var(--charcoal); }
+.ts-wf span { font: 500 20px/1 var(--head-font); letter-spacing: .02em; color: rgba(72,74,86,.6); }
+[data-id="team-to-system"] .ts-chip { font-size: 18px; color: rgba(72,74,86,.85); }
+/* 12.10 (her go): the conclusion lands last in the title position (headline top when a visual sits below); diagram moved down 80px */
+.ts-chip.hn { font-size: 20px; font-weight: 700; color: #2e9c78; }
+
+/* 12.10 late (her ask): HOW IT ALL BEGAN. + the Suno song video "Exploring Space". Right card = muted preview frame;
+   a click opens it over the whole stage and plays with sound; the close button or a click on the backdrop shuts it.
+   Source streams from the Suno CDN: needs internet in the room until a local copy is in assets/. */
+.hb-h { position: absolute; left: var(--pad-x); top: 50%; transform: translateY(-50%); width: 560px; margin: 0; font: 700 116px/.94 var(--head-font); letter-spacing: -.04em; text-transform: uppercase; color: var(--charcoal); }
+.hb-card { position: absolute; left: 760px; top: 50%; width: 728px; margin: -230px 0 0; cursor: pointer; }
+.hb-frame { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-card); overflow: hidden; background: var(--dark); box-shadow: var(--shadow-card); }
+.hb-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hb-play { position: absolute; left: 50%; top: 50%; width: 112px; height: 112px; margin: -56px 0 0 -56px; border-radius: 50%; background: var(--mint); display: grid; place-items: center; transition: transform .3s; }
+.hb-play::before { content: ""; margin-left: 10px; border-style: solid; border-width: 22px 0 22px 36px; border-color: transparent transparent transparent var(--charcoal); }
+.hb-card:hover .hb-play { transform: scale(1.06); }
+.hb-cap { margin: 22px 0 0; font: 600 19px/1.3 var(--head-font); letter-spacing: .14em; text-transform: uppercase; color: rgba(72,74,86,.64); }
+.hb-cap b { color: var(--charcoal); font-weight: 700; }
+.hb-cap a { color: inherit; text-decoration: underline; text-decoration-color: var(--mint); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.hb-open { position: absolute; inset: 0; z-index: 20; background: var(--dark); display: none; }
+.hb-open.is-open { display: block; animation: hb-in .5s cubic-bezier(.2,.7,.2,1) both; }
+.hb-open .hb-loop { width: 100%; height: 100%; object-fit: cover; background: #000; }
+.hb-x { position: absolute; right: 28px; top: 24px; z-index: 2; width: 56px; height: 56px; border: 0; border-radius: 50%; background: rgba(255,255,255,.14); color: #fff; font: 500 30px/1 var(--head-font); cursor: pointer; }
+@keyframes hb-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+
+/* 12.10 late: slide 3 +44 opens the expert roster (frozen copy in assets/) over the stage */
+.roster-open { cursor: pointer; }
+.roster-open:hover .disc { box-shadow: 0 0 0 6px rgba(136,219,189,.35); }
+.roster-pop { position: absolute; inset: 0; z-index: 20; display: none; background: var(--paper); }
+.roster-pop.is-open { display: block; animation: hb-in .5s cubic-bezier(.2,.7,.2,1) both; }
+.roster-pop iframe { width: 100%; height: 100%; border: 0; display: block; }
+.roster-pop .hb-x { background: var(--charcoal); }
+/* 17.10 (her ask): QR captions link to the same page as the QR */
+.stay-group .qr figcaption a { color: inherit; text-decoration: none; } .stay-group .qr figcaption a:hover { text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 6px; }
+</style>
+<script src="/ft-analytics.js" defer></script>
+</head>
+<body>
+<main class="deck" data-autostep="1.8">
+
+<!-- =====================================================================
+     OPENING
+     ===================================================================== -->
+
+<!-- 01 -->
+<section class="slide" data-id="title" data-sys="v2" data-type="hero" data-tone="dark" data-title="CEO of AIs" data-time="0:20">
+  <img class="logo" src="_fresh/theme/brand/fresh-strategy-logo-white.png" alt="Fresh Strategy">
+  <img class="aiba-logo" src="assets/aiba-logo-white.png" alt="AIBA 2026" data-anim="fade" style="--d:.8s;position:absolute;right:var(--pad-x,112px);bottom:80px;height:84px;width:auto;z-index:2">
+  <svg class="title-org" viewBox="0 0 700 290" style="position:absolute;left:820px;top:64px;width:700px;height:290px" aria-label="You on top, five empty seats below">
+    <g data-anim="fade" style="--d:.3s;--dur:.8s">
+      <circle cx="350" cy="58" r="52" fill="#fff"/>
+      <circle cx="350" cy="46" r="13" fill="#1C1A22"/>
+      <path d="M326,84 C326,68 337,63 350,63 C363,63 374,68 374,84 Z" fill="#1C1A22"/>
+      <text x="420" y="68" fill="rgba(255,255,255,.75)" style="font:500 28px var(--head-font);letter-spacing:.04em">YOU</text>
+    </g>
+    <g data-anim="fade" style="--d:.9s;--dur:.8s" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="3">
+      <path d="M350,110 V160 M70,160 H630 M70,160 V190 M210,160 V190 M350,160 V190 M490,160 V190 M630,160 V190"/>
+    </g>
+    <g fill="none" stroke="#88DBBD" stroke-width="3.5" stroke-dasharray="9 8">
+      <circle data-anim="fade" style="--d:1.2s;--dur:.6s" cx="70" cy="232" r="40"/>
+      <circle data-anim="fade" style="--d:1.35s;--dur:.6s" cx="210" cy="232" r="40"/>
+      <circle data-anim="fade" style="--d:1.5s;--dur:.6s" cx="350" cy="232" r="40"/>
+      <circle data-anim="fade" style="--d:1.65s;--dur:.6s" cx="490" cy="232" r="40"/>
+      <circle data-anim="fade" style="--d:1.8s;--dur:.6s" cx="630" cy="232" r="40"/>
+    </g>
+  </svg>
+  <div class="hero-text" style="width:1300px">
+    <i class="hero-mark" data-anim="fade" style="--d:.1s"></i>
+    <h1 class="hero-title" data-anim="rise" style="font-size:210px">CEO of AI<span class="lc">s</span></h1>
+    <p class="t-m" data-anim="fade" style="--d:.5s;margin-top:36px;color:rgba(255,255,255,.78)">Leading the companies we have - and designing the companies we need</p>
+    <p class="t-small" data-anim="fade" style="--d:.8s;margin-top:40px;color:rgba(255,255,255,.5)">Stéphanie Kioutsoukis + Mark Turrell · AIBA 2026, Katowice · 22.10.2026</p>
+  </div>
+</section>
+
+<!-- 02 MY TEAM. 2024. 9 HUMANS. 1 AI.  (review 2, 07.10) -->
+<section class="slide" data-id="team-2024" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Our team. 2024." data-time="0:45">
+  <p class="mega" style="--y:52px;--fs:60px" data-anim="rise">Our team. 2024.</p>
+  <p class="mega" style="--y:124px;--fs:116px;--c:var(--charcoal);--d:.35s" data-anim="rise"><span class="em" style="--hd:1s">9 humans.</span> 1 AI.</p>
+  <div class="ppl" style="left:100px;top:262px;--cols:5;--s:280px;--gx:0px;--gy:0px;--d:.6s" data-anim="fade">
+      <figure class="pf"><img src="assets/people/team-9.png" alt=""></figure><figure class="pf"><img src="assets/people/team-3.png" alt=""></figure><figure class="pf"><img src="assets/people/team-4.png" alt=""></figure><figure class="pf"><img src="assets/people/team-6.png" alt=""></figure><figure class="pf"><img src="assets/people/team-8.png" alt=""></figure><figure class="pf"><img src="assets/people/team-10.png" alt=""></figure><figure class="pf"><img src="assets/people/team-12.png" alt=""></figure><figure class="pf"><img src="assets/people/team-13.png" alt=""></figure><figure class="pf"><img src="assets/people/team-14.png" alt=""></figure><figure class="pf logo-seat"><span class="plus">+</span><img src="assets/people/chatgpt-logo.svg" alt="ChatGPT"></figure>
+  </div>
+</section>
+
+<!-- 03 MY TEAM. TODAY. 4 HUMANS. 51 AIs. (+44 opens the expert roster, 12.10 late) -->
+<section class="slide team-today" data-id="team-today" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Our team. Today." data-time="1:45">
+  <p class="mega" style="--y:52px;--fs:60px" data-anim="rise">Our team. Today.</p>
+  <p class="mega" style="--y:124px;--fs:116px;--c:var(--charcoal);--d:.35s" data-anim="rise">4 humans. <span data-anim="rise" style="--d:3.2s"><span class="em" style="--hd:3.9s">51 AI<span class="lc">s</span>.</span></span></p>
+  <div class="ppl" style="left:84px;top:270px;--cols:2;--s:226px;--gx:4px;--gy:44px;--d:1s" data-anim="fade">
+    <figure class="pf"><img src="assets/people/team-9.png" alt=""></figure>
+    <figure class="pf"><img src="assets/people/team-3.png" alt=""></figure>
+    <figure class="pf"><img src="assets/people/team-12.png" alt=""></figure>
+    <figure class="pf"><img src="assets/people/team-giannis.png" alt=""></figure>
+  </div>
+  <i class="split-rule" style="left:574px;top:300px;bottom:70px;--d:2s" data-anim="fade"></i>
+  <div class="ppl" style="left:598px;top:270px;--cols:4;--s:226px;--gx:4px;--gy:44px">
+    <div class="ai-seat role-seat" data-anim="pop" style="--d:2.20s"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><span class="cap">Researcher</span></div>
+    <div class="ai-seat role-seat" data-anim="pop" style="--d:2.29s"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div><span class="cap">Analyst</span></div>
+    <div class="ai-seat role-seat" data-anim="pop" style="--d:2.38s"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><span class="cap">Writer</span></div>
+    <div class="ai-seat role-seat" data-anim="pop" style="--d:2.47s"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg></div><span class="cap">Designer</span></div>
+    <div class="ai-seat role-seat" data-anim="pop" style="--d:2.56s"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div><span class="cap">Developer</span></div>
+    <div class="ai-seat role-seat" data-anim="pop" style="--d:2.65s"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><span class="cap">Critic</span></div>
+    <div class="ai-seat role-seat" data-anim="pop" style="--d:2.74s"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="cap">Operations</span></div>
+    <div class="ai-seat more roster-open" data-anim="pop" style="--d:2.83s" role="button" tabindex="0" aria-label="Open the AI expert roster"><div class="disc"><b>+44</b><small>other agents</small></div></div>
+  </div>
+  <div class="roster-pop"><button class="hb-x" type="button" aria-label="Close">×</button><iframe title="AI expert roster" loading="lazy" data-src="assets/expert-roster.html"></iframe></div>
+</section>
+
+<!-- 04 HOW IT ALL BEGAN (12.10 late, her ask): the song "Exploring Space" (Suno) and its video; click opens it full stage with sound -->
+<section class="slide" data-id="how-it-began" data-sys="v2" data-type="canvas" data-tone="paper" data-title="How it all began" data-time="1:30">
+  <h2 class="hb-h" data-anim="rise" style="--d:.2s">How it all <span class="em-strong" style="--hd:1s">began.</span></h2>
+  <div class="hb-card" data-pdf-href="https://suno.com/playlist/781025e0-7561-422a-883d-180f62301ba2" data-anim="rise" style="--d:.6s" role="button" tabindex="0" aria-label="Play Exploring Space">
+    <div class="hb-frame"><video src="assets/song-exploring-space-preview.mp4#t=2" muted playsinline preload="metadata"></video><span class="hb-play" aria-hidden="true"></span></div>
+    <p class="hb-cap"><b>Exploring Space</b> · <a href="https://suno.com/playlist/781025e0-7561-422a-883d-180f62301ba2" target="_blank" rel="noopener" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()">Goddess S &amp; MWizard · Suno</a></p>
+  </div>
+  <div class="hb-open"><button class="hb-x" type="button" aria-label="Close">×</button><video class="hb-loop" src="assets/song-exploring-space-preview.mp4" muted loop playsinline preload="none"></video><video class="hb-song" src="assets/song-exploring-space-hook-a.mp4" playsinline preload="none" hidden></video></div>
+</section>
+
+<!-- 04 FROM TOOL TO WORKFORCE  (07.10: her design replaces the one-line ladder; five columns, each one a bigger org) -->
+<section class="slide" data-id="tool-to-workforce" data-sys="v2" data-type="canvas" data-tone="paper" data-title="From tool to workforce" data-time="1:00">
+  <p class="mega" style="--y:52px;--fs:72px;--c:var(--charcoal)" data-anim="rise">From tool to workforce</p>
+  <svg class="tw" viewBox="0 0 1920 780" aria-label="Tool, assistant, specialist, team, workforce">
+    <defs>
+      <symbol id="tw-ai" viewBox="-50 -50 100 100"><circle r="46" fill="#fff" stroke="#88DBBD" stroke-width="5"/><path d="M0,-22 C3,-6 6,-3 22,0 C6,3 3,6 0,22 C-3,6 -6,3 -22,0 C-6,-3 -3,-6 0,-22Z" fill="none" stroke="#484A56" stroke-width="3.4" stroke-linejoin="round"/></symbol>
+      <symbol id="tw-you" viewBox="-50 -50 100 100"><circle r="48" fill="#484A56"/><circle cy="-11" r="12" fill="#fff"/><path d="M-22,23 C-22,8 -12,4 0,4 C12,4 22,8 22,23 Z" fill="#fff"/></symbol>
+    </defs>
+    <g data-anim="fade" style="--d:.6s;--dur:.9s">
+      <text class="h" x="160" y="72">Tool</text>
+      <text class="sub" x="160" y="118">helps with a task</text>
+      <use href="#tw-ai" x="118" y="366" width="84" height="84"/>
+    </g>
+    <g data-anim="fade" style="--d:1.6s;--dur:.9s">
+      <line class="dv" x1="308" y1="10" x2="308" y2="725"/>
+      <text class="h" x="468" y="72">Assistant</text>
+      <text class="sub" x="468" y="118">helps a person</text>
+      <line class="ln" x1="450" y1="408" x2="487" y2="408"/>
+      <use href="#tw-you" x="356" y="361" width="94" height="94"/>
+      <use href="#tw-ai" x="487" y="366" width="84" height="84"/>
+      <text class="lb" x="403" y="515">You</text>
+      <text class="lb" x="529" y="515">AI</text>
+    </g>
+    <g data-anim="fade" style="--d:2.6s;--dur:.9s">
+      <line class="dv" x1="622" y1="10" x2="622" y2="725"/>
+      <text class="h" x="758" y="72">Specialist</text>
+      <text class="sub" x="758" y="118">owns a function</text>
+      <use href="#tw-ai" x="708" y="358" width="100" height="100"/>
+      <text class="lb" x="758" y="530">Researcher</text>
+    </g>
+    <g data-anim="fade" style="--d:3.6s;--dur:.9s">
+      <line class="dv" x1="895" y1="10" x2="895" y2="725"/>
+      <text class="h" x="1100" y="72">Team</text>
+      <text class="sub" x="1100" y="118">specialists collaborate</text>
+      <text class="lb m" x="1100" y="205">You</text>
+      <path class="ln" d="M1100 296 V366 M950 416 V378 Q950 366 962 366 H1238 Q1250 366 1250 378 V416 M1050 366 V416 M1150 366 V416"/>
+      <use href="#tw-you" x="1063" y="222" width="74" height="74"/>
+      <use href="#tw-ai" x="917" y="416" width="66" height="66"/>
+      <text class="lb xs" x="950" y="535">Researcher</text>
+      <use href="#tw-ai" x="1017" y="416" width="66" height="66"/>
+      <text class="lb xs" x="1050" y="535">Analyst</text>
+      <use href="#tw-ai" x="1117" y="416" width="66" height="66"/>
+      <text class="lb xs" x="1150" y="535">Writer</text>
+      <use href="#tw-ai" x="1217" y="416" width="66" height="66"/>
+      <text class="lb xs" x="1250" y="535">Critic</text>
+    </g>
+    <g data-anim="fade" style="--d:4.6s;--dur:.9s">
+      <line class="dv" x1="1304" y1="10" x2="1304" y2="725"/>
+      <text class="h big" x="1570" y="82">Workforce</text>
+      <text class="sub" x="1570" y="124">multiple AI teams/functions</text>
+      <text class="sub" x="1570" y="154">across the organisation</text>
+      <g transform="translate(0,52)">
+      <text class="lb m" x="1570" y="152">You</text>
+      <path class="ln" d="M1570 236 V293 M1405 293 V266 Q1405 254 1417 254 H1723 Q1735 254 1735 266 V293"/>
+      <use href="#tw-you" x="1534" y="164" width="72" height="72"/>
+      <line class="dv" x1="1489" y1="368" x2="1489" y2="725"/><line class="dv" x1="1655" y1="368" x2="1655" y2="725"/>
+      <rect class="pill" x="1329" y="293" width="152" height="44" rx="22"/>
+      <text class="pt" x="1405" y="321">Strategy</text>
+      <path class="ln" d="M1405 337 V368 M1405 462 V496 M1405 590 V623"/>
+      <use href="#tw-ai" x="1373" y="368" width="64" height="64"/>
+      <text class="lb s" x="1405" y="452">Researcher</text>
+      <use href="#tw-ai" x="1373" y="496" width="64" height="64"/>
+      <text class="lb s" x="1405" y="580">Analyst</text>
+      <use href="#tw-ai" x="1373" y="623" width="64" height="64"/>
+      <text class="lb s" x="1405" y="707">Critic</text>
+      <rect class="pill" x="1494" y="293" width="152" height="44" rx="22"/>
+      <text class="pt" x="1570" y="321">Delivery</text>
+      <path class="ln" d="M1570 337 V368 M1570 462 V496 M1570 590 V623"/>
+      <use href="#tw-ai" x="1538" y="368" width="64" height="64"/>
+      <text class="lb s" x="1570" y="452">Writer</text>
+      <use href="#tw-ai" x="1538" y="496" width="64" height="64"/>
+      <text class="lb s" x="1570" y="580">Designer</text>
+      <use href="#tw-ai" x="1538" y="623" width="64" height="64"/>
+      <text class="lb s" x="1570" y="707">Developer</text>
+      <rect class="pill" x="1659" y="293" width="152" height="44" rx="22"/>
+      <text class="pt" x="1735" y="321">Operations</text>
+      <path class="ln" d="M1735 337 V368 M1735 462 V496 M1735 590 V623"/>
+      <use href="#tw-ai" x="1703" y="368" width="64" height="64"/>
+      <text class="lb s" x="1735" y="452">Ops</text>
+      <use href="#tw-ai" x="1703" y="496" width="64" height="64"/>
+      <text class="lb s" x="1735" y="580">QA</text>
+      <use href="#tw-ai" x="1703" y="623" width="64" height="64"/>
+      <text class="lb s" x="1735" y="707">Support</text>
+      </g>
+    </g>
+  </svg>
+</section>
+
+<!-- 05 LEADING THE COMPANY YOU HAVE. DESIGNING THE COMPANY YOU NEED.  (review 3, 07.10: the two lines only) -->
+<section class="slide" data-id="probably-yours" data-autostart="1.5" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Leading the company you have." data-time="0:45">
+  <div class="have-need">
+    <p style="--fs:84px;color:var(--charcoal)" data-anim="rise">Leading the company you have.</p>
+    <p style="--fs:116px;color:var(--charcoal)" data-step="1" data-anim="rise">Designing the company<br><span class="ul">you need.</span></p>
+  </div>
+</section>
+
+<!-- 06 LEARN, CREATE, LEAD.  (07.10 later 23: the framework is Learn, Create, Lead. (her ruling); the Build version of the restructure is reverted) -->
+<section class="slide" data-id="learn-create-lead" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Learn, Create, Lead." data-time="0:20">
+  <p class="lcl"><span data-anim="rise" style="--d:.3s">Learn<span class="dot">,</span></span><span class="off" data-anim="rise" style="--d:1.1s">Create,</span><span class="off" data-anim="rise" style="--d:1.9s">Lead.</span></p>
+</section>
+
+
+<!-- =====================================================================
+     LEARN   what can AI actually do, one piece at a time?
+     ===================================================================== -->
+
+<!-- 06b DON'T WAIT  (07.10: her ask, after Mark's slide; wording = her pick, option B) -->
+<section class="slide" data-id="dont-wait" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Don't wait." data-time="0:30">
+  <header class="act-header" data-anim="fade"><b>Learn,</b></header>
+  <div class="dw">
+    <h2 class="statement-title" data-anim="rise" style="--d:.2s">Don't wait to be ready.<br>Get ready by <span class="em-strong" style="--hd:1.1s">using it.</span></h2>
+  </div>
+</section>
+
+<!-- 08 LEARN. THE EXPERIMENT WALL: ten LinkedIn capability tests restructure v3; content plan card added later 18; original 17-card wall + outreach version parked) -->
+<section class="slide" data-id="learn-wall" data-pdf-steps="0,1" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Learn, The experiment wall." data-time="2:00">
+  <header class="act-header" data-anim="fade"><b>Learn,</b></header>
+  <div class="xw xw-q" data-on="1">
+    <div class="xcard k" style="--x:100px;--y:200px;--r:-2deg;--k:0"><span class="stamp keep">Keep</span><b>Monday scrape</b><i>Works. Some Mondays it fails.</i></div>
+    <div class="xcard k" style="--x:382px;--y:188px;--r:1.5deg;--k:1"><span class="stamp keep">Keep</span><b>Theme sorting</b><i>Works. Sometimes misfiles.</i></div>
+    <div class="xcard k" style="--x:664px;--y:208px;--r:-1deg;--k:2"><span class="stamp keep">Keep</span><b>Content strategy + plan</b><i>The backbone of the Monday brief</i></div>
+    <div class="xcard k" style="--x:946px;--y:192px;--r:2deg;--k:3"><span class="stamp keep">Keep</span><b>Monday brief</b><i>Hooks in our voice</i></div>
+    <div class="xcard" style="--x:1228px;--y:206px;--r:-2.5deg;--k:4"><span class="stamp drop">Drop</span><b>AI voice profile</b><i>Our own rules replaced it</i></div>
+    <div class="xcard k" style="--x:100px;--y:470px;--r:1deg;--k:5"><span class="stamp keep">Keep</span><b>Critic</b><i>Scores every draft</i></div>
+    <div class="xcard" style="--x:382px;--y:458px;--r:-1.5deg;--k:6"><span class="stamp fail">Fail</span><b>Refinement bot</b><i>Invented drafts. Pulled.</i></div>
+    <div class="xcard" style="--x:664px;--y:478px;--r:2.5deg;--k:7"><span class="stamp park">Park</span><b>Ideas engine</b><i>Passed a blind test. Never used.</i></div>
+    <div class="xcard k" style="--x:946px;--y:462px;--r:-1deg;--k:8"><span class="stamp keep">Keep</span><b>Comment filter</b><i>232 posts down to 15</i></div>
+    <div class="xcard" style="--x:1228px;--y:474px;--r:1.5deg;--k:9"><span class="stamp drop">Drop</span><b>Outreach automation</b><i>Automated messages</i></div>
+  </div>
+</section>
+
+
+<!-- =====================================================================
+     CREATE   proven pieces become one working system (B1 B2 B3, video, hinge)
+     ===================================================================== -->
+
+<!-- 09 TRANSITION LEARN → CREATE  (07.10 later 27, her pick: idea from Mark's "Ideas have become cheaper to test.", her own wording in "you" form; slide 7 design) -->
+<section class="slide" data-id="test-before-thinking" data-sys="v2" data-type="canvas" data-tone="paper" data-title="You can test an idea before you've finished thinking it." data-time="0:20">
+  <header class="act-header" data-anim="fade"><b>Learn,</b></header>
+  <div class="dw">
+    <h2 class="statement-title" data-anim="rise" style="--d:.2s">You can test an idea<br><span class="hi" data-anim="rise" style="--d:1.4s">before you've finished<br><span class="em-strong" style="--hd:2.3s">thinking it.</span></span></h2>
+  </div>
+</section>
+
+<section class="slide" data-id="what-i-made-learn" data-sys="v2" data-type="canvas" data-tone="paper" data-title="You can attempt things that used to be out of reach." data-time="0:45">
+  <header class="act-header" data-anim="fade"><b>Learn,</b></header>
+  <div class="oor">
+    <h2 class="content-title" data-anim="rise" style="--d:.2s">You can attempt things<br>that used to be <span class="em-strong" style="--hd:.9s">out of reach.</span></h2>
+    <ol>
+      <li data-anim="rise" style="--d:1.10s"><span>01</span>A visual framework</li>
+      <li data-anim="rise" style="--d:1.24s"><span>02</span>An ROI calculator</li>
+      <li data-anim="rise" style="--d:1.38s"><span>03</span>A self-assessment product</li>
+      <li data-anim="rise" style="--d:1.52s"><span>04</span>A benchmarking system</li>
+      <li data-anim="rise" style="--d:1.66s"><span>05</span>A content production system</li>
+      <li data-anim="rise" style="--d:1.80s"><span>06</span>A weekly intelligence engine</li>
+      <li data-anim="rise" style="--d:1.94s"><span>07</span>A proposal system</li>
+      <li data-anim="rise" style="--d:2.08s"><span>08</span>A contact intelligence system</li>
+      <li data-anim="rise" style="--d:2.22s"><span>09</span>An industry database</li>
+      <li class="hi" data-anim="rise" style="--d:3.10s"><span>10</span>This keynote</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 09 CREATE OVERVIEW  (07.10 later 22, her ask: the map before the CREATE act, Create highlighted; same stack and style as slide 6) -->
+<section class="slide" data-id="overview-create" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Learn, Create, Lead. (Create)" data-time="0:10">
+  <p class="lcl"><span class="off" data-anim="rise" style="--d:.2s">Learn,</span><span data-anim="rise" style="--d:.6s">Create<span class="dot">,</span></span><span class="off" data-anim="rise" style="--d:1s">Lead.</span></p>
+</section>
+
+<!-- 09 CREATE B1 CONNECT THE PIECES  (restructure v3, 07.10: rebuild of REDESIGN THE WORK; original parked) -->
+<section class="slide" data-id="connect-the-pieces" data-autostart="1.4" data-autostep="1.4" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Connect the pieces" data-time="3:00">
+  <header class="act-header" data-anim="fade"><b>Create,</b></header>
+  <p class="eyebrow at cp-eyebrow" style="--x:112px;--y:144px" data-step="0" data-anim="fade">Different tasks and agents<br>bolted together</p>
+  <div class="cn solo" style="left:582px;top:140px" data-step="0" data-anim="rise"><span class="stamp keep">Keep</span><b>Plan</b><i>Content strategy + plan</i></div>
+  <span class="down" style="left:582px;top:318px;--d:.3s" data-step="3" data-anim="fade">↓</span>
+  <div class="chain" style="--cy:404px">
+    <div class="cn" data-step="1" data-anim="rise"><span class="stamp keep">Keep</span><b>Collect</b><i>Monday scrape</i></div>
+    <span class="ar" data-step="2" data-anim="fade">→</span>
+    <div class="cn" data-step="2" data-anim="rise"><span class="stamp keep">Keep</span><b>Sort into themes</b><i>Theme sorting</i></div>
+    <span class="ar" data-step="3" data-anim="fade">→</span>
+    <div class="cn" data-step="3" data-anim="rise"><span class="stamp keep">Keep</span><b>Brief</b><i>Monday brief</i></div>
+    <span class="ar" data-step="4" data-anim="fade">→</span>
+    <div class="cn" data-step="4" data-anim="rise"><b>Draft</b><i>Drafting sessions</i></div>
+    <span class="ar" data-step="5" data-anim="fade">→</span>
+    <div class="cn" data-step="5" data-anim="rise"><span class="stamp keep">Keep</span><b>Critic</b><i>Scores every draft</i></div>
+    <span class="ar" data-step="7" data-anim="fade">→</span>
+    <div class="cn me" data-step="7" data-anim="rise"><b>Us</b><i>Review, rewrite, approve, publish</i></div>
+  </div>
+  <svg class="branch" viewBox="0 0 1600 900" data-step="6" data-anim="fade" aria-hidden="true"><path d="M210 572 V668 H818"/><path d="M1098 668 H1386 V576 M1374 590 L1386 576 L1398 590"/></svg>
+  <div class="cn solo" style="left:818px;top:602px;width:280px" data-step="6" data-anim="rise"><span class="stamp keep">Keep</span><b>Comment filter</b><i>Comment picks, we post</i></div>
+  <div class="outs" data-step="0" data-anim="fade" style="--d:.4s;top:760px">
+    <div class="oc"><span class="stamp">Drop</span><b>AI voice profile</b></div>
+    <div class="oc"><span class="stamp">Fail</span><b>Refinement bot</b></div>
+    <div class="oc"><span class="stamp">Park</span><b>Ideas engine</b></div>
+    <div class="oc"><span class="stamp">Drop</span><b>Outreach automation</b></div>
+  </div>
+</section>
+
+<!-- 10 CREATE B2 THE DESIGN NOBODY SEES  (restructure v3, 07.10: new; every category = one verified LinkedIn example) -->
+<section class="slide" data-id="easy-part-4" data-sys="v2" data-type="canvas" data-tone="paper" data-title="AI can do the task. You still have to design the job. (variant A, 4 buckets)" data-time="0:45">
+  <header class="act-header" data-anim="fade"><b>Create,</b></header>
+  <h2 class="ep-head statement-title" data-anim="rise" style="--d:.2s">AI can do the task.<br><span style="white-space:nowrap">You still have to <span class="em-strong" style="--hd:1.2s">design the job.</span></span></h2>
+  <p class="ep-aside" data-anim="fade" style="--d:2.6s">(Soon even that will change and be automated.)</p>
+  <div class="ep4 v2">
+    <div data-anim="rise" style="--d:1.7s">Workflow</div>
+    <div data-anim="rise" style="--d:1.85s">Roles</div>
+    <div data-anim="rise" style="--d:2.0s">Rules</div>
+    <div data-anim="rise" style="--d:2.15s">Oversight</div>
+  </div>
+</section>
+
+<!-- 11 CREATE B3 I COULDN'T BE THE EXPERT IN EVERY PART.  (restructure v3, 07.10: new; the roles of slide 3 return over the chain) -->
+<section class="slide b3" data-id="expert-in-every-part" data-autostart="1.6" data-autostep="1.6" data-sys="v2" data-type="canvas" data-tone="paper" data-title="We couldn't be the experts in every part." data-time="1:30">
+  <header class="act-header" data-anim="fade"><b>Create,</b></header>
+  <p class="mega" style="--y:132px" data-anim="rise">We couldn't be the experts in every part.</p>
+  <div class="rs" style="--cx:210px" data-step="1" data-anim="pop"><div class="ai-seat role-seat"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><span class="cap">Researcher</span></div></div>
+  <div class="rs" style="--cx:446px" data-step="2" data-anim="pop"><div class="ai-seat role-seat"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div><span class="cap">Analyst</span></div></div>
+  <div class="rs" style="--cx:800px" data-step="3" data-anim="pop"><div class="ai-seat role-seat"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><span class="cap">Writer</span></div></div>
+  <i class="tie" style="left:682px;width:236px" data-step="3" data-anim="fade"></i>
+  <div class="rs" style="--cx:1154px" data-step="4" data-anim="pop"><div class="ai-seat role-seat"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><span class="cap">Critic</span></div></div>
+  <div class="chain same12" style="--cy:528px">
+    <div class="cn" data-on="1"><span class="stamp keep">Keep</span><b>Collect</b><i>Monday scrape</i></div><span class="ar">→</span>
+    <div class="cn" data-on="2"><span class="stamp keep">Keep</span><b>Sort into themes</b><i>Theme sorting</i></div><span class="ar">→</span>
+    <div class="cn" data-on="3"><span class="stamp keep">Keep</span><b>Brief</b><i>Monday brief</i></div><span class="ar">→</span>
+    <div class="cn" data-on="3"><b>Draft</b><i>Drafting sessions</i></div><span class="ar">→</span>
+    <div class="cn" data-on="4"><span class="stamp keep">Keep</span><b>Critic</b><i>Scores every draft</i></div><span class="ar">→</span>
+    <div class="cn me"><b>Us</b><i>Review, rewrite, approve, publish</i></div>
+  </div>
+  <i class="brk" data-step="5" data-anim="fade"></i>
+  <div class="rs" style="--cx:560px;--ty:684px" data-step="5" data-anim="pop"><div class="ai-seat role-seat"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div><span class="cap">Developer</span></div></div>
+  <div class="rs" style="--cx:1040px;--ty:684px" data-step="6" data-anim="pop"><div class="ai-seat role-seat"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="cap">Operations</span></div></div>
+</section>
+
+
+<!-- 12 CREATE THE LINKEDIN AUTOMATION, THE VIDEO  (moved 07.10 restructure v3: proof that the connected system exists; W40 demo as is, creator names visible = her ruling) -->
+<section class="slide" data-id="linkedin-video" data-sys="v2" data-type="video" data-tone="dark" data-bare data-title="Our LinkedIn automation (video)" data-time="0:50">
+  <figure class="media video vid-full" data-pdf-href="https://talks.freshstrategy.ai/ceo-of-ais-aiba/#16">
+    <video src="assets/linkedin-trailer-w40.mp4" poster="assets/linkedin-trailer-w40-poster.jpg" muted playsinline autoplay preload="auto"></video>
+    <span class="hint"></span>
+  </figure>
+</section>
+
+<!-- =====================================================================
+     LEAD OPENING (12.10, her brief): what leadership becomes when the team changes. Four slides, one idea each.
+     ===================================================================== -->
+
+<!-- OVERVIEW LEAD (12.10, her ask): the map a third time, LEAD. highlighted; between the CREATE video and L1 -->
+<section class="slide" data-id="overview-lead" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Learn, Create, Lead. (Lead)" data-time="0:10">
+  <p class="lcl"><span class="off" data-anim="rise" style="--d:.2s">Learn,</span><span class="off" data-anim="rise" style="--d:.6s">Create,</span><span data-anim="rise" style="--d:1s">Lead<span class="dot">.</span></span></p>
+</section>
+
+<!-- L1 THE CATEGORY SHIFT: YOU MAY BE THE LAST GENERATION / TO LEAD HUMANS ONLY. + the CNN crop as evidence -->
+<section class="slide" data-id="last-generation" data-autostart="1.5" data-sys="v2" data-type="canvas" data-tone="paper" data-title="You may be the last generation to lead humans only." data-time="0:50">
+  <header class="act-header" data-anim="fade"><b>Lead.</b></header>
+  <div class="lg">
+    <p data-anim="rise" style="--d:.3s">You may be the last generation</p>
+    <p data-anim="rise" style="--d:1.2s">to lead <span class="em-strong">humans only.</span></p>
+  </div>
+  <figure class="lg-art" data-step="1">
+    <div class="page">
+      <img src="assets/article-cnn-benioff-2025-01-23.png" alt="CNN, 23 January 2025: Today's CEOs are the last to manage all-human workforces, says Marc Benioff">
+      <i class="mark-hl" data-on="1" style="--x:8px;--y:101px;--w:622px;--h:38px;--md:1s"></i>
+    </div>
+    <figcaption><b>CNN</b> · Davos, 23 January 2025</figcaption>
+  </figure>
+</section>
+
+<!-- L2a ONE OUTCOME. MANY CONTRIBUTORS. (her brief 12.10 later: shows orchestration with the team-today circles, then names it) -->
+<section class="slide" data-id="one-outcome" data-autostart="2" data-autostep="2 3.5 3.5" data-sys="v2" data-type="canvas" data-tone="paper" data-title="One outcome. Many contributors." data-time="1:30">
+  <header class="act-header" data-anim="fade"><b>Lead.</b></header>
+  <h2 class="oc-h" data-anim="rise" style="--d:.2s">One outcome.<br>Many contributors.</h2>
+  <div class="oc">
+    <svg class="oc-line" viewBox="0 0 1600 900" aria-hidden="true" data-step="2"><path pathLength="1" d="M200 470 C230 462, 320 420, 380 420 C440 420, 500 470, 560 470 C620 470, 680 420, 740 420 C800 420, 860 470, 920 470 C980 470, 1054 422, 1100 420 C1146 418, 1180 449, 1196 455"/></svg>
+    <div class="oc-card" data-step="1" data-anim="rise"><b>A post worth publishing.</b></div>
+    <div class="oc-n" style="left:133px;top:407px;--d:0.0s" data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:130px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><span class="cap">Researcher</span></div></div>
+    <div class="oc-n" style="left:313px;top:357px;--d:0.12s" data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:130px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div><span class="cap">Analyst</span></div></div>
+    <div class="oc-n me" style="left:493px;top:407px;--d:0.0s" data-step="3" data-anim="pop"><figure class="pf" style="--s:130px"><img src="assets/people/team-9.png" alt=""><figcaption>We set the direction</figcaption></figure></div>
+    <div class="oc-n" style="left:673px;top:357px;--d:0.24s" data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:130px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><span class="cap">Writer</span></div></div>
+    <div class="oc-n" style="left:853px;top:407px;--d:0.36s" data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:130px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><span class="cap">Critic</span></div></div>
+    <div class="oc-n me" style="left:1033px;top:357px;--d:0.25s" data-step="3" data-anim="pop"><figure class="pf" style="--s:130px"><img src="assets/people/team-9.png" alt=""><figcaption>We decide</figcaption></figure></div>
+    <i class="oc-brk" data-step="2" data-anim="fade" style="--d:.5s"></i>
+    <div class="oc-n sup" style="left:373px;top:647px;--d:0.6s" data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:110px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div><span class="cap">Developer</span></div></div>
+    <div class="oc-n sup" style="left:813px;top:647px;--d:0.72s" data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:110px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="cap">Operations</span></div></div>
+  </div>
+</section>
+
+<!-- L2b ORCHESTRATION MEANS DECIDING: four questions, the last one holds -->
+<!-- L2 SAME SHAPE. DIFFERENT STAFF.: five responsibilities, then the line -->
+<section class="slide" data-id="same-shape-lead" data-pdf-steps="0,1" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Orchestration." data-time="1:00">
+  <header class="act-header" data-anim="fade"><b>Lead.</b></header>
+  <ul class="ss-list" data-on="1">
+    <li data-anim="rise" style="--d:.3s">Set direction.</li>
+    <li data-anim="rise" style="--d:1.1s">Choose who does what.</li>
+    <li data-anim="rise" style="--d:1.9s">Design the work.</li>
+    <li data-anim="rise" style="--d:2.7s">Judge the result.</li>
+    <li data-anim="rise" style="--d:3.5s">Decide.</li>
+  </ul>
+  <p class="ss-punch" data-step="1" data-anim="rise" style="--d:.5s">Orchestration.</p>
+</section>
+
+
+
+
+
+<!-- =====================================================================
+     LEAD   managing a capable but unreliable AI workforce
+     ===================================================================== -->
+
+
+
+
+<!-- 20 AI MAKES EXECUTION CHEAPER. WHAT BECOMES MORE VALUABLE? -->
+<section class="slide" data-id="execution-cheaper" data-autostart="1" data-sys="v2" data-type="canvas" data-tone="paper" data-title="What becomes more valuable?" data-time="0:45">
+  <header class="act-header" data-anim="fade"><b>Lead.</b></header>
+  <div class="mid xc" style="--gap:40px">
+    <h2 class="statement-title soft" data-anim="fade" style="--dur:1.2s">AI makes execution cheaper.</h2>
+    <h2 class="statement-title" data-step="1" data-anim="rise">What becomes <span class="em-strong" style="--hd:1s">more</span> valuable?</h2>
+  </div>
+</section>
+
+<!-- 21 JUDGEMENT. CURIOSITY. RELATIONSHIPS. PURPOSE. → RESPONSIBILITY. -->
+<section class="slide" data-id="human-words" data-pdf-steps="4,5" data-autostart="1.5" data-autostep="2.2" data-sys="v2" data-type="canvas" data-tone="paper" data-title="The human words" data-time="2:00">
+  <header class="act-header" data-anim="fade"><b>Lead.</b></header>
+  <ul class="words">
+    <li data-anim="rise" data-step="0" data-hide-at="5">Curiosity.</li>
+    <li data-step="1" data-hide-at="5" data-anim="rise">Judgement.</li>
+    <li data-step="2" data-hide-at="5" data-anim="rise">Openness.</li>
+    <li data-step="3" data-hide-at="5" data-anim="rise">Relationships.</li>
+    <li data-step="4" data-hide-at="5" data-anim="rise">Purpose.</li>
+  </ul>
+  <p class="resp" data-step="5" data-anim="fade" style="--d:1.4s;--dur:1.4s">Responsibility.</p>
+</section>
+
+<!-- 15 IT WORKS. MOSTLY. -->
+<section class="slide act-warn" data-id="it-works" data-sys="v2" data-type="canvas" data-tone="dark" data-title="It works. Mostly." data-time="0:30">
+  <header class="act-header" data-anim="fade"><b>Warning.</b></header>
+  <div class="mid" style="--gap:10px">
+    <p class="big hero-title" data-anim="rise">It works.</p>
+    <p class="big hero-title" style="color:var(--mint)" data-step="1" data-anim="rise">Mostly.</p>
+  </div>
+</section>
+
+<!-- W2 TODAY'S AIs LIE. FORGET. BURN TOKENS. ...WITH TOTAL CONVICTION. (12.10 evening her pick B, replaces ...BUT THEY CAN BE EXTREMELY CONVINCING.; her ask 12.10, after IT WORKS. MOSTLY.; idea from Mark's warning slide, generic wording) -->
+<section class="slide act-warn" data-id="todays-ais" data-autostart="1.5" data-autostep="1.6 1.6 2.4" data-sys="v2" data-type="canvas" data-tone="dark" data-title="Today's AIs lie, forget, burn tokens" data-time="0:45">
+  <header class="act-header" data-anim="fade"><b>Warning.</b></header>
+  <p class="ta-h" data-anim="rise" style="--d:.2s">Today's AI<span class="lc">s</span></p>
+  <ul class="ta" data-on="4">
+    <li data-step="1" data-anim="rise">Lie.</li>
+    <li data-step="2" data-anim="rise">Forget.</li>
+    <li data-step="3" data-anim="rise">Burn tokens.</li>
+  </ul>
+  <p class="ta-last" data-step="4" data-anim="rise" style="--d:.3s">…with total <span class="em">conviction.</span></p>
+</section>
+
+
+
+
+
+<!-- CLOSE 1 SMALL. REVERSIBLE. REVIEWED. (version B, her pick 12.10; CLOSE, header GETTING STARTED. on her ask) -->
+<section class="slide" data-id="small-reversible-reviewed" data-autostart="1.5" data-autostep="2.5" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Small. Reversible. Reviewed." data-time="1:30">
+  <header class="act-header" data-anim="fade"><b>Getting started.</b></header>
+  <div class="sr-row" data-step="1">
+    <h3 class="sr-w" style="top:236px" data-anim="rise">Small.</h3>
+    <svg class="sr-svg" viewBox="0 0 1600 900" aria-hidden="true"><path class="ln" pathLength="1" style="--d:.7s" d="M932 286 L1040 286"/></svg>
+    <div data-anim="pop" style="--d:.3s"><div class="sr-n" style="left:813px;top:223px"><div class="ai-seat role-seat" style="--s:130px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><span class="cap">Writer</span></div></div></div>
+    <div class="sr-card" style="left:1040px;top:250px;--d:.9s" data-anim="rise"><b>One task.</b></div>
+  </div>
+  <div class="sr-row" data-step="2">
+    <h3 class="sr-w" style="top:470px" data-anim="rise">Reversible.</h3>
+    <div data-anim="fade" style="--d:.3s"><div class="sr-n ghost" style="left:813px;top:457px"><div class="ai-seat role-seat" style="--s:130px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><span class="cap">One step back</span></div></div></div>
+    <div data-anim="pop" style="--d:.3s"><div class="sr-n" style="left:1133px;top:457px"><div class="ai-seat role-seat" style="--s:130px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><span class="cap">Writer</span></div></div></div>
+    <svg class="sr-svg" viewBox="0 0 1600 900" aria-hidden="true"><path class="ln" pathLength="1" style="--d:.8s" d="M1196 458 C1150 400, 930 400, 886 454"/><path class="hd" style="--d:1.6s" d="M868 432 L886 456 L912 442"/></svg>
+  </div>
+  <div class="sr-row" data-step="3">
+    <h3 class="sr-w" style="top:710px" data-anim="rise">Reviewed.</h3>
+    <svg class="sr-svg" viewBox="0 0 1600 900" aria-hidden="true"><path class="ln" pathLength="1" style="--d:.6s" d="M932 760 L1028 760"/><path class="ln" pathLength="1" style="--d:1.2s" d="M1132 760 L1230 760"/></svg>
+    <div data-anim="pop" style="--d:.3s"><div class="sr-n" style="left:813px;top:697px"><div class="ai-seat role-seat" style="--s:130px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><span class="cap">Writer</span></div></div></div>
+    <div class="sr-n me" style="left:1013px;top:697px;--d:.9s" data-anim="pop"><figure class="pf" style="--s:130px"><img src="assets/people/team-9.png" alt=""><figcaption>Us</figcaption></figure></div>
+    <div class="sr-card" style="left:1230px;top:724px;--d:1.5s" data-anim="rise"><b>Publish.</b></div>
+  </div>
+</section>
+
+
+<!-- =====================================================================
+     CLOSE
+     ===================================================================== -->
+
+
+
+<!-- CLOSE 2 YOUR FIRST AI TEAM (her brief 12.10: OUTCOME → JOBS → ROLES → TEAM, one thing transforming; no workflow yet, the next slide connects it) -->
+<section class="slide" data-id="build-your-team" data-pdf-steps="0,3" data-autostart="1.5" data-autostep="2.5" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Your first AI team" data-time="1:45">
+  <header class="act-header" data-anim="fade"><b>Getting started.</b></header>
+  <div class="ft-out" data-step="0" data-hide-at="3" data-on="1"><b>Outcome.</b></div>
+  <svg class="ft-lines" viewBox="0 0 1600 900" aria-hidden="true" data-step="1" data-hide-at="3"><path pathLength="1" d="M720 461 L605 433"/><path pathLength="1" d="M801 398 L802 304"/><path pathLength="1" d="M880 460 L994 433"/><path pathLength="1" d="M846 548 L922 660"/><path pathLength="1" d="M754 548 L677 660"/></svg>
+  <p class="ft-job" style="left:490px;top:420px" data-step="1" data-hide-at="2" data-anim="fade">Research.</p>
+  <p class="ft-job" style="left:800px;top:250px" data-step="1" data-hide-at="2" data-anim="fade">Analyse.</p>
+  <p class="ft-job" style="left:1073px;top:420px" data-step="1" data-hide-at="2" data-anim="fade">Draft.</p>
+  <p class="ft-job" style="left:953px;top:705px" data-step="1" data-hide-at="2" data-anim="fade">Critique.</p>
+  <p class="ft-job" style="left:647px;top:705px" data-step="1" data-hide-at="2" data-anim="fade">Decide.</p>
+  <div class="ft-role" style="left:480px;top:352px;--tx:-253px;--ty:-90px" data-on="3"><div data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:140px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><span class="cap">Researcher</span></div></div></div>
+  <div class="ft-role cap-top" style="left:730px;top:182px;--tx:-258px;--ty:170px" data-on="3"><div data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:140px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div><span class="cap">Analyst</span></div></div></div>
+  <div class="ft-role" style="left:974px;top:352px;--tx:8px;--ty:0px" data-on="3"><div data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:140px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><span class="cap">Writer</span></div></div></div>
+  <div class="ft-role" style="left:880px;top:637px;--tx:347px;--ty:-375px" data-on="3"><div data-step="2" data-anim="pop"><div class="ai-seat role-seat" style="--s:140px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><span class="cap">Critic</span></div></div></div>
+  <div class="ft-role me" style="left:574px;top:637px;--tx:153px;--ty:-405px" data-on="3"><div data-step="2" data-anim="pop"><figure class="pf" style="--s:140px"><img src="assets/people/team-9.png" alt=""><figcaption>You</figcaption></figure></div></div>
+  <h2 class="ft-h" data-step="3" data-anim="rise" style="--d:.9s">Your first <span class="em-strong" style="--hd:1.7s">AI team.</span></h2>
+  <p class="ft-sub" data-step="3" data-anim="fade" style="--d:1.5s">One outcome. Specialist roles.</p>
+</section>
+
+<!-- CLOSE 3 WORKFLOW + HARNESS (her brief 12.10, revised: inside = WORKFLOW (sequence, dependencies, handoffs); around = HARNESS (context, rules, decisions, exceptions, checks)) -->
+<section class="slide" data-id="team-to-system" data-autostart="1.5" data-autostep="1.8 1.8 2 3" data-sys="v2" data-type="canvas" data-tone="paper" data-title="A team becomes a system" data-time="1:45">
+  <header class="act-header" data-anim="fade"><b>Getting started.</b></header>
+  <svg class="ts-svg ts-checks" viewBox="0 0 1600 900" aria-hidden="true" data-step="3"><rect pathLength="1" x="196" y="342" width="1268" height="392" rx="30"/></svg>
+  <svg class="ts-svg ts-hand" viewBox="0 0 1600 900" aria-hidden="true" data-step="2"><path pathLength="1" style="--d:0.1s" d="M394 540 L506 540"/><circle r="7"><animateMotion dur="1.4s" begin="0.00s" repeatCount="2" fill="freeze" path="M394 540 L506 540"/></circle><path pathLength="1" style="--d:0.3s" d="M634 540 L746 540"/><circle r="7"><animateMotion dur="1.4s" begin="0.35s" repeatCount="2" fill="freeze" path="M634 540 L746 540"/></circle><path pathLength="1" style="--d:0.5s" d="M874 540 L986 540"/><circle r="7"><animateMotion dur="1.4s" begin="0.70s" repeatCount="2" fill="freeze" path="M874 540 L986 540"/></circle><path pathLength="1" style="--d:0.7s" d="M1114 540 L1226 540"/><circle r="7"><animateMotion dur="1.4s" begin="1.05s" repeatCount="2" fill="freeze" path="M1114 540 L1226 540"/></circle></svg>
+  <div class="ts-n" style="left:257px;top:472px;--tx:-30px;--ty:-210px" data-on="1"><div class="ai-seat role-seat" style="--s:140px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><span class="cap">Researcher</span></div></div>
+  <div class="ts-n" style="left:497px;top:472px;--tx:-25px;--ty:-120px" data-on="1"><div class="ai-seat role-seat" style="--s:140px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div><span class="cap">Analyst</span></div></div>
+  <div class="ts-n" style="left:737px;top:472px;--tx:245px;--ty:-120px" data-on="1"><div class="ai-seat role-seat" style="--s:140px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><span class="cap">Writer</span></div></div>
+  <div class="ts-n" style="left:977px;top:472px;--tx:250px;--ty:-210px" data-on="1"><div class="ai-seat role-seat" style="--s:140px"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><span class="cap">Critic</span></div></div>
+  <div class="ts-n me" style="left:1217px;top:472px;--tx:-490px;--ty:-240px" data-on="1"><figure class="pf" style="--s:140px"><img src="assets/people/team-9.png" alt=""><figcaption>You</figcaption></figure></div>
+  <p class="ts-wf" data-step="1" data-anim="fade" style="--d:.8s"><b>Workflow</b><span>sequence · dependencies · handoffs</span></p>
+  <div class="ts-marks" data-step="4"><i class="ai" style="left:330px"></i><i class="ai" style="left:570px"></i><i class="ai" style="left:810px"></i><i class="ai" style="left:1050px"></i><i class="hu" style="left:1290px"></i></div>
+  <p class="ts-chip hn" style="left:232px;top:331px;--d:0.90s" data-step="3" data-anim="fade">System design</p>
+  <p class="ts-chip" style="left:640px;top:331px;--d:0.95s" data-step="4" data-anim="fade">Context</p>
+  <p class="ts-chip" style="left:1060px;top:331px;--d:1.30s" data-step="4" data-anim="fade">Rules</p>
+  <p class="ts-chip" style="left:300px;top:723px;--d:1.30s" data-step="4" data-anim="fade">Decisions</p>
+  <p class="ts-chip" style="left:700px;top:723px;--d:1.65s" data-step="4" data-anim="fade">Exceptions</p>
+  <p class="ts-chip" style="left:1100px;top:723px;--d:2.00s" data-step="4" data-anim="fade">Checks</p>
+  <h2 class="ts-h" data-step="5" data-anim="rise" style="--d:.2s">A team becomes a system when the work is <span class="em-strong" style="--hd:1s">designed.</span></h2>
+</section>
+
+<!-- CLOSE 4 YOUR TURN (her ask 12.10, from Mark's closing slide, generic wording): the map a last time, all three live, one question per click; before the downloads -->
+<section class="slide" data-id="your-turn" data-sys="v2" data-type="canvas" data-tone="paper" data-title="Learn, Create, Lead. Your turn." data-time="1:00">
+  <div class="yt">
+    <p><span class="w" data-anim="rise" style="--d:.2s">Learn<i>,</i></span><span class="qa" data-anim="fade" style="--d:.2s"><span class="q">What can it do for you?</span><b>Start experimenting.</b></span></p>
+    <p><span class="w" data-anim="rise" style="--d:.5s">Create<i>,</i></span><span class="qa" data-anim="fade" style="--d:.5s"><span class="q">How do the pieces work together?</span><b>Start thinking systems.</b></span></p>
+    <p><span class="w" data-anim="rise" style="--d:.8s">Lead<i>.</i></span><span class="qa" data-anim="fade" style="--d:.8s"><span class="q">How do you lead a mixed workforce?</span><b>Start thinking orchestration.</b></span></p>
+  </div>
+</section>
+
+<!-- 26 CLOSE THE AI VALUE LADDER, TAKE-HOME QR  (moved 07.10 restructure v3: from LEARN to the close) -->
+<section class="slide" data-id="value-ladder" data-sys="v2" data-type="stay" data-tone="paper" data-title="Stay in touch" data-time="1:30">
+  <div class="stay-inner">
+    <h2 class="statement-title" data-anim="rise">Stay in touch.</h2>
+    <div class="stay-row">
+      <div class="stay-group stay-connect">
+        <figure class="qr" data-anim="rise" style="--d:.3s"><a href="https://www.linkedin.com/in/skioutsoukis" target="_blank" rel="noopener"><img src="assets/qr/qr-connect_ceo-of-ais-aiba_2026-10-22.svg" alt="QR code: Stéphanie on LinkedIn"></a><figcaption><a href="https://www.linkedin.com/in/skioutsoukis" target="_blank" rel="noopener">Connect</a></figcaption></figure>
+        <p class="stay-contact" data-anim="fade" style="--d:.5s"><b>Stéphanie Kioutsoukis</b><br>stephanie@freshstrategy.ai</p>
+      </div>
+      <div class="stay-group stay-resources">
+        <figure class="qr" data-anim="rise" style="--d:.4s"><a href="https://www.freshstrategy.ai/resources?utm_source=talk&amp;utm_medium=qr&amp;utm_campaign=ceo-of-ais-aiba_2026-10-22&amp;utm_content=resources" target="_blank" rel="noopener"><img src="assets/qr/qr-resources_ceo-of-ais-aiba_2026-10-22.svg" alt="QR code: freshstrategy.ai/resources"></a><figcaption><a href="https://www.freshstrategy.ai/resources?utm_source=talk&amp;utm_medium=qr&amp;utm_campaign=ceo-of-ais-aiba_2026-10-22&amp;utm_content=resources" target="_blank" rel="noopener">Resources</a></figcaption></figure>
+        <p class="stay-contact" data-anim="fade" style="--d:.6s">freshstrategy.ai/resources</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- =====================================================================
+     APPENDIX: PARKED SLIDES (07.10.2026, LEARN / CREATE / LEAD restructure, proposal section 7).
+     Hidden: the engine only shows .slide elements that are direct children of .deck.
+     Never delete. To bring one back, move it out of this div (and drop the --parked-0710 suffix).
+     ===================================================================== -->
+
+
+</main>
+<script src="_fresh/engine/talks.js"></script>
+<script src="_fresh/engine/components.js"></script>
+<script>
+/* Talk-specific behaviour. Never moved into engine/ until it proves itself. */
+(function () {
+  'use strict';
+  const T = window.Talks;
+  // 08 proof wall: a print marked data-focus is shown large on its own step and settles onto the wall on the next click
+  function focus(slide, step) {
+    const pw = slide.querySelector('.pw');
+    if (!pw) return;
+    pw.querySelectorAll('.print').forEach(p => p.classList.toggle('is-focus', p.hasAttribute('data-focus') && parseInt(p.dataset.step, 10) === step));
+  }
+  T.on('enter', ({ slide }) => focus(slide, T.step));
+  T.on('step', ({ slide, step }) => focus(slide, step));
+  // 10 the room: the seat of whoever spoke last gets the "speaking" frame, like a real call
+  let raf = 0;
+  T.on('enter', ({ slide }) => {
+    cancelAnimationFrame(raf);
+    const room = slide.querySelector('.room:not(.room-no)');
+    if (!room) return;
+    const loop = () => {
+      const on = room.querySelectorAll('.feed [data-who].is-on');
+      room.dataset.speaking = on.length ? on[on.length - 1].dataset.who : '';
+      raf = requestAnimationFrame(loop);
+    };
+    loop();
+  });
+  T.on('leave', () => cancelAnimationFrame(raf));
+  // 10: a click while the team is still "working" is swallowed, so an early click can't skip the demo
+  T.on('beforeNext', slide => {
+    const r = slide.querySelector('.room .run');
+    return !!(r && r._token && !r.classList.contains('is-done'));
+  });
+})();
+
+// 13.10 (her ask): the trailer's very last frame is blank paper, so hold on the coffee frame instead
+(function () {
+  const v = document.querySelector('[data-id="linkedin-video"] video');
+  if (!v) return;
+  // pause (no seek: seeking fails on servers without range requests) as soon as a frame lands in the last 0.3 s
+  const hold = () => { if (v.duration && v.currentTime >= v.duration - 0.3) v.pause(); };
+  const watch = () => { hold(); if (!v.paused) v.requestVideoFrameCallback(watch); };
+  if ('requestVideoFrameCallback' in v) v.addEventListener('play', () => v.requestVideoFrameCallback(watch));
+  v.addEventListener('timeupdate', hold);
+})();
+
+// 12.10 late: HOW IT ALL BEGAN video. Card click opens the full-stage player with sound; × / backdrop closes; leaving the slide stops it.
+(function () {
+  const sl = document.querySelector('.slide[data-id="how-it-began"]'); if (!sl) return;
+  const card = sl.querySelector('.hb-card'), open = sl.querySelector('.hb-open'), loop = open.querySelector('.hb-loop'), song = open.querySelector('.hb-song');
+  loop.muted = true; card.querySelector('video').muted = true; // the muted attribute alone does not mute in Chrome here
+  const show = e => { e && e.stopPropagation(); open.classList.add('is-open'); song.currentTime = 0; song.play().catch(() => {}); loop.currentTime = 0; loop.play().catch(() => {}); };
+  const hide = e => { e && e.stopPropagation(); loop.pause(); song.pause(); open.classList.remove('is-open'); };
+  song.addEventListener('ended', () => hide());
+  card.addEventListener('click', show);
+  card.addEventListener('keydown', e => { if (e.key === 'Enter') show(e); });
+  open.querySelector('.hb-x').addEventListener('click', hide);
+  open.addEventListener('click', e => { if (e.target === open || e.target === loop) hide(e); });
+  window.addEventListener('hashchange', () => { if (open.classList.contains('is-open')) hide(); });
+})();
+
+// 12.10 late: slide 3 roster pop-up (iframe loads on first open)
+(function () {
+  const sl = document.querySelector('.slide[data-id="team-today"]'); if (!sl) return;
+  const btn = sl.querySelector('.roster-open'), pop = sl.querySelector('.roster-pop'), fr = pop.querySelector('iframe');
+  const show = e => { e && e.stopPropagation(); if (!fr.src) fr.src = fr.dataset.src; pop.classList.add('is-open'); };
+  const hide = e => { e && e.stopPropagation(); pop.classList.remove('is-open'); };
+  btn.addEventListener('click', show);
+  btn.addEventListener('keydown', e => { if (e.key === 'Enter') show(e); });
+  pop.querySelector('.hb-x').addEventListener('click', hide);
+  window.addEventListener('hashchange', () => { if (pop.classList.contains('is-open')) hide(); });
+})();
+</script>
+</body>
+</html>
