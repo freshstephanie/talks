@@ -79,6 +79,9 @@ body { -webkit-font-smoothing: antialiased; }
 .ft-ui .ft-home { padding: 7px 10px; border-radius: 6px; background: rgba(20,18,24,.55); color: #fff; text-decoration: none; }
 .ft-ui .ft-home:hover { background: rgba(20,18,24,.85); }
 .ft-ui [hidden] { display: none; }
+.ft-ui .ft-pdf { padding: 7px 10px; border-radius: 6px; background: #88DBBD; color: #2B2B33; font-weight: 600; text-decoration: none; }
+.ft-ui .ft-pdf:hover { background: #a6e6cf; }
+.ft-ui .ft-pdf:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 @media (max-width: 420px) { .ft-ui { right: 8px; gap: 4px; } .ft-ui button, .ft-ui .ft-home, .ft-ui .ft-count { padding: 7px 8px; } .ft-ui .ft-count { min-width: 0; } }
 @media (max-width: 359px) { .ft-ui [data-a="fs"] { display: none; } }   /* tiny phones: fullscreen goes (iPhone Safari has none anyway) */
 .ft-ui .ft-count { padding: 7px 10px; background: rgba(20,18,24,.55); border-radius: 6px; min-width: 56px; text-align: center; }

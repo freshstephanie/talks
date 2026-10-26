@@ -23,7 +23,6 @@ h2 { font-size: 24px; line-height: 1.2; letter-spacing: -.015em; margin-bottom: 
 .hint { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .btn { display: inline-block; margin-top: 16px; padding: 15px 22px; background: var(--charcoal); color: #fff; border: 0; cursor: pointer; text-decoration: none;
   font: 500 15px/1.2 'Space Grotesk', sans-serif; letter-spacing: .04em; text-transform: uppercase; transition: transform .2s, box-shadow .2s; }
-.btn::after { content: ' \2192'; }
 .btn.copy::after { content: ''; }
 .btn:hover { transform: scale(1.03); box-shadow: 0 4px 15px rgba(0, 0, 0, .15); }
 .btn.is-done { background: var(--purple); }

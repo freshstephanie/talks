@@ -216,6 +216,20 @@
       const a = el('a', 'ft-home'); a.href = home.content; a.textContent = home.dataset.label || 'All talks';
       ui.prepend(a);
     }
+    const pdf = document.querySelector('meta[name="ft-pdf"]');   // opt-in per talk: <meta name="ft-pdf" content="assets/<file>.pdf">
+    if (pdf) {
+      const a = el('a', 'ft-pdf'); a.href = pdf.content; a.download = ''; a.textContent = '⤓ PDF'; a.title = 'Download the slides as PDF';
+      // fetch first: a plain download skips the service worker, so a password-locked copy would get the encrypted 404
+      a.addEventListener('click', e => {
+        if (location.protocol === 'file:') return;   // offline from disk: the plain download works
+        e.preventDefault();
+        fetch(a.href).then(r => { if (!r.ok) throw r.status; return r.blob(); }).then(b => {
+          const t = el('a', ''); t.href = URL.createObjectURL(b); t.download = a.href.split('/').pop();
+          document.body.append(t); t.click(); t.remove(); setTimeout(() => URL.revokeObjectURL(t.href), 60000);
+        }).catch(() => window.open(a.href, '_blank'));
+      });
+      ui.insertBefore(a, ui.querySelector('[data-a="help"]'));
+    }
     ui.addEventListener('click', e => {
       const a = e.target.dataset.a;
       ({ prev, next, grid: toggleGrid, notes: () => document.body.classList.toggle('show-notes'), fs: fullscreen, help: toggleHelp }[a] || (() => {}))();

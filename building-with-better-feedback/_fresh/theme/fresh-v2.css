@@ -1,7 +1,7 @@
 /* Fresh Talks - Fresh Strategy theme, VERSION 2 (12.10.2026). Default for new talks.
    STANDALONE: this file is complete on its own (fonts, tokens, all slide types). It does NOT import or
    depend on theme/fresh.css; a talk links exactly one of the two. fresh-v2.css is the source of truth going
-   forward; theme/fresh.css (v1) is frozen for delivered talks and never migrated retroactively.
+   forward; theme/fresh.css (v1) is frozen for delivered talks (AVEC, demo) and never migrated retroactively.
    Canvas is 1600 x 900; every px value below is at that size and scales with the screen.
 
    CHARCOAL COMMUNICATES.  MINT DIRECTS ATTENTION.  PURPLE STRUCTURES THE PRESENTATION.
@@ -377,7 +377,6 @@ body.hide-ph .ph-dev { display: none; }
 
 /* Buttons (live-site pattern: square Charcoal, uppercase, arrow) */
 .btn { display: inline-block; padding: 16px 26px; background: var(--charcoal); color: #fff; text-decoration: none; font: 500 16px/1.2 var(--head-font); letter-spacing: .04em; text-transform: uppercase; border: 0; cursor: pointer; transition: transform .2s, box-shadow .2s; }
-.btn::after { content: ' \2192'; }
 .btn:hover { transform: scale(1.03); box-shadow: 0 4px 15px rgba(0, 0, 0, .15); }
 .slide[data-tone="dark"] .btn { background: #fff; color: var(--dark); }
 

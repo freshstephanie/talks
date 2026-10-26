@@ -211,8 +211,8 @@
 .sendmock .checks span::before { content: '\2713'; color: var(--charcoal); margin-right: 12px; font-weight: 600; }
 .sendmock .go { margin-top: 40px; display: flex; align-items: center; justify-content: space-between; }
 .sendmock .go b { font: 500 28px/1 var(--head-font); letter-spacing: .08em; color: var(--charcoal); }
+.lines > span { display: block; }   /* one item per line, no <br> (U7) */
 .sendmock .go .btn { font-size: 24px; padding: 20px 48px; background: var(--charcoal); color: #fff; }
-.sendmock .go .btn::after { content: ' \25B8'; }
 .sendmock .to { margin-top: 26px; font: italic 500 18px/1 var(--body-font); color: var(--muted); }
 .should { position: absolute; left: 880px; right: 80px; top: 130px; }
 .should .t-xl { color: #fff; }
@@ -291,7 +291,7 @@
       <p class="eyebrow" style="color:var(--head)">Today</p>
       <p class="t-body">AI researches, reaches your systems, creates artefacts, takes actions, runs recurring work and works as agents and teams.</p>
       <p class="eyebrow" style="color:var(--head)">What's next</p>
-      <p class="is-next">From "How do I use AI?" to<br>"How do we <span class="em">design, organise and govern</span> AI as part of how we work?"</p>
+      <p class="is-next">From "How do I use AI?" to "How do we <span class="em">design, organise and govern</span> AI as part of how we work?"</p>
     </div>
   </div>
 </section>
@@ -301,7 +301,7 @@
   <div class="statement">
     <p class="eyebrow" style="margin-bottom:40px">What changed in a year</p>
     <h2 class="statement-title" data-anim="rise">AI can now<br><span class="em-strong">do the work.</span></h2>
-    <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">Last year: something we asked.<br><b style="color:#fff;font-weight:600">Now: something that researches, builds and acts.</b></p>
+    <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">Last year: something we asked.<b style="display:block;color:#fff;font-weight:600">Now: something that researches, builds and acts.</b></p>
   </div>
 </section>
 
@@ -413,7 +413,7 @@
   <div class="statement">
     <p class="eyebrow" style="margin-bottom:40px">What changed in a year</p>
     <h2 class="statement-title" data-anim="rise">From answers<br>to <span class="em-strong">action.</span></h2>
-    <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">AI no longer only recommends.<br><b style="color:#fff;font-weight:600">It uses tools, takes steps and keeps working on a schedule.</b></p>
+    <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">AI no longer only recommends.<b style="display:block;color:#fff;font-weight:600">It uses tools, takes steps and keeps working on a schedule.</b></p>
   </div>
 </section>
 
@@ -455,7 +455,7 @@
   <div class="statement">
     <p class="eyebrow" style="margin-bottom:40px">From Chat <span class="chev"></span> Cowork <span class="chev"></span> Code/x</p>
     <h2 class="statement-title" data-anim="rise">From personal AI<br>to <span class="em-strong">organisational AI.</span></h2>
-    <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">The question is no longer only: "How do I use AI well?"<br><b style="color:#fff;font-weight:600">It becomes: "How do we want AI to work here?"</b></p>
+    <p class="t-body" data-anim="fade" style="--d:.5s;max-width:none">The question is no longer only: "How do I use AI well?"<b style="display:block;color:#fff;font-weight:600">It becomes: "How do we want AI to work here?"</b></p>
   </div>
 </section>
 
@@ -495,7 +495,7 @@
 <section class="slide" data-type="canvas" data-tone="paper" data-id="agentic-teams" data-title="Agentic teams">
   <div class="ttl"><h2 class="t-m">Agentic teams</h2></div>
   <p class="track"><span class="past">Chat</span><i><span class="chev"></span></i><span class="past">Agent</span><i><span class="chev"></span></i><b>Agentic team</b><i><span class="chev"></span></i><span>Designed AI</span><i><span class="chev"></span></i><span>Governed AI</span></p>
-  <div class="teams"><p class="eyebrow">Teams</p><p>Research<br>Development<br>Marketing<br>etc</p></div>
+  <div class="teams"><p class="eyebrow">Teams</p><p class="lines"><span>Research</span><span>Development</span><span>Marketing</span><span>etc</span></p></div>
   <div class="org">
     <div class="you" data-anim="fade" style="--d:.1s"><b>YOU</b> · set the brief, make the final judgement</div>
     <div class="vline"></div>
@@ -561,7 +561,7 @@
   <div class="gov" style="top:250px">
     <div class="alone">
       <h3>Everyone alone</h3>
-      <p>Personal prompts<br>Personal habits<br>Inconsistent quality<br>Unclear data practices<br>Quality depends on the individual</p>
+      <p class="lines"><span>Personal prompts</span><span>Personal habits</span><span>Inconsistent quality</span><span>Unclear data practices</span><span>Quality depends on the individual</span></p>
     </div>
     <div class="panel" data-anim="reveal" style="--d:.3s">
       <h3>Governed AI</h3>
@@ -578,7 +578,7 @@
     <div class="decide">
       <div class="can">
         <p class="eyebrow">If AI can</p>
-        <p>Read your data<br>Build things<br>Take actions<br>Work repeatedly<br>Operate through agents</p>
+        <p class="lines"><span>Read your data</span><span>Build things</span><span>Take actions</span><span>Work repeatedly</span><span>Operate through agents</span></p>
       </div>
       <div class="to"><span class="chev"></span></div>
       <div data-anim="fade" style="--d:.4s">

@@ -377,7 +377,6 @@ body.hide-ph .ph-dev { display: none; }
 
 /* Buttons (live-site pattern: square Charcoal, uppercase, arrow) */
 .btn { display: inline-block; padding: 16px 26px; background: var(--charcoal); color: #fff; text-decoration: none; font: 500 16px/1.2 var(--head-font); letter-spacing: .04em; text-transform: uppercase; border: 0; cursor: pointer; transition: transform .2s, box-shadow .2s; }
-.btn::after { content: ' \2192'; }
 .btn:hover { transform: scale(1.03); box-shadow: 0 4px 15px rgba(0, 0, 0, .15); }
 .slide[data-tone="dark"] .btn { background: #fff; color: var(--dark); }
 
