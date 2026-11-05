@@ -64,6 +64,8 @@ h2{position:absolute;left:90px;right:90px;top:140px;font-size:84px;line-height:1
 .arrive .draw{stroke-dashoffset:0;transition:stroke-dashoffset 1.8s cubic-bezier(.65,0,.25,1) .2s}
 .arw{opacity:0}
 .arrive .arw{opacity:1;transition:opacity .6s ease 1.8s}
+.launch{transition:transform 2.4s cubic-bezier(.4,0,.2,1)}
+.done .launch{transform:translate(90px,-50px)}
 .halo{opacity:.35;transition:opacity 1.4s ease}
 .done .halo{opacity:1}
 path.step{transition:opacity .8s ease}
@@ -169,6 +171,7 @@ path.step{transition:opacity .8s ease}
   .sky{transform:none!important}
   .tw{animation:none;opacity:.5}
   .ask .l1,.arw{opacity:1}
+  .launch{transition:none}
   .ask em{color:var(--mint)}
   .draw{stroke-dashoffset:0}
   .halo{opacity:1}
