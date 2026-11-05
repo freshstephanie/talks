@@ -50,9 +50,26 @@ h2{position:absolute;left:90px;right:90px;top:140px;font-size:84px;line-height:1
 .bigt{font-size:50px;line-height:1.22;margin-top:40px}
 
 .sky{position:absolute;inset:0;background:url('assets/milky_way.jpg') center/cover}
+.sky{transform-origin:62% 45%;will-change:transform}
+.tw{animation:tw 7s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.08}50%{opacity:.95}}
+.sky.bright{background-image:url('assets/milky_way.jpg');opacity:1}
+.arrive .sky.bright{opacity:0;transition:opacity 3.2s ease-in-out .3s}
+.ask .l1{opacity:0}
+.arrive .ask .l1{opacity:1;transition:opacity 1.2s ease .5s}
+.ask .step{transition:opacity 1s ease}
+.ask em{transition:color 1s ease 1s;color:#F4F1EC}
+.played .ask em{color:var(--mint)}
+.draw{stroke-dasharray:1351;stroke-dashoffset:1351;transform:rotate(-90deg);transform-origin:1382px 500px}
+.arrive .draw{stroke-dashoffset:0;transition:stroke-dashoffset 1.8s cubic-bezier(.65,0,.25,1) .2s}
+.arw{opacity:0}
+.arrive .arw{opacity:1;transition:opacity .6s ease 1.8s}
+.halo{opacity:.35;transition:opacity 1.4s ease}
+.done .halo{opacity:1}
+path.step{transition:opacity .8s ease}
 .sky.dim{background-image:url('assets/milky_way_dim.jpg')}
 .ask{position:absolute;left:90px;top:170px;width:1330px;font-size:112px;line-height:1.08;font-weight:700;letter-spacing:-.025em}
-.ask em{font-style:normal;color:var(--mint)}
+.ask em{font-style:normal}
 .step.sky{transition:opacity 3s ease-in-out}
 .htitle{position:absolute;left:90px;top:145px;font-size:110px;font-weight:700;letter-spacing:-.025em}
 .hline{position:absolute;left:90px;top:320px;width:1200px;font-size:68px;line-height:1.16;font-weight:500;letter-spacing:-.015em}
@@ -132,7 +149,7 @@ h2{position:absolute;left:90px;right:90px;top:140px;font-size:84px;line-height:1
 #hookview{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;background:#000}
 #notes{position:fixed;left:0;right:0;bottom:0;max-height:34%;overflow:auto;padding:18px 28px;background:#000c;color:#fff;font:400 24px/1.35 'Space Grotesk',sans-serif}
 
-#ctl{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:6px;padding:6px;background:#141219e6;border:1px solid #4A4257;border-radius:12px;transition:opacity .3s;z-index:5}
+#ctl{position:fixed;right:14px;top:14px;display:flex;gap:6px;padding:6px;background:#141219e6;border:1px solid #4A4257;border-radius:12px;transition:opacity .3s;z-index:5}
 #ctl.idle{opacity:0;pointer-events:none}
 #ctl button,#ctl a{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:6px;height:40px;min-width:44px;justify-content:center;padding:0 8px;border-radius:8px;color:#F4F1EC;font:500 15px 'Space Grotesk',sans-serif;cursor:pointer}
 #ctl button:hover,#ctl a:hover,#ctl button:focus-visible,#ctl a:focus-visible{background:#27242F;color:#88DBBD}
@@ -148,7 +165,13 @@ h2{position:absolute;left:90px;right:90px;top:140px;font-size:84px;line-height:1
   html,body{height:auto;overflow:visible;background:none}
   #stage{position:static;transform:none!important;height:auto}
   .slide{display:block;position:relative;width:1920px;height:1080px;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  #ctl,#grid{display:none!important}
+  #ctl,#grid,.sky.bright{display:none!important}
+  .sky{transform:none!important}
+  .tw{animation:none;opacity:.5}
+  .ask .l1,.arw{opacity:1}
+  .ask em{color:var(--mint)}
+  .draw{stroke-dashoffset:0}
+  .halo{opacity:1}
   .step.hide{opacity:1}
   .fullvid{display:none}
   .ai{transform:translateY(-145px) scale(.3);color:var(--muted);transition:none}

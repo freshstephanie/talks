@@ -127,7 +127,8 @@
       return '<div class="sky step" data-step="1"></div><div class="htitle">' + esc(s.head) + '</div><div class="hline"><div>' + esc(s.lines[0]) + '</div><div class="key">' + esc(s.lines[1]) + '</div></div>';
     },
     question: function (s) {
-      return '<div class="sky dim"></div><div class="ask">' + esc(s.line[0]) + '<em>' + esc(s.line[1]) + '</em></div>';
+      var p = s.line[0].split(', ');
+      return '<div class="sky dim"></div><div class="sky bright"></div><div class="ask"><span class="l1">' + esc(p[0]) + ',</span> <span class="step" data-step="1">' + esc(p[1]) + '<em>' + esc(s.line[1]) + '</em></span></div>';
     },
     song: function (s, i) {
       return svg(i, '') + '<video class="video" src="assets/song_loop.mp4#t=2" muted loop playsinline preload="auto"></video>' +
@@ -174,6 +175,17 @@
     el.className = 'slide';
     var noLabel = s.kind === 'title' || s.kind === 'html';
     el.innerHTML = KIND[s.kind](s, n) + (noLabel ? '' : '<div class="label">' + esc(s.act) + '</div>') + (s.kind === 'title' || s.noarc ? '' : orbit(n));
+    if (s.tw || s.kind === 'horizon' || s.kind === 'question') {
+      var sk = el.querySelectorAll('.sky'), tw = document.createElementNS('http://www.w3.org/2000/svg', 'svg'), x = 11 + i * 17, c = '';
+      for (var q = 0; q < 42; q++) {
+        x = (x * 16807) % 2147483647; var ax = 700 + x % 1220;
+        x = (x * 16807) % 2147483647; var ay = x % 900;
+        x = (x * 16807) % 2147483647;
+        c += '<circle class="tw" cx="' + ax + '" cy="' + ay + '" r="' + (1.6 + x % 3 * .7) + '" fill="' + ['#F4F1EC', '#88DBBD', '#77C8D6'][x % 3] + '" style="animation-delay:-' + (x % 70) / 10 + 's"/>';
+      }
+      tw.setAttribute('class', 'art'); tw.setAttribute('viewBox', '0 0 1920 1080'); tw.innerHTML = c;
+      sk[sk.length - 1].after(tw);
+    }
     stage.appendChild(el);
   });
 
@@ -184,14 +196,17 @@
     return m;
   }
   function stopHook() { hook.pause(); hook.hidden = true; hook.removeAttribute('style'); }
+  var was = -1;
   function show() {
     stopHook();
+    if (cur !== was) { els[cur].classList.remove('arrive'); void els[cur].offsetWidth; els[cur].classList.add('arrive'); was = cur; }
     els.forEach(function (e, i) {
       e.classList.toggle('on', i === cur);
       var v = e.querySelector('.video');
       if (v) { if (i === cur) { v.play().catch(function () {}); } else { v.pause(); } }
     });
     els[cur].classList.toggle('played', step >= 1);
+    els[cur].classList.toggle('done', step >= maxStep(cur) && maxStep(cur) > 0);
     els[cur].querySelectorAll('.step').forEach(function (e) { e.classList.toggle('hide', +e.dataset.step > step); });
     var fv = els[cur].querySelector('.fullvid');
     if (fv) { if (step >= 1) { fv.currentTime = 0; fv.play().catch(function () {}); hook.currentTime = 0; hook.play().catch(function () {}); } else { fv.pause(); } }
@@ -239,6 +254,13 @@
   addEventListener('mousemove', wake); addEventListener('touchstart', wake, { passive: true });
   addEventListener('keydown', function (e) { if (e.key === 'g') { toggleGrid(); } if (e.key === 'Escape' && !grid.hidden) { toggleGrid(); } });
   wake();
+  /* The Milky Way drifts on one shared clock, so moving between slides 5-8 never jumps. */
+  var skies = stage.querySelectorAll('.sky:not(.nodrift)');
+  (function drift() {
+    var t = performance.now() / 1000, k = 1.05 + .025 * Math.sin(t / 19), dx = 16 * Math.sin(t / 27), dy = 9 * Math.cos(t / 23), v = 'translate(' + dx.toFixed(2) + 'px,' + dy.toFixed(2) + 'px) scale(' + k.toFixed(4) + ')';
+    skies.forEach(function (e) { e.style.transform = v; });
+    requestAnimationFrame(drift);
+  })();
   addEventListener('resize', fit);
   cur = Math.min(Math.max((parseInt(location.hash.slice(1), 10) || 1) - 1, 0), S.length - 1);
   fit();
