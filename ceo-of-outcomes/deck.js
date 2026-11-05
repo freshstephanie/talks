@@ -60,13 +60,18 @@
       '<stop offset=".62" stop-color="' + c[2] + '"/><stop offset="1" stop-color="#1C1A22"/></radialGradient>' +
       '<clipPath id="' + id + 'c"><circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"/></clipPath>' +
       '<clipPath id="' + id + 'f"><rect x="' + -r * 2 + '" y="0" width="' + r * 4 + '" height="' + r + '"/></clipPath></defs>';
-    if (ring) { o += '<g transform="' + t + '">' + ell('stroke-opacity=".5"') + '</g>'; }
+    var moon = function (front) {
+      var m = Math.max(16, r * .075), d = 'M' + r * 1.5 + ' 0A' + r * 1.5 + ' ' + r * .3 + ' 0 1 1 ' + -r * 1.5 + ' 0A' + r * 1.5 + ' ' + r * .3 + ' 0 1 1 ' + r * 1.5 + ' 0';
+      return '<g transform="' + t + '"><g opacity="' + (front ? 1 : 0) + '"><animate attributeName="opacity" values="' + (front ? '1;0;0' : '0;1;1') + '" keyTimes="0;.5;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>' +
+        '<circle r="' + m + '" fill="' + COL[ring][1] + '"/><circle cx="' + -m * .3 + '" cy="' + -m * .3 + '" r="' + m * .32 + '" fill="#fff" fill-opacity=".55"/><animateMotion dur="16s" repeatCount="indefinite" path="' + d + '"/></g></g>';
+    };
+    if (ring) { o += '<g transform="' + t + '">' + ell('stroke-opacity=".5"') + '</g>' + moon(false); }
     o += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="url(#' + id + ')"/><g clip-path="url(#' + id + 'c)">';
     [-.45, -.1, .3].forEach(function (q, i) {
       o += '<ellipse cx="' + cx + '" cy="' + (cy + r * q) + '" rx="' + r * 1.2 + '" ry="' + r * (.05 + i * .02) + '" fill="#fff" fill-opacity=".08" transform="rotate(' + a + ' ' + cx + ' ' + cy + ')"/>';
     });
     o += '</g>';
-    if (ring) { o += '<g transform="' + t + '">' + ell('clip-path="url(#' + id + 'f)"') + '</g>'; }
+    if (ring) { o += '<g transform="' + t + '">' + ell('clip-path="url(#' + id + 'f)"') + '</g>'; o += moon(true); }
     return o;
   }
   /* The strategic star: the same shape everywhere. */
@@ -104,8 +109,8 @@
 
   var KIND = {
     title: function (s, i) {
-      return svg(i, planet(1540, 520, 370, 'mint', 'coral')) + '<div class="was">' + esc(s.was) + '</div><div class="title">' + s.title.map(function (t) { return '<div>' + esc(t) + '</div>'; }).join('') + '</div>' +
-        '<div class="sub">' + esc(s.sub) + '</div><div class="by"><b>' + esc(s.names) + '</b><div>' + esc(s.event) + '</div></div><img class="logo" src="logo.png" alt="Fresh Strategy">';
+      return svg(i, planet(1540, 520, 370, 'mint', 'coral')) + '<div class="ai">' + esc(s.was) + '<i></i></div><div class="title step" data-step="1">' + s.title.map(function (t) { return '<div>' + esc(t) + '</div>'; }).join('') + '</div>' +
+        '<div class="by"><b>' + esc(s.names) + '</b><div>' + esc(s.event) + '</div></div><img class="logo" src="logo.png" alt="Fresh Strategy">';
     },
     statement: function (s, i) {
       var p = s.small ? planet(1730, 250, 120, s.planet, 'mint') : planet(1650, 560, 300, s.planet, 'coral', -22);
@@ -168,7 +173,7 @@
     var el = document.createElement('section'), n = num[i];
     el.className = 'slide';
     var noLabel = s.kind === 'title' || s.kind === 'html';
-    el.innerHTML = KIND[s.kind](s, n) + (noLabel ? '' : '<div class="label">' + esc(s.act) + '</div>') + (s.kind === 'title' ? '' : orbit(n));
+    el.innerHTML = KIND[s.kind](s, n) + (noLabel ? '' : '<div class="label">' + esc(s.act) + '</div>') + (s.kind === 'title' || s.noarc ? '' : orbit(n));
     stage.appendChild(el);
   });
 
@@ -186,6 +191,7 @@
       var v = e.querySelector('.video');
       if (v) { if (i === cur) { v.play().catch(function () {}); } else { v.pause(); } }
     });
+    els[cur].classList.toggle('played', step >= 1);
     els[cur].querySelectorAll('.step').forEach(function (e) { e.classList.toggle('hide', +e.dataset.step > step); });
     var fv = els[cur].querySelector('.fullvid');
     if (fv) { if (step >= 1) { fv.currentTime = 0; fv.play().catch(function () {}); hook.currentTime = 0; hook.play().catch(function () {}); } else { fv.pause(); } }
@@ -205,7 +211,7 @@
     hook.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;object-fit:contain;background:#000';
     hook.play();
   }
-  hook.addEventListener('ended', stopHook);
+  hook.addEventListener('ended', function () { stopHook(); var v = els[cur].querySelector('.fullvid'); if (v) { v.pause(); v.classList.add('hide'); } });
   addEventListener('keydown', function (e) {
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(1); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(-1); }
@@ -213,7 +219,26 @@
     if (e.key === 'b') { stage.style.visibility = stage.style.visibility ? '' : 'hidden'; }
     if (e.key === 'p') { toggleHook(); }
   });
-  addEventListener('click', function (e) { if (e.target.closest('a')) { return; } go(e.clientX < innerWidth * .3 ? -1 : 1); });
+  addEventListener('click', function (e) { if (e.target.closest('a,#ctl,#grid')) { return; } go(e.clientX < innerWidth * .3 ? -1 : 1); });
+  var grid = document.getElementById('grid'), ctl = document.getElementById('ctl'), idle;
+  S.forEach(function (s, i) {
+    var b = document.createElement('button');
+    b.setAttribute('aria-label', 'Go to slide ' + num[i]);
+    b.innerHTML = '<img src="assets/thumbs/f' + ('0' + (i + 1)).slice(-2) + '.jpg" alt="" loading="lazy">';
+    b.addEventListener('click', function () { cur = i; step = 0; toggleGrid(); show(); });
+    grid.appendChild(b);
+  });
+  function toggleGrid() {
+    grid.hidden = !grid.hidden;
+    if (!grid.hidden) { stopHook(); grid.querySelectorAll('button').forEach(function (b, i) { b.classList.toggle('now', i === cur); }); }
+  }
+  function wake() { ctl.classList.remove('idle'); clearTimeout(idle); idle = setTimeout(function () { ctl.classList.add('idle'); }, 3000); }
+  document.getElementById('c-prev').addEventListener('click', function () { go(-1); });
+  document.getElementById('c-next').addEventListener('click', function () { go(1); });
+  document.getElementById('c-grid').addEventListener('click', toggleGrid);
+  addEventListener('mousemove', wake); addEventListener('touchstart', wake, { passive: true });
+  addEventListener('keydown', function (e) { if (e.key === 'g') { toggleGrid(); } if (e.key === 'Escape' && !grid.hidden) { toggleGrid(); } });
+  wake();
   addEventListener('resize', fit);
   cur = Math.min(Math.max((parseInt(location.hash.slice(1), 10) || 1) - 1, 0), S.length - 1);
   fit();

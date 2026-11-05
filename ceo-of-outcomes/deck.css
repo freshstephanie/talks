@@ -13,9 +13,16 @@ html,body{height:100%;background:#000;overflow:hidden;font-family:'Space Grotesk
 .step.hide{opacity:0}
 h2{position:absolute;left:90px;right:90px;top:140px;font-size:84px;line-height:1.08;font-weight:700;letter-spacing:-.02em}
 
+/* title: CEO of AIs is struck through and gives way to CEO of Outcomes */
+.ai{position:absolute;left:84px;top:330px;font-size:176px;line-height:1;font-weight:700;letter-spacing:-.025em;white-space:nowrap;transform-origin:left top;transition:transform 1.1s cubic-bezier(.65,0,.25,1) .95s,color 1.1s ease .95s}
+.ai i{position:absolute;left:-10px;top:54%;height:12px;width:0;background:var(--coral);transition:width .8s cubic-bezier(.65,0,.25,1)}
+.played .ai{transform:translateY(-145px) scale(.3);color:var(--muted)}
+.played .ai i{width:calc(100% + 20px)}
+.slide .title.step{transition:opacity 1.1s ease 1.5s,transform 1.1s cubic-bezier(.2,.7,.2,1) 1.5s}
+.slide .title.step.hide{opacity:0;transform:translateY(34px);transition:opacity .2s,transform .2s}
 /* title */
 .was{position:absolute;left:90px;top:130px;font-size:48px;font-weight:500;color:var(--muted);text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:var(--coral)}
-.title{position:absolute;left:84px;top:200px;font-size:176px;line-height:.96;font-weight:700;letter-spacing:-.025em}
+.title{position:absolute;left:84px;top:255px;font-size:176px;line-height:.96;font-weight:700;letter-spacing:-.025em}
 .sub{position:absolute;left:90px;top:610px;width:840px;font-size:46px;line-height:1.25}
 .by{position:absolute;left:90px;bottom:80px;font-size:28px;line-height:1.4;color:var(--muted)}
 .by b{color:var(--text);font-weight:500}
@@ -125,11 +132,26 @@ h2{position:absolute;left:90px;right:90px;top:140px;font-size:84px;line-height:1
 #hookview{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;background:#000}
 #notes{position:fixed;left:0;right:0;bottom:0;max-height:34%;overflow:auto;padding:18px 28px;background:#000c;color:#fff;font:400 24px/1.35 'Space Grotesk',sans-serif}
 
+#ctl{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:6px;padding:6px;background:#141219e6;border:1px solid #4A4257;border-radius:12px;transition:opacity .3s;z-index:5}
+#ctl.idle{opacity:0;pointer-events:none}
+#ctl button,#ctl a{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:6px;height:40px;min-width:44px;justify-content:center;padding:0 8px;border-radius:8px;color:#F4F1EC;font:500 15px 'Space Grotesk',sans-serif;cursor:pointer}
+#ctl button:hover,#ctl a:hover,#ctl button:focus-visible,#ctl a:focus-visible{background:#27242F;color:#88DBBD}
+#ctl svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#grid{position:fixed;inset:0;overflow:auto;background:#141219;padding:28px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;align-content:start;z-index:4}
+#grid[hidden]{display:none}
+#grid button{all:unset;cursor:pointer;display:block;outline:2px solid transparent;outline-offset:3px}
+#grid button:hover,#grid button:focus-visible,#grid button.now{outline-color:#88DBBD}
+#grid img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+
 @media print{
   @page{size:1920px 1080px;margin:0}
   html,body{height:auto;overflow:visible;background:none}
   #stage{position:static;transform:none!important;height:auto}
   .slide{display:block;position:relative;width:1920px;height:1080px;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #ctl,#grid{display:none!important}
   .step.hide{opacity:1}
   .fullvid{display:none}
+  .ai{transform:translateY(-145px) scale(.3);color:var(--muted);transition:none}
+  .ai i{width:calc(100% + 20px);transition:none}
+  .slide .title.step{transition:none}
 }
