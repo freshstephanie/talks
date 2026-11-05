@@ -1,0 +1,221 @@
+/* Draws slides.js. Right arrow or space = next, left = back, F = fullscreen,
+   B = blank, P = play or stop the song hook. */
+(function () {
+  var S = window.DECK, TOTAL = 16, stage = document.getElementById('stage');
+  var P0 = [90, 74], P1 = [960, 14], P2 = [1830, 74], uid = 0;
+  var esc = function (t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;'); };
+  var part = function (s) { return s.act.split(' · ')[0]; };
+    var COL = { mint: ['#E2F8EF', '#88DBBD', '#2F7A6B'], coral: ['#FFDCD4', '#F37375', '#8E2F3C'], blue: ['#DDF4F7', '#77C8D6', '#2B6E80'] };
+  var ARROW = '<svg viewBox="0 0 110 60"><path d="M0 30H96M76 10l22 20-22 20" fill="none" stroke="#88DBBD" stroke-width="6"/></svg>';
+
+  function point(n) {
+    var t = (n - 1) / (TOTAL - 1), u = 1 - t;
+    return [u * u * P0[0] + 2 * u * t * P1[0] + t * t * P2[0], u * u * P0[1] + 2 * u * t * P1[1] + t * t * P2[1]];
+  }
+  function line(to) {
+    var o = [];
+    for (var i = 0; i <= 60; i++) { o.push(point(1 + (to - 1) * i / 60).map(function (v) { return v.toFixed(1); }).join(',')); }
+    return o.join(' ');
+  }
+  var parts = [], num = [], k = 0;
+  S.forEach(function (s, i) {
+    if (!s.same) { k++; }
+    num[i] = k;
+    if (!parts.length || parts[parts.length - 1].name !== part(s)) { parts.push({ name: part(s), start: k }); }
+  });
+  /* After the vote the chosen star waits at the end of the arc; on 13 and 14 Destination lights up again. */
+  function goal(n) {
+    if (n < 4) { return ''; }
+    var back = n >= 13, r = back ? 24 : 15, pts = [];
+    for (var i = 0; i < 14; i++) {
+      var a = -Math.PI / 2 + Math.PI * i / 7, q = i % 2 ? r * .42 : r;
+      pts.push((P2[0] + q * Math.cos(a)).toFixed(1) + ',' + (P2[1] + q * Math.sin(a)).toFixed(1));
+    }
+    return '<polygon points="' + pts.join(' ') + '" fill="#88DBBD"' + (back ? '' : ' fill-opacity=".7"') + '/>' +
+      (back ? '<text x="' + (P2[0] - 40) + '" y="' + (P2[1] - 22) + '" fill="#88DBBD" text-anchor="end">DESTINATION</text>' : '');
+  }
+  function orbit(n) {
+    var cur = part(S.filter(function (s, i) { return num[i] === n; })[0]), marks = parts.map(function (p, i) {
+      var xy = point(p.start), c = p.name === cur ? '#F4F1EC' : '#857D90';
+      return '<line x1="' + xy[0] + '" y1="' + (xy[1] - 8) + '" x2="' + xy[0] + '" y2="' + (xy[1] + 8) + '" stroke="' + c + '" stroke-width="2"/>' +
+        '<text x="' + xy[0] + '" y="' + (xy[1] + 40) + '" fill="' + c + '" text-anchor="' + (i ? 'middle' : 'start') + '">' + p.name.toUpperCase() + '</text>';
+    }).join(''), d = point(n);
+    return '<svg class="orbit" viewBox="0 0 1920 130"><polyline points="' + line(TOTAL) + '" fill="none" stroke="#4A4257" stroke-width="2"/>' +
+      '<polyline points="' + line(n) + '" fill="none" stroke="#F4F1EC" stroke-width="2"/>' + marks + goal(n) + '<circle cx="' + d[0] + '" cy="' + d[1] + '" r="9" fill="#88DBBD"/></svg>';
+  }
+  function stars(i) {
+    var o = '', x = 7 + i * 13;
+    for (var n = 0; n < 110; n++) {
+      x = (x * 16807) % 2147483647; var a = x % 1920;
+      x = (x * 16807) % 2147483647; var b = x % 1080;
+      x = (x * 16807) % 2147483647;
+      o += '<circle cx="' + a + '" cy="' + b + '" r="' + (1 + x % 3 * .6) + '" fill="#F4F1EC" fill-opacity="' + (.15 + (x % 5) * .1) + '"/>';
+    }
+    return o;
+  }
+  function planet(cx, cy, r, name, ring, tilt) {
+    var c = COL[name], id = 'p' + (++uid), a = tilt || -18, t = 'translate(' + cx + ' ' + cy + ') rotate(' + a + ')', o = '';
+    var ell = function (x) { return '<ellipse rx="' + r * 1.5 + '" ry="' + r * .3 + '" fill="none" stroke="' + COL[ring][1] + '" stroke-width="' + Math.max(3, r / 90) + '" ' + x + '/>'; };
+    o += '<defs><radialGradient id="' + id + '" cx="30%" cy="28%" r="85%"><stop offset="0" stop-color="' + c[0] + '"/><stop offset=".22" stop-color="' + c[1] + '"/>' +
+      '<stop offset=".62" stop-color="' + c[2] + '"/><stop offset="1" stop-color="#1C1A22"/></radialGradient>' +
+      '<clipPath id="' + id + 'c"><circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"/></clipPath>' +
+      '<clipPath id="' + id + 'f"><rect x="' + -r * 2 + '" y="0" width="' + r * 4 + '" height="' + r + '"/></clipPath></defs>';
+    if (ring) { o += '<g transform="' + t + '">' + ell('stroke-opacity=".5"') + '</g>'; }
+    o += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="url(#' + id + ')"/><g clip-path="url(#' + id + 'c)">';
+    [-.45, -.1, .3].forEach(function (q, i) {
+      o += '<ellipse cx="' + cx + '" cy="' + (cy + r * q) + '" rx="' + r * 1.2 + '" ry="' + r * (.05 + i * .02) + '" fill="#fff" fill-opacity=".08" transform="rotate(' + a + ' ' + cx + ' ' + cy + ')"/>';
+    });
+    o += '</g>';
+    if (ring) { o += '<g transform="' + t + '">' + ell('clip-path="url(#' + id + 'f)"') + '</g>'; }
+    return o;
+  }
+  /* The strategic star: the same shape everywhere. */
+  function star(cx, cy, r) {
+    var pts = [], V = window.STAR_VALUES, n = 7;
+    for (var i = 0; i < n * 2; i++) {
+      var a = -Math.PI / 2 + Math.PI * i / n, q = i % 2 ? r * .42 : r * (V ? Math.max(.35, V[i / 2]) : 1);
+      pts.push((cx + q * Math.cos(a)).toFixed(1) + ',' + (cy + q * Math.sin(a)).toFixed(1));
+    }
+    return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r * 1.45 + '" fill="url(#glow)"/><polygon points="' + pts.join(' ') + '" fill="#88DBBD"/>';
+  }
+  var DEFS = '<defs><radialGradient id="glow"><stop offset="0" stop-color="#88DBBD" stop-opacity=".3"/><stop offset="1" stop-color="#88DBBD" stop-opacity="0"/></radialGradient></defs>';
+  var svg = function (i, inner) { return '<svg class="art" viewBox="0 0 1920 1080">' + DEFS + stars(i) + inner + '</svg>'; };
+
+  function sunArt() {
+    var sun = [290, 400], tgt = [1560, 560], o = '', xs = [520, 690, 860, 1030, 1200], ym = 800;
+    xs.forEach(function (x) { o += '<line x1="' + sun[0] + '" y1="' + sun[1] + '" x2="' + x + '" y2="' + ym + '" stroke="#F4F1EC" stroke-opacity=".28" stroke-width="3"/>'; });
+    xs.forEach(function (x) { o += '<line x1="' + x + '" y1="' + ym + '" x2="' + tgt[0] + '" y2="' + tgt[1] + '" stroke="#88DBBD" stroke-opacity=".9" stroke-width="5"/>'; });
+    xs.forEach(function (x) {
+      var a = [sun[0] - x, sun[1] - ym], b = [tgt[0] - x, tgt[1] - ym], la = Math.hypot(a[0], a[1]), lb = Math.hypot(b[0], b[1]);
+      var n = Math.atan2(a[1] / la + b[1] / lb, a[0] / la + b[0] / lb) * 180 / Math.PI + 90;
+      o += '<rect x="' + (x - 58) + '" y="' + (ym - 7) + '" width="116" height="14" rx="4" fill="#F4F1EC" transform="rotate(' + n.toFixed(1) + ' ' + x + ' ' + ym + ')"/>';
+    });
+    return o + '<circle cx="' + sun[0] + '" cy="' + sun[1] + '" r="150" fill="#F4F1EC" fill-opacity=".1"/><circle cx="' + sun[0] + '" cy="' + sun[1] + '" r="86" fill="#F4F1EC"/>' + star(tgt[0], tgt[1], 130);
+  }
+  function outcomes() {
+    var cx = 960, cy = 590, o = '';
+    window.AXES.forEach(function (n, i) {
+      var a = -Math.PI / 2 + 2 * Math.PI * i / 7, c = Math.cos(a), s = Math.sin(a);
+      o += '<text x="' + (cx + 330 * c) + '" y="' + (cy + 270 * s + 16) + '" fill="#F4F1EC" font-size="50" font-weight="500" font-family="Space Grotesk" text-anchor="' +
+        (Math.abs(c) < .3 ? 'middle' : (c > 0 ? 'start' : 'end')) + '">' + n + '</text>';
+    });
+    return star(cx, cy, 210) + o;
+  }
+
+  var KIND = {
+    title: function (s, i) {
+      return svg(i, planet(1540, 520, 370, 'mint', 'coral')) + '<div class="was">' + esc(s.was) + '</div><div class="title">' + s.title.map(function (t) { return '<div>' + esc(t) + '</div>'; }).join('') + '</div>' +
+        '<div class="sub">' + esc(s.sub) + '</div><div class="by"><b>' + esc(s.names) + '</b><div>' + esc(s.event) + '</div></div><img class="logo" src="logo.png" alt="Fresh Strategy">';
+    },
+    statement: function (s, i) {
+      var p = s.small ? planet(1730, 250, 120, s.planet, 'mint') : planet(1650, 560, 300, s.planet, 'coral', -22);
+      return svg(i, p) + '<div class="stack' + (s.xl ? ' xl' : '') + '">' + s.lines.map(function (l, n) {
+        return '<div class="' + (n === s.key ? 'key' : (s.dim ? 'dim' : '')) + (s.reveal && n ? ' step" data-step="' + n : '') + '">' + esc(l) + '</div>';
+      }).join('') + '</div>';
+    },
+    html: function (s, i) { return (s.plain ? '' : svg(i, '')) + s.html; },
+    wants: function (s, i) { return svg(i, outcomes()) + '<h2>' + esc(s.head) + '</h2>'; },
+    vote: function (s, i) {
+      return svg(i, star(240, 760, 120)) + '<h2 style="right:800px">' + esc(s.head) + '</h2>' + (s.question ? '<div class="q">' + esc(s.question) + '</div>' : '') + '<div class="qr"><img src="' + s.qr + '" alt="QR code"><span>' + esc(s.url) + '</span></div>';
+    },
+    horizon: function (s) {
+      return '<div class="sky step" data-step="1"></div><div class="htitle">' + esc(s.head) + '</div><div class="hline"><div>' + esc(s.lines[0]) + '</div><div class="key">' + esc(s.lines[1]) + '</div></div>';
+    },
+    question: function (s) {
+      return '<div class="sky dim"></div><div class="ask">' + esc(s.line[0]) + '<em>' + esc(s.line[1]) + '</em></div>';
+    },
+    song: function (s, i) {
+      return svg(i, '') + '<video class="video" src="assets/song_loop.mp4#t=2" muted loop playsinline preload="auto"></video>' +
+        '<div class="right lab">' + esc(s.act) + '</div><div class="right h">' + esc(s.head) + '</div>' +
+        '<div class="way a"><h3>' + esc(s.left.label) + '</h3><p>' + esc(s.left.text) + '</p></div><div class="way b"><h3>' + esc(s.right.label) + '</h3><p>' + esc(s.right.text) + '</p></div>';
+    },
+    assemble: function (s, i) {
+      return svg(i, '') + '<h2>' + esc(s.head) + '</h2><div class="ident"><div class="stepname">Identify</div><p>' + esc(s.identify) + '</p></div>' +
+        '<div class="arrow">' + ARROW + '</div><div class="team step" data-step="1"><div class="stepname">Assemble</div><div class="names">' +
+        s.team.map(function (t) { return '<div><div class="w">' + esc(t.word) + '</div><div class="t">' + esc(t.text) + '</div></div>'; }).join('') + '</div></div>';
+    },
+    split: function (s, i) {
+      return svg(i, '') + '<div class="half"></div><h2>' + esc(s.head) + '</h2><div class="side l"><h3>' + esc(s.left.label) + '</h3><p>' + esc(s.left.text) + '</p></div>' +
+        '<div class="side r"><h3>' + esc(s.right.label) + '</h3><p>' + esc(s.right.text) + '</p></div>';
+    },
+    process: function (s, i) {
+      return svg(i, '') + '<h2>' + esc(s.head) + '</h2><div class="proc">' + s.steps.map(function (t, n) {
+        return '<div class="' + (n === s.steps.length - 1 ? 'last' : '') + '"><div class="w">' + esc(t.word) + '</div><div class="t">' + esc(t.text) + '</div></div>';
+      }).join('') + '</div><svg class="loop" viewBox="0 0 1920 300"><path d="M1640 30 C1640 190 1500 210 1300 210 H560 C340 210 140 190 140 50" fill="none" stroke="#88DBBD" stroke-width="5"/>' +
+        '<path d="M116 76l24-30 24 30" fill="none" stroke="#88DBBD" stroke-width="5"/><text x="960" y="190" fill="#88DBBD" text-anchor="middle" paint-order="stroke" stroke="#1C1A22" stroke-width="10">' + esc(s.loop) + '</text></svg>';
+    },
+    stop: function (s, i) {
+      return svg(i, planet(1730, 230, 110, 'blue', 'coral')) + '<div class="stop"><div class="lead">' + esc(s.lead) + '</div><div class="big" style="position:static">' + esc(s.line) + '</div></div>';
+    },
+    blocks: function (s, i) {
+      var b = s.blocks.map(function (x) { return '<div class="block"><div class="w">' + esc(x.word) + '</div>' + x.lines.map(function (l) { return '<div class="t">' + esc(l) + '</div>'; }).join('') + '</div>'; });
+      return svg(i, '') + '<h2>' + esc(s.head) + '</h2><div class="blocks">' + b[0] + ARROW + b[1] + '</div><div class="answer">' + esc(s.answer) + '</div>';
+    },
+    sun: function (s, i) { return svg(i, sunArt()) + '<h2 style="right:auto">' + esc(s.head) + '</h2><div class="caption">' + esc(s.caption) + '</div>'; },
+    org: function (s, i) {
+      return svg(i, star(960, 490, 145)) + '<h2>' + esc(s.head) + '</h2><div class="answer top">' + esc(s.answer) + '</div><div class="orgrow">' + s.blocks.map(function (b, n) { return '<div class="step" data-step="' + (n + 1) + '">' + esc(b) + '</div>'; }).join('') + '</div>';
+    },
+    invite: function (s, i) {
+      return svg(i, planet(1640, 560, 180, 'mint', 'coral')) + '<div class="inv">' + esc(s.line) + '</div><div class="invsub">' + esc(s.sub) + '</div><div class="codes">' +
+        s.codes.map(function (c) { return '<div class="code"><img src="' + c.img + '" alt="QR code"><span>' + esc(c.label) + '</span></div>'; }).join('') + '</div>';
+    },
+    close: function (s, i) {
+      return svg(i, star(960, 270, 100)) + '<div class="final"><div>' + esc(s.lines[0]) + '</div><div class="key">' + esc(s.lines[1]) + '</div></div>';
+    }
+  };
+
+  S.forEach(function (s, i) {
+    var el = document.createElement('section'), n = num[i];
+    el.className = 'slide';
+    var noLabel = s.kind === 'title' || s.kind === 'html';
+    el.innerHTML = KIND[s.kind](s, n) + (noLabel ? '' : '<div class="label">' + esc(s.act) + '</div>') + (s.kind === 'title' ? '' : orbit(n));
+    stage.appendChild(el);
+  });
+
+  var els = stage.querySelectorAll('.slide'), cur = 0, step = 0, notes = document.getElementById('notes'), hook = document.getElementById('hook');
+  function maxStep(i) {
+    var m = 0;
+    els[i].querySelectorAll('.step').forEach(function (e) { m = Math.max(m, +e.dataset.step); });
+    return m;
+  }
+  function stopHook() { hook.pause(); hook.hidden = true; hook.removeAttribute('style'); }
+  function show() {
+    stopHook();
+    els.forEach(function (e, i) {
+      e.classList.toggle('on', i === cur);
+      var v = e.querySelector('.video');
+      if (v) { if (i === cur) { v.play().catch(function () {}); } else { v.pause(); } }
+    });
+    els[cur].querySelectorAll('.step').forEach(function (e) { e.classList.toggle('hide', +e.dataset.step > step); });
+    var fv = els[cur].querySelector('.fullvid');
+    if (fv) { if (step >= 1) { fv.currentTime = 0; fv.play().catch(function () {}); hook.currentTime = 0; hook.play().catch(function () {}); } else { fv.pause(); } }
+    history.replaceState(null, '', '#' + (cur + 1));
+  }
+  function go(d) {
+    if (d > 0) {
+      if (step < maxStep(cur)) { step++; } else if (cur < S.length - 1) { cur++; step = 0; }
+    } else if (step > 0) { step--; } else if (cur > 0) { cur--; step = maxStep(cur); }
+    show();
+  }
+  function fit() { stage.style.transform = 'translate(-50%,-50%) scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')'; }
+  function toggleHook() {
+    if (S[cur].kind !== 'song') { return; }
+    if (!hook.paused) { stopHook(); return; }
+    hook.hidden = false; hook.currentTime = 0;
+    hook.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;object-fit:contain;background:#000';
+    hook.play();
+  }
+  hook.addEventListener('ended', stopHook);
+  addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(-1); }
+    if (e.key === 'f') { document.documentElement.requestFullscreen(); }
+    if (e.key === 'b') { stage.style.visibility = stage.style.visibility ? '' : 'hidden'; }
+    if (e.key === 'p') { toggleHook(); }
+  });
+  addEventListener('click', function (e) { if (e.target.closest('a')) { return; } go(e.clientX < innerWidth * .3 ? -1 : 1); });
+  addEventListener('resize', fit);
+  cur = Math.min(Math.max((parseInt(location.hash.slice(1), 10) || 1) - 1, 0), S.length - 1);
+  fit();
+  show();
+})();
