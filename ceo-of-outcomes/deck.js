@@ -110,6 +110,47 @@
     return star(cx, cy, 190) + o;
   }
 
+  /* Slide 8: a figure-eight orbit round two planets inside the field of human-set authority. opsPath is shared with the animation below. */
+  var OPS = { cx: 1390, cy: 505, tilt: -8, a: 398, ys: 1.32, n: 1800, lap: 20000 };
+  function opsPath() {
+    var fine = [], len = [0], pts = [], j = 0, i, u, q;
+    for (i = 0; i < 7200; i++) { u = Math.PI / 2 + i / 7200 * 2 * Math.PI; q = 1 + Math.pow(Math.sin(u), 2); fine.push([OPS.a * Math.cos(u) / q, OPS.ys * OPS.a * Math.sin(u) * Math.cos(u) / q]); }
+    for (i = 1; i < fine.length; i++) { len.push(len[i - 1] + Math.hypot(fine[i][0] - fine[i - 1][0], fine[i][1] - fine[i - 1][1])); }
+    for (i = 0; i < OPS.n; i++) { while (len[j] < i / OPS.n * len[len.length - 1]) { j++; } pts.push(fine[j]); }
+    return pts;
+  }
+  function opsRot(x, y) { var r = OPS.tilt * Math.PI / 180, c = Math.cos(r), n = Math.sin(r); return [OPS.cx + x * c - y * n, OPS.cy + x * n + y * c]; }
+  function opsOrbit() {
+    var pts = opsPath(), ymax = Math.max.apply(null, pts.map(function (p) { return p[1]; })), back = '', front = '', bands = '', o = '', RX = 462, RY = 318, GAP = .56;
+    var ax = Math.sin(GAP) * RX, ay = OPS.cy - Math.cos(GAP) * RY, sys = 'translate(' + OPS.cx + ' ' + OPS.cy + ') rotate(' + OPS.tilt + ')';
+    [.93, 1.07].forEach(function (k) {
+      var d = ''; for (var i = 0; i < OPS.n; i += 6) { d += (i ? 'L' : 'M') + (pts[i][0] * k).toFixed(1) + ' ' + (pts[i][1] * k).toFixed(1); }
+      bands += '<path d="' + d + 'Z" fill="none" stroke="#F4F1EC" stroke-opacity=".1" stroke-width="1.5"/>';
+    });
+    for (var i = 0; i < OPS.n; i += 5) {
+      var a = pts[i], b = pts[(i + 6) % OPS.n], z = (a[1] / ymax + 1) / 2;
+      var l = '<line x1="' + a[0].toFixed(1) + '" y1="' + a[1].toFixed(1) + '" x2="' + b[0].toFixed(1) + '" y2="' + b[1].toFixed(1) + '" stroke="' + (a[0] < 0 ? '#88DBBD' : '#F37375') + '" stroke-width="' + (2.2 + 2.8 * z).toFixed(2) + '" stroke-opacity="' + (.48 + .47 * z).toFixed(2) + '" stroke-linecap="round"/>';
+      if (z < .5) { back += l; } else { front += l; }
+    }
+    o += '<defs><radialGradient id="opsf"><stop offset="0" stop-color="#88DBBD" stop-opacity=".06"/><stop offset=".8" stop-color="#88DBBD" stop-opacity=".04"/><stop offset="1" stop-color="#F4F1EC" stop-opacity=".09"/></radialGradient>' +
+      '<filter id="opss" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="1.2"/></filter>' +
+      '<radialGradient id="opsh"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".28" stop-color="#F4F1EC" stop-opacity=".45"/><stop offset="1" stop-color="#F4F1EC" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="opsm" cx="34%" cy="30%" r="80%"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#E2F8EF"/><stop offset="1" stop-color="#88DBBD"/></radialGradient></defs>';
+    o += '<g transform="rotate(' + OPS.tilt + ' ' + OPS.cx + ' ' + OPS.cy + ')"><ellipse cx="' + OPS.cx + '" cy="' + OPS.cy + '" rx="' + RX + '" ry="' + RY + '" fill="url(#opsf)"/>' +
+      '<path d="M' + (OPS.cx + ax).toFixed(1) + ' ' + ay.toFixed(1) + 'A' + RX + ' ' + RY + ' 0 1 1 ' + (OPS.cx - ax).toFixed(1) + ' ' + ay.toFixed(1) + '" fill="none" stroke="#F4F1EC" stroke-opacity=".45" stroke-width="2.5" filter="url(#opss)"/>' +
+      '<path id="opsc" d="M' + (OPS.cx - RX) + ' ' + OPS.cy + 'A' + RX + ' ' + RY + ' 0 0 1 ' + (OPS.cx + RX) + ' ' + OPS.cy + '" fill="none"/>' +
+      '<text class="opsauth"><textPath href="#opsc" startOffset="50%" text-anchor="middle">HUMAN-SET AUTHORITY</textPath></text></g>';
+    o += '<g transform="' + sys + '">' + bands + back + '</g>';
+    var r = opsRot(-OPS.a * .6, 0), m = opsRot(OPS.a * .6, 0);
+    o += planet(r[0], r[1], 118, 'mint') + planet(m[0], m[1], 118, 'coral', null, -18);
+    o += '<g transform="' + sys + '">' + front + '<g class="opstrail"></g><g class="opsobj"><circle r="40" fill="url(#opsh)"/><circle r="11" fill="url(#opsm)"/></g></g>';
+    o += '<text class="opsbody" x="' + r[0].toFixed(1) + '" y="' + r[1].toFixed(1) + '">RUN</text><text class="opsbody" x="' + m[0].toFixed(1) + '" y="' + m[1].toFixed(1) + '">IMPROVE</text>';
+    [['Finance Ops', .125, -1, 48], ['Payment Ops', .375, 1, 58], ['Learning Ops', .625, -1, -48], ['Strategy Ops', .875, 1, -58]].forEach(function (w) {
+      var p = pts[Math.round(w[1] * OPS.n) % OPS.n], q = opsRot(p[0] + w[3], p[1] + w[2] * 46);
+      o += '<text class="opw" data-f="' + w[1] + '" x="' + q[0].toFixed(1) + '" y="' + q[1].toFixed(1) + '" fill="' + (p[0] < 0 ? '#BFEBDB' : '#FAB9BA') + '">' + w[0] + '</text>';
+    });
+    return '<svg class="art" viewBox="0 0 1920 1080">' + o + '</svg>';
+  }
   var KIND = {
     title: function (s, i) {
       return svg(i, planet(1540, 520, 370, 'mint', 'coral')) + '<div class="ai">' + esc(s.was) + '<i></i></div><div class="title step" data-step="1">' + s.title.map(function (t) { return '<div>' + esc(t) + '</div>'; }).join('') + '</div>' +
@@ -168,6 +209,9 @@
       return svg(i, planet(1640, 560, 180, 'mint', 'coral')) + '<div class="inv">' + esc(s.line) + '</div><div class="invsub">' + esc(s.sub) + '</div><div class="codes">' +
         s.codes.map(function (c) { return '<div class="code"><img src="' + c.img + '" alt="QR code"><span>' + esc(c.label) + '</span></div>'; }).join('') + '</div>';
     },
+    ops: function (s) {
+      return '<div class="sky" style="background-image:url(\'assets/art_8.jpg\')"></div><div class="opstitle"><div>' + esc(s.lines[0]) + '</div><div>' + esc(s.lines[1]) + '</div></div>' + opsOrbit();
+    },
     close: function (s, i) {
       return svg(i, star(960, 270, 90)) + '<div class="final"><div>' + esc(s.lines[0]) + '</div><div class="key">' + esc(s.lines[1]) + '</div></div>';
     }
@@ -193,6 +237,25 @@
   });
 
   var els = stage.querySelectorAll('.slide'), cur = 0, step = 0, notes = document.getElementById('notes'), hook = document.getElementById('hook');
+  /* Slide 8: the moon laps the orbit, restarting at the crossing on each arrival. Each word surfaces just before it and fades behind it. */
+  (function () {
+    var obj = stage.querySelector('.opsobj'); if (!obj) { return; }
+    var slide = obj.closest('.slide'), pts = opsPath(), N = pts.length, ymax = Math.max.apply(null, pts.map(function (p) { return p[1]; }));
+    var trail = slide.querySelector('.opstrail'), words = slide.querySelectorAll('.opw'), dots = [], t0 = null, TL = 70;
+    var sm = function (t) { t = Math.max(0, Math.min(1, t)); return t * t * (3 - 2 * t); };
+    for (var k = 0; k < TL; k++) { var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); c.setAttribute('r', 7 * (1 - k / TL) + 1.2); trail.appendChild(c); dots.push(c); }
+    function place(i) {
+      var p = pts[i], z = (p[1] / ymax + 1) / 2;
+      obj.setAttribute('transform', 'translate(' + p[0] + ' ' + p[1] + ') scale(' + (.72 + .5 * z) + ')');
+      dots.forEach(function (c, n) { var m = (i - n * 3 + N * 9) % N, q = pts[m]; c.setAttribute('cx', q[0]); c.setAttribute('cy', q[1]); c.setAttribute('fill', q[0] < 0 ? '#88DBBD' : '#F37375'); c.setAttribute('opacity', .7 * (1 - n / TL)); });
+      words.forEach(function (w) { var d = i / N - +w.dataset.f; if (d < -.5) { d += 1; } if (d > .5) { d -= 1; } w.style.opacity = (.9 * (d < 0 ? sm(1 + d / .07) : sm(1 - d / .17))).toFixed(3); });
+    }
+    place(0);
+    requestAnimationFrame(function tick(now) {
+      if (slide.classList.contains('on')) { if (t0 === null) { t0 = now; } place(Math.floor(Math.max(0, now - t0) / OPS.lap % 1 * N)); } else { t0 = null; }
+      requestAnimationFrame(tick);
+    });
+  })();
   function maxStep(i) {
     var m = 0;
     els[i].querySelectorAll('.step').forEach(function (e) { m = Math.max(m, +e.dataset.step); });

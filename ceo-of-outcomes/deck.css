@@ -188,3 +188,9 @@ path.step{transition:opacity .8s ease}
   .ai i{width:calc(100% + 20px);transition:none}
   .slide .title.step{transition:none}
 }
+/* Slide 8, Intelligent Operations */
+.opstitle{position:absolute;left:84px;top:392px;font-size:112px;line-height:1.02;font-weight:700;letter-spacing:-.02em;color:var(--mint)}
+.opsauth{dominant-baseline:central;font:500 31px 'Space Grotesk',sans-serif;letter-spacing:.16em;fill:var(--text)}
+.opsbody{font:700 46px 'Space Grotesk',sans-serif;text-anchor:middle;dominant-baseline:central;letter-spacing:.03em;fill:#1C1A22}
+.opw{font:500 36px 'Space Grotesk',sans-serif;text-anchor:middle;dominant-baseline:central;opacity:0}
+@media print{.opw{opacity:.65!important}}
