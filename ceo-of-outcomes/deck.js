@@ -51,15 +51,27 @@
   }
   function planet(cx, cy, r, name, ring, tilt) {
     var c = COL[name], id = 'p' + (++uid), a = tilt || -18, t = 'translate(' + cx + ' ' + cy + ') rotate(' + a + ')', o = '';
-    var ell = function (x) { return '<ellipse rx="' + r * 1.5 + '" ry="' + r * .3 + '" fill="none" stroke="' + COL[ring][1] + '" stroke-width="' + Math.max(3, r / 90) + '" ' + x + '/>'; };
+    var ell = function (x) { return '<ellipse rx="' + r * 1.5 + '" ry="' + r * .3 + '" fill="none" stroke="' + COL[ring][1] + '" stroke-width="' + 2 + '" ' + x + '/>'; };
     o += '<defs><radialGradient id="' + id + '" cx="30%" cy="28%" r="85%"><stop offset="0" stop-color="' + c[0] + '"/><stop offset=".22" stop-color="' + c[1] + '"/>' +
       '<stop offset=".62" stop-color="' + c[2] + '"/><stop offset="1" stop-color="#1C1A22"/></radialGradient>' +
+      '<radialGradient id="' + id + 'g"><stop offset="0" stop-color="#F37375" stop-opacity=".42"/><stop offset=".45" stop-color="#F37375" stop-opacity=".12"/><stop offset="1" stop-color="#F37375" stop-opacity="0"/></radialGradient>' +
       '<clipPath id="' + id + 'c"><circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"/></clipPath>' +
       '<clipPath id="' + id + 'f"><rect x="' + -r * 2 + '" y="0" width="' + r * 4 + '" height="' + r + '"/></clipPath></defs>';
+    /* A tiny coral light on the ring, one lap in 24s, behind the planet on the far half. The large planets get a longer trail. */
     var moon = function (front) {
-      var m = Math.max(16, r * .075), d = 'M' + r * 1.5 + ' 0A' + r * 1.5 + ' ' + r * .3 + ' 0 1 1 ' + -r * 1.5 + ' 0A' + r * 1.5 + ' ' + r * .3 + ' 0 1 1 ' + r * 1.5 + ' 0';
-      return '<g transform="' + t + '"><g opacity="' + (front ? 1 : 0) + '"><animate attributeName="opacity" values="' + (front ? '1;0;0' : '0;1;1') + '" keyTimes="0;.5;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>' +
-        '<circle r="' + m + '" fill="' + COL[ring][1] + '"/><circle cx="' + -m * .3 + '" cy="' + -m * .3 + '" r="' + m * .32 + '" fill="#fff" fill-opacity=".55"/><animateMotion dur="16s" repeatCount="indefinite" path="' + d + '"/></g></g>';
+      var big = r > 200, len = big ? 28 : 9, gap = big ? .05 : .09, x = r * 1.5, y = r * .3, g = '';
+      var d = 'M' + x + ' 0A' + x + ' ' + y + ' 0 1 1 ' + -x + ' 0A' + x + ' ' + y + ' 0 1 1 ' + x + ' 0';
+      var ride = function (dot, begin) {
+        var b = '" dur="24s" begin="' + begin.toFixed(2) + 's" repeatCount="indefinite"';
+        return '<g opacity="' + (front ? 1 : 0) + '"><animate attributeName="opacity" values="' + (front ? '1;0;0' : '0;1;1') + '" keyTimes="0;.5;1" calcMode="discrete' + b + '/>' +
+          dot + '<animateMotion path="' + d + b + '/></g>';
+      };
+      for (var k = len; k >= 1; k--) {
+        var f = 1 - k / (len + 1);
+        g += ride(big ? '<circle r="' + (1 + 3.8 * f).toFixed(2) + '" fill="#FFB7AF" fill-opacity="' + (.55 * f).toFixed(3) + '"/>' :
+          '<circle r="' + (5.6 - k * .42).toFixed(2) + '" fill="#F37375" fill-opacity="' + (.34 - k * .034).toFixed(3) + '"/>', -1 + k * gap);
+      }
+      return '<g transform="' + t + '">' + g + ride('<circle r="26" fill="url(#' + id + 'g)"/><circle r="6.5" fill="#FFD2CB"/><circle r="3.6" fill="#FFF8F5"/>', -1) + '</g>';
     };
     if (ring) { o += '<g transform="' + t + '">' + ell('stroke-opacity=".5"') + '</g>' + moon(false); }
     o += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="url(#' + id + ')"/><g clip-path="url(#' + id + 'c)">';
@@ -89,7 +101,7 @@
     return o + '<circle cx="' + sun[0] + '" cy="' + sun[1] + '" r="150" fill="#F4F1EC" fill-opacity=".1"/><circle cx="' + sun[0] + '" cy="' + sun[1] + '" r="86" fill="#F4F1EC"/>' + star(tgt[0], tgt[1], 118);
   }
   function outcomes() {
-    var cx = 960, cy = 590, o = '';
+    var cx = 960, cy = 610, o = '';
     window.AXES.forEach(function (n, i) {
       var a = -Math.PI / 2 + 2 * Math.PI * i / 7, c = Math.cos(a), s = Math.sin(a);
       o += '<text x="' + (cx + 330 * c) + '" y="' + (cy + 270 * s + 16) + '" fill="#F4F1EC" font-size="50" font-weight="500" font-family="Space Grotesk" text-anchor="' +

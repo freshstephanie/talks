@@ -11,7 +11,7 @@ html,body{height:100%;background:#000;overflow:hidden;font-family:'Space Grotesk
 .orbit text{font:500 26px 'Space Grotesk',sans-serif;letter-spacing:.09em;paint-order:stroke;stroke:#1C1A22;stroke-width:7px}
 .step{transition:opacity .3s}
 .step.hide{opacity:0}
-h2{position:absolute;left:90px;right:90px;top:140px;font-size:84px;line-height:1.08;font-weight:700;letter-spacing:-.02em}
+h2{position:absolute;left:90px;right:90px;top:170px;font-size:84px;line-height:1.08;font-weight:700;letter-spacing:-.02em}
 
 /* title: CEO of AIs is struck through and gives way to CEO of Outcomes */
 .ai{position:absolute;left:84px;top:330px;font-size:176px;line-height:1;font-weight:700;letter-spacing:-.025em;white-space:nowrap;transform-origin:left top;transition:transform 1.1s cubic-bezier(.65,0,.25,1) .95s,color 1.1s ease .95s}
@@ -30,7 +30,7 @@ h2{position:absolute;left:90px;right:90px;top:140px;font-size:84px;line-height:1
 
 /* statements */
 .stack{position:absolute;left:90px;right:600px;top:50%;transform:translateY(-54%);font-size:124px;line-height:1.08;font-weight:700;letter-spacing:-.025em}
-.stack.xl{right:200px;font-size:168px}
+.stack.xl{right:200px;top:calc(50% + 20px);font-size:168px}
 .stack .dim{color:var(--recede)}
 .stack .key{color:var(--mint)}
 .question{position:absolute;left:90px;right:90px;top:50%;transform:translateY(-54%);text-align:center}
@@ -75,8 +75,8 @@ path.step{transition:opacity .8s ease}
 .ask{position:absolute;left:90px;top:170px;width:1330px;font-size:112px;line-height:1.08;font-weight:700;letter-spacing:-.025em}
 .ask em{font-style:normal}
 .step.sky{transition:opacity 3s ease-in-out}
-.htitle{position:absolute;left:90px;top:145px;font-size:110px;font-weight:700;letter-spacing:-.025em}
-.hline{position:absolute;left:90px;top:320px;width:1200px;font-size:68px;line-height:1.16;font-weight:500;letter-spacing:-.015em}
+.htitle{position:absolute;left:90px;top:159px;font-size:110px;font-weight:700;letter-spacing:-.025em}
+.hline{position:absolute;left:90px;top:334px;width:1200px;font-size:68px;line-height:1.16;font-weight:500;letter-spacing:-.015em}
 .hline .key{color:var(--mint)}
 
 .fullvid{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;background:#000}
@@ -137,7 +137,7 @@ path.step{transition:opacity .8s ease}
 
 /* vote and close */
 .q{position:absolute;left:90px;top:270px;width:1000px;font-size:56px;line-height:1.14;font-weight:500}
-.qr{position:absolute;right:120px;top:150px;width:620px}
+.qr{position:absolute;right:120px;top:184px;width:620px}
 .qr img,.code img{display:block;width:100%;background:#fff;padding:18px}
 .qr span{display:block;margin-top:14px;font-size:38px;font-weight:500;text-align:center}
 .inv{position:absolute;left:90px;top:190px;font-size:150px;line-height:1;font-weight:700;letter-spacing:-.03em}
