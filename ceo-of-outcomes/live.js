@@ -142,22 +142,26 @@
     b.onclick = click;
     document.body.appendChild(b);
   }
-  if (DRIVE) {
-    /* Room and deck back to slide 1, votes kept. */
+  /* Only a private link shows the buttons: index.html moves #key=... into sessionStorage. The room checks the key on every call. */
+  var KEY = ''; try { KEY = sessionStorage.getItem('roomKey') || ''; } catch (e) {}
+  var ROOM = B.replace(/\/deck$/, '') + '/k/' + encodeURIComponent(KEY) + '/live';
+  if (DRIVE && KEY) fetch(ROOM + '/state', { cache: 'no-store' }).then(function (r) {
+    if (!r.ok) return;
     button('Reset room', 12, function () {
       if (!confirm('Send the room and the deck back to slide 1? Votes are kept.')) return;
-      fetch(B + '/cue', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ n: 1, q: 'close' }) })
-        .catch(function () {}).then(function () { location.hash = '1'; location.reload(); });
+      fetch(ROOM + '/cue', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: 's01', live: { phase: 'lobby', closed: true } }) }).then(function (x) {
+        if (!x.ok) throw 0;
+        location.hash = '1'; location.reload();
+      }).catch(function () { alert('Room not reset. The room did not answer.'); });
     });
-    /* Deletes every vote, questions and slides stay. This deck is public, so the room key is typed each time and never stored. */
     button('Reset votes', 112, function () {
-      var key = prompt('Delete ALL votes? This cannot be undone. Type the room key to continue.');
-      if (!key) return;
-      fetch(B.replace(/\/deck$/, '') + '/k/' + encodeURIComponent(key) + '/live/clearvotes', { method: 'POST' }).then(function (r) {
-        if (r.ok) location.reload(); else alert('Votes not deleted. Check the room key.');
+      if (!confirm('Delete ALL votes? This cannot be undone.')) return;
+      fetch(ROOM + '/clearvotes', { method: 'POST' }).then(function (x) {
+        if (!x.ok) throw 0;
+        location.reload();
       }).catch(function () { alert('Votes not deleted. The room did not answer.'); });
     });
-  }
+  }).catch(function () {});
   check();
   if (DEMO) demo(); else poll();
 })();

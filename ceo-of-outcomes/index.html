@@ -27,9 +27,11 @@
 <a id="c-pdf" href="CEO_of_Outcomes.pdf" download aria-label="Download PDF"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span>PDF</span></a>
 </div>
 <div id="grid" hidden></div>
+<script>/* private link: keep the room key out of the address bar and out of analytics */
+if (location.hash.indexOf('#key=') === 0) { try { sessionStorage.setItem('roomKey', decodeURIComponent(location.hash.slice(5))); } catch (e) {} history.replaceState(null, '', location.pathname); }</script>
 <script src="slides.js?v=1793977640"></script>
 <script src="deck.js?v=1793977640"></script>
-<script src="live.js?v=5"></script>
+<script src="live.js?v=6"></script>
 <script src="/ft-analytics.js" defer></script>
 </body>
 </html>
