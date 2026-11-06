@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>CEO of Outcomes · Live | Fresh Strategy</title>
+<meta name="description" content="Vote, follow the slides and connect with Stéphanie Kioutsoukis and Mark Turrell. EO Zürich, 6 November 2026.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
+<meta name="theme-color" content="#F1EFEC">
+<style>
+  html, body { margin: 0; height: 100%; background: #F1EFEC; }
+  iframe { display: block; border: 0; width: 100%; height: 100vh; height: 100dvh; }
+  noscript, .fallback { display: block; font: 16px/1.5 system-ui, sans-serif; padding: 24px; }
+</style>
+</head>
+<body>
+<!-- CEO of Outcomes live room (EO Zürich, 6 Nov 2026): the vote, the slides presented so far and the contact cards.
+     The room itself runs on Fresh's processor's Cloudflare account; this page keeps the audience on talks.freshstrategy.ai.
+     ?room=sandbox opens the practice room. -->
+<iframe id="room" title="CEO of Outcomes: vote, slides and contacts" allow="clipboard-write; web-share"></iframe>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search), keep = new URLSearchParams();
+    ['room', 'v', 'src'].forEach(function (k) { if (q.get(k)) keep.set(k, q.get(k)); });
+    var s = keep.toString(), card = q.get('c');
+    /* ?c=mark or ?c=stephanie: the "Let's connect" QR codes open that person's contact card */
+    document.getElementById('room').src = /^(mark|stephanie)$/.test(card || '')
+      ? 'https://qr-studio.projectneuland.workers.dev/c/' + card + '?src=' + encodeURIComponent(q.get('src') || 'slide')
+      : 'https://fresh-ceo-of-outcomes.projectneuland.workers.dev/' + (s ? '?' + s : '');
+  })();
+</script>
+</body>
+</html>
