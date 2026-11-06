@@ -26,12 +26,8 @@
   /* After the vote the chosen star waits at the end of the arc; on 13 and 14 Destination lights up again. */
   function goal(n) {
     if (n < 4) { return ''; }
-    var back = n >= 13, r = back ? 24 : 15, pts = [];
-    for (var i = 0; i < 14; i++) {
-      var a = -Math.PI / 2 + Math.PI * i / 7, q = i % 2 ? r * .42 : r;
-      pts.push((P2[0] + q * Math.cos(a)).toFixed(1) + ',' + (P2[1] + q * Math.sin(a)).toFixed(1));
-    }
-    return '<polygon points="' + pts.join(' ') + '" fill="#88DBBD"' + (back ? '' : ' fill-opacity=".7"') + '/>' +
+    var back = n >= 13;
+    return star(P2[0], P2[1], back ? 34 : 24, back ? '' : ' opacity=".8"') +
       (back ? '<text x="' + (P2[0] - 40) + '" y="' + (P2[1] - 22) + '" fill="#88DBBD" text-anchor="end">DESTINATION</text>' : '');
   }
   function orbit(n) {
@@ -74,17 +70,12 @@
     if (ring) { o += '<g transform="' + t + '">' + ell('clip-path="url(#' + id + 'f)"') + '</g>'; o += moon(true); }
     return o;
   }
-  /* The strategic star: the same shape everywhere. */
-  function star(cx, cy, r) {
-    var pts = [], V = window.STAR_VALUES, n = 7;
-    for (var i = 0; i < n * 2; i++) {
-      var a = -Math.PI / 2 + Math.PI * i / n, q = i % 2 ? r * .42 : r * (V ? Math.max(.35, V[i / 2]) : 1);
-      pts.push((cx + q * Math.cos(a)).toFixed(1) + ',' + (cy + q * Math.sin(a)).toFixed(1));
-    }
-    return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r * 1.45 + '" fill="url(#glow)"/><polygon points="' + pts.join(' ') + '" fill="#88DBBD"/>';
+  /* The strategic star: the same painting everywhere, assets/star.png from tools/make_star.py. Its tip sits at 1/1.7 of the half width. */
+  function star(cx, cy, r, extra) {
+    var w = r * 3.4;
+    return '<image href="assets/star.png" x="' + (cx - w / 2).toFixed(1) + '" y="' + (cy - w / 2).toFixed(1) + '" width="' + w + '" height="' + w + '"' + (extra || '') + '/>';
   }
-  var DEFS = '<defs><radialGradient id="glow"><stop offset="0" stop-color="#88DBBD" stop-opacity=".3"/><stop offset="1" stop-color="#88DBBD" stop-opacity="0"/></radialGradient></defs>';
-  var svg = function (i, inner) { return '<svg class="art" viewBox="0 0 1920 1080">' + DEFS + stars(i) + inner + '</svg>'; };
+  var svg = function (i, inner) { return '<svg class="art" viewBox="0 0 1920 1080">' + stars(i) + inner + '</svg>'; };
 
   function sunArt() {
     var sun = [290, 400], tgt = [1560, 560], o = '', xs = [520, 690, 860, 1030, 1200], ym = 800;
@@ -95,7 +86,7 @@
       var n = Math.atan2(a[1] / la + b[1] / lb, a[0] / la + b[0] / lb) * 180 / Math.PI + 90;
       o += '<rect x="' + (x - 58) + '" y="' + (ym - 7) + '" width="116" height="14" rx="4" fill="#F4F1EC" transform="rotate(' + n.toFixed(1) + ' ' + x + ' ' + ym + ')"/>';
     });
-    return o + '<circle cx="' + sun[0] + '" cy="' + sun[1] + '" r="150" fill="#F4F1EC" fill-opacity=".1"/><circle cx="' + sun[0] + '" cy="' + sun[1] + '" r="86" fill="#F4F1EC"/>' + star(tgt[0], tgt[1], 130);
+    return o + '<circle cx="' + sun[0] + '" cy="' + sun[1] + '" r="150" fill="#F4F1EC" fill-opacity=".1"/><circle cx="' + sun[0] + '" cy="' + sun[1] + '" r="86" fill="#F4F1EC"/>' + star(tgt[0], tgt[1], 118);
   }
   function outcomes() {
     var cx = 960, cy = 590, o = '';
@@ -104,7 +95,7 @@
       o += '<text x="' + (cx + 330 * c) + '" y="' + (cy + 270 * s + 16) + '" fill="#F4F1EC" font-size="50" font-weight="500" font-family="Space Grotesk" text-anchor="' +
         (Math.abs(c) < .3 ? 'middle' : (c > 0 ? 'start' : 'end')) + '">' + n + '</text>';
     });
-    return star(cx, cy, 210) + o;
+    return star(cx, cy, 190) + o;
   }
 
   var KIND = {
@@ -121,7 +112,7 @@
     html: function (s, i) { return (s.plain ? '' : svg(i, '')) + s.html; },
     wants: function (s, i) { return svg(i, outcomes()) + '<h2>' + esc(s.head) + '</h2>'; },
     vote: function (s, i) {
-      return svg(i, star(240, 760, 120)) + '<h2 style="right:800px">' + esc(s.head) + '</h2>' + (s.question ? '<div class="q">' + esc(s.question) + '</div>' : '') + '<div class="qr"><img src="' + s.qr + '" alt="QR code"><span>' + esc(s.url) + '</span></div>';
+      return svg(i, star(240, 760, 110)) + '<h2 style="right:800px">' + esc(s.head) + '</h2>' + (s.question ? '<div class="q">' + esc(s.question) + '</div>' : '') + '<div class="qr"><img src="' + s.qr + '" alt="QR code"><span>' + esc(s.url) + '</span></div>';
     },
     horizon: function (s) {
       return '<div class="sky step" data-step="1"></div><div class="htitle">' + esc(s.head) + '</div><div class="hline"><div>' + esc(s.lines[0]) + '</div><div class="key">' + esc(s.lines[1]) + '</div></div>';
@@ -159,14 +150,14 @@
     },
     sun: function (s, i) { return svg(i, sunArt()) + '<h2 style="right:auto">' + esc(s.head) + '</h2><div class="caption">' + esc(s.caption) + '</div>'; },
     org: function (s, i) {
-      return svg(i, star(960, 490, 145)) + '<h2>' + esc(s.head) + '</h2><div class="answer top">' + esc(s.answer) + '</div><div class="orgrow">' + s.blocks.map(function (b, n) { return '<div class="step" data-step="' + (n + 1) + '">' + esc(b) + '</div>'; }).join('') + '</div>';
+      return svg(i, star(960, 490, 130)) + '<h2>' + esc(s.head) + '</h2><div class="answer top">' + esc(s.answer) + '</div><div class="orgrow">' + s.blocks.map(function (b, n) { return '<div class="step" data-step="' + (n + 1) + '">' + esc(b) + '</div>'; }).join('') + '</div>';
     },
     invite: function (s, i) {
       return svg(i, planet(1640, 560, 180, 'mint', 'coral')) + '<div class="inv">' + esc(s.line) + '</div><div class="invsub">' + esc(s.sub) + '</div><div class="codes">' +
         s.codes.map(function (c) { return '<div class="code"><img src="' + c.img + '" alt="QR code"><span>' + esc(c.label) + '</span></div>'; }).join('') + '</div>';
     },
     close: function (s, i) {
-      return svg(i, star(960, 270, 100)) + '<div class="final"><div>' + esc(s.lines[0]) + '</div><div class="key">' + esc(s.lines[1]) + '</div></div>';
+      return svg(i, star(960, 270, 90)) + '<div class="final"><div>' + esc(s.lines[0]) + '</div><div class="key">' + esc(s.lines[1]) + '</div></div>';
     }
   };
 
