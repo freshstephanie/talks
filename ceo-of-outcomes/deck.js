@@ -158,6 +158,11 @@
     },
     statement: function (s, i) {
       var p = s.small ? planet(1730, 250, 120, s.planet, 'mint') : planet(1650, 560, 300, s.planet, 'coral', -22);
+      if (s.head) {
+        return svg(i, p) + '<div class="demohead"><div>' + esc(s.head[0]) + '</div><div class="key">' + esc(s.head[1]) + '</div></div><div class="demoline">' + s.lines.map(function (l, n) {
+          return '<span class="' + (n === s.key ? 'key' : 'dim') + (n ? ' step" data-step="' + n : '') + '">' + esc(l) + '</span>';
+        }).join(' ') + '</div>';
+      }
       return svg(i, p) + '<div class="stack' + (s.xl ? ' xl' : '') + '">' + s.lines.map(function (l, n) {
         return '<div class="' + (n === s.key ? 'key' : (s.dim ? 'dim' : '')) + (s.reveal && n ? ' step" data-step="' + n : '') + '">' + esc(l) + '</div>';
       }).join('') + '</div>';

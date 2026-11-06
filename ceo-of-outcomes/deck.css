@@ -6,7 +6,7 @@ html,body{height:100%;background:#000;overflow:hidden;font-family:'Space Grotesk
 .slide{position:absolute;inset:0;background:var(--bg);color:var(--text);overflow:hidden;display:none}
 .slide.on{display:block}
 .art{position:absolute;inset:0;width:1920px;height:1080px}
-.label{position:absolute;left:90px;top:70px;font-size:30px;font-weight:500;color:var(--mint)}
+.label{display:none} /* section labels off: the arc at the bottom carries the narrative */
 .orbit{position:absolute;left:0;bottom:24px;width:1920px;height:130px}
 .orbit text{font:500 26px 'Space Grotesk',sans-serif;letter-spacing:.09em;paint-order:stroke;stroke:#1C1A22;stroke-width:7px}
 .step{transition:opacity .3s}
@@ -194,3 +194,8 @@ path.step{transition:opacity .8s ease}
 .opsbody{font:700 46px 'Space Grotesk',sans-serif;text-anchor:middle;dominant-baseline:central;letter-spacing:.03em;fill:#1C1A22}
 .opw{font:500 36px 'Space Grotesk',sans-serif;text-anchor:middle;dominant-baseline:central;opacity:0}
 @media print{.opw{opacity:.65!important}}
+/* Slide 4, Democratisation of capabilities */
+.demohead{position:absolute;left:90px;top:230px;font-size:150px;line-height:1.06;font-weight:700;letter-spacing:-.025em}
+.demohead .key,.demoline .key{color:var(--mint)}
+.demoline{position:absolute;left:92px;top:640px;font-size:62px;font-weight:500;letter-spacing:-.01em;white-space:nowrap}
+.demoline .dim{color:var(--muted)}
