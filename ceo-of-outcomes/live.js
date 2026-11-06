@@ -132,6 +132,20 @@
       tally[k]++; grow(tally);
     }, 700);
   }
+  /* ---- reset: room and deck back to slide 1, votes kept ---- */
+  if (DRIVE) {
+    var reset = document.createElement('button');
+    reset.type = 'button'; reset.textContent = 'Reset room';
+    reset.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:50;padding:6px 10px;font:500 13px "Space Grotesk",sans-serif;color:#F4F1EC;background:rgba(0,0,0,.4);border:1px solid rgba(244,241,236,.4);border-radius:6px;opacity:.25;cursor:pointer';
+    reset.onmouseenter = reset.onfocus = function () { reset.style.opacity = '1'; };
+    reset.onmouseleave = reset.onblur = function () { reset.style.opacity = '.25'; };
+    reset.onclick = function () {
+      if (!confirm('Send the room and the deck back to slide 1? Votes are kept.')) return;
+      fetch(B + '/cue', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ n: 1, q: 'close' }) })
+        .catch(function () {}).then(function () { location.hash = '1'; location.reload(); });
+    };
+    document.body.appendChild(reset);
+  }
   check();
   if (DEMO) demo(); else poll();
 })();
