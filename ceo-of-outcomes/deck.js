@@ -5,7 +5,7 @@
   var P0 = [90, 74], P1 = [960, 14], P2 = [1830, 74], uid = 0;
   var esc = function (t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;'); };
   var part = function (s) { return s.act.split(' · ')[0]; };
-    var COL = { mint: ['#E2F8EF', '#88DBBD', '#2F7A6B'], coral: ['#FFDCD4', '#F37375', '#8E2F3C'], blue: ['#DDF4F7', '#77C8D6', '#2B6E80'] };
+    var COL = { mint: ['#E2F8EF', '#88DBBD', '#2F7A6B'], lilac: ['#EFE9FF', '#B7A2F2', '#5B4AA6'], blue: ['#DDF4F7', '#77C8D6', '#2B6E80'] };
   var ARROW = '<svg viewBox="0 0 110 60"><path d="M0 30H96M76 10l22 20-22 20" fill="none" stroke="#88DBBD" stroke-width="6"/></svg>';
 
   function point(n) {
@@ -54,10 +54,10 @@
     var ell = function (x) { return '<ellipse rx="' + r * 1.5 + '" ry="' + r * .3 + '" fill="none" stroke="' + COL[ring][1] + '" stroke-width="' + 2 + '" ' + x + '/>'; };
     o += '<defs><radialGradient id="' + id + '" cx="30%" cy="28%" r="85%"><stop offset="0" stop-color="' + c[0] + '"/><stop offset=".22" stop-color="' + c[1] + '"/>' +
       '<stop offset=".62" stop-color="' + c[2] + '"/><stop offset="1" stop-color="#1C1A22"/></radialGradient>' +
-      '<radialGradient id="' + id + 'g"><stop offset="0" stop-color="#F37375" stop-opacity=".42"/><stop offset=".45" stop-color="#F37375" stop-opacity=".12"/><stop offset="1" stop-color="#F37375" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + id + 'g"><stop offset="0" stop-color="#B7A2F2" stop-opacity=".42"/><stop offset=".45" stop-color="#B7A2F2" stop-opacity=".12"/><stop offset="1" stop-color="#B7A2F2" stop-opacity="0"/></radialGradient>' +
       '<clipPath id="' + id + 'c"><circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"/></clipPath>' +
       '<clipPath id="' + id + 'f"><rect x="' + -r * 2 + '" y="0" width="' + r * 4 + '" height="' + r + '"/></clipPath></defs>';
-    /* A tiny coral light on the ring, one lap in 24s, behind the planet on the far half. The large planets get a longer trail. */
+    /* A tiny lilac light on the ring, one lap in 24s, behind the planet on the far half. The large planets get a longer trail. */
     var moon = function (front) {
       var big = r > 200, len = big ? 28 : 9, gap = big ? .05 : .09, x = r * 1.5, y = r * .3, g = '';
       var d = 'M' + x + ' 0A' + x + ' ' + y + ' 0 1 1 ' + -x + ' 0A' + x + ' ' + y + ' 0 1 1 ' + x + ' 0';
@@ -69,7 +69,7 @@
       for (var k = len; k >= 1; k--) {
         var f = 1 - k / (len + 1);
         g += ride(big ? '<circle r="' + (1 + 3.8 * f).toFixed(2) + '" fill="#FFB7AF" fill-opacity="' + (.55 * f).toFixed(3) + '"/>' :
-          '<circle r="' + (5.6 - k * .42).toFixed(2) + '" fill="#F37375" fill-opacity="' + (.34 - k * .034).toFixed(3) + '"/>', -1 + k * gap);
+          '<circle r="' + (5.6 - k * .42).toFixed(2) + '" fill="#B7A2F2" fill-opacity="' + (.34 - k * .034).toFixed(3) + '"/>', -1 + k * gap);
       }
       return '<g transform="' + t + '">' + g + ride('<circle r="26" fill="url(#' + id + 'g)"/><circle r="6.5" fill="#FFD2CB"/><circle r="3.6" fill="#FFF8F5"/>', -1) + '</g>';
     };
@@ -129,7 +129,7 @@
     });
     for (var i = 0; i < OPS.n; i += 5) {
       var a = pts[i], b = pts[(i + 6) % OPS.n], z = (a[1] / ymax + 1) / 2;
-      var l = '<line x1="' + a[0].toFixed(1) + '" y1="' + a[1].toFixed(1) + '" x2="' + b[0].toFixed(1) + '" y2="' + b[1].toFixed(1) + '" stroke="' + (a[0] < 0 ? '#88DBBD' : '#F37375') + '" stroke-width="' + (2.2 + 2.8 * z).toFixed(2) + '" stroke-opacity="' + (.48 + .47 * z).toFixed(2) + '" stroke-linecap="round"/>';
+      var l = '<line x1="' + a[0].toFixed(1) + '" y1="' + a[1].toFixed(1) + '" x2="' + b[0].toFixed(1) + '" y2="' + b[1].toFixed(1) + '" stroke="' + (a[0] < 0 ? '#88DBBD' : '#B7A2F2') + '" stroke-width="' + (2.2 + 2.8 * z).toFixed(2) + '" stroke-opacity="' + (.48 + .47 * z).toFixed(2) + '" stroke-linecap="round"/>';
       if (z < .5) { back += l; } else { front += l; }
     }
     o += '<defs><radialGradient id="opsf"><stop offset="0" stop-color="#88DBBD" stop-opacity=".06"/><stop offset=".8" stop-color="#88DBBD" stop-opacity=".04"/><stop offset="1" stop-color="#F4F1EC" stop-opacity=".09"/></radialGradient>' +
@@ -142,7 +142,7 @@
       '<text class="opsauth"><textPath href="#opsc" startOffset="50%" text-anchor="middle">HUMAN-SET AUTHORITY</textPath></text></g>';
     o += '<g transform="' + sys + '">' + bands + back + '</g>';
     var r = opsRot(-OPS.a * .6, 0), m = opsRot(OPS.a * .6, 0);
-    o += planet(r[0], r[1], 118, 'mint') + planet(m[0], m[1], 118, 'coral', null, -18);
+    o += planet(r[0], r[1], 118, 'mint') + planet(m[0], m[1], 118, 'lilac', null, -18);
     o += '<g transform="' + sys + '">' + front + '<g class="opstrail"></g><g class="opsobj"><circle r="40" fill="url(#opsh)"/><circle r="11" fill="url(#opsm)"/></g></g>';
     o += '<text class="opsbody" x="' + r[0].toFixed(1) + '" y="' + r[1].toFixed(1) + '">RUN</text><text class="opsbody" x="' + m[0].toFixed(1) + '" y="' + m[1].toFixed(1) + '">IMPROVE</text>';
     [['Finance Ops', .125, -1, 48], ['Payment Ops', .375, 1, 58], ['Learning Ops', .625, -1, -48], ['Strategy Ops', .875, 1, -58]].forEach(function (w) {
@@ -153,11 +153,11 @@
   }
   var KIND = {
     title: function (s, i) {
-      return svg(i, planet(1540, 520, 370, 'mint', 'coral')) + '<div class="ai">' + esc(s.was) + '<i></i></div><div class="title step" data-step="1">' + s.title.map(function (t) { return '<div>' + esc(t) + '</div>'; }).join('') + '</div>' +
+      return svg(i, planet(1540, 520, 370, 'mint', 'lilac')) + '<div class="ai">' + esc(s.was) + '<i></i></div><div class="title step" data-step="1">' + s.title.map(function (t) { return '<div>' + esc(t) + '</div>'; }).join('') + '</div>' +
         '<div class="by"><b>' + esc(s.names) + '</b><div>' + esc(s.event) + '</div></div><img class="logo" src="logo.png" alt="Fresh Strategy">';
     },
     statement: function (s, i) {
-      var p = s.small ? planet(1730, 250, 120, s.planet, 'mint') : planet(1650, 560, 300, s.planet, 'coral', -22);
+      var p = s.small ? planet(1730, 250, 120, s.planet, 'mint') : planet(1650, 560, 300, s.planet, 'lilac', -22);
       if (s.head) {
         return svg(i, p) + '<div class="demohead"><div>' + esc(s.head[0]) + '</div><div class="key">' + esc(s.head[1]) + '</div></div><div class="demoline">' + s.lines.map(function (l, n) {
           return '<span class="' + (n === s.key ? 'key' : 'dim') + (n ? ' step" data-step="' + n : '') + '">' + esc(l) + '</span>';
@@ -200,7 +200,7 @@
         '<path d="M116 76l24-30 24 30" fill="none" stroke="#88DBBD" stroke-width="5"/><text x="960" y="190" fill="#88DBBD" text-anchor="middle" paint-order="stroke" stroke="#1C1A22" stroke-width="10">' + esc(s.loop) + '</text></svg>';
     },
     stop: function (s, i) {
-      return svg(i, planet(1730, 230, 110, 'blue', 'coral')) + '<div class="stop"><div class="lead">' + esc(s.lead) + '</div><div class="big" style="position:static">' + esc(s.line) + '</div></div>';
+      return svg(i, planet(1730, 230, 110, 'blue', 'lilac')) + '<div class="stop"><div class="lead">' + esc(s.lead) + '</div><div class="big" style="position:static">' + esc(s.line) + '</div></div>';
     },
     blocks: function (s, i) {
       var b = s.blocks.map(function (x) { return '<div class="block"><div class="w">' + esc(x.word) + '</div>' + x.lines.map(function (l) { return '<div class="t">' + esc(l) + '</div>'; }).join('') + '</div>'; });
@@ -211,7 +211,7 @@
       return svg(i, star(960, 490, 130)) + '<h2>' + esc(s.head) + '</h2><div class="answer top">' + esc(s.answer) + '</div><div class="orgrow">' + s.blocks.map(function (b, n) { return '<div class="step" data-step="' + (n + 1) + '">' + esc(b) + '</div>'; }).join('') + '</div>';
     },
     invite: function (s, i) {
-      return svg(i, planet(1640, 560, 180, 'mint', 'coral')) + '<div class="inv">' + esc(s.line) + '</div><div class="invsub">' + esc(s.sub) + '</div><div class="codes">' +
+      return svg(i, planet(1640, 560, 180, 'mint', 'lilac')) + '<div class="inv">' + esc(s.line) + '</div><div class="invsub">' + esc(s.sub) + '</div><div class="codes">' +
         s.codes.map(function (c) { return '<div class="code"><img src="' + c.img + '" alt="QR code"><span>' + esc(c.label) + '</span></div>'; }).join('') + '</div>';
     },
     ops: function (s) {
@@ -252,7 +252,7 @@
     function place(i) {
       var p = pts[i], z = (p[1] / ymax + 1) / 2;
       obj.setAttribute('transform', 'translate(' + p[0] + ' ' + p[1] + ') scale(' + (.72 + .5 * z) + ')');
-      dots.forEach(function (c, n) { var m = (i - n * 3 + N * 9) % N, q = pts[m]; c.setAttribute('cx', q[0]); c.setAttribute('cy', q[1]); c.setAttribute('fill', q[0] < 0 ? '#88DBBD' : '#F37375'); c.setAttribute('opacity', .7 * (1 - n / TL)); });
+      dots.forEach(function (c, n) { var m = (i - n * 3 + N * 9) % N, q = pts[m]; c.setAttribute('cx', q[0]); c.setAttribute('cy', q[1]); c.setAttribute('fill', q[0] < 0 ? '#88DBBD' : '#B7A2F2'); c.setAttribute('opacity', .7 * (1 - n / TL)); });
       words.forEach(function (w) { var d = i / N - +w.dataset.f; if (d < -.5) { d += 1; } if (d > .5) { d -= 1; } w.style.opacity = (.9 * (d < 0 ? sm(1 + d / .07) : sm(1 - d / .17))).toFixed(3); });
     }
     place(0);
