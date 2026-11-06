@@ -2,7 +2,7 @@
    - Every slide change tells the room which slide is up (phones see the slides so far, never ahead).
    - The first vote slide opens Q1 (top 3), the second opens Q2 (when), the last slide closes the vote.
    - The first vote slide builds: QR and small star, then at the first vote the star moves beside the QR, grows and takes the room's shape.
-   - Later painted stars (assets/star.png) take the same shape. The star stays as painted up to the first vote and on the Q2 slide.
+   - Every other star stays as painted. The result shape appears on the first vote slide only.
    - ?live=demo plays made-up votes on the first vote slide, for rehearsal. It never touches the room.
    - The Q2 slide gets live bars in the deck's own style. No counts, percentages or decimals anywhere.
    The room accepts these cues only from talks.freshstrategy.ai and only during the talk window; outside it this
@@ -17,7 +17,6 @@
   if (votes[0]) VOTE[votes[0]] = 1;
   if (votes[1]) VOTE[votes[1]] = 2;
   var Q2_OPTIONS = ['Now', 'In 2027', 'In 2028', 'Maybe never'];
-  var KEY = 'outcomes-deck:star';
   function slideNo() { return Math.min(Math.max(parseInt(location.hash.slice(1), 10) || 1, 1), N); }
 
   /* ---- tell the room ---- */
@@ -55,27 +54,6 @@
       return (cx + r * f * Math.cos(a)).toFixed(1) + ',' + (cy + r * f * Math.sin(a)).toFixed(1);
     }).join(' ');
   }
-  function slideOf(el) { return [].indexOf.call(document.querySelectorAll('#stage .slide'), el.closest('.slide')) + 1; }
-  function reshape(V) {
-    document.querySelectorAll('svg image').forEach(function (im) {
-      var href = im.getAttribute('href') || im.getAttribute('xlink:href') || '';
-      if (!/(^|\/)star\.png$/.test(href) || im.closest('.votestar')) return;
-      var n = slideOf(im);
-      if (n <= votes[0] || n === votes[1]) return;
-      var w = +im.getAttribute('width'), x = +im.getAttribute('x'), y = +im.getAttribute('y');
-      var cx = x + w / 2, cy = y + w / 2, r = w / 3.4, g = im._live;
-      if (!g) {
-        g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'livestar');
-        if (im.getAttribute('opacity')) g.setAttribute('opacity', im.getAttribute('opacity'));
-        g.innerHTML = '<polygon fill="url(#lsFill)" filter="url(#lsGlow)"/>';
-        im.parentNode.insertBefore(g, im.nextSibling); im._live = g;
-        im.style.transition = 'opacity .6s';
-      }
-      g.style.display = V ? '' : 'none';
-      im.style.opacity = V ? '0' : '';
-      if (V) g.children[0].setAttribute('points', starPts(cx, cy, r, radii(V)));
-    });
-  }
 
   /* ---- the first vote slide builds ---- */
   var GROW = { x: 640, y: 650, r: 235, from: [240, 760, 110] }, built = null;
@@ -107,7 +85,6 @@
     if (gap > .002) requestAnimationFrame(ease); else built.on = false;
   }
 
-  try { var saved = JSON.parse(localStorage.getItem(KEY) || 'null'); if (saved) reshape(saved); } catch (e) {}
 
   /* ---- live bars on the Q2 slide ---- */
   var css = document.createElement('style');
@@ -141,7 +118,6 @@
     }).then(function (s) {
       if (!s || !s.shape) return;
       if (s.q === 1) {
-        reshape(s.shape); try { localStorage.setItem(KEY, JSON.stringify(s.shape)); } catch (e) {}
         if (s.shape.some(function (v) { return v > 0; })) grow(s.shape);
       }
       if (s.q === 2) bars(s.shape);
@@ -153,10 +129,9 @@
       if (slideNo() !== votes[0] || wait-- > 0) return;
       var pick = Math.random() * 18, k = 0;
       while (pick > weight[k]) pick -= weight[k++];
-      tally[k]++; reshape(tally); grow(tally);
+      tally[k]++; grow(tally);
     }, 700);
   }
   check();
   if (DEMO) demo(); else poll();
-  window.LIVE_HOOK = { reset: function () { try { localStorage.removeItem(KEY); } catch (e) {} reshape(null); } };
 })();
